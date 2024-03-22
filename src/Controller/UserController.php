@@ -12,6 +12,8 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\String\Slugger\SluggerInterface; 
 use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 
 
 use Psr\Log\LoggerInterface;
@@ -33,7 +35,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request): Response
+    public function register(Request $request , UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator): Response
     {
         $user = new User();
         $form = $this->createForm(RegisterUserType::class, $user);
@@ -42,6 +44,12 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // Handle file upload
             $imageFile = $form->get('image')->getData();
+            $user->setMDP(
+                $userPasswordHasher->hashPassword(
+                    $user,
+                    $form->get('mdp')->getData()
+                )
+            );
 
             if ($imageFile) {
                 // Generate a unique name for the file
@@ -144,6 +152,32 @@ class UserController extends AbstractController
     
         return $this->redirectToRoute('user_list');
     }
+
+
+
+
+    #[Route('/user/{id}/reactivate', name: 'reactivate_user', methods: ['POST'])]
+    public function reactivateUser(int $id, Request $request): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            throw $this->createNotFoundException('User not found');
+        }
+
+        // Reactivate the user
+        $user->setIsBlocked(false);
+        $user->setIsApproved(true); // Set isApproved to true
+        $entityManager->flush();
+
+        // Redirect back to the user list
+        return $this->redirectToRoute('user_list');
+    }
+
+
+
+
 
 
 }

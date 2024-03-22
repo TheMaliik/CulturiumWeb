@@ -24,3 +24,9 @@ delete_user:
     path: '/user/{id}/delete'
     controller: App\Controller\UserController::delete
     methods: ['GET', 'POST']
+
+
+reactivate_user:
+    path: /user/{id}/reactivate
+    controller: 'App\Controller\UserController::reactivateUser'
+    methods: ['POST']

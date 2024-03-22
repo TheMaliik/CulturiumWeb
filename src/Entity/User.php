@@ -1,8 +1,10 @@
 <?php
-
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -10,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @var int
@@ -25,6 +27,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="fullName", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      */
     private $fullname;
 
@@ -32,6 +36,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
+     * @Assert\Email
      */
     private $email;
 
@@ -39,6 +45,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="mdp", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
+     * @Assert\Length(min=8, max=255)
      */
     private $mdp;
 
@@ -46,6 +54,8 @@ class User
      * @var string
      *
      * @ORM\Column(name="tel", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
+     * @Assert\Length(max=255)
      */
     private $tel;
 
@@ -53,6 +63,7 @@ class User
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     * @Assert\Length(max=255)
      */
     private $image;
 
@@ -61,7 +72,7 @@ class User
      *
      * @ORM\Column(name="is_blocked", type="boolean", nullable=false)
      */
-    private $isBlocked = '0';
+    private $isBlocked = false;
 
     /**
      * @var bool
@@ -69,6 +80,7 @@ class User
      * @ORM\Column(name="is_approved", type="boolean", nullable=false, options={"default"="1"})
      */
     private $isApproved = true;
+    // Getters and setters for id, fullname, email, tel, image, isBlocked, isApproved
 
     public function getId(): ?int
     {
@@ -80,7 +92,7 @@ class User
         return $this->fullname;
     }
 
-    public function setFullname(string $fullname): static
+    public function setFullname(string $fullname): self
     {
         $this->fullname = $fullname;
 
@@ -92,7 +104,7 @@ class User
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -104,19 +116,57 @@ class User
         return $this->mdp;
     }
 
-    public function setMdp(string $mdp): static
+    public function setMDP(string $mdp): self
     {
         $this->mdp = $mdp;
 
         return $this;
     }
 
+
+
+
+  /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function getTel(): ?string
     {
         return $this->tel;
     }
 
-    public function setTel(string $tel): static
+    public function setTel(string $tel): self
     {
         $this->tel = $tel;
 
@@ -128,36 +178,53 @@ class User
         return $this->image;
     }
 
-    public function setImage(string $image): static
+    public function setImage(string $image): self
     {
         $this->image = $image;
 
         return $this;
     }
 
-    public function isIsBlocked(): ?bool
+    public function isBlocked(): ?bool
     {
         return $this->isBlocked;
     }
 
-    public function setIsBlocked(bool $isBlocked): static
+    public function setIsBlocked(bool $isBlocked): self
     {
         $this->isBlocked = $isBlocked;
 
         return $this;
     }
 
-    public function isIsApproved(): ?bool
+    public function isApproved(): ?bool
     {
         return $this->isApproved;
     }
 
-    public function setIsApproved(bool $isApproved): static
+    public function setIsApproved(bool $isApproved): self
     {
         $this->isApproved = $isApproved;
 
         return $this;
     }
 
+    // Methods required by UserInterface
 
+    public function getUsername(): ?string
+    {
+        return $this->email;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->mdp;
+    }
+
+    public function getRoles(): array
+    {
+        return ['ROLE_USER'];
+    }
+
+ 
 }
