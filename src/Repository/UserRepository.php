@@ -32,4 +32,68 @@ class UserRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function searchByEmail(string $email): array
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.email LIKE :email')
+            ->setParameter('email', '%' . $email . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
+
+// Tri Email 
+    public function findAllSortedByEmail(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->orderBy('u.email', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+
+
+
+
+
+
+
+// For Stat
+    // Custom method to count approved users
+    public function countApprovedUsers(): int
+    {
+        return $this->createQueryBuilder('u')
+            ->select('COUNT(u.id)')
+            ->where('u.isApproved = true')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    // Custom method to count blocked users
+    public function countBlockedUsers(): int
+    {
+        return $this->createQueryBuilder('u')
+            ->select('COUNT(u.id)')
+            ->where('u.isBlocked = true')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    // Custom method to count all users
+    public function countAllUsers(): int
+    {
+        return $this->createQueryBuilder('u')
+            ->select('COUNT(u.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+
+    // End For Stat
+
+
 }

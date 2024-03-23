@@ -7,6 +7,16 @@
 {% block body %}
     <h1>User List</h1>
 
+    {# Search Form #}
+    <form id="search-form">
+        <input type="text" id="search-input" name="search" placeholder="Search by Email">
+    </form>
+
+    {# Sort Button #}
+    <form id="sort-form" action="{{ path('user_list') }}" method="get">
+        <button type="submit" name="sort" value="email">Sort by Email</button>
+    </form>
+
     {% if users is empty %}
         <p>No users found.</p>
     {% else %}
@@ -21,7 +31,7 @@
                     <th style="border: 1px solid black; padding: 8px;">Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="user-list">
                 {% for user in users %}
                     <tr>
                         <td style="border: 1px solid black; padding: 8px;">{{ user.fullName }}</td>
@@ -38,4 +48,26 @@
             </tbody>
         </table>
     {% endif %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const userList = document.getElementById('user-list');
+
+            searchInput.addEventListener('input', function(event) {
+                const searchTerm = event.target.value.trim().toLowerCase();
+                const users = Array.from(userList.getElementsByTagName('tr'));
+
+                users.forEach(function(user) {
+                    const userEmail = user.querySelector('td:nth-child(2)').textContent.trim().toLowerCase();
+
+                    if (userEmail.includes(searchTerm)) {
+                        user.style.display = 'table-row';
+                    } else {
+                        user.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}

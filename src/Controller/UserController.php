@@ -84,6 +84,34 @@ class UserController extends AbstractController
 
 
 
+
+
+
+    #[Route('/users', name: 'user_list')]
+    public function userList(Request $request, UserRepository $userRepository): Response
+    {
+        // Get the sort option from the request query parameters
+        $sortBy = $request->query->get('sort');
+        
+        // If sorting by email is requested, fetch users sorted by email
+        if ($sortBy === 'email') {
+            $users = $userRepository->findAllSortedByEmail();
+        } else {
+            // Otherwise, fetch all users
+            $users = $userRepository->findAll();
+        }
+        
+        // Render the template and pass the users to it
+        return $this->render('user/user_list.html.twig', [
+            'users' => $users,
+        ]);
+    }
+    
+
+
+
+
+/*
     #[Route('/users', name: 'user_list')]
     public function userList(): Response
     {
@@ -96,7 +124,7 @@ class UserController extends AbstractController
             'users' => $users,
         ]);
     }
-
+*/
 
 
 
@@ -177,6 +205,19 @@ class UserController extends AbstractController
 
 
 
+
+
+
+
+// Tri recherche ........
+public function sortByEmail(UserRepository $userRepository): Response
+    {
+        $users = $userRepository->findAllSortedByEmail();
+
+        return $this->render('user/search.html.twig', [
+            'users' => $users,
+        ]);
+    }
 
 
 
