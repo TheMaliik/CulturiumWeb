@@ -30,3 +30,8 @@ reactivate_user:
     path: /user/{id}/reactivate
     controller: 'App\Controller\UserController::reactivateUser'
     methods: ['POST']
+
+adminDashboard:
+    path: /users
+    controller: 'App\Controller\LoginController::user_list'
+   

@@ -35,7 +35,7 @@ class UserController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request , UserPasswordHasherInterface $userPasswordHasher, UserAuthenticatorInterface $userAuthenticator): Response
+    public function register(Request $request ): Response
     {
         $user = new User();
         $form = $this->createForm(RegisterUserType::class, $user);
@@ -44,12 +44,7 @@ class UserController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             // Handle file upload
             $imageFile = $form->get('image')->getData();
-            $user->setMDP(
-                $userPasswordHasher->hashPassword(
-                    $user,
-                    $form->get('mdp')->getData()
-                )
-            );
+          
 
             if ($imageFile) {
                 // Generate a unique name for the file
@@ -218,6 +213,67 @@ public function sortByEmail(UserRepository $userRepository): Response
             'users' => $users,
         ]);
     }
+
+
+
+
+
+
+// User Interface Update have ban button
+#[Route('/user/{id}/updateUser', name: 'User_Upda')]
+    public function updateUser(Request $request, int $id): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
+
+        $user = $userRepository->find($id);
+        if (!$user) {
+            throw $this->createNotFoundException('User not found');
+        }
+
+        $form = $this->createForm(RegisterUserType::class, $user);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            $this->addFlash('success', 'User updated successfully.');
+
+            return $this->redirectToRoute('user_list');
+        }
+
+        return $this->render('user/user_Card.html.twig', [
+            'user' => $user,
+            'registration_form' => $form->createView(),
+        ]);
+    }
+
+
+
+// Ban User
+    #[Route('/user/{id}/Ban', name: 'ban_user', methods: ['POST'])]
+    public function banUser(int $id, Request $request): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $user = $entityManager->getRepository(User::class)->find($id);
+
+        if (!$user) {
+            throw $this->createNotFoundException('User not found');
+        }
+
+        // Ban the user
+        $user->setIsBlocked(true);// Set isApproved to true
+        $user->setIsApproved(false); 
+        $entityManager->flush();
+
+        // Redirect back to the user list
+        return $this->redirectToRoute('user_list');
+    }
+
+
+
+
+
 
 
 

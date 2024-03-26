@@ -2,8 +2,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
+
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -12,7 +11,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+class User 
 {
     /**
      * @var int
@@ -116,49 +115,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->mdp;
     }
 
-    public function setMDP(string $mdp): self
-    {
-        $this->mdp = $mdp;
+    public function setMdp(string $mdp): self
+{
+    $this->mdp = $mdp;
 
-        return $this;
-    }
-
-
-
-
-  /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
-     *
-     * @see UserInterface
-     */
-    public function getSalt(): ?string
-    {
-        return null;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return $this;
+}
 
 
     public function getTel(): ?string
