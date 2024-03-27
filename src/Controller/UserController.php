@@ -14,28 +14,31 @@ use App\Repository\UserRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
-
+use Twilio\Rest\Client;
+use Twilio\Exceptions\TwilioException;
+use App\Controller\TwiliosmsController;
 
 use Psr\Log\LoggerInterface;
 
 class UserController extends AbstractController
 {
 
-
     private $managerRegistry;
     private $entityManager;
     private $slugger;
+    private $twilioClient;
 
-    public function __construct(ManagerRegistry $managerRegistry, EntityManagerInterface $entityManager, SluggerInterface $slugger , LoggerInterface $logger)
+    public function __construct(ManagerRegistry $managerRegistry, EntityManagerInterface $entityManager, SluggerInterface $slugger , LoggerInterface $logger, Client $twilioClient)
     {
         $this->managerRegistry = $managerRegistry;
         $this->entityManager = $entityManager;
         $this->slugger = $slugger;
         $this->logger = $logger;
+        $this->twilioClient = $twilioClient;
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request ): Response
+    public function register(Request $request, Client $twilioClient , LoggerInterface $logger): Response
     {
         $user = new User();
         $form = $this->createForm(RegisterUserType::class, $user);
@@ -45,7 +48,6 @@ class UserController extends AbstractController
             // Handle file upload
             $imageFile = $form->get('image')->getData();
           
-
             if ($imageFile) {
                 // Generate a unique name for the file
                 $imageName = md5(uniqid()).'.'.$imageFile->guessExtension();
@@ -66,6 +68,36 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
+
+
+            $fullName =  $form->get('fullname')->getData();
+            $email = $form->get('email')->getData();
+            $mdp =  $form->get('mdp')->getData();
+
+
+
+           // Get telephone number from the form
+$tel = '+216' . $form->get('tel')->getData();
+$user->setTel($tel);
+
+            try {
+                // Send SMS to the registered user
+                $toNumber = $user->getTel();
+                $fromNumber = '+15177818511';
+        
+                $message = $twilioClient->messages->create(
+                    $toNumber,
+                    [
+                        'from' => $fromNumber,
+                        'body' => 'Hello ' . $fullName . ' ! You have been successfully registered. Your email is: ' . $email . ' and your password is: ' . $mdp,
+        ]
+                );
+                
+                $logger->info('SMS sent with ID: ' . $message->sid);
+            } catch (\Exception $e) {
+                $logger->error('Failed to send SMS: ' . $e->getMessage());
+            }
+
             // Redirect to another page after successful registration
             return $this->redirectToRoute('registration_success');
         }
@@ -74,9 +106,6 @@ class UserController extends AbstractController
             'registration_form' => $form->createView(),
         ]);
     }
-
-
-
 
 
 
