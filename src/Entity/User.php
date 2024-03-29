@@ -55,6 +55,10 @@ class User
      * @ORM\Column(name="tel", type="string", length=255, nullable=false)
      * @Assert\NotBlank
      * @Assert\Length(max=255)
+     *  * @Assert\Regex(
+     *      pattern="/^\d{8}$/",
+     *      message="Le numéro de téléphone doit contenir exactement 8 chiffres."
+     * )
      */
     private $tel;
 
