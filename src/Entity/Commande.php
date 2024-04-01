@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -22,11 +23,11 @@ class Commande
     private $id;
 
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="contenue", type="string", length=255, nullable=false)
+     * @ORM\Column(name="Date", type="date", nullable=false)
      */
-    private $contenue;
+    private $date;
 
     /**
      * @var float
@@ -38,23 +39,23 @@ class Commande
     /**
      * @var string
      *
-     * @ORM\Column(name="status", type="string", length=255, nullable=false)
+     * @ORM\Column(name="addresse_livraison", type="string", length=255, nullable=false)
      */
-    private $status;
+    private $addresseLivraison;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getContenue(): ?string
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->contenue;
+        return $this->date;
     }
 
-    public function setContenue(string $contenue): static
+    public function setDate(\DateTimeInterface $date): static
     {
-        $this->contenue = $contenue;
+        $this->date = $date;
 
         return $this;
     }
@@ -71,14 +72,14 @@ class Commande
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getAddresseLivraison(): ?string
     {
-        return $this->status;
+        return $this->addresseLivraison;
     }
 
-    public function setStatus(string $status): static
+    public function setAddresseLivraison(string $addresseLivraison): static
     {
-        $this->status = $status;
+        $this->addresseLivraison = $addresseLivraison;
 
         return $this;
     }

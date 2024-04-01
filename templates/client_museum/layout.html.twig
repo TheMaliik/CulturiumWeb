@@ -1,0 +1,68 @@
+{# templates/client_museum/layout.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mon Projet Symfony</title>
+    <style>
+        /* Style pour la mise en page */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar {
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-end; /* Aligner les éléments à droite */
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Utiliser Flexbox pour aligner les éléments */
+        }
+
+        .navbar li {
+            margin-right: 20px;
+        }
+
+        .museums {
+            text-align: center;
+        }
+
+        .museums ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .museums li {
+            width: calc(33.33% - 20px); /* 3 musées par ligne avec espacement entre eux */
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <nav>
+            <!-- Barre de navigation -->
+            <ul>
+                <li><a href="{{ path('accueil') }}">Accueil</a></li>
+                <li><a href="{{ path('recherche') }}">Recherche</a></li>
+                <li><a href="{{ path('a_propos') }}">À propos</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Contenu spécifique à chaque page -->
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

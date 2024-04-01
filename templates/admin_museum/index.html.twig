@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Musées{% endblock %}
+
+{% block body %}
+    <h1>Liste des Musées</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Idm</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Localisation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for museum in museums %}
+            <tr>
+                <td>{{ museum.idm }}</td>
+                <td>{{ museum.name }}</td>
+                <td><img src="{{ asset('images/museum/' ~ museum.image) }}" alt="{{ museum.name }}"></td>
+                <!-- Utilisez asset() pour générer le chemin complet vers l'image -->
+                <td>{{ museum.description }}</td>
+                <td>{{ museum.localisation }}</td>
+                <td>
+                    <a href="{{ path('app_admin_museum_show', {'idm': museum.idm}) }}">show</a>
+                    <a href="{{ path('app_admin_museum_edit', {'idm': museum.idm}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_museum_new') }}">Create new</a>
+{% endblock %}

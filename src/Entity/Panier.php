@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Panier
  *
- * @ORM\Table(name="panier", indexes={@ORM\Index(name="fffff_key", columns={"id_command"}), @ORM\Index(name="keyss", columns={"id_oeuvre"})})
+ * @ORM\Table(name="panier", indexes={@ORM\Index(name="fffff_key", columns={"id_commande"})})
  * @ORM\Entity
  */
 class Panier
@@ -22,50 +22,47 @@ class Panier
     private $id;
 
     /**
-     * @var \Oeuvre
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="Oeuvre")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_oeuvre", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="article", type="string", length=255, nullable=false)
      */
-    private $idOeuvre;
+    private $article;
 
     /**
      * @var \Commande
      *
      * @ORM\ManyToOne(targetEntity="Commande")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_command", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="id_commande", referencedColumnName="id")
      * })
      */
-    private $idCommand;
+    private $idCommande;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getIdOeuvre(): ?Oeuvre
+    public function getArticle(): ?string
     {
-        return $this->idOeuvre;
+        return $this->article;
     }
 
-    public function setIdOeuvre(?Oeuvre $idOeuvre): static
+    public function setArticle(string $article): static
     {
-        $this->idOeuvre = $idOeuvre;
+        $this->article = $article;
 
         return $this;
     }
 
-    public function getIdCommand(): ?Commande
+    public function getIdCommande(): ?Commande
     {
-        return $this->idCommand;
+        return $this->idCommande;
     }
 
-    public function setIdCommand(?Commande $idCommand): static
+    public function setIdCommande(?Commande $idCommande): static
     {
-        $this->idCommand = $idCommand;
+        $this->idCommande = $idCommande;
 
         return $this;
     }

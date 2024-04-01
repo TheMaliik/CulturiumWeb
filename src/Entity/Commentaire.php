@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Commentaire
  *
- * @ORM\Table(name="commentaire", uniqueConstraints={@ORM\UniqueConstraint(name="fff_key", columns={"id_post"})})
+ * @ORM\Table(name="commentaire", indexes={@ORM\Index(name="fff_key", columns={"id_post"})})
  * @ORM\Entity
  */
 class Commentaire
@@ -25,9 +25,9 @@ class Commentaire
     /**
      * @var string
      *
-     * @ORM\Column(name="descreption", type="string", length=255, nullable=false)
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
-    private $descreption;
+    private $description;
 
     /**
      * @var \DateTime
@@ -37,9 +37,12 @@ class Commentaire
     private $date = 'CURRENT_TIMESTAMP';
 
     /**
-     * @var int
+     * @var \Post
      *
-     * @ORM\Column(name="id_post", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Post")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_post", referencedColumnName="id")
+     * })
      */
     private $idPost;
 
@@ -48,14 +51,14 @@ class Commentaire
         return $this->id;
     }
 
-    public function getDescreption(): ?string
+    public function getDescription(): ?string
     {
-        return $this->descreption;
+        return $this->description;
     }
 
-    public function setDescreption(string $descreption): static
+    public function setDescription(string $description): static
     {
-        $this->descreption = $descreption;
+        $this->description = $description;
 
         return $this;
     }
@@ -72,12 +75,12 @@ class Commentaire
         return $this;
     }
 
-    public function getIdPost(): ?int
+    public function getIdPost(): ?Post
     {
         return $this->idPost;
     }
 
-    public function setIdPost(int $idPost): static
+    public function setIdPost(?Post $idPost): static
     {
         $this->idPost = $idPost;
 

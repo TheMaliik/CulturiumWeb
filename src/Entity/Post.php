@@ -35,13 +35,6 @@ class Post
      */
     private $contenu;
 
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="image_path", type="string", length=200, nullable=true)
-     */
-    private $imagePath;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -67,18 +60,6 @@ class Post
     public function setContenu(string $contenu): static
     {
         $this->contenu = $contenu;
-
-        return $this;
-    }
-
-    public function getImagePath(): ?string
-    {
-        return $this->imagePath;
-    }
-
-    public function setImagePath(?string $imagePath): static
-    {
-        $this->imagePath = $imagePath;
 
         return $this;
     }

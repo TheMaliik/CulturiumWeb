@@ -1,0 +1,12 @@
+# config/packages/vich_uploader.yaml
+
+vich_uploader:
+    db_driver: orm
+    mappings:
+        museum_images:
+            uri_prefix: /images/museum
+            upload_destination: '%kernel.project_dir%/public/images/museum'
+            namer: Vich\UploaderBundle\Naming\OrignameNamer # ou autre namer selon votre choix
+            inject_on_load: false
+            delete_on_update: true
+            delete_on_remove: true

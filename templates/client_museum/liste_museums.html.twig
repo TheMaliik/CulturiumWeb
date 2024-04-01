@@ -1,0 +1,19 @@
+{# templates/client_museum/liste_museums.html.twig #}
+
+{% extends 'client_museum/layout.html.twig' %}
+
+{% block content %}
+    <div class="museums">
+        <h1>Liste des musées disponibles</h1>
+        <ul>
+            {% for museum in museums %}
+                <li style="margin-bottom: 20px;"> <!-- Ajouter une marge en bas de chaque musée -->
+                    <a href="{{ path('details_musee', { 'id': museum.getIdm() }) }}">
+                        <img src="{{ asset('uploads/images/' ~ museum.getImage()) }}" alt="{{ museum.getName() }}" style="width: 100px; height: auto;">
+                    </a>
+                    <div>{{ museum.getName() }}</div> <!-- Placer le nom du musée en dessous de l'image -->
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

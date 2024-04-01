@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Events index{% endblock %}
+
+{% block body %}
+    <h1>Events index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ide</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Date</th>
+                <th>NbrPlaceDispo</th>
+                <th>Lieu</th>
+                <th>Note</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.ide }}</td>
+                <td>{{ event.name }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.image }}</td>
+                <td>{{ event.date ? event.date|date('Y-m-d') : '' }}</td>
+                <td>{{ event.nbrPlaceDispo }}</td>
+                <td>{{ event.lieu }}</td>
+                <td>{{ event.note }}</td>
+                <td>
+                    <a href="{{ path('app_admin_events_show', {'ide': event.ide}) }}">show</a>
+                    <a href="{{ path('app_admin_events_edit', {'ide': event.ide}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_events_new') }}">Create new</a>
+{% endblock %}

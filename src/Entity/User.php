@@ -1,9 +1,8 @@
 <?php
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -11,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User 
+class User
 {
     /**
      * @var int
@@ -26,8 +25,6 @@ class User
      * @var string
      *
      * @ORM\Column(name="fullName", type="string", length=255, nullable=false)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255)
      */
     private $fullname;
 
@@ -35,8 +32,6 @@ class User
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
-     * @Assert\NotBlank
-     * @Assert\Email
      */
     private $email;
 
@@ -44,8 +39,6 @@ class User
      * @var string
      *
      * @ORM\Column(name="mdp", type="string", length=255, nullable=false)
-     * @Assert\NotBlank
-     * @Assert\Length(min=8, max=255)
      */
     private $mdp;
 
@@ -53,12 +46,6 @@ class User
      * @var string
      *
      * @ORM\Column(name="tel", type="string", length=255, nullable=false)
-     * @Assert\NotBlank
-     * @Assert\Length(max=255)
-     *  * @Assert\Regex(
-     *      pattern="/^\d{8}$/",
-     *      message="Le numéro de téléphone doit contenir exactement 8 chiffres."
-     * )
      */
     private $tel;
 
@@ -66,7 +53,6 @@ class User
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
-     * @Assert\Length(max=255)
      */
     private $image;
 
@@ -75,7 +61,7 @@ class User
      *
      * @ORM\Column(name="is_blocked", type="boolean", nullable=false)
      */
-    private $isBlocked = false;
+    private $isBlocked = '0';
 
     /**
      * @var bool
@@ -83,7 +69,6 @@ class User
      * @ORM\Column(name="is_approved", type="boolean", nullable=false, options={"default"="1"})
      */
     private $isApproved = true;
-    // Getters and setters for id, fullname, email, tel, image, isBlocked, isApproved
 
     public function getId(): ?int
     {
@@ -95,7 +80,7 @@ class User
         return $this->fullname;
     }
 
-    public function setFullname(string $fullname): self
+    public function setFullname(string $fullname): static
     {
         $this->fullname = $fullname;
 
@@ -107,7 +92,7 @@ class User
         return $this->email;
     }
 
-    public function setEmail(string $email): self
+    public function setEmail(string $email): static
     {
         $this->email = $email;
 
@@ -119,20 +104,19 @@ class User
         return $this->mdp;
     }
 
-    public function setMdp(string $mdp): self
-{
-    $this->mdp = $mdp;
+    public function setMdp(string $mdp): static
+    {
+        $this->mdp = $mdp;
 
-    return $this;
-}
-
+        return $this;
+    }
 
     public function getTel(): ?string
     {
         return $this->tel;
     }
 
-    public function setTel(string $tel): self
+    public function setTel(string $tel): static
     {
         $this->tel = $tel;
 
@@ -144,53 +128,36 @@ class User
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(string $image): static
     {
         $this->image = $image;
 
         return $this;
     }
 
-    public function isBlocked(): ?bool
+    public function isIsBlocked(): ?bool
     {
         return $this->isBlocked;
     }
 
-    public function setIsBlocked(bool $isBlocked): self
+    public function setIsBlocked(bool $isBlocked): static
     {
         $this->isBlocked = $isBlocked;
 
         return $this;
     }
 
-    public function isApproved(): ?bool
+    public function isIsApproved(): ?bool
     {
         return $this->isApproved;
     }
 
-    public function setIsApproved(bool $isApproved): self
+    public function setIsApproved(bool $isApproved): static
     {
         $this->isApproved = $isApproved;
 
         return $this;
     }
 
-    // Methods required by UserInterface
 
-    public function getUsername(): ?string
-    {
-        return $this->email;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->mdp;
-    }
-
-    public function getRoles(): array
-    {
-        return ['ROLE_USER'];
-    }
-
- 
 }

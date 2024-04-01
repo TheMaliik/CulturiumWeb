@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Museum
  *
  * @ORM\Table(name="museum")
  * @ORM\Entity
+ * @Vich\Uploadable
  */
 class Museum
 {
@@ -28,12 +31,14 @@ class Museum
      */
     private $name;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     * @Vich\UploadableField(mapping="museum_images", fileNameProperty="image")
+     * @var File|null
      */
     private $image;
+
+   
 
     /**
      * @var string
@@ -49,6 +54,7 @@ class Museum
      */
     private $localisation;
 
+
     public function getIdm(): ?int
     {
         return $this->idm;
@@ -59,7 +65,7 @@ class Museum
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -71,10 +77,13 @@ class Museum
         return $this->image;
     }
 
-    public function setImage(string $image): static
+    public function setImage(string $image): self
     {
         $this->image = $image;
 
+        if ($image) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
         return $this;
     }
 
@@ -83,7 +92,7 @@ class Museum
         return $this->description;
     }
 
-    public function setDescription(string $description): static
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -95,12 +104,18 @@ class Museum
         return $this->localisation;
     }
 
-    public function setLocalisation(string $localisation): static
+    public function setLocalisation(string $localisation): self
     {
         $this->localisation = $localisation;
 
         return $this;
     }
 
+   
+    
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 }

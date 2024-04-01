@@ -1,0 +1,31 @@
+# config/routes.yaml
+
+# Routes pour MuseumController
+museum_index:
+    path: /
+    controller: App\Controller\MuseumController::index
+
+app_museum_search:
+    path: /search
+    controller: App\Controller\MuseumController::search
+    methods: [GET]
+
+recherche:
+    path: /recherche
+    controller: App\Controller\RechercheController::index
+a_propos:
+    path: /a-propos
+    controller: App\Controller\AProposController::index
+
+liste_musees:
+    path: /musees
+    controller: App\Controller\ClientMuseumController::listeMusees
+
+accueil:
+    path: /
+    controller: App\Controller\AccueilController::index
+    
+details_musee:
+    path: /musee/{id}
+    controller: App\Controller\MuseumController::show
+
