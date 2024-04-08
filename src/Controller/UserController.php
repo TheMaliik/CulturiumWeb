@@ -83,7 +83,7 @@ $user->setTel($tel);
             try {
                 // Send SMS to the registered user
                 $toNumber = $user->getTel();
-                $fromNumber = '+15177818511';
+                $fromNumber = '+12563650805';
         
                 $message = $twilioClient->messages->create(
                     $toNumber,
@@ -173,7 +173,7 @@ $user->setTel($tel);
 
             $this->addFlash('success', 'User updated successfully.');
 
-            return $this->redirectToRoute('user_list');
+            return $this->redirectToRoute('UserDashboard');
         }
 
         return $this->render('user/update.html.twig', [
@@ -202,7 +202,7 @@ $user->setTel($tel);
                 $this->addFlash('success', 'User deleted successfully.');
            
     
-        return $this->redirectToRoute('user_list');
+        return $this->redirectToRoute('userss');
     }
 
 
@@ -224,7 +224,7 @@ $user->setTel($tel);
         $entityManager->flush();
 
         // Redirect back to the user list
-        return $this->redirectToRoute('user_list');
+        return $this->redirectToRoute('userss');
     }
 
 
@@ -296,7 +296,7 @@ public function sortByEmail(UserRepository $userRepository): Response
         $entityManager->flush();
 
         // Redirect back to the user list
-        return $this->redirectToRoute('user_list');
+        return $this->redirectToRoute('login');
     }
 
 
@@ -304,6 +304,25 @@ public function sortByEmail(UserRepository $userRepository): Response
 
 
 
+
+
+
+    #[Route(path: '/userss', name: 'userss')]
+    public function users( Request $request,UserRepository $userRepository): Response
+    {
+          // Get the sort option from the request query parameters
+          $sortBy = $request->query->get('sort');
+        
+          // If sorting by email is requested, fetch users sorted by email
+          if ($sortBy === 'email') {
+              $users = $userRepository->findAllSortedByEmail();
+          } else {
+              // Otherwise, fetch all users
+              $users = $userRepository->findAll();
+          }
+
+        return $this->render('/user/usertest.html.twig', ['users' => $users]);
+    }
 
 
 }

@@ -18,9 +18,7 @@ class LoginType extends AbstractType
         $builder
             ->add('email', EmailType::class)
             ->add('mdp', PasswordType::class)
-            ->add('submit', SubmitType::class, [
-                'label' => 'Login'
-            ]);
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

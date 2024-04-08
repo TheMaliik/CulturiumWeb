@@ -32,6 +32,19 @@ reactivate_user:
     methods: ['POST']
 
 adminDashboard:
-    path: /users
-    controller: 'App\Controller\LoginController::user_list'
+    path: /admin/adminDashboard
+    controller: 'App\Controller\HomeController::index'
+   
+userDashboard:
+    path: /user/UserDashboard
+    controller: 'App\Controller\HomeController::UserDash'
+   
+
+updateUser:
+    path: /user/{id}/updateUser
+    controller: 'App\Controller\UserController::updateUser'
+   
+login:
+    path: /LoginRedirect
+    controller: 'App\Controller\LoginController::loredirect'
    

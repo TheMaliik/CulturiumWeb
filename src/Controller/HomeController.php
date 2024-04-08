@@ -6,14 +6,29 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twilio\Rest\Client;
+use App\Repository\UserRepository;
 
 class HomeController extends AbstractController
 {
-    #[Route('/', name: 'home')]
+    #[Route('/admin/adminDashboard', name: 'adminDashboard')]
     public function index(): Response
     {
         return $this->render('admin/bars.html.twig'
         );
+    }
+    
+
+    
+    #[Route('/user/UserDashboard/{id}', name: 'UserDashboard')]
+    public function userDashboard(UserRepository $userRepository, $id): Response
+    {
+        // Retrieve the user entity based on $id
+        $user = $userRepository->find($id);
+
+        // Render the template, passing the user entity
+        return $this->render('user/UserDashboard.html.twig', [
+            'user' => $user,
+        ]);
     }
     
 

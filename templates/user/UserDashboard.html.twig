@@ -30,11 +30,7 @@
                     <ul class="nav side-menu">
                         
                      
-                            <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{ path('userss') }}">User List </a></li>
-                                    <li><a href="{{ path('app_admin_stats_user_statut') }}"> Statistics </a></li>
-                                </ul>
+                            <li><a><i class="fa fa-user"></i> Orders </a>
                             </li>
                         
                         
@@ -89,7 +85,8 @@
                             <img src="" alt="">555
                         </a>
                         <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"  href=""><i class="fa fa-key pull-right"></i>{{ "backend.global.change_my_password"|trans }}</a>
+                           <a class="dropdown-item"  href="{{ path('updateUser', {'id': user.id}) }}"><i class="fa fa-key pull-right"></i> Update </a>
+
                             <a class="dropdown-item"  href=""><i class="fa fa-sign-out pull-right"></i>{{ "backend.global.logout"|trans }}</a>
                         </div>
                     </li>
@@ -103,14 +100,14 @@
     <div class="right_col" role="main">
         {% for message in app.flashes("error") %}
             <div class="alert alert-danger alert-dismissible " role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
                 </button>
                 <strong></strong> {{ message|trans }}
             </div>
         {% endfor %}
         {% for message in app.flashes("success") %}
             <div class="alert alert-success alert-dismissible " role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"></span>
                 </button>
                 <strong></strong> {{ message|trans }}
             </div>
