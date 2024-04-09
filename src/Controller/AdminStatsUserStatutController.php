@@ -21,26 +21,7 @@ use App\Controller\TwiliosmsController;
 
 class AdminStatsUserStatutController extends AbstractController
 {
-    #[Route('/', name: 'app')]
-    public function stats(UserRepository $userRepository): Response
-    {
-        // Récupérer le nombre total d'utilisateurs
-        $totalUsers = $userRepository->countAllUsers();
-
-        // Récupérer le nombre d'utilisateurs approuvés
-        $approvedUsers = $userRepository->countApprovedUsers();
-
-        // Récupérer le nombre d'utilisateurs bloqués
-        $blockedUsers = $userRepository->countBlockedUsers();
-
-        // Passer les données au template pour affichage
-        return $this->render('admin_stats_user_statut/stats.html.twig', [
-            'totalUsers' => $totalUsers,
-            'approvedUsers' => $approvedUsers,
-            'blockedUsers' => $blockedUsers,
-        ]);
-    }
-
+   
 
     #[Route('/admin/stats/user/statut', name: 'app_admin_stats_user_statut')]
     public function users( Request $request, UserRepository $userRepository): Response

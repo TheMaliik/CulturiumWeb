@@ -48,3 +48,8 @@ login:
     path: /LoginRedirect
     controller: 'App\Controller\LoginController::loredirect'
    
+
+
+user_list_pdf_download:
+    path: '/download-user-list-pdf'
+    controller: App\Controller\PdfController::downloadUserListPdf

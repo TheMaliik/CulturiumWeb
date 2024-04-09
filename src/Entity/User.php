@@ -4,6 +4,7 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -11,7 +12,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table(name="user")
  * @ORM\Entity
  */
-class User 
+class User implements UserInterface
 {
     /**
      * @var int
@@ -84,6 +85,15 @@ class User
      */
     private $isApproved = true;
     // Getters and setters for id, fullname, email, tel, image, isBlocked, isApproved
+
+
+    
+ 
+    /**
+     * @ORM\Column(type="json")
+     */
+    private array $role = [];
+
 
     public function getId(): ?int
     {
@@ -187,10 +197,67 @@ class User
         return $this->mdp;
     }
 
+
+
+    /**
+     * @see UserInterface
+     */
     public function getRoles(): array
     {
-        return ['ROLE_USER'];
+        $role = $this->role;
+        // guarantee every user at least has ROLE_USER
+
+
+        return array_unique($role);
     }
 
- 
+    public function setRoles(array $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function setRole(array $role): self
+    {
+        $this->role = $role;
+    
+        return $this;
+    }
+    
+
+
+
+
+
+
+  /**
+     * Returning a salt is only needed, if you are not using a modern
+     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
+     *
+     * @see UserInterface
+     */
+    public function getSalt(): ?string
+    {
+        return null;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
+    }
+
+
+
+
+
+
+
+
+
+
 }

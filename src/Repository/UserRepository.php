@@ -33,6 +33,16 @@ class UserRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function remove(User $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+
     public function searchByEmail(string $email): array
     {
         return $this->createQueryBuilder('u')
@@ -42,7 +52,15 @@ class UserRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-
+    public function searchByEmail2(string $email): ?User
+    {
+        return $this->createQueryBuilder('u')
+            ->where('u.email = :email')
+            ->setParameter('email', $email)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
+    
 
 
 // Tri Email 

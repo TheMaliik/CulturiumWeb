@@ -1,4 +1,3 @@
-# see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
@@ -16,6 +15,11 @@ framework:
     #fragments: true
     php_errors:
         log: true
+
+    messenger:
+        transports:
+            async: '%env(MESSENGER_TRANSPORT_DSN)%'
+        reset_on_message: true # or false, depending on your requirements
 
 when@test:
     framework:

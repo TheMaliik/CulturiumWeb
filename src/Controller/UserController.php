@@ -17,7 +17,7 @@ use Symfony\Component\Security\Http\Authentication\UserAuthenticatorInterface;
 use Twilio\Rest\Client;
 use Twilio\Exceptions\TwilioException;
 use App\Controller\TwiliosmsController;
-
+use Dompdf\Dompdf;
 use Psr\Log\LoggerInterface;
 
 class UserController extends AbstractController
@@ -37,7 +37,7 @@ class UserController extends AbstractController
         $this->twilioClient = $twilioClient;
     }
 
-    #[Route('/register', name: 'app_register')]
+    #[Route('/register', name: 'app_registerr')]
     public function register(Request $request, Client $twilioClient , LoggerInterface $logger): Response
     {
         $user = new User();
@@ -58,10 +58,12 @@ class UserController extends AbstractController
                     $imageName
                 );
 
-                // Set the complete image path in the user entity
-                $imagePath = $this->getParameter('user_directory').'/'.$imageName;
-                $user->setImage($imagePath);
+                 // Set the image name in the user entity
+            $user->setImage($imageName);
             }
+
+            $roles = ['ROLE_USER'];
+            $user->setRoles($roles); // Set the roles property
 
             // Persist the user to the database
             $entityManager = $this->getDoctrine()->getManager();
@@ -73,12 +75,12 @@ class UserController extends AbstractController
             $fullName =  $form->get('fullname')->getData();
             $email = $form->get('email')->getData();
             $mdp =  $form->get('mdp')->getData();
-
+         
 
 
            // Get telephone number from the form
-$tel = '+216' . $form->get('tel')->getData();
-$user->setTel($tel);
+          $tel = '+216' . $form->get('tel')->getData();
+           $user->setTel($tel);
 
             try {
                 // Send SMS to the registered user
@@ -99,7 +101,7 @@ $user->setTel($tel);
             }
 
             // Redirect to another page after successful registration
-            return $this->redirectToRoute('registration_success');
+            return $this->redirectToRoute('login');
         }
 
         return $this->render('user/register.html.twig', [
@@ -323,6 +325,58 @@ public function sortByEmail(UserRepository $userRepository): Response
 
         return $this->render('/user/usertest.html.twig', ['users' => $users]);
     }
+
+
+
+
+
+
+
+    #[Route(path:'/downloadUserListPdf', name: 'downloadUserListPdf')]
+    public function downloadUserListPdf(): Response
+    {
+        // Get the list of users from the database
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
+        $users = $userRepository->findAll();
+
+        // Render the PDF template with user data
+        $html = $this->renderView('user/user_list_pdf.html.twig', [
+            'users' => $users,
+        ]);
+
+        // Instantiate Dompdf
+        $dompdf = new Dompdf();
+
+        // Load HTML content
+        $dompdf->loadHtml($html);
+
+        // Set paper size and orientation
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render PDF
+        $dompdf->render();
+
+        // Generate filename
+        $filename = 'user_list_' . date('Ymd_His') . '.pdf';
+
+        // Output PDF to browser for download
+        return new Response(
+            $dompdf->output(),
+            Response::HTTP_OK,
+            [
+                'Content-Type' => 'application/pdf',
+                'Content-Disposition' => 'attachment; filename="' . $filename . '"'
+            ]
+        );
+    }
+
+
+
+
+
+
+
+
 
 
 }

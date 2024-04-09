@@ -16,7 +16,7 @@
                         <form id="search-form">
                             <input type="text" id="search-input" name="search" placeholder="Search by Email">
                         </form>
-
+<a href="{{ path('downloadUserListPdf') }}" class="btn btn-primary">Download User List PDF</a>
                         {# Sort Button #}
                         <form id="sort-form" action="{{ path('userss') }}" method="get">
                             <button type="submit" name="sort" value="email">Sort by Email</button>
