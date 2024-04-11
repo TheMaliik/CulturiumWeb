@@ -32,12 +32,13 @@ class User implements UserInterface
      */
     private $fullname;
 
-    /**
+  /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
-     * @Assert\NotBlank
-     * @Assert\Email
+     * @Assert\NotBlank(message="Remplir votre Email")
+     * @Assert\Email(
+     *     message = "Email non valide")
      */
     private $email;
 
@@ -84,6 +85,10 @@ class User implements UserInterface
      * @ORM\Column(name="is_approved", type="boolean", nullable=false, options={"default"="1"})
      */
     private $isApproved = true;
+
+
+
+
     // Getters and setters for id, fullname, email, tel, image, isBlocked, isApproved
 
 

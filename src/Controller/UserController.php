@@ -19,6 +19,7 @@ use Twilio\Exceptions\TwilioException;
 use App\Controller\TwiliosmsController;
 use Dompdf\Dompdf;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 
 class UserController extends AbstractController
 {
@@ -37,39 +38,53 @@ class UserController extends AbstractController
         $this->twilioClient = $twilioClient;
     }
 
+
+
+
+
     #[Route('/register', name: 'app_registerr')]
-    public function register(Request $request, Client $twilioClient , LoggerInterface $logger): Response
-    {
-        $user = new User();
-        $form = $this->createForm(RegisterUserType::class, $user);
+public function register(
+    Request $request,
+    UserRepository $userRepository,
+    LoggerInterface $logger,
+    FlashBagInterface $flashBag
+): Response {
+    $user = new User();
+    $form = $this->createForm(RegisterUserType::class, $user);
+    $form->handleRequest($request);
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Check if a user with the submitted email already exists
+        $existingUser = $userRepository->searchByEmail($user->getEmail());
+        if ($existingUser) {
+            // Handle case where user with the same email already exists
+            $flashBag->add('error', 'An account with this email already exists.');
+            return $this->redirectToRoute('app_registerr');
+        }
 
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            // Handle file upload
-            $imageFile = $form->get('image')->getData();
-          
-            if ($imageFile) {
-                // Generate a unique name for the file
-                $imageName = md5(uniqid()).'.'.$imageFile->guessExtension();
+        // Handle file upload
+        $imageFile = $form->get('image')->getData();
+        if ($imageFile) {
+            // Generate a unique name for the file
+            $imageName = md5(uniqid()).'.'.$imageFile->guessExtension();
 
-                // Move the file to the directory where images are stored
-                $imageFile->move(
-                    $this->getParameter('user_directory'),
-                    $imageName
-                );
+            // Move the file to the directory where images are stored
+            $imageFile->move(
+                $this->getParameter('user_directory'),
+                $imageName
+            );
 
-                 // Set the image name in the user entity
+            // Set the image name in the user entity
             $user->setImage($imageName);
-            }
+        }
 
-            $roles = ['ROLE_USER'];
-            $user->setRoles($roles); // Set the roles property
+        // Set user roles
+        $roles = ['ROLE_USER'];
+        $user->setRoles($roles);
 
-            // Persist the user to the database
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
+        // Persist the user to the database
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($user);
+        $entityManager->flush();
 
 
             $fullName =  $form->get('fullname')->getData();
@@ -108,6 +123,10 @@ class UserController extends AbstractController
             'registration_form' => $form->createView(),
         ]);
     }
+
+
+
+
 
 
 
@@ -183,6 +202,42 @@ class UserController extends AbstractController
             'registration_form' => $form->createView(),
         ]);
     }
+
+
+
+
+
+
+    #[Route('/user/{id}/updateAdmin', name: 'update_userAdmin')]
+    public function updateUserAdmin(Request $request, int $id): Response
+    {
+        $entityManager = $this->getDoctrine()->getManager();
+        $userRepository = $this->getDoctrine()->getRepository(User::class);
+
+        $user = $userRepository->find($id);
+        if (!$user) {
+            throw $this->createNotFoundException('User not found');
+        }
+
+        $form = $this->createForm(RegisterUserType::class, $user);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->flush();
+
+            $this->addFlash('success', 'User updated successfully.');
+
+            return $this->redirectToRoute('adminDashboard');
+        }
+
+        return $this->render('user/updateAdmin.html.twig', [
+            'user' => $user,
+            'registration_form' => $form->createView(),
+        ]);
+    }
+
+
+
 
 
 

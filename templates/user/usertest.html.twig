@@ -45,7 +45,7 @@
                                             <td style="border: 1px solid black; padding: 8px;">{{ user.isBlocked ? 'Yes' : 'No' }}</td>
                                             <td style="border: 1px solid black; padding: 8px;">{{ user.isApproved ? 'Yes' : 'No' }}</td>
                                             <td style="border: 1px solid black; padding: 8px;">
-                                                <a href="{{ path('update_user', {'id': user.id}) }}">Update</a>
+                                                <a href="{{ path('update_userAdmin', {'id': user.id}) }}">Update</a>
                                                 <a href="{{ path('delete_user', {'id': user.id}) }}">Delete</a>
                                             </td>
                                         </tr>

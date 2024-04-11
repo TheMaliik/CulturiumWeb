@@ -27,6 +27,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
     use TargetPathTrait;
 
     public const LOGIN_ROUTE = 'app_login';
+    private $userRepository; // Deprecated dynamic property
 
     public function __construct(UserRepository $userRepository,private UrlGeneratorInterface $urlGenerator)
     {

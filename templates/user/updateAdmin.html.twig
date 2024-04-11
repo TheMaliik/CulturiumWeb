@@ -1,4 +1,4 @@
-{# templates/user/update.html.twig #}
+{# templates/user/updateAdmin.html.twig #}
 
 {% extends 'adminbase.html.twig' %}
 
@@ -15,4 +15,11 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     {{ form_end(registration_form) }}
 
+    {# Réactiver button #}
+    <hr>
+    {% if  user.isBlocked %}
+        <form action="{{ path('reactivate_user', {'id': user.id}) }}" method="post">
+            <button type="submit" class="btn btn-success">Réactiver</button>
+        </form>
+    {% endif %}
 {% endblock %}

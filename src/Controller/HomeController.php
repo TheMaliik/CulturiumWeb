@@ -20,7 +20,7 @@ class HomeController extends AbstractController
         );
     }
     
-
+/*
     #[Route('/', name: 'UserDashboard2')]
     public function userDashboardd(UserRepository $userRepository): Response
     {
@@ -29,7 +29,7 @@ class HomeController extends AbstractController
         // Render the template, passing the user entity
         return $this->render('user/UserDashboard.html.twig');
     }
-
+*/
     
     #[Route('/user/UserDashboard/{id}', name: 'UserDashboard')]
     public function userDashboard(UserRepository $userRepository, $id): Response

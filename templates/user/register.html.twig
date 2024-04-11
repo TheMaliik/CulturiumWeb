@@ -1,6 +1,5 @@
 {# templates/user/register.html.twig #}
 
-
 {% extends "adminbase.html.twig" %}
 
 {% block title %}Register{% endblock %}
@@ -49,37 +48,38 @@
                     <h1 class="card-title text-center">Register</h1>
                 </div>
                 <div class="card-body">
-                    {% if app.flashes('success') %}
+                    {% set flashBag = app.session.flashbag %}
+                    {% if flashBag.has('success') %}
                         <div class="alert alert-success" role="alert">
-                            {% for message in app.flashes('success') %}
+                            {% for message in flashBag.get('success') %}
                                 {{ message }}
                             {% endfor %}
                         </div>
                     {% endif %}
-                    {% if app.flashes('error') %}
+                    {% if flashBag.has('error') %}
                         <div class="alert alert-danger" role="alert">
-                            {% for message in app.flashes('error') %}
-                                {{ message }}
+                            {% for flashMessage in flashBag.get('error') %}
+                                {{ flashMessage }}
                             {% endfor %}
                         </div>
                     {% endif %}
                     {{ form_start(registration_form) }}
-                        <div class="form-group">
-                            {{ form_row(registration_form.fullname, {'attr': {'class': 'form-control', 'placeholder': 'Full Name'}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(registration_form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(registration_form.mdp, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(registration_form.tel, {'attr': {'class': 'form-control', 'placeholder': 'Phone Number'}}) }}
-                        </div>
-                        <div class="form-group">
-                            {{ form_row(registration_form.image, {'attr': {'class': 'form-control-file'}}) }}
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                    <div class="form-group">
+                        {{ form_row(registration_form.fullname, {'attr': {'class': 'form-control', 'placeholder': 'Full Name'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(registration_form.email, {'attr': {'class': 'form-control', 'placeholder': 'Email'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(registration_form.mdp, {'attr': {'class': 'form-control', 'placeholder': 'Password'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(registration_form.tel, {'attr': {'class': 'form-control', 'placeholder': 'Phone Number'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(registration_form.image, {'attr': {'class': 'form-control-file'}}) }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     {{ form_end(registration_form) }}
                 </div>
             </div>
