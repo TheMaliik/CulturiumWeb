@@ -307,32 +307,53 @@ public function sortByEmail(UserRepository $userRepository): Response
 
 // User Interface Update have ban button
 #[Route('/user/{id}/updateUser', name: 'User_Upda')]
-    public function updateUser(Request $request, int $id): Response
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-        $userRepository = $this->getDoctrine()->getRepository(User::class);
+public function updateUser(Request $request, int $id): Response
+{
+    $entityManager = $this->getDoctrine()->getManager();
+    $userRepository = $this->getDoctrine()->getRepository(User::class);
 
-        $user = $userRepository->find($id);
-        if (!$user) {
-            throw $this->createNotFoundException('User not found');
-        }
-
-        $form = $this->createForm(RegisterUserType::class, $user);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            $this->addFlash('success', 'User updated successfully.');
-
-            return $this->redirectToRoute('user_list');
-        }
-
-        return $this->render('user/user_Card.html.twig', [
-            'user' => $user,
-            'registration_form' => $form->createView(),
-        ]);
+    $user = $userRepository->find($id);
+    if (!$user) {
+        throw $this->createNotFoundException('User not found');
     }
+
+    // Create form for updating user fields
+    $form = $this->createForm(RegisterUserType::class, $user);
+
+    $form->handleRequest($request);
+
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Handle file upload
+        $imageFile = $form->get('image')->getData();
+        if ($imageFile) {
+            // Generate a unique name for the file
+            $imageName = md5(uniqid()).'.'.$imageFile->guessExtension();
+
+            // Move the file to the directory where images are stored
+            $imageFile->move(
+                $this->getParameter('user_directory'),
+                $imageName
+            );
+
+            // Set the image name in the user entity
+            $user->setImage($imageName);
+        }
+
+        // Update other fields
+        $entityManager->flush();
+
+        $this->addFlash('success', 'User updated successfully.');
+
+        return $this->redirectToRoute('UserDashboard', ['id' => $user->getId()]);
+    }
+
+    return $this->render('user/user_Card.html.twig', [
+        'user' => $user,
+        'registration_form' => $form->createView(),
+    ]);
+}
+
+
 
 
 

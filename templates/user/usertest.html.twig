@@ -2,21 +2,19 @@
 
 {% block contenpage %}
     <div class="">
-       
-
         <div class="clearfix"></div>
-
         <div class="row">
             <div class="col-md-12">
                 <div class="x_panel">
-                   
                     <div class="x_content">
                         <h1>User List</h1>
                         {# Search Form #}
                         <form id="search-form">
                             <input type="text" id="search-input" name="search" placeholder="Search by Email">
                         </form>
-<a href="{{ path('downloadUserListPdf') }}" class="btn btn-primary">Download User List PDF</a>
+                        <div class="text-right mb-2">
+                            <a href="{{ path('downloadUserListPdf') }}" class="btn btn-primary">Download User List PDF</a>
+                        </div>
                         {# Sort Button #}
                         <form id="sort-form" action="{{ path('userss') }}" method="get">
                             <button type="submit" name="sort" value="email">Sort by Email</button>
