@@ -1,13 +1,33 @@
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Add Comment{% endblock %}
+{% block title %}Commentaire index{% endblock %}
 
 {% block body %}
-    <h1>Add Comment</h1>
-    {{ form_start(form) }}
-        {{ form_row(form.description) }}
-        {{ form_row(form.idPost) }} 
-        <button type="submit" class="btn btn-primary">Save</button> 
-    {{ form_end(form) }}
+    <h1>Commentaire </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descreption</th>
+                <th>Date</th>
+                <th>IdPost</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+                <td>{{ commentaire.id }}</td>
+                <td>{{ commentaire.descreption }}</td>
+                <td>{{ commentaire.date ? commentaire.date|date('Y-m-d') : '' }}</td>
+                <td>{{ commentaire.idPost }}</td>
+              
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

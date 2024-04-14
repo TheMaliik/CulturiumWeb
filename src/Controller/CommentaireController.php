@@ -79,4 +79,23 @@ class CommentaireController extends AbstractController
 
         return $this->redirectToRoute('app_commentaire_index', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/com/sort/{order}', name: 'app_coms_sort')]
+    public function sortcoms(Request $request, ComRepository $comRepository): Response
+    {
+        $order = $request->attributes->get('order');
+    
+        // Check if the order is valid
+        if ($order === 'asc' || $order === 'desc') {
+            // Retrieve comments from the repository and sort them based on the order
+            $comments = $comRepository->findBy([], ['id' => $order === 'asc' ? 'ASC' : 'DESC']);
+    
+            // Render the template with the sorted comments
+            return $this->render('commentaire/index.html.twig', [
+                'blogComs' => $comments,
+            ]);
+        }
+    
+        // If the order is not valid, redirect to the comment index page
+        return $this->redirectToRoute('app_commentaire_index');
+    }
 }

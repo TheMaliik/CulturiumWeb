@@ -25,21 +25,19 @@ class AddpostController extends AbstractController
     #[Route('/addpost', name: 'app_addpost_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $post = new Post();
-        $form = $this->createForm(Post2Type::class, $post);
-        $form->handleRequest($request);
+    $post = new Post();
+    $form = $this->createForm(Post2Type::class, $post);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($post);
-            $entityManager->flush();
+    if ($form->isSubmitted() && $form->isValid()) {
+        $entityManager->persist($post);
+        $entityManager->flush();
 
-            return $this->redirectToRoute('app_addpost_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('addpost/new.html.twig', [
-            'post' => $post,
-            'form' => $form,
-        ]);
+        return $this->redirectToRoute('app_addpost_new', [], Response::HTTP_SEE_OTHER);
     }
 
+    return $this->render('addpost/new.html.twig', [
+        'form' => $form->createView(), // Pass the form view to the template
+    ]);
+}
 }

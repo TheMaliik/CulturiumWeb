@@ -86,4 +86,35 @@ class PostController extends AbstractController
         return $this->redirectToRoute('app_post_index', [
         ], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/posts/sort/asc', name: 'app_posts_sort_asc')]
+    public function sortAsc(): Response
+    {
+        // Logic to sort posts by ASC order
+        // For example:
+        // $posts = $this->getDoctrine()->getRepository(Post::class)->findBy([], ['createdAt' => 'ASC']);
+
+        // Return a response, render a template, or redirect as needed
+        return $this->redirectToRoute('app_post_index'); // Redirect to the post index page
+    }
+
+    #[Route('/posts/sort/{order}', name: 'app_posts_sort')]
+    public function sortPosts(Request $request, PostRepository $postRepository): Response
+    {
+        $order = $request->attributes->get('order');
+    
+        // Check if the order is valid
+        if ($order === 'asc' || $order === 'desc') {
+            // Retrieve posts from the repository and sort them based on the order
+            $posts = $postRepository->findBy([], ['id' => $order === 'asc' ? 'ASC' : 'DESC']);
+    
+            // Render the template with the sorted posts
+            return $this->render('post/index.html.twig', [
+                'blogPosts' => $posts,
+            ]);
+        }
+    
+        // If the order is not valid, redirect to the post index page
+        return $this->redirectToRoute('app_post_index');
+    }
+    
 }

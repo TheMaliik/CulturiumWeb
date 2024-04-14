@@ -14,7 +14,7 @@ class Post2Type extends AbstractType
         $builder
             ->add('titre')
             ->add('contenu')
-            ->add('imagePath')
+            
         ;
     }
 

@@ -45,7 +45,7 @@ class AddcomController extends AbstractController
         $entityManager->persist($commentaire);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_addcom_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_addcom_new', [], Response::HTTP_SEE_OTHER);
     }
 
     return $this->render('addcom/new.html.twig', [

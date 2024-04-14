@@ -15,7 +15,15 @@
                 <div class="x_panel">
                     <div class="x_title">
                         <h2>Liste des commentaires </h2>
-                       
+                      <ul class="nav navbar-right panel_toolbox">
+    <li>
+        <a href="{{ path('app_coms_sort', {'order': 'asc'}) }}" class="btn btn-success">Sort ASC</a>
+    </li>
+    <li>
+        <a href="{{ path('app_coms_sort', {'order': 'desc'}) }}" class="btn btn-primary">Sort DESC</a>
+    </li>
+</ul>
+
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
