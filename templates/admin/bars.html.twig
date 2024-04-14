@@ -1,0 +1,52 @@
+{% extends "adminbase.html.twig" %}
+{% block bars %}
+    <div class="col-md-3 left_col menu_fixed">
+        <div class="left_col scroll-view">
+           
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              
+                <div class="profile_info">
+                    
+                    <h2> Welcome Admin</h2>
+                </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+        </div>
+    </div>
+
+    <!-- top navigation -->
+    
+    <!-- /top navigation -->
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+        {% for message in app.flashes("error") %}
+            <div class="alert alert-danger alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong></strong> {{ message|trans }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes("success") %}
+            <div class="alert alert-success alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong></strong> {{ message|trans }}
+            </div>
+        {% endfor %}
+        {% block contenpage %}{% endblock %}
+    </div>
+    <!-- /page content -->
+{% endblock %}
