@@ -1,3 +1,5 @@
+{# templates/admin_museum/new.html.twig #}
+
 {% extends 'base.html.twig' %}
 
 {% block title %}New Museum{% endblock %}
@@ -5,7 +7,14 @@
 {% block body %}
     <h1>Create new Museum</h1>
 
+    {% for message in app.flashes('error') %}
+        <div class="alert alert-danger" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
     {{ include('admin_museum/_form.html.twig') }}
 
     <a href="{{ path('app_admin_museum_index') }}">back to list</a>
 {% endblock %}
+

@@ -1,0 +1,51 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ozeum - ECPv6.2.9//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Ozeum
+X-ORIGINAL-URL:https://ozeum.themerex.net
+X-WR-CALDESC:Events for Ozeum
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:UTC
+BEGIN:STANDARD
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+TZNAME:UTC
+DTSTART:20230101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20230708
+DTEND;VALUE=DATE:20240812
+DTSTAMP:20240412T152501
+CREATED:20190606T084720Z
+LAST-MODIFIED:20210904T135748Z
+UID:694-1688774400-1723420799@ozeum.themerex.net
+SUMMARY:Jean-Francois De Troy
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/jean-francois-de-troy/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Galleries
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-4-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20230816
+DTEND;VALUE=DATE:20240917
+DTSTAMP:20240412T152501
+CREATED:20190610T112848Z
+LAST-MODIFIED:20210904T135727Z
+UID:860-1692144000-1726531199@ozeum.themerex.net
+SUMMARY:Ilya Repin
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/ilya-repin/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Classics
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/06/image-82-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+END:VCALENDAR

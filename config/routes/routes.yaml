@@ -29,3 +29,8 @@ details_musee:
     path: /musee/{id}
     controller: App\Controller\MuseumController::show
 
+admin_dashboard:
+    path: '/admin/adminDashboard'
+    controller: 'App\Controller\HomeBackController::index'
+
+

@@ -1,0 +1,10 @@
+.error-message {
+    color: red; /* Couleur du texte */
+    font-size: 14px; /* Taille de la police */
+    margin-top: 5px; /* Marge en haut */
+    display: none; /* Initialement caché */
+}
+
+.show-error {
+    display: block !important; /* Afficher le message d'erreur */
+}

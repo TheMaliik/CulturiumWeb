@@ -1,4 +1,11 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.imageFile) }} {# Champ pour l'upload de l'image #}
+    {{ form_row(form.date) }}
+    {{ form_row(form.nbrPlaceDispo) }}
+    {{ form_row(form.lieu) }}
+    {{ form_row(form.note) }}
+
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
