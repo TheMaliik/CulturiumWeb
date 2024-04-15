@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Validator\Constraints as CustomAssert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 
 /**
@@ -15,13 +16,14 @@ use App\Validator\Constraints as CustomAssert;
  * @ORM\Table(name="museum")
  * @ORM\Entity
  * @Vich\Uploadable
+ * @UniqueEntity(fields={"name"}, message="Ce nom de musée est déjà utilisé.")
  */
 class Museum
 {
     /**
      * @var int
      *
-     * @ORM\Column(name="IdM", type="integer", nullable=false)
+     * @ORM\Column(name="IdM", type="integer", nullable=false, unique=true)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
@@ -31,7 +33,6 @@ class Museum
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
-     * @Assert\NotBlank(message="Le nom du musée est obligatoire")
      * @CustomAssert\UniqueMuseumName
      */
     private $name;

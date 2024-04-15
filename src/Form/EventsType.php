@@ -9,6 +9,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Image;
+
 class EventsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -25,10 +28,20 @@ class EventsType extends AbstractType
         ->add('description')
         ->add('image', FileType::class, [
             'label' => 'Event Image',
-            'required' => false, // ou true, selon vos besoins
-            'mapped' => false, // ne pas mapper directement à une propriété de l'entité
-            
+            'required' => false,
+            'mapped' => false,
+            'constraints' => [
+                new File([
+                    'maxSize' => '1024k', // Limite de taille maximale du fichier (ajustez selon vos besoins)
+                    'mimeTypes' => [
+                        'image/jpeg',
+                        'image/png',
+                    ],
+                    'mimeTypesMessage' => 'Veuillez télécharger une image valide (jpg, png, etc.)',
+                ]),
+            ],
         ])
+        
         
         ->add('date')
         ->add('nbrPlaceDispo')

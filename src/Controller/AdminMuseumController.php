@@ -11,7 +11,9 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\Form\FormError;
+
+
 
 
 #[Route('/admin/museum')]
@@ -39,18 +41,22 @@ class AdminMuseumController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
-            /** @var UploadedFile $imageFile */
-            $imageFile = $form->get('image')->getData();
+            // Vérifiez si le nom du musée est déjà utilisé
+            $existingMuseum = $entityManager->getRepository(Museum::class)->findOneBy(['name' => $museum->getName()]);
             
-            if ($imageFile) {
-                $fileName = uniqid().'.'.$imageFile->getClientOriginalExtension();
-                $imageFile->move($this->getParameter('upload_directory'), $fileName);
-                $museum->setImage($fileName);
+            if ($existingMuseum) {
+                // Ajoutez un message d'erreur au champ name du formulaire
+                $form->get('name')->addError(new FormError('Ce nom de musée est déjà utilisé.'));
+                // Rendez à nouveau le formulaire avec le message d'erreur
+                return $this->renderForm('admin_museum/new.html.twig', [
+                    'museum' => $museum,
+                    'form' => $form,
+                ]);
             }
-        
+            
             $entityManager->persist($museum);
             $entityManager->flush();
-        
+    
             return $this->redirectToRoute('app_admin_museum_index', [], Response::HTTP_SEE_OTHER);
         }
         
@@ -59,7 +65,6 @@ class AdminMuseumController extends AbstractController
             'form' => $form,
         ]);
     }
-    
     
 
     #[Route('/{idm}', name: 'app_admin_museum_show', methods: ['GET'])]

@@ -29,24 +29,46 @@ class AdminEventsController extends AbstractController
     }
 
     #[Route('/new', name: 'app_admin_events_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $event = new Events();
-        $form = $this->createForm(EventsType::class, $event);
-        $form->handleRequest($request);
+public function new(Request $request, EntityManagerInterface $entityManager): Response
+{
+    $event = new Events();
+    $form = $this->createForm(EventsType::class, $event);
+    $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($event);
-            $entityManager->flush();
+    if ($form->isSubmitted() && $form->isValid()) {
+        // Gérer le téléchargement et la sauvegarde de l'image
+        $imageFile = $form->get('image')->getData();
+        if ($imageFile) {
+            // Générer un nom unique pour le fichier
+            $newFilename = uniqid().'.'.$imageFile->guessExtension();
 
-            return $this->redirectToRoute('app_admin_events_index', [], Response::HTTP_SEE_OTHER);
+            // Déplacer le fichier vers le répertoire où les images sont stockées
+            try {
+                $imageFile->move(
+                    $this->getParameter('events_image_directory'), // Chemin vers le répertoire
+                    $newFilename
+                );
+            } catch (FileException $e) {
+                // Gérer les exceptions si le téléchargement échoue
+            }
+
+            // Mettre à jour la propriété 'image' de l'entité avec le nom du fichier
+            $event->setImage($newFilename);
         }
 
-        return $this->renderForm('admin_events/new.html.twig', [
-            'event' => $event,
-            'form' => $form,
-        ]);
+        // Persist l'entité avec l'image mise à jour
+        $entityManager->persist($event);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_admin_events_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    return $this->renderForm('admin_events/new.html.twig', [
+        'event' => $event,
+        'form' => $form,
+    ]);
+}
+
 
 
     #[Route('/{ide}', name: 'app_admin_events_show', methods: ['GET'])]
