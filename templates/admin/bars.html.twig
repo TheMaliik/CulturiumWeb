@@ -36,14 +36,13 @@
                         
                             <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="">Liste des Musées</a></li>
+                                    <li><a href="{{ path('app_admin_museum_index') }}">Museums List </a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-clipboard"></i> Events <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="">{{ "backend.menu.manage"|trans }}</a></li>
-                                
-                                        <li><a href="">{{ "backend.menu.history"|trans }}</a></li>
+                                    <li><a href="{{ path('app_admin_events_index') }}">Events List </a></li>
+                            
                                  
                                 </ul>
                             </li>

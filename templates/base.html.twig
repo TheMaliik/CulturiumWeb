@@ -1,47 +1,25 @@
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
+    <title>{% block title %}Culturium{% endblock %}</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+    {% block metas %}
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
-        {# Inclure la bibliothèque Font Awesome #}
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-ixu6b+cK4xyGR1fJw77Cln+l0kKcj/uTfDUIeGUa5sDS7yqQKqPB2Pc3zRGmuVX7AeB3JI96jXFkgRi/1v9Ykg==" crossorigin="anonymous" />
+    {% endblock %}
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+<body {% block bodyclass %}class="" {% endblock %}>
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-             <link rel="stylesheet" href="{{ asset('css/.error-messages.css') }}">
-        {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}
-            <header>
-                <nav>
-                    <ul>
-                        <li><a href="{{ path('app_homepage') }}">Accueil</a></li>
-                        <li><a href="{{ path('app_museum_index') }}">Musées</a></li>
-                        <li><a href="{{ path('app_event_index') }}">Événements</a></li>
-                        <!-- Formulaire de recherche avec une icône de recherche -->
-                        <li>
-                            <form action="{{ path('app_museum_search') }}" method="GET">
-                                <input type="text" name="search" placeholder="Rechercher...">
-                                <button type="submit"><i class="fas fa-search"></i></button>
-                            </form>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-
-            <main>
-                {% block content %}{% endblock %}
-            </main>
-
-            <footer>
-                <!-- Ajoutez le contenu du pied de page ici -->
-            </footer>
-        {% endblock %}
-    </body>
+{% block impersionate %}
+    {% if is_granted('IS_IMPERSONATOR') %}
+        <div class="alert alert-warning" style="margin-bottom: 0;">
+            {{ "backend.global.you_are_logged"|trans }} : {{ app.user.username }}
+            <a href="{{ path('app_admin_index',{'_switch_user':'_exit'}) }}">{{ "backend.global.leave_impersonate"|trans }}</a>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block body %}{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
 </html>
