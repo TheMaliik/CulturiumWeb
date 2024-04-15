@@ -42,13 +42,7 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_panier_show', methods: ['GET'])]
-    public function show(Panier $panier): Response
-    {
-        return $this->render('panier/show.html.twig', [
-            'panier' => $panier,
-        ]);
-    }
+    
 
     #[Route('/{id}/edit', name: 'app_panier_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Panier $panier, EntityManagerInterface $entityManager): Response
@@ -68,14 +62,19 @@ class PanierController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_panier_delete', methods: ['POST'])]
-    public function delete(Request $request, Panier $panier, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$panier->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($panier);
+    #[Route('/{id}/delete', name: 'app_panier_delete')]
+    public function delete($id, PanierRepository $repository,EntityManagerInterface $entityManager)
+        {
+            $Panier = $repository->find($id);
+    
+            if (!$Panier) {
+                throw $this->createNotFoundException('Auteur non trouvé');
+            }
+    
+            // Utilisez l'EntityManager (via $entityManager) pour supprimer l'entité
+            $entityManager->remove($Panier);
             $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_panier_index', [], Response::HTTP_SEE_OTHER);
-    }
+    
+            return $this->redirectToRoute('app_panier_index');
+        }  
 }

@@ -6,7 +6,7 @@ use App\Entity\Commande;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 class CommandeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -14,7 +14,14 @@ class CommandeType extends AbstractType
         $builder
             ->add('contenue')
             ->add('montantTotale')
-            ->add('status')
+            ->add('status', ChoiceType::class, [
+                'choices' => [
+                    'Livrée' => 'Livrée',
+                    'Pas_Livrée' => 'Pas_Livrée',
+                    
+                ],
+            ])
+
         ;
     }
 
