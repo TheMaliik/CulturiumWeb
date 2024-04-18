@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adresse index{% endblock %}
+
+{% block body %}
+    <h1>Adresses List</h1>
+
+    {# Afficher le formulaire de recherche #}
+    <form id="search-form" method="post">
+        {{ form_row(form.search) }}
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Idcommande</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Codepostal</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="adresse-list">
+            {% for adresse in adresses %}
+                <tr>
+                    <td>{{ adresse.id }}</td>
+                    <td>{{ adresse.idcommande }}</td>
+                    <td>{{ adresse.adresse }}</td>
+                    <td>{{ adresse.ville }}</td>
+                    <td>{{ adresse.codepostal }}</td>
+                    <td>
+                        <a href="{{ path('app_adresse_show', {'id': adresse.id}) }}">Afficher</a>
+                        <a href="{{ path('app_adresse_edit', {'id': adresse.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">Aucun enregistrement trouvé</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    
+
+
+    <a href="{{ path('app_adresse_new') }}">Créer une nouvelle adresse</a>
+
+    <script>
+       // Écoute des changements dans le champ de recherche
+var searchInput = document.getElementById('adresse_search_search');
+searchInput.addEventListener('input', function() {
+    var searchTerm = this.value.trim(); // Récupère la valeur du champ de recherche et retire les espaces vides
+    var url = '{{ path('app_adresse_search') }}?searchTerm=' + searchTerm;
+
+    // Envoi de la requête AJAX pour récupérer les résultats de la recherche
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('adresse-list').innerHTML = data;
+        });
+});
+
+  
+    </script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Livraison{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Livraison</h1>
+
+    {% if form is defined %}
+        {{ form_start(form) }}
+            {{ form_row(form.dateDeLivraison) }}
+            {{ form_row(form.statut) }}
+            {{ form_row(form.depot) }}
+             {{ form_row(form.adresse) }}
+
+            <button type="submit">Créer</button>
+        {{ form_end(form) }}
+    {% else %}
+        <p>Votre livraison a été créée avec succès.</p>
+        <a href="{{ path('livraison_index') }}">Retour à la liste</a>
+    {% endif %}
+{% endblock %}

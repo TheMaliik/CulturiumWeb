@@ -1,0 +1,16 @@
+{% for livraison in livraisons %}
+    <tr>
+        <td>{{ livraison.id }}</td>
+        <td>{{ livraison.dateDeLivraison|date('d/m/Y') }}</td>
+        <td>{{ livraison.statut }}</td>
+        <td>{{ livraison.depot }}</td>
+        <td>
+            <a href="{{ path('livraison_show', {'id': livraison.id}) }}">Afficher</a>
+            <a href="{{ path('livraison_edit', {'id': livraison.id}) }}">Modifier</a>
+        </td>
+    </tr>
+{% else %}
+    <tr>
+        <td colspan="5">Aucune livraison trouvée</td>
+    </tr>
+{% endfor %}

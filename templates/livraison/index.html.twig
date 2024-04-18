@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Livraisons{% endblock %}
+
+{% block body %}
+    <h1>Liste des Livraisons</h1>
+
+    {# Afficher le formulaire de recherche #}
+    <form id="search-form" method="post">
+        {{ form_row(form.search) }}
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Date de Livraison</th>
+                <th>Statut</th>
+                <th>Dépôt</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="livraison-list">
+            {% for livraison in livraisons %}
+                <tr>
+                    <td>{{ livraison.id }}</td>
+                    <td>{{ livraison.dateDeLivraison|date('d/m/Y') }}</td>
+                    <td>{{ livraison.statut }}</td>
+                    <td>{{ livraison.depot }}</td>
+                    <td>
+                        <a href="{{ path('livraison_show', {'id': livraison.id}) }}">Afficher</a>
+                        <a href="{{ path('livraison_edit', {'id': livraison.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucune livraison trouvée</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('livraison_new') }}">Créer une nouvelle livraison</a>
+
+    <script>
+        // Écoute des changements dans le champ de recherche
+        var searchInput = document.getElementById('livraison_search_search');
+        searchInput.addEventListener('input', function() {
+            var searchTerm = this.value.trim(); // Récupère la valeur du champ de recherche et retire les espaces vides
+            var url = '{{ path('livraison_search') }}?searchTerm=' + searchTerm;
+
+            // Envoi de la requête AJAX pour récupérer les résultats de la recherche
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('livraison-list').innerHTML = data;
+                });
+        });
+    </script>
+{% endblock %}

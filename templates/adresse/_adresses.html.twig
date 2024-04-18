@@ -1,0 +1,17 @@
+{% for adresse in adresses %}
+    <tr>
+        <td>{{ adresse.id }}</td>
+        <td>{{ adresse.idcommande }}</td>
+        <td>{{ adresse.adresse }}</td>
+        <td>{{ adresse.ville }}</td>
+        <td>{{ adresse.codepostal }}</td>
+        <td>
+            <a href="{{ path('app_adresse_show', {'id': adresse.id}) }}">Afficher</a>
+            <a href="{{ path('app_adresse_edit', {'id': adresse.id}) }}">Modifier</a>
+        </td>
+    </tr>
+{% else %}
+    <tr>
+        <td colspan="6">Aucun enregistrement trouvé</td>
+    </tr>
+{% endfor %}
