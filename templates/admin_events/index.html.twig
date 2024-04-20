@@ -124,7 +124,7 @@
                 <th>NbrPlaceDispo</th>
                 <th>Lieu</th>
                 <th>Note</th>
-                <th>actions</th>
+                <th>id_musee</th>
             </tr>
         </thead>
         <tbody>
@@ -138,6 +138,8 @@
                 <td>{{ event.nbrPlaceDispo }}</td>
                 <td>{{ event.lieu }}</td>
                 <td>{{ event.note }}</td>
+                <td>{{ event.IdMusee }}</td>
+
                 <td>
 
                 <a href="{{ path('app_admin_events_show', {'ide': event.ide}) }}" class="btn btn-info btn-xs">Show</a>

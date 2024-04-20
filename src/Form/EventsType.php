@@ -46,7 +46,10 @@ class EventsType extends AbstractType
         ->add('date')
         ->add('nbrPlaceDispo')
         ->add('lieu')
-        ->add('note');
+        ->add('note')
+        ->add('idMusee');
+
+        
     }
 
     public function configureOptions(OptionsResolver $resolver): void

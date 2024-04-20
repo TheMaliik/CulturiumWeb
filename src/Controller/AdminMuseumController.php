@@ -51,7 +51,7 @@ class AdminMuseumController extends AbstractController
                 return $this->renderForm('admin_museum/new.html.twig', [
                     'museum' => $museum,
                     'form' => $form,
-                ]);
+                ]);     
             }
             
             $entityManager->persist($museum);

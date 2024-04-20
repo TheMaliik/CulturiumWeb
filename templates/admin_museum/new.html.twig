@@ -113,11 +113,11 @@
         {% block contenpage %}
          <h1>Create new Museum</h1>
 
-    {% for message in app.flashes('error') %}
-        <div class="alert alert-danger" role="alert">
-            {{ message }}
-        </div>
-    {% endfor %}
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
 
     {{ include('admin_museum/_form.html.twig') }}
 
