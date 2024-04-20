@@ -1,0 +1,18 @@
+{# templates/user/update.html.twig #}
+
+{% extends 'adminbase.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Register</h1>
+    {{ form_start(registration_form) }}
+        {{ form_row(registration_form.fullname) }}
+        {{ form_row(registration_form.email) }}
+        {{ form_row(registration_form.mdp) }}
+        {{ form_row(registration_form.tel) }}
+        {{ form_row(registration_form.image) }}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    {{ form_end(registration_form) }}
+
+{% endblock %}

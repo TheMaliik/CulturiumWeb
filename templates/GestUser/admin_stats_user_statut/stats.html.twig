@@ -1,0 +1,62 @@
+{# templates/admin_stats_user_statut/stats.html.twig #}
+
+{% extends "GestUser/admin/bars.html.twig" %}
+
+{% block contenpage %}
+    <div class="">
+       
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                   
+                <h1>User Status Statistics</h1>
+
+    <canvas id="userStatusChart" height="120"></canvas> <!-- Canvas element for the chart -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
+
+    <script>
+        // Get the data passed from the controller
+        const totalUsers = {{ totalUsers }};
+        const approvedUsers = {{ approvedUsers }};
+        const blockedUsers = {{ blockedUsers }};
+
+        // Set up the data for the chart
+        const ctx = document.getElementById('userStatusChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Total Users', 'Approved Users', 'Blocked Users'],
+                datasets: [{
+                    label: 'User Status',
+                    data: [totalUsers, approvedUsers, blockedUsers],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)', // Total Users color
+                        'rgba(54, 162, 235, 0.2)', // Approved Users color
+                        'rgba(255, 206, 86, 0.2)', // Blocked Users color
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

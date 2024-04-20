@@ -42,13 +42,9 @@ class UserController extends AbstractController
 
 
 
-    #[Route('/register', name: 'app_registerr')]
-public function register(
-    Request $request,
-    UserRepository $userRepository,
-    LoggerInterface $logger,
-    FlashBagInterface $flashBag
-): Response {
+#[Route('/register', name: 'app_registerr')]
+public function register(Request $request, UserRepository $userRepository,LoggerInterface $logger, FlashBagInterface $flashBag): Response 
+{
     $user = new User();
     $form = $this->createForm(RegisterUserType::class, $user);
     $form->handleRequest($request);
@@ -102,7 +98,7 @@ public function register(
                 $toNumber = $user->getTel();
                 $fromNumber = '+12563650805';
         
-                $message = $twilioClient->messages->create(
+                $message = $this->twilioClient->messages->create(
                     $toNumber,
                     [
                         'from' => $fromNumber,
@@ -119,7 +115,7 @@ public function register(
             return $this->redirectToRoute('login');
         }
 
-        return $this->render('user/register.html.twig', [
+        return $this->render('GestUser/user/register.html.twig', [
             'registration_form' => $form->createView(),
         ]);
     }
@@ -132,9 +128,9 @@ public function register(
 
 
 
-    #[Route('/users', name: 'user_list')]
-    public function userList(Request $request, UserRepository $userRepository): Response
-    {
+#[Route('/users', name: 'user_list')]
+public function userList(Request $request, UserRepository $userRepository): Response
+{
         // Get the sort option from the request query parameters
         $sortBy = $request->query->get('sort');
         
@@ -147,29 +143,20 @@ public function register(
         }
         
         // Render the template and pass the users to it
-        return $this->render('user/user_list.html.twig', [
+        return $this->render('GestUser/user/user_list.html.twig', [
             'users' => $users,
         ]);
-    }
+}
     
 
 
 
 
-/*
-    #[Route('/users', name: 'user_list')]
-    public function userList(): Response
-    {
-        // Fetch all users from the database
-        $userRepository = $this->managerRegistry->getRepository(User::class);
-        $users = $userRepository->findAll();
 
-        // Render the template and pass the users to it
-        return $this->render('user/user_list.html.twig', [
-            'users' => $users,
-        ]);
-    }
-*/
+
+
+
+
 
 
 
@@ -197,7 +184,7 @@ public function register(
             return $this->redirectToRoute('UserDashboard');
         }
 
-        return $this->render('user/update.html.twig', [
+        return $this->render('GestUser/user/update.html.twig', [
             'user' => $user,
             'registration_form' => $form->createView(),
         ]);
@@ -209,33 +196,20 @@ public function register(
 
 
     #[Route('/user/{id}/updateAdmin', name: 'update_userAdmin')]
-    public function updateUserAdmin(Request $request, int $id): Response
+    public function updateUserAdmin(int $id): Response
     {
-        $entityManager = $this->getDoctrine()->getManager();
         $userRepository = $this->getDoctrine()->getRepository(User::class);
-
+    
         $user = $userRepository->find($id);
         if (!$user) {
             throw $this->createNotFoundException('User not found');
         }
-
-        $form = $this->createForm(RegisterUserType::class, $user);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
-
-            $this->addFlash('success', 'User updated successfully.');
-
-            return $this->redirectToRoute('adminDashboard');
-        }
-
-        return $this->render('user/updateAdmin.html.twig', [
+    
+        return $this->render('GestUser/user/updateAdmin.html.twig', [
             'user' => $user,
-            'registration_form' => $form->createView(),
         ]);
     }
-
+    
 
 
 
@@ -290,12 +264,13 @@ public function register(
 
 
 
-// Tri recherche ........
+
+    // Tri recherche ........
 public function sortByEmail(UserRepository $userRepository): Response
     {
         $users = $userRepository->findAllSortedByEmail();
 
-        return $this->render('user/search.html.twig', [
+        return $this->render('GestUser/user/search.html.twig', [
             'users' => $users,
         ]);
     }
@@ -347,7 +322,7 @@ public function updateUser(Request $request, int $id): Response
         return $this->redirectToRoute('UserDashboard', ['id' => $user->getId()]);
     }
 
-    return $this->render('user/user_Card.html.twig', [
+    return $this->render('GestUser/user/user_Card.html.twig', [
         'user' => $user,
         'registration_form' => $form->createView(),
     ]);
@@ -358,9 +333,9 @@ public function updateUser(Request $request, int $id): Response
 
 
 // Ban User
-    #[Route('/user/{id}/Ban', name: 'ban_user', methods: ['POST'])]
-    public function banUser(int $id, Request $request): Response
-    {
+#[Route('/user/{id}/Ban', name: 'ban_user', methods: ['POST'])]
+public function banUser(int $id, Request $request): Response
+{
         $entityManager = $this->getDoctrine()->getManager();
         $user = $entityManager->getRepository(User::class)->find($id);
 
@@ -375,7 +350,7 @@ public function updateUser(Request $request, int $id): Response
 
         // Redirect back to the user list
         return $this->redirectToRoute('login');
-    }
+}
 
 
 
@@ -399,7 +374,7 @@ public function updateUser(Request $request, int $id): Response
               $users = $userRepository->findAll();
           }
 
-        return $this->render('/user/usertest.html.twig', ['users' => $users]);
+        return $this->render('GestUser/user/usertest.html.twig', ['users' => $users]);
     }
 
 
@@ -416,7 +391,7 @@ public function updateUser(Request $request, int $id): Response
         $users = $userRepository->findAll();
 
         // Render the PDF template with user data
-        $html = $this->renderView('user/user_list_pdf.html.twig', [
+        $html = $this->renderView('GestUser/user/user_list_pdf.html.twig', [
             'users' => $users,
         ]);
 

@@ -37,7 +37,7 @@ class AdminStatsUserStatutController extends AbstractController
       $blockedUsers = $userRepository->countBlockedUsers();
 
       // Passer les données au template pour affichage
-      return $this->render('admin_stats_user_statut/stats.html.twig', [
+      return $this->render('GestUser/admin_stats_user_statut/stats.html.twig', [
           'totalUsers' => $totalUsers,
           'approvedUsers' => $approvedUsers,
           'blockedUsers' => $blockedUsers,

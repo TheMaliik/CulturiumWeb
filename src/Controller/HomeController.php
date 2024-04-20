@@ -16,7 +16,7 @@ class HomeController extends AbstractController
     {
         
         
-        return $this->render('admin/bars.html.twig'
+        return $this->render('GestUser/admin/bars.html.twig'
         );
     }
     
@@ -37,7 +37,7 @@ class HomeController extends AbstractController
         $user = $userRepository->find($id);
 
         // Render the template, passing the user entity
-        return $this->render('user/UserDashboard.html.twig', [
+        return $this->render('GestUser/user/UserDashboard.html.twig', [
             'user' => $user,
         ]);
     }
