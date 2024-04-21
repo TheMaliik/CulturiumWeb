@@ -1,0 +1,48 @@
+<h2>Recherche Musées by name</h2>
+
+<form method="POST">
+      <input type="text" name="name">
+      <input type="submit" value="recherche">
+</form>
+
+<h1 class="mb-4">Liste des Musées</h1>
+
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Localisation</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for museum in museums %}
+                                <tr>
+                                    <td>{{ museum.idm }}</td>
+                                    <td>{{ museum.name }}</td>
+                                    <td>
+                                        {% if museum.image %}
+                                            <img src="{{ asset('images/museum/' ~ museum.image) }}" alt="{{ museum.name }}" class="img-thumbnail" style="max-height: 100px;">
+                                        {% else %}
+                                            Aucune image disponible
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ museum.description }}</td>
+                                    <td>{{ museum.localisation }}</td>
+                                    <td>
+                                        <a href="{{ path('app_admin_museum_show', {'idm': museum.idm}) }}" class="btn btn-info btn-sm">Voir</a>
+                                        <a href="{{ path('app_admin_museum_edit', {'idm': museum.idm}) }}" class="btn btn-primary btn-sm">Modifier</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="6">Aucun enregistrement trouvé</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>    

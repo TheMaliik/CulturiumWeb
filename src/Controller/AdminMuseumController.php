@@ -103,4 +103,21 @@ class AdminMuseumController extends AbstractController
 
         return $this->redirectToRoute('app_admin_museum_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    public function rechercheByNameAction(Request $request)
+{
+    $em = $this->getDoctrine()->getManager();
+    $museums = []; // Initialisez une nouvelle variable pour stocker les résultats de la recherche
+    if($request->isMethod("POST"))
+    {
+        $name = $request->get('name');
+        dump("Nom recherché : " . $name); // Afficher le nom recherché
+        $museums = $em->getRepository(Museum::class)->findBy(['name' => $name], ['name' => 'ASC']);
+        dump("Résultats de la recherche : ", $museums); // Afficher les résultats de la recherche
+    }
+    return $this->render('admin_museum/index.html.twig', ['museum' => $museums]);
+}
+
+
+    
 }

@@ -33,4 +33,9 @@ admin_dashboard:
     path: '/admin/adminDashboard'
     controller: 'App\Controller\HomeBackController::index'
 
+admin_recherche:
+    path: '/admin/museum/'
+    controller: 'App\Controller\HomeBackController::RechercheByName'
+    methods: ['POST']
+
 

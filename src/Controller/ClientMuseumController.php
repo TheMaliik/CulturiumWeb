@@ -47,4 +47,19 @@ class ClientMuseumController extends AbstractController
     {
         return $this->render('client_museum/gallery4.html.twig');
     }
+    #[Route('/events1.1', name: 'events1.1')]
+    public function index5(): Response
+    {
+        return $this->render('client_museum/events1.1.html.twig');
+    }
+    #[Route('/events1.2', name: 'events1.2')]
+    public function index6(): Response
+    {
+        return $this->render('client_museum/events1.2.html.twig');
+    }
+    #[Route('/events1.3', name: 'events1.3')]
+    public function index7(): Response
+    {
+        return $this->render('client_museum/events1.3.html.twig');
+    }
 }

@@ -93,6 +93,15 @@
         {% endfor %}
 
         {% block contenpage %}
+
+            <!-- /Metier Recherche -->
+
+            <h2>Recherche de Musées</h2>
+
+            <form method="POST">
+                <input type="text" name="name">
+                <button type="submit">Rechercher</button>
+            </form>
             <div class="container-fluid">
                 <h1 class="mb-4">Liste des Musées</h1>
 
@@ -101,7 +110,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Nom</th>
+                                <th scope="col">name</th>
                                 <th scope="col">Image</th>
                                 <th scope="col">Description</th>
                                 <th scope="col">Localisation</th>
