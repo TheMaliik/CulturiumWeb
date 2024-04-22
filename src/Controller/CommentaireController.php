@@ -96,6 +96,36 @@ class CommentaireController extends AbstractController
         }
     
         // If the order is not valid, redirect to the comment index page
+        return $this->redirectToRoute('app_commentaire_search');
+    }
+    #[Route('/com/search', name: 'app_coms_search', methods: ['GET'])]
+public function search(Request $request, ComRepository $comRepository): Response
+{
+    $searchQuery = $request->query->get('search');
+
+    // Perform search query using repository method
+    if (is_numeric($searchQuery)) {
+        // Search by post ID
+        $coms = $comRepository->findBy(['id' => $searchQuery]);
+    } else {
+        // Search by title
+        $coms = $comRepository->findBy(['descreption' => $searchQuery]);
+    }
+
+    if ($coms) {
+        // If posts are found, render the template with the selected posts
+        return $this->render('commentaire/index.html.twig', [
+            'blogComs' => $coms,
+            'searchQuery' => $searchQuery,
+        ]);
+    } else {
+        // If no posts are found, set a flash message and redirect back to the index page
+        $this->addFlash('error', 'No coms found with the search : "' . $searchQuery . '".');
         return $this->redirectToRoute('app_commentaire_index');
     }
 }
+   
+ 
+}
+    
+

@@ -116,5 +116,31 @@ class PostController extends AbstractController
         // If the order is not valid, redirect to the post index page
         return $this->redirectToRoute('app_post_index');
     }
+    #[Route('/posts/search', name: 'app_posts_search', methods: ['GET'])]
+    public function search(Request $request, PostRepository $postRepository): Response
+    {
+        $searchQuery = $request->query->get('search');
     
-}
+        // Perform search query using repository method
+        if (is_numeric($searchQuery)) {
+            // Search by post ID
+            $posts = $postRepository->findBy(['id' => $searchQuery]);
+        } else {
+            // Search by title
+            $posts = $postRepository->findBy(['titre' => $searchQuery]);
+        }
+    
+        if ($posts) {
+            // If posts are found, render the template with the selected posts
+            return $this->render('post/index.html.twig', [
+                'blogPosts' => $posts,
+                'searchQuery' => $searchQuery,
+            ]);
+        } else {
+            // If no posts are found, set a flash message and redirect back to the index page
+            $this->addFlash('error', 'No posts found with the search : "' . $searchQuery . '".');
+            return $this->redirectToRoute('app_post_index');
+        }
+        
+        
+    }}

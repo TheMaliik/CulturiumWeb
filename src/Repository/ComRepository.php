@@ -19,8 +19,7 @@ class ComRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Commentaire::class);
-    }
-
+    }}
 //    /**
 //     * @return Commentaire[] Returns an array of Commentaire objects
 //     */
@@ -45,4 +44,3 @@ class ComRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
