@@ -38,4 +38,11 @@ admin_recherche:
     controller: 'App\Controller\HomeBackController::RechercheByName'
     methods: ['POST']
 
+pdf_generate:
+    path: '/pdf'
+    controller: 'App\Controller\PdfController::generatePdf'
 
+app_pdf:
+    path: /pdf
+    controller: App\Controller\PdfController::generatePdf
+    methods: [GET]

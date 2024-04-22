@@ -50,16 +50,81 @@ class ClientMuseumController extends AbstractController
     #[Route('/events1.1', name: 'events1.1')]
     public function index5(): Response
     {
-        return $this->render('client_museum/events1.1.html.twig');
+        return $this->render('client_museum/events/events1.1.html.twig');
     }
     #[Route('/events1.2', name: 'events1.2')]
     public function index6(): Response
     {
-        return $this->render('client_museum/events1.2.html.twig');
+        return $this->render('client_museum/events/events1.2.html.twig');
     }
     #[Route('/events1.3', name: 'events1.3')]
     public function index7(): Response
     {
-        return $this->render('client_museum/events1.3.html.twig');
+        return $this->render('client_museum/events/events1.3.html.twig');
     }
+    #[Route('/events2.1', name: 'events2.1')]
+    public function index8(): Response
+    {
+        return $this->render('client_museum/events/events2.1.html.twig');
+    }
+    #[Route('/events2.2', name: 'events2.2')]
+    public function index9(): Response
+    {
+        return $this->render('client_museum/events/events2.2.html.twig');
+    }
+    #[Route('/events2.3', name: 'events2.3')]
+    public function index10(): Response
+    {
+        return $this->render('client_museum/events/events2.3.html.twig');
+    }
+    #[Route('/events3.1', name: 'events3.1')]
+    public function index11(): Response
+    {
+        return $this->render('client_museum/events/events3.1.html.twig');
+    }
+    #[Route('/events3.2', name: 'events3.2')]
+    public function index12(): Response
+    {
+        return $this->render('client_museum/events/events3.2.html.twig');
+    }
+    #[Route('/events3.3', name: 'events3.3')]
+    public function index13(): Response
+    {
+        return $this->render('client_museum/events/events3.3.html.twig');
+    }
+    #[Route('/events4.1', name: 'events4.1')]
+    public function index14(): Response
+    {
+        return $this->render('client_museum/events/events4.1.html.twig');
+    }
+    #[Route('/events4.2', name: 'events4.2')]
+    public function index15(): Response
+    {
+        return $this->render('client_museum/events/events4.2.html.twig');
+    }
+    #[Route('/events4.3', name: 'events4.3')]
+    public function index16(): Response
+    {
+        return $this->render('client_museum/events/events4.3.html.twig');
+    }
+    #[Route('/events5.1', name: 'events5.1')]
+    public function index17(): Response
+    {
+        return $this->render('client_museum/events/events5.1.html.twig');
+    }
+    #[Route('/events5.2', name: 'events5.2')]
+    public function index18(): Response
+    {
+        return $this->render('client_museum/events/events5.2.html.twig');
+    }
+    #[Route('/events5.3', name: 'events5.3')]
+    public function index19(): Response
+    {
+        return $this->render('client_museum/events/events5.3.html.twig');
+    }
+    #[Route('/pdf1.1', name: 'pdf1.1')]
+    public function index20(): Response
+    {
+        return $this->render('client_museum/PDF/pdf1.1.html.twig');
+}
 }
