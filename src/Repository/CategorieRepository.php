@@ -13,5 +13,14 @@ class CategorieRepository extends ServiceEntityRepository
         parent::__construct($registry, Categorie::class);
     }
 
+    public function findByTypeOeuvre($typeOeuvre)
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.typeOeuvre = :typeOeuvre')
+            ->setParameter('typeOeuvre', $typeOeuvre)
+            ->getQuery()
+            ->getResult();
+    }
+
     // Add custom repository methods here
 }

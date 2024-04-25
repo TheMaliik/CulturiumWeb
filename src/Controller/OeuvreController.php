@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use App\Repository\CategorieRepository;
 
 
 #[Route('/oeuvre')]
@@ -20,10 +21,11 @@ class OeuvreController extends AbstractController
 
     
     #[Route('/', name: 'app_oeuvre_index', methods: ['GET'])]
-    public function index(OeuvreRepository $oeuvreRepository): Response
+    public function index(OeuvreRepository $oeuvreRepository , CategorieRepository $categorieRepository): Response
     {
         return $this->render('oeuvre/index.html.twig', [
             'oeuvres' => $oeuvreRepository->findAll(),
+            'categories' => $categorieRepository->findAll(),
         ]);
     }
 
@@ -183,6 +185,31 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
 
         return $this->redirectToRoute('app_oeuvre_indexadmin', [], Response::HTTP_SEE_OTHER);
     }
+
+    // Controller method to handle AJAX request for filtered oeuvres
+    #[Route('/filter-oeuvres', name: 'app_filter_oeuvres', methods: ['GET'])]
+    public function filterOeuvres(Request $request, OeuvreRepository $oeuvreRepository): JsonResponse
+    {
+        $categoryId = $request->query->get('categoryId');
+        $oeuvres = $oeuvreRepository->findBy(['typeOeuvre' => $categoryId]);
+    
+        $data = [];
+        foreach ($oeuvres as $oeuvre) {
+            $data[] = [
+                'id' => $oeuvre->getId(),
+                'nomArtiste' => $oeuvre->getNomArtiste(),
+                'image' => $oeuvre->getImage(),
+                // Add other fields as needed
+            ];
+        }
+    
+        return new JsonResponse($data);
+
+        
+    }
+    
+
+
 
    
 

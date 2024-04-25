@@ -1,17 +1,13 @@
 {% extends "base_front.html.twig" %}
 
-{% block title %}Oeuvre index
-{% endblock %}
+{% block title %}Oeuvre index{% endblock %}
 
 {% block body %}
 
 <style>
-
-
-
-.wrap-text {
-    word-wrap: break-word;
-}
+    .wrap-text {
+        word-wrap: break-word;
+    }
     .shop_item_container {
         display: flex;
         justify-content: center;
@@ -19,59 +15,71 @@
         height: 100vh; /* Adjust this if needed */
     }
 </style>
-<script>
-    // JavaScript code to submit the form when a key is pressed
-    document.addEventListener('DOMContentLoaded', function() {
-        const searchInput = document.querySelector('input[name="q"]');
-        
-        searchInput.addEventListener('input', function() {
-            this.form.submit();
-        });
-    });
-</script>
+
 <form action="{{ path('app_oeuvre_index_s') }}" method="get">
-  <input type="text" name="q" placeholder="Search..." value="{{ searchTerm ?? '' }}">
+    <input type="text" name="q" placeholder="Search..." value="{{ searchTerm ?? '' }}">
     <!-- Add a hidden submit button to trigger form submission -->
     <input type="submit" style="display: none;">
 </form>
 
+<select id="categoryFilter">
+    <option value="">Select a Category</option>
+    {% for categorie in categories %}
+        <option value="{{ categorie.typeOeuvre }}">{{ categorie.typeOeuvre }}</option>
+    {% endfor %}
+</select>
+
 {% for oeuvre in oeuvres %}
-<div class="shop_item_container">
-    <article id="post-409" data-post-id="409" class="post_item post_layout_excerpt post_format_standard post-409 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-relevant-art tag-art tag-artist tag-entertainment" data-animation="animated fadeIn normal">
-        <div class="post_featured with_thumb hover_view">
-            <img width="770" height="433" src="{{ asset(oeuvre.image) }}"  class="attachment-ozeum-thumb-big size-ozeum-thumb-big wp-post-image" alt="" decoding="async"  sizes="(max-width: 770px) 100vw, 770px">
-            <div class="mask"></div>
-            <a href="../how-to-start-your-own-art-collection/index.htm" aria-hidden="true" class="view">
-                <span>{{ oeuvre.prix }}</span>
-            </a>
-        </div>
-        <div class="post_header entry-header">
-            <h2 class="post_title entry-title">
-                <a href="../how-to-start-your-own-art-collection/index.htm" rel="bookmark">{{ oeuvre.nomArtiste }}</a>
-            </h2>
-            <div class="post_meta">
-                <span class="post_meta_item post_date">
-                  <a href="../how-to-start-your-own-art-collection/index.htm">{{ oeuvre.nomOeuvre }}</a>
-                    <a href="../how-to-start-your-own-art-collection/index.htm">{{ oeuvre.dateCreation ? oeuvre.dateCreation|date('Y-m-d') : '' }}</a>
-                   
-                </span>
-            </div><!-- .post_meta -->
-        </div><!-- .post_header -->
-       <div class="post_content_inner wrap-text">
-    {{ oeuvre.description }} </br>
-    &hellip;
-
-            <p>
-                <a class="more-link" href="../how-to-start-your-own-art-collection/index.htm">Read more</a>
-            </p>
-        </div><!-- .entry-content -->
-    </article>
-</div>
-
+    <div class="shop_item_container oeuvre-item" data-type="{{ oeuvre.typeOeuvre }}">
+        <article id="post-409" data-post-id="409" class="post_item post_layout_excerpt post_format_standard post-409 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-relevant-art tag-art tag-artist tag-entertainment" data-animation="animated fadeIn normal">
+            <div class="post_featured with_thumb hover_view">
+                <img width="770" height="433" src="{{ asset(oeuvre.image) }}" class="attachment-ozeum-thumb-big size-ozeum-thumb-big wp-post-image" alt="" decoding="async" sizes="(max-width: 770px) 100vw, 770px">
+                <div class="mask"></div>
+                <a href="../how-to-start-your-own-art-collection/index.htm" aria-hidden="true" class="view">
+                    <span>{{ oeuvre.prix }}</span>
+                </a>
+            </div>
+            <div class="post_header entry-header">
+                <h2 class="post_title entry-title">
+                    <a href="../how-to-start-your-own-art-collection/index.htm" rel="bookmark">{{ oeuvre.nomArtiste }}</a>
+                </h2>
+                <div class="post_meta">
+                    <span class="post_meta_item post_date">
+                        <a href="../how-to-start-your-own-art-collection/index.htm">{{ oeuvre.nomOeuvre }}</a>
+                        <a href="../how-to-start-your-own-art-collection/index.htm">{{ oeuvre.dateCreation ? oeuvre.dateCreation|date('Y-m-d') : '' }}</a>
+                    </span>
+                </div><!-- .post_meta -->
+            </div><!-- .post_header -->
+            <div class="post_content_inner wrap-text">
+                {{ oeuvre.description }} </br>
+                &hellip;
+                <p>
+                    <a class="more-link" href="../how-to-start-your-own-art-collection/index.htm">Read more</a>
+                </p>
+            </div><!-- .entry-content -->
+        </article>
+    </div>
 {% endfor %}
 
+<a href="{{ path('app_oeuvre_new') }}">Create new</a>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryFilter = document.getElementById('categoryFilter');
+        const oeuvreItems = document.querySelectorAll('.oeuvre-item');
 
+        categoryFilter.addEventListener('change', function() {
+            const selectedCategory = this.value;
 
-	<a href="{{ path('app_oeuvre_new') }}">Create new</a>
+            oeuvreItems.forEach(function(item) {
+                if (selectedCategory === '' || item.getAttribute('data-type') === selectedCategory) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
 {% endblock %}

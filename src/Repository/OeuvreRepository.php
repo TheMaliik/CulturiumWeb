@@ -25,5 +25,5 @@ public function searchByTerm(string $term): array
 }
 
 
-    // Add custom repository methods here
+  
 }
