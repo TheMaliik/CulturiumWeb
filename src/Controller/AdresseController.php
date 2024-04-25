@@ -122,16 +122,21 @@ class AdresseController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_adresse_delete', methods: ['POST'])]
-    public function delete(Request $request, Adresse $adresse, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$adresse->getId(), $request->request->get('_token'))) {
+    #[Route('/{id}/delete', name: 'app_adresse_delete')]
+    public function delete($id, AdresseRepository $repository,EntityManagerInterface $entityManager)
+        {
+            $adresse = $repository->find($id);
+    
+            if (!$adresse) {
+                throw $this->createNotFoundException('Auteur non trouvé');
+            }
+    
+            // Utilisez l'EntityManager (via $entityManager) pour supprimer l'entité
             $entityManager->remove($adresse);
             $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('app_adresse_index', [], Response::HTTP_SEE_OTHER);
-    }
+    
+            return $this->redirectToRoute('app_adresse_index');
+        }  
 
     #[Route('/export/excel', name: 'adresse_export_excel', methods: ['GET'])]
     public function exportToExcel(): Response
