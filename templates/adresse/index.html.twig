@@ -13,11 +13,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Idcommande</th>
-                <th>Adresse</th>
-                <th>Ville</th>
-                <th>Codepostal</th>
+               <th><a href="{{ path('app_adresse_index', {'sortBy': 'id', 'sortOrder': sortOrder}) }}">Id</a></th>
+                <th><a href="{{ path('app_adresse_index', {'sortBy': 'idcommande', 'sortOrder': sortOrder}) }}">Idcommande</a></th>
+                <th><a href="{{ path('app_adresse_index', {'sortBy': 'adresse', 'sortOrder': sortOrder}) }}">Adresse</a></th>
+                <th><a href="{{ path('app_adresse_index', {'sortBy': 'ville', 'sortOrder': sortOrder}) }}">Ville</a></th>
+                <th><a href="{{ path('app_adresse_index', {'sortBy': 'codepostal', 'sortOrder': sortOrder}) }}">Codepostal</a></th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -42,7 +42,10 @@
         </tbody>
     </table>
 
-    
+    <a href="{{ path('adresse_export_pdf') }}">Exporter vers PDF</a>
+            <a href="{{ path('adresse_export_excel') }}" class="btn btn-primary">Exporter vers Excel</a>
+
+
 
 
     <a href="{{ path('app_adresse_new') }}">Créer une nouvelle adresse</a>

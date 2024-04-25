@@ -12,13 +12,15 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>#</th>
-                <th>Date de Livraison</th>
-                <th>Statut</th>
-                <th>Dépôt</th>
-                <th>Actions</th>
-            </tr>
+             <tr>
+    <th><a href="{{ path('livraison_index', {'sortBy': 'id', 'sortOrder': sortOrder}) }}">Id</a></th>
+    <th><a href="{{ path('livraison_index', {'sortBy': 'dateDeLivraison', 'sortOrder': sortOrder}) }}">Date de livraison</a></th>
+    <th><a href="{{ path('livraison_index', {'sortBy': 'statut', 'sortOrder': sortOrder}) }}">Statut</a></th>
+    <th><a href="{{ path('livraison_index', {'sortBy': 'depot', 'sortOrder': sortOrder}) }}">Dépôt</a></th>
+  
+
+    <th>Actions</th>
+</tr>
         </thead>
         <tbody id="livraison-list">
             {% for livraison in livraisons %}
@@ -40,7 +42,11 @@
         </tbody>
     </table>
 
-    <a href="{{ path('livraison_new') }}">Créer une nouvelle livraison</a>
+    <a href="{{ path('livraison_new') }}" class="btn btn-primary mt-3">Créer une nouvelle livraison</a>
+ {# Lien pour exporter vers Excel #}
+    <a href="{{ path('livraison_export_excel') }}" class="btn btn-success">Exporter vers Excel</a>
+
+<a href="{{ path('livraison_export_pdf') }}">Exporter vers PDF</a>
 
     <script>
         // Écoute des changements dans le champ de recherche

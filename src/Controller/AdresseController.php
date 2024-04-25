@@ -3,7 +3,8 @@
 namespace App\Controller;
 
 use App\Form\AdresseSearchType;
-
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Entity\Adresse;
 use App\Form\AdresseType;
 use App\Repository\AdresseRepository;
@@ -12,28 +13,46 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 #[Route('/adresse')]
 class AdresseController extends AbstractController
 
 
+
 {
+    private $adresseRepository;
+
+    public function __construct(AdresseRepository $adresseRepository)
+    {
+        $this->adresseRepository = $adresseRepository;
+    }
     #[Route('/', name: 'app_adresse_index', methods: ['GET', 'POST'])]
     public function index(Request $request, AdresseRepository $adresseRepository): Response
     {
         $form = $this->createForm(AdresseSearchType::class);
         $form->handleRequest($request);
-
+        $sortOrder = $request->query->get('sortOrder', 'ASC'); // Récupérez l'ordre de tri depuis l'URL, avec ASC comme valeur par défaut
+    
+        // Définissez le champ de tri par défaut
+        $sortBy = $request->query->get('sortBy', 'id');
+        $orderBy = [$sortBy => $sortOrder];
+    
         if ($form->isSubmitted() && $form->isValid()) {
             $searchTerm = $form->get('search')->getData();
-            $adresses = $adresseRepository->findBySearchTerm($searchTerm);
+            $adresses = $adresseRepository->findBySearchTerm($searchTerm, $orderBy);
         } else {
-            $adresses = $adresseRepository->findAll();
+            $adresses = $adresseRepository->findBy([], [$sortBy => $sortOrder]); // Tri des adresses en fonction des paramètres de tri
         }
-
+    
         return $this->render('adresse/index.html.twig', [
             'form' => $form->createView(),
             'adresses' => $adresses,
+            'sortOrder' => $sortOrder === 'ASC' ? 'DESC' : 'ASC', // Inversez l'ordre de tri pour les prochains clics sur les liens de tri
         ]);
     }
 
@@ -114,7 +133,93 @@ class AdresseController extends AbstractController
         return $this->redirectToRoute('app_adresse_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    #[Route('/export/excel', name: 'adresse_export_excel', methods: ['GET'])]
+    public function exportToExcel(): Response
+    {
+        // Start output buffering
+        ob_start();
+        // Récupérer les adresses depuis le repository
+        $adresses = $this->adresseRepository->findAll();
+
+        // Créer un nouvel objet Spreadsheet
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+
+        // Ajouter des en-têtes de colonnes
+        $sheet->setCellValue('A1', 'ID');
+        $sheet->setCellValue('C1', 'Adresse');
+        $sheet->setCellValue('D1', 'Ville');
+        $sheet->setCellValue('E1', 'Code Postal');
+        $row = 2;
+
+        // Ajouter les données des adresses dans le fichier Excel
+        foreach ($adresses as $adresse) {
+            $sheet->setCellValue('A'.$row, $adresse->getId());
+            $sheet->setCellValue('C'.$row, $adresse->getAdresse());
+            $sheet->setCellValue('D'.$row, $adresse->getVille());
+            $sheet->setCellValue('E'.$row, $adresse->getCodePostal());
+            $row++;
+        }
+ // Create a Writer object for Excel
+ $writer = new Xlsx($spreadsheet);
+
+ // Save the Excel file content to the output buffer
+ $writer->save('php://output');
+
+ // Get the content from the output buffer
+ $content = ob_get_clean();
+
+ // Create an HTTP response with the Excel file content for download
+ $response = new StreamedResponse(function () use ($content) {
+     echo $content;
+ });
+
+ $disposition = $response->headers->makeDisposition(
+     ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+     'adresses.xlsx'
+ );
+ $response->headers->set('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+ $response->headers->set('Content-Disposition', $disposition);
+
+ return $response;
+}
   
-  
+    
+    
+    #[Route('/export/pdf', name: 'adresse_export_pdf', methods: ['GET'])]
+    public function exportToPdf(AdresseRepository $adresseRepository): Response
+    {
+        // Récupérer les adresses depuis le repository
+        $adresses = $adresseRepository->findAll();
+    
+        // Configuration de dompdf
+        $options = new Options();
+        $options->set('isHtml5ParserEnabled', true);
+    
+        // Création d'une instance de Dompdf
+        $dompdf = new Dompdf($options);
+    
+        // Génération du contenu HTML
+        $html = $this->renderView('adresse/pdf.html.twig', [
+            'adresses' => $adresses,
+        ]);
+    
+        // Chargement du contenu HTML dans Dompdf
+        $dompdf->loadHtml($html);
+    
+        // Réglages du papier et du format
+        $dompdf->setPaper('A4', 'landscape');
+    
+        // Génération du PDF
+        $dompdf->render();
+    
+        // Envoi du PDF en tant que réponse
+        $response = new Response($dompdf->output());
+        $response->headers->set('Content-Type', 'application/pdf');
+        $response->headers->set('Content-Disposition', 'attachment; filename="adresses.pdf"');
+    
+        return $response;
+    }
+    
     
 }

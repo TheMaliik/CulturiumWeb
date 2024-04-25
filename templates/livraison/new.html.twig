@@ -2,15 +2,20 @@
 
 {% block title %}Nouvelle Livraison{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% endblock %}
+
 {% block body %}
     <h1>Nouvelle Livraison</h1>
 
     {% if form is defined %}
         {{ form_start(form) }}
-            {{ form_row(form.dateDeLivraison) }}
+            {{ form_row(form.dateDeLivraison, {'attr': {'class': 'datepicker'}}) }}
             {{ form_row(form.statut) }}
             {{ form_row(form.depot) }}
-             {{ form_row(form.adresse) }}
+            {{ form_row(form.adresse) }}
 
             <button type="submit">Créer</button>
         {{ form_end(form) }}
@@ -18,4 +23,20 @@
         <p>Votre livraison a été créée avec succès.</p>
         <a href="{{ path('livraison_index') }}">Retour à la liste</a>
     {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {# Inclure jQuery #}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {# Inclure jQuery UI #}
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.datepicker').datepicker({
+                dateFormat: 'yy-mm-dd',
+                // Autres options de configuration du datepicker
+            });
+        });
+    </script>
 {% endblock %}
