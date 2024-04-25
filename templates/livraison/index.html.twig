@@ -1,66 +1,90 @@
-{% extends 'base.html.twig' %}
+{% extends 'livraison/bars.html.twig' %}
 
-{% block title %}Liste des Livraisons{% endblock %}
+{% block contenpage %}
+	<div class="">
+		<div class="page-title">
+			<div class="title_left">
+				<h5>
+					{{ "backend.user.listing"|trans }}
+				</h5>
+			</div>
+		</div>
 
-{% block body %}
-    <h1>Liste des Livraisons</h1>
+		<div class="clearfix"></div>
 
-    {# Afficher le formulaire de recherche #}
-    <form id="search-form" method="post">
-        {{ form_row(form.search) }}
-    </form>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							{{ "backend.user.user_listing"|trans }}</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li>
+								<a href="{{ path('livraison_new') }}" class="btn btn-success">NEW</a>
+                                <a href="{{ path('livraison_export_pdf') }}" class="btn btn-success">Pdf</a>
+                                <a href="{{ path('livraison_export_excel') }}" class="btn btn-success">Excel</a>
 
-    <table class="table">
-        <thead>
-             <tr>
-    <th><a href="{{ path('livraison_index', {'sortBy': 'id', 'sortOrder': sortOrder}) }}">Id</a></th>
-    <th><a href="{{ path('livraison_index', {'sortBy': 'dateDeLivraison', 'sortOrder': sortOrder}) }}">Date de livraison</a></th>
-    <th><a href="{{ path('livraison_index', {'sortBy': 'statut', 'sortOrder': sortOrder}) }}">Statut</a></th>
-    <th><a href="{{ path('livraison_index', {'sortBy': 'depot', 'sortOrder': sortOrder}) }}">Dépôt</a></th>
-  
+                                
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<div class="row">
+							<form  id="grpaction" method="post" name="grpaction">
+								<div class="form-group form-inline">
+									<select class="form-control" name="action" required id="action_select">
+										<option value="">
+											{{ "backend.user.group_actions"|trans }}</option>
+										<option value="{{"backend.user.deactivate"|trans }}">
+											{{ "backend.user.deactivate"|trans }}</option>
+										<option value="{{"backend.user.Activate"|trans }}">
+											{{ "backend.user.Activate"|trans }}</option>
+										<option value="{{"backend.user.delete"|trans }}">
+											{{ "backend.user.delete"|trans }}</option>
+									</select>
+									<button class="btn btn-primary" type="submit">Go!!</button>
+								</div>
 
-    <th>Actions</th>
-</tr>
-        </thead>
-        <tbody id="livraison-list">
-            {% for livraison in livraisons %}
-                <tr>
-                    <td>{{ livraison.id }}</td>
-                    <td>{{ livraison.dateDeLivraison|date('d/m/Y') }}</td>
-                    <td>{{ livraison.statut }}</td>
-                    <td>{{ livraison.depot }}</td>
-                    <td>
-                        <a href="{{ path('livraison_show', {'id': livraison.id}) }}">Afficher</a>
-                        <a href="{{ path('livraison_edit', {'id': livraison.id}) }}">Modifier</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="5">Aucune livraison trouvée</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('livraison_new') }}" class="btn btn-primary mt-3">Créer une nouvelle livraison</a>
- {# Lien pour exporter vers Excel #}
-    <a href="{{ path('livraison_export_excel') }}" class="btn btn-success">Exporter vers Excel</a>
-
-<a href="{{ path('livraison_export_pdf') }}">Exporter vers PDF</a>
-
-    <script>
-        // Écoute des changements dans le champ de recherche
-        var searchInput = document.getElementById('livraison_search_search');
-        searchInput.addEventListener('input', function() {
-            var searchTerm = this.value.trim(); // Récupère la valeur du champ de recherche et retire les espaces vides
-            var url = '{{ path('livraison_search') }}?searchTerm=' + searchTerm;
-
-            // Envoi de la requête AJAX pour récupérer les résultats de la recherche
-            fetch(url)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('livraison-list').innerHTML = data;
-                });
-        });
-    </script>
+							</form>
+							<table id="example" class="display table table-striped table-bordered dataminetables">
+								<thead>
+									<th><input type="checkbox" id="select_all" name="select_all"></th>
+									<th>{{ "Id"|trans }}</th>
+									<th>{{ "Date de livraison"|trans }}</th>
+									<th>{{ "Statut"|trans }}</th>
+                                    <th>{{ "Dépot"|trans }}</th>
+                                    <th>{{ "Adresse"|trans }}</th>
+									
+								</thead>
+								<tbody>
+									{% for livraison  in livraisons  %}
+										<tr>
+											<td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ livraison.id }}"></td>
+											<td>{{ livraison.id }}</td>
+											<td>{{ livraison.dateDeLivraison|date('d/m/Y') }}</td>
+											 <td>{{ livraison.statut }}</td>
+                                             <td>{{ livraison.depot }}</td>
+                                             <td>{{ livraison.adresse }}</td>
+											<td>
+												<a class="btn btn-primary" href="{{ path('livraison_edit',{'id': livraison.id}) }}">
+													<i class="fa fa-edit"></i>
+												</a>
+											</td>
+											
+											<td>
+												<a href="{{ path('livraison_delete', {'id': livraison.id}) }}" class="btn btn-danger disable-btn del-link" type="submit">
+													<i class="fa fa-trash"></i>
+												</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}

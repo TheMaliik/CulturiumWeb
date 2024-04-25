@@ -121,18 +121,21 @@ public function edit(Request $request, Livraison $livraison, EntityManagerInterf
 
 
 }
-
-#[Route('/{id}', name: 'livraison_delete', methods: ['POST'])]
-public function delete(Request $request, Livraison $livraison, EntityManagerInterface $entityManager): Response
-{
-    if ($this->isCsrfTokenValid('delete'.$livraison->getId(), $request->request->get('_token'))) {
-        $entityManager->remove($livraison);
-        $entityManager->flush();
-    }
-
-    return $this->redirectToRoute('livraison_index', [], Response::HTTP_SEE_OTHER);
-}
-
+#[Route('/{id}/delete', name: 'livraison_delete')]
+    public function delete($id, LivraisonRepository $repository,EntityManagerInterface $entityManager)
+        {
+            $livraison = $repository->find($id);
+    
+            if (!$livraison) {
+                throw $this->createNotFoundException('Livraison non trouvé');
+            }
+    
+            // Utilisez l'EntityManager (via $entityManager) pour supprimer l'entité
+            $entityManager->remove($livraison);
+            $entityManager->flush();
+    
+            return $this->redirectToRoute('livraison_index');
+        }  
 
 
 #[Route('/export/excel', name: 'livraison_export_excel', methods: ['GET'])]
