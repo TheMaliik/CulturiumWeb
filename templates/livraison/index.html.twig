@@ -65,7 +65,7 @@
 											<td>{{ livraison.dateDeLivraison|date('d/m/Y') }}</td>
 											 <td>{{ livraison.statut }}</td>
                                              <td>{{ livraison.depot }}</td>
-                                             <td>{{ livraison.adresse }}</td>
+                                             <td>{{ livraison.adresse.ville }}</td>
 											<td>
 												<a class="btn btn-primary" href="{{ path('livraison_edit',{'id': livraison.id}) }}">
 													<i class="fa fa-edit"></i>
