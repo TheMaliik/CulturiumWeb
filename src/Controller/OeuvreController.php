@@ -13,6 +13,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use App\Repository\CategorieRepository;
+use Endroid\QrCode\QrCode;
+
 
 
 #[Route('/oeuvre')]
@@ -23,11 +25,15 @@ class OeuvreController extends AbstractController
     #[Route('/', name: 'app_oeuvre_index', methods: ['GET'])]
     public function index(OeuvreRepository $oeuvreRepository , CategorieRepository $categorieRepository): Response
     {
+        
         return $this->render('oeuvre/index.html.twig', [
             'oeuvres' => $oeuvreRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
         ]);
     }
+  
+
+   
 
 #[Route('/ajax-search', name: 'app_oeuvre_ajax_search', methods: ['POST'])]
 public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository): JsonResponse
