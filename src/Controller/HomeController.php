@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Controller;
 
@@ -8,19 +8,14 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_homes')]
-    public function home(): Response
+    #[Route('/', name: 'app_home')]
+    public function index(): Response
     {
-        return new response('
-        <html>
-            <body>
-                <h1>Hello Symfony 5 World</h1>
-            </body>
-        </html>
-    ');
+        return $this->render('index.htm', [
+            'controller_name' => 'HomeController',
+        ]);
     }
 
-
+    
+   
 }
-
-?>
