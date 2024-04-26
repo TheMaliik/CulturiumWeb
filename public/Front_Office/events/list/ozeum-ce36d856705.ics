@@ -1,0 +1,215 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Ozeum - ECPv6.2.9//NONSGML v1.0//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-ORIGINAL-URL:https://ozeum.themerex.net
+X-WR-CALDESC:Events for Ozeum
+REFRESH-INTERVAL;VALUE=DURATION:PT1H
+X-Robots-Tag:noindex
+X-PUBLISHED-TTL:PT1H
+BEGIN:VTIMEZONE
+TZID:UTC
+BEGIN:STANDARD
+TZOFFSETFROM:+0000
+TZOFFSETTO:+0000
+TZNAME:UTC
+DTSTART:20230101T000000
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20240501
+DTEND;VALUE=DATE:20240519
+DTSTAMP:20240412T152246
+CREATED:20190606T084320Z
+LAST-MODIFIED:20191207T104832Z
+UID:690-1714521600-1716076799@ozeum.themerex.net
+SUMMARY:Pieter Bruegel The Elder
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/pieter-bruegel-the-elder/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Galleries
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/06/image-46-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20240410
+DTEND;VALUE=DATE:20240507
+DTSTAMP:20240412T152246
+CREATED:20190604T085223Z
+LAST-MODIFIED:20191207T155408Z
+UID:480-1712707200-1715039999@ozeum.themerex.net
+SUMMARY:Records & Rebels 1966-1970
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/records-rebels-1966-1970/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Invitation
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/06/image-45-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=UTC:20240320T080000
+DTEND;TZID=UTC:20240416T170000
+DTSTAMP:20240412T152246
+CREATED:20190531T081521Z
+LAST-MODIFIED:20191207T104953Z
+UID:283-1710921600-1713286800@ozeum.themerex.net
+SUMMARY:Jean Francois De Troy "Bathsheba At Her Toilet"
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/jean-francois-de-troy-bathsheba-at-her-toilet/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Exhibitions
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/06/image-42-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20240301
+DTEND;VALUE=DATE:20240320
+DTSTAMP:20240412T152246
+CREATED:20190604T085111Z
+LAST-MODIFIED:20191207T155523Z
+UID:478-1709251200-1710892799@ozeum.themerex.net
+SUMMARY:Golden Age of Renaissance Exhibition
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/golden-age-of-renaissance-exhibition/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Invitation
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-40-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20240201
+DTEND;VALUE=DATE:20240229
+DTSTAMP:20240412T152246
+CREATED:20190531T081026Z
+LAST-MODIFIED:20191207T105057Z
+UID:280-1706745600-1709164799@ozeum.themerex.net
+SUMMARY:Unique Exhibition Johan Zoffany
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/unique-exhibition-johan-zoffany/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Exhibitions
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-32-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=UTC:20240117T080000
+DTEND;TZID=UTC:20240208T170000
+DTSTAMP:20240412T152246
+CREATED:20190531T080808Z
+LAST-MODIFIED:20191207T105134Z
+UID:277-1705478400-1707411600@ozeum.themerex.net
+SUMMARY:Franklin Carmichael - "Autumn Hillside"
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/franklin-carmichael-autumn-hillside/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Exhibitions
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-18-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=UTC:20231218T080000
+DTEND;TZID=UTC:20240116T170000
+DTSTAMP:20240412T152246
+CREATED:20190531T075858Z
+LAST-MODIFIED:20191207T105157Z
+UID:274-1702886400-1705424400@ozeum.themerex.net
+SUMMARY:"The Pilgrim Mourning His Dead Ass"
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/the-pilgrim-mourning-his-dead-ass/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Exhibitions
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-72-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=UTC:20231120T080000
+DTEND;TZID=UTC:20231223T170000
+DTSTAMP:20240412T152246
+CREATED:20190531T073941Z
+LAST-MODIFIED:20191207T105209Z
+UID:271-1700467200-1703350800@ozeum.themerex.net
+SUMMARY:Damaskenos Michael - "Four military saints"
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/damaskenos-michael-four-military-saints/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Exhibitions
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-71-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20231115
+DTEND;VALUE=DATE:20231224
+DTSTAMP:20240412T152246
+CREATED:20190530T143145Z
+LAST-MODIFIED:20191207T105220Z
+UID:263-1700006400-1703375999@ozeum.themerex.net
+SUMMARY:William Turner and the Modern World
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/william-turner-and-the-modern-world/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Exhibitions
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-2-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20230708
+DTEND;VALUE=DATE:20240812
+DTSTAMP:20240412T152246
+CREATED:20190606T084720Z
+LAST-MODIFIED:20210904T135748Z
+UID:694-1688774400-1723420799@ozeum.themerex.net
+SUMMARY:Jean-Francois De Troy
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/jean-francois-de-troy/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Galleries
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-4-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20230622
+DTEND;VALUE=DATE:20240721
+DTSTAMP:20240412T152246
+CREATED:20190606T084449Z
+LAST-MODIFIED:20210904T135803Z
+UID:692-1687392000-1721519999@ozeum.themerex.net
+SUMMARY:Caravaggio Michelangelo Merisi
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/caravaggio-michelangelo-merisi/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Galleries
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-13-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;VALUE=DATE:20230516
+DTEND;VALUE=DATE:20240615
+DTSTAMP:20240412T152246
+CREATED:20190604T085349Z
+LAST-MODIFIED:20230626T152024Z
+UID:483-1684195200-1718409599@ozeum.themerex.net
+SUMMARY:Bernard van Orley At Saint-Géry
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/bernard-van-orley-at-saint-gery/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Invitation
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-36-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+BEGIN:VEVENT
+DTSTART;TZID=UTC:20230515T080000
+DTEND;TZID=UTC:20230621T170000
+DTSTAMP:20240412T152246
+CREATED:20190530T145124Z
+LAST-MODIFIED:20191207T145059Z
+UID:267-1684137600-1687366800@ozeum.themerex.net
+SUMMARY:"Country Road in Provence by Night"
+DESCRIPTION:Etiam semper\, nunc vitae volutpat efficitur\, elit nibh egestas velit\, amet euismod justo justo pharetra ipsum. Mauris tincidunt magna\, ut fringilla erat ultrices et. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Donec a metus eget libero efficitur tempor. Mauris bibendum mi leo\, at pulvinar leo cursus congue. Aenean tristique metus diam\, id mollis magna efficitur nec. Sed enenatis arcu nisl\, ac pharetra felis vestibulum vitae. Aenean sit amet pharetra eros\, et condimentum tortor. Class aptent taciti sociosqu ad litora torquent per conubia nostra\, per inceptos himenaeos. Aenean a dolor turpis. 						\n				\n				\n				\n					\n			\n		\n				\n				\n				\n				\n			Buy Ticket
+URL:https://ozeum.themerex.net/event/country-road-in-provence-by-night/
+LOCATION:Queens\, New York\, 34th Ave\, NY\, 11106\, United States
+CATEGORIES:Exhibitions
+ATTACH;FMTTYPE=image/jpeg:https://ozeum.themerex.net/wp-content/uploads/2019/05/image-70-copyright.jpg
+ORGANIZER;CN="Ozeum Art & History Museum":MAILTO:yoursite@example.com
+END:VEVENT
+END:VCALENDAR
