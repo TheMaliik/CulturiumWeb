@@ -19,5 +19,12 @@ class EventsRepository extends ServiceEntityRepository
         parent::__construct($registry, Events::class);
     }
 
-    // Ajoutez vos méthodes personnalisées ici
+    public function findByName(string $name): array
+    {
+        return $this->createQueryBuilder('m')
+            ->andWhere('m.name LIKE :name')
+            ->setParameter('name', '%'.$name.'%')
+            ->getQuery()
+            ->getResult();
+    }
 }

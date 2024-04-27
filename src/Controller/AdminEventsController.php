@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Events;
 use App\Form\EventsType;
+use App\Repository\EventsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,11 +18,15 @@ use App\Form\StringToDateTimeTransformer;
 class AdminEventsController extends AbstractController
 {
     #[Route('/', name: 'app_admin_events_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, EventsRepository $eventsRepository): Response
     {
-        $events = $entityManager
-            ->getRepository(Events::class)
-            ->findAll();
+        $searchTerm = $request->query->get('search');
+
+        if ($searchTerm) {
+            $events = $eventsRepository->findByName($searchTerm);
+        } else {
+            $events = $eventsRepository->findAll();
+        }
 
         return $this->render('admin_events/index.html.twig', [
             'events' => $events,
@@ -107,4 +112,16 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
 
         return $this->redirectToRoute('app_admin_events_index', [], Response::HTTP_SEE_OTHER);
     }
+    #[Route('/admin/events/sort', name: 'app_admin_events_sort', methods: ['GET'])]
+public function sort(Request $request, EventsRepository $eventsRepository): Response
+{
+    $criteria = $request->query->get('criteria', 'name');
+    $direction = $request->query->get('direction', 'asc');
+
+    $events = $eventsRepository->findBy([], [$criteria => $direction]);
+
+    return $this->render('admin_events/index.html.twig', [
+        'events' => $events,
+    ]);
+}
 }

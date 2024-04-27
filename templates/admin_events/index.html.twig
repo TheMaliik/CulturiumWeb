@@ -110,8 +110,37 @@
                 <strong></strong> {{ message|trans }}
             </div>
         {% endfor %}
+
         {% block contenpage %}
          <h1>Events index</h1>
+
+
+          <!-- Recherche -->
+
+                <form action="{{ path('app_admin_events_index') }}" method="GET" class="mb-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Rechercher par name" name="search">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">Rechercher</button>
+                            </div>
+                        </div>
+                    </form>
+        <div style="display: flex; justify-content: space-around;">
+         <!-- Tri -->
+
+
+                <form action="{{ path('app_admin_events_sort') }}" method="GET" style="display: inline;">
+                    <input type="hidden" name="criteria" value="name">
+                    <input type="hidden" name="direction" value="asc">
+                    <button type="submit" class="btn btn-primary">Trier par nom (ASC)</button>
+                </form>
+
+                <form action="{{ path('app_admin_events_sort') }}" method="GET" style="display: inline;">
+                    <input type="hidden" name="criteria" value="name">
+                    <input type="hidden" name="direction" value="desc">
+                    <button type="submit" class="btn btn-primary">Trier par nom (DESC)</button>
+                </form>
+        </div>
 
     <table class="table">
         <thead>

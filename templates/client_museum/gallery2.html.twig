@@ -4800,12 +4800,11 @@ https://templatemo.com/tm-556-catalog-z
                               </div>
                             </div>
 
+                            <!--    Map      -->
                             <div style="text-align: center;">
-                                  <img src="{{ asset('gallery/img/carte3.png')}}" alt="Map Preview" style="width: 270px; height: auto; transform: translateX(120px);">
-                                  <br> <!-- Ajouter un saut de ligne pour séparer l'image du bouton -->
-                                  <a class="tribe-events-gmap" href="https://www.google.com/maps/search/?api=1&query=Musée+Océanographique+Bizerte" title="Click to view Google Maps location" target="_blank" rel="noreferrer noopener" style="margin-left: 230px;">+ Google Maps</a>
+                            <div id="mini-map" style="height: 300px; width: 400px; margin: 0 auto;">
                             </div>
-
+                            </div>
 
                             <div
                               class="sc_layouts_item elementor-element elementor-element-4bd1d2f sc_layouts_hide_on_notebook sc_layouts_hide_on_tablet sc_layouts_hide_on_mobile animation_type_block sc_fly_static elementor-widget elementor-widget-spacer"
@@ -6175,8 +6174,23 @@ https://templatemo.com/tm-556-catalog-z
       async=""
     ></script>
 
-    <iframe title="Google maps iframe displaying the Oceanographic Museum of Bizerte location" aria-label="Venue location map" width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=VOTRE_CLÉ_API&zoom=15&q=Musée+Océanographique+Bizerte" allowfullscreen=""></iframe>
-
+<!--    Map      -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCToB14Q09SuVVuRsYJzQ14r8Iy4Cp7EaM&callback=initMiniMap" async defer></script>
+<script>
+    function initMiniMap() {
+        var museeBizerte = {lat: 37.2743, lng: 9.8765}; // Coordonnées du Musée Océanographique de Bizerte
+        var map = new google.maps.Map(document.getElementById('mini-map'), {
+            zoom: 15, // Ajustez le niveau de zoom selon vos besoins
+            center: museeBizerte,
+            disableDefaultUI: true // Désactiver les contrôles par défaut de la carte
+        });
+        var marker = new google.maps.Marker({
+            position: museeBizerte,
+            map: map,
+            title: 'Musée Océanographique de Bizerte'
+        });
+    }
+</script>
 
   </body>
 </html>

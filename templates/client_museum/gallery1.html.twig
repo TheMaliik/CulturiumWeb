@@ -4841,10 +4841,10 @@ https://templatemo.com/tm-556-catalog-z
                               </div>
                             </div>
 
+                            <!--    Map      -->
                             <div style="text-align: center;">
-                              <img src="{{ asset('gallery/img/carte2.png')}}" alt="Map Preview" style="width: 270px; height: auto; transform: translateX(120px);">
-                              <br> <!-- Ajouter un saut de ligne pour séparer l'image du bouton -->
-                              <a class="tribe-events-gmap" href="https://www.google.com/maps/search/?api=1&query=Ichkeul+Museum" title="Click to view Google Maps location" target="_blank" rel="noreferrer noopener" style="margin-left: 230px;">+ Google Maps</a>
+                            <div id="mini-map" style="height: 300px; width: 400px; margin: 0 auto;">
+                            </div>
                             </div>
 
 
@@ -6166,8 +6166,23 @@ https://templatemo.com/tm-556-catalog-z
       async=""
     ></script>
 
-<iframe title="Google maps iframe displaying the Ichkeul Museum location" aria-label="Venue location map" width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCToB14Q09SuVVuRsYJzQ14r8Iy4Cp7EaM&q=Ichkeul+Museum" allowfullscreen=""></iframe>
-
+  <!--    Map      -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCToB14Q09SuVVuRsYJzQ14r8Iy4Cp7EaM&callback=initMiniMap" async defer></script>
+<script>
+    function initMiniMap() {
+        var museeIchkeul = {lat: 37.2000, lng: 9.6677}; // Coordonnées du Musée Ichkeul
+        var map = new google.maps.Map(document.getElementById('mini-map'), {
+            zoom: 15, // Ajustez le niveau de zoom selon vos besoins
+            center: museeIchkeul,
+            disableDefaultUI: true // Désactiver les contrôles par défaut de la carte
+        });
+        var marker = new google.maps.Marker({
+            position: museeIchkeul,
+            map: map,
+            title: 'Musée de Ichkeul'
+        });
+    }
+</script>
 
   </body>
 </html>

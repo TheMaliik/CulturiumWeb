@@ -122,9 +122,5 @@ class ClientMuseumController extends AbstractController
     {
         return $this->render('client_museum/events/events5.3.html.twig');
     }
-    #[Route('/pdf1.1', name: 'pdf1.1')]
-    public function index20(): Response
-    {
-        return $this->render('client_museum/PDF/pdf1.1.html.twig');
-}
+
 }

@@ -46,3 +46,15 @@ app_pdf:
     path: /pdf
     controller: App\Controller\PdfController::generatePdf
     methods: [GET]
+
+app_pdf1:
+    path: /pdf1.2
+    controller: App\Controller\PdfController::generatePdf1
+    methods: [GET] 
+
+app_pdf1.3:
+    path: /pdf1.3
+    controller: App\Controller\PdfController::generatePdf2
+    methods: [GET] 
+
+

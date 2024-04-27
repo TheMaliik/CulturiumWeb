@@ -10,6 +10,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Regex;
 use App\Validator\Constraints as CustomAssert;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\File;
+
+
 
 
 
@@ -29,8 +32,19 @@ class Museum1Type extends AbstractType
                 ],
             ])
             ->add('image', FileType::class, [
-                'label' => 'Image',
+                'label' => 'Museum Image',
                 'required' => false,
+                'mapped' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k', // Limite de taille maximale du fichier (ajustez selon vos besoins)
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez télécharger une image valide (jpg, png, etc.)',
+                    ]),
+                ],
             ])
             ->add('description')
             ->add('localisation');

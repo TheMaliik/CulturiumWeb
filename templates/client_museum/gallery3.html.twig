@@ -4799,10 +4799,11 @@ https://templatemo.com/tm-556-catalog-z
                                 </div>
                               </div>
                             </div>
+
+                            <!--    Map      -->
                             <div style="text-align: center;">
-                                <img src="{{ asset('gallery/img/carte4.png')}}" alt="Map Preview" style="width: 270px; height: auto; transform: translateX(120px);">
-                                <br> <!-- Ajouter un saut de ligne pour séparer l'image du bouton -->
-                                <a class="tribe-events-gmap" href="https://www.google.com/maps/search/?api=1&query=Musée+Chak+Wak" title="Click to view Google Maps location" target="_blank" rel="noreferrer noopener" style="margin-left: 230px;">+ Google Maps</a>
+                            <div id="mini-map" style="height: 400px; width: 600px; margin: 0 auto;">
+                            </div>
                             </div>
 
                             <div
@@ -6175,7 +6176,23 @@ https://templatemo.com/tm-556-catalog-z
       async=""
     ></script>
 
-    <iframe title="Google maps iframe displaying the Chak Wak Museum location" aria-label="Venue location map" width="600" height="400" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=VOTRE_CLÉ_API&zoom=15&q=Musée+Chak+Wak" allowfullscreen=""></iframe>
+<!--    Map      -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCToB14Q09SuVVuRsYJzQ14r8Iy4Cp7EaM&callback=initMiniMap" async defer></script>
+<script>
+    function initMiniMap() {
+        var museeChakWak = {lat: 33.91168164643984, lng: 8.146555751934349}; // Coordonnées du Musée Chak Wak
+        var map = new google.maps.Map(document.getElementById('mini-map'), {
+            zoom: 15, // Ajustez le niveau de zoom selon vos besoins
+            center: museeChakWak,
+            disableDefaultUI: true // Désactiver les contrôles par défaut de la carte
+        });
+        var marker = new google.maps.Marker({
+            position: museeChakWak,
+            map: map,
+            title: 'Musée Chak Wak'
+        });
+    }
+</script>
 
 
   </body>

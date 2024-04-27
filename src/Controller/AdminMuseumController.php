@@ -7,12 +7,10 @@ use App\Entity\Museum;
 use App\Form\Museum1Type;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\FormError;
-
 
 
 
@@ -21,17 +19,22 @@ class AdminMuseumController extends AbstractController
 {
         
     #[Route('/', name: 'app_admin_museum_index', methods: ['GET'])]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(Request $request, EntityManagerInterface $entityManager, MuseumRepository $museumRepository): Response
     {
-        $museums = $entityManager
-            ->getRepository(Museum::class)
-            ->findAll();
+        $searchTerm = $request->query->get('search');
+
+        if ($searchTerm) {
+            $museums = $museumRepository->findByName($searchTerm);
+        } else {
+            $museums = $museumRepository->findAll();
+        }
 
         return $this->render('admin_museum/index.html.twig', [
             'museums' => $museums,
         ]);
         
     }
+
 
     #[Route('/admin/museum/new', name: 'app_admin_museum_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -103,21 +106,21 @@ class AdminMuseumController extends AbstractController
 
         return $this->redirectToRoute('app_admin_museum_index', [], Response::HTTP_SEE_OTHER);
     }
-
-    public function rechercheByNameAction(Request $request)
+    
+    #[Route('/admin/museum/sort', name: 'app_admin_museum_sort', methods: ['GET'])]
+public function sort(Request $request, MuseumRepository $museumRepository): Response
 {
-    $em = $this->getDoctrine()->getManager();
-    $museums = []; // Initialisez une nouvelle variable pour stocker les résultats de la recherche
-    if($request->isMethod("POST"))
-    {
-        $name = $request->get('name');
-        dump("Nom recherché : " . $name); // Afficher le nom recherché
-        $museums = $em->getRepository(Museum::class)->findBy(['name' => $name], ['name' => 'ASC']);
-        dump("Résultats de la recherche : ", $museums); // Afficher les résultats de la recherche
-    }
-    return $this->render('admin_museum/index.html.twig', ['museum' => $museums]);
+    $criteria = $request->query->get('criteria', 'name');
+    $direction = $request->query->get('direction', 'asc');
+
+    $museums = $museumRepository->findBy([], [$criteria => $direction]);
+
+    return $this->render('admin_museum/index.html.twig', [
+        'museums' => $museums,
+    ]);
+}
 }
 
 
     
-}
+
