@@ -114,4 +114,16 @@ class UserRepository extends ServiceEntityRepository
     // End For Stat
 
 
+    public function findBlockedOrApprovedUsers()
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.isBlocked = :blocked OR u.isApproved = :approved')
+            ->setParameter('blocked', true)
+            ->setParameter('approved', true)
+            ->getQuery()
+            ->getResult();
+    }
+
+    
+
 }

@@ -1,4 +1,45 @@
 {% extends "GestUser/admin/bars.html.twig" %}
+{% block styles %}
+    <style>
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .pagination .page-item {
+            margin: 0 5px;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }
+
+        .pagination .page-link {
+            color: #007bff;
+            border: 1px solid #007bff;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .pagination .page-link:hover {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        .pagination .page-item.disabled .page-link {
+            color: #6c757d;
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    </style>
+{% endblock %}
 
 {% block contenpage %}
     <div class="">
@@ -9,73 +50,105 @@
                     <div class="x_content">
                         <h1>User List</h1>
                         {# Search Form #}
-                        <form id="search-form">
-                            <input type="text" id="search-input" name="search" placeholder="Search by Email">
+                        <form id="search-form" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" id="search-input" name="search" class="form-control" placeholder="Search by Email">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button"><i class="fa fa-search"></i></button>
+                                </div>
+                            </div>
                         </form>
                         <div class="text-right mb-2">
                             <a href="{{ path('downloadUserListPdf') }}" class="btn btn-primary">Download User List PDF</a>
                         </div>
+                        {# Filter Checkboxes #}
+                        <div class="mb-3">
+                            <label>
+                                <input type="checkbox" id="filter-blocked" class="mr-1" checked> Blocked Users
+                            </label>
+                            <label class="ml-3">
+                                <input type="checkbox" id="filter-approved" class="mr-1" checked> Approved Users
+                            </label>
+                        </div>
                         {# Sort Button #}
-                        <form id="sort-form" action="{{ path('userss') }}" method="get">
-                            <button type="submit" name="sort" value="email" style="background-color:  color: #fff;">Sort by Email</button>
+                        <form id="sort-form" action="{{ path('sort_users_by_email') }}" method="get">
+                            <button type="submit" name="sort" value="email" class="btn btn-info">Sort by Email</button>
                         </form>
 
                         {% if users is empty %}
                             <p>No users found.</p>
                         {% else %}
-                            <table style="border-collapse: collapse; width: 100%;">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th style="border: 1px solid black; padding: 8px;">Full Name</th>
-                                        <th style="border: 1px solid black; padding: 8px;">Email</th>
-                                        <th style="border: 1px solid black; padding: 8px;">Telephone</th>
-                                        <th style="border: 1px solid black; padding: 8px;">Blocked</th>
-                                        <th style="border: 1px solid black; padding: 8px;">Approved</th>
-                                        <th style="border: 1px solid black; padding: 8px;">Actions</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Telephone</th>
+                                        <th>Blocked</th>
+                                        <th>Approved</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody id="user-list">
                                     {% for user in users %}
-                                        <tr>
-                                            <td style="border: 1px solid black; padding: 8px;">{{ user.fullName }}</td>
-                                            <td style="border: 1px solid black; padding: 8px;">{{ user.email }}</td>
-                                            <td style="border: 1px solid black; padding: 8px;">{{ user.tel }}</td>
-                                            <td style="border: 1px solid black; padding: 8px;">{{ user.isBlocked ? 'Yes' : 'No' }}</td>
-                                            <td style="border: 1px solid black; padding: 8px;">{{ user.isApproved ? 'Yes' : 'No' }}</td>
-                                            <td style="border: 1px solid black; padding: 8px;">
-                                                <a href="{{ path('update_userAdmin', {'id': user.id}) }}" style="background-color: #3498db; color: #fff;padding: 4px;">View</a>
-                                                <a href="{{ path('delete_user', {'id': user.id}) }}" style="background-color: #e74c3c; color: #fff; ;padding: 4px;">Delete</a>
+                                        <tr data-blocked="{{ user.isBlocked ? 'true' : 'false' }}" data-approved="{{ user.isApproved ? 'true' : 'false' }}">
+                                            <td>{{ user.fullName }}</td>
+                                            <td>{{ user.email }}</td>
+                                            <td>{{ user.tel }}</td>
+                                            <td>{{ user.isBlocked ? 'Yes' : 'No' }}</td>
+                                            <td>{{ user.isApproved ? 'Yes' : 'No' }}</td>
+                                            <td>
+                                                <a href="{{ path('update_userAdmin', {'id': user.id}) }}" class="btn btn-primary">View</a>
+                                                <a href="{{ path('delete_user', {'id': user.id}) }}" class="btn btn-danger">Delete</a>
                                             </td>
                                         </tr>
                                     {% endfor %}
                                 </tbody>
                             </table>
                         {% endif %}
-
-                        <script>
-                            document.addEventListener('DOMContentLoaded', function() {
-                                const searchInput = document.getElementById('search-input');
-                                const userList = document.getElementById('user-list');
-
-                                searchInput.addEventListener('input', function(event) {
-                                    const searchTerm = event.target.value.trim().toLowerCase();
-                                    const users = Array.from(userList.getElementsByTagName('tr'));
-
-                                    users.forEach(function(user) {
-                                        const userEmail = user.querySelector('td:nth-child(2)').textContent.trim().toLowerCase();
-
-                                        if (userEmail.includes(searchTerm)) {
-                                            user.style.display = 'table-row';
-                                        } else {
-                                            user.style.display = 'none';
-                                        }
-                                    });
-                                });
-                            });
-                        </script>
                     </div>
                 </div>
             </div>
         </div>
+        {# Pagination Links #}
+        <div class="container mt-4">
+            <div class="d-flex justify-content-center">
+                <div class="pagination">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const userList = document.getElementById('user-list');
+            const filterBlockedCheckbox = document.getElementById('filter-blocked');
+            const filterApprovedCheckbox = document.getElementById('filter-approved');
+
+            filterBlockedCheckbox.addEventListener('change', filterUsers);
+            filterApprovedCheckbox.addEventListener('change', filterUsers);
+            searchInput.addEventListener('input', filterUsers);
+
+            function filterUsers() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                const showBlocked = filterBlockedCheckbox.checked;
+                const showApproved = filterApprovedCheckbox.checked;
+
+                Array.from(userList.getElementsByTagName('tr')).forEach(row => {
+                    const isBlocked = row.getAttribute('data-blocked') === 'true';
+                    const isApproved = row.getAttribute('data-approved') === 'true';
+                    const matchesSearchTerm = row.textContent.trim().toLowerCase().includes(searchTerm);
+
+                    if ((showBlocked && isBlocked || showApproved && isApproved) && matchesSearchTerm) {
+                        row.style.display = 'table-row';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+
 {% endblock %}
