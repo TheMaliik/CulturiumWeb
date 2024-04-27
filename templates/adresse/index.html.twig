@@ -84,6 +84,25 @@
                                     {% endfor %}
                                 </tbody>
                             </table>
+                            <!-- Pagination personnalisée -->
+<nav aria-label="...">
+    <ul class="pagination">
+        {# Lien vers la page précédente #}
+        <li class="page-item {% if adresses.getCurrentPageNumber() == 1 %}disabled{% endif %}">
+            <a class="page-link" href="{{ path('app_adresse_index', {'page': adresses.getCurrentPageNumber() - 1}) }}" tabindex="-1">Previous</a>
+        </li>
+        {# Liens vers chaque page #}
+        {% for page in 1..adresses.pageCount %}
+            <li class="page-item {% if adresses.getCurrentPageNumber() == page %}active{% endif %}">
+                <a class="page-link" href="{{ path('app_adresse_index', {'page': page}) }}">{{ page }} {% if adresses.getCurrentPageNumber() == page %}<span class="sr-only">(current)</span>{% endif %}</a>
+            </li>
+        {% endfor %}
+        {# Lien vers la page suivante #}
+        <li class="page-item {% if adresses.getCurrentPageNumber() == adresses.pageCount %}disabled{% endif %}">
+            <a class="page-link" href="{{ path('app_adresse_index', {'page': adresses.getCurrentPageNumber() + 1}) }}">Next</a>
+        </li>
+    </ul>
+</nav>
                         </div>
                     </div>
                 </div>

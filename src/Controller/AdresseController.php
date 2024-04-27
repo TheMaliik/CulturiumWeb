@@ -18,6 +18,8 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\HeaderUtils;
 use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Pagerfanta\Pagerfanta;
+use Knp\Component\Pager\PaginatorInterface;
 
 #[Route('/adresse')]
 class AdresseController extends AbstractController
@@ -32,29 +34,40 @@ class AdresseController extends AbstractController
         $this->adresseRepository = $adresseRepository;
     }
     #[Route('/', name: 'app_adresse_index', methods: ['GET', 'POST'])]
-    public function index(Request $request, AdresseRepository $adresseRepository): Response
-    {
-        $form = $this->createForm(AdresseSearchType::class);
-        $form->handleRequest($request);
-        $sortOrder = $request->query->get('sortOrder', 'ASC'); // Récupérez l'ordre de tri depuis l'URL, avec ASC comme valeur par défaut
-    
-        // Définissez le champ de tri par défaut
-        $sortBy = $request->query->get('sortBy', 'id');
-        $orderBy = [$sortBy => $sortOrder];
-    
-        if ($form->isSubmitted() && $form->isValid()) {
-            $searchTerm = $form->get('search')->getData();
-            $adresses = $adresseRepository->findBySearchTerm($searchTerm, $orderBy);
-        } else {
-            $adresses = $adresseRepository->findBy([], [$sortBy => $sortOrder]); // Tri des adresses en fonction des paramètres de tri
-        }
-    
-        return $this->render('adresse/index.html.twig', [
-            'form' => $form->createView(),
-            'adresses' => $adresses,
-            'sortOrder' => $sortOrder === 'ASC' ? 'DESC' : 'ASC', // Inversez l'ordre de tri pour les prochains clics sur les liens de tri
-        ]);
+public function index(Request $request, AdresseRepository $adresseRepository, PaginatorInterface $paginator): Response
+{
+    // Créer le formulaire de recherche
+    $form = $this->createForm(AdresseSearchType::class);
+    $form->handleRequest($request);
+
+    // Paramètres de tri par défaut
+    $sortBy = $request->query->get('sortBy', 'id');
+    $sortOrder = $request->query->get('sortOrder', 'ASC');
+    $orderBy = [$sortBy => $sortOrder];
+
+    // Si le formulaire est soumis, filtrer par terme de recherche
+    if ($form->isSubmitted() && $form->isValid()) {
+        $searchTerm = $form->get('search')->getData();
+        $adresses = $adresseRepository->findBySearchTerm($searchTerm, $orderBy);
+    } else {
+        // Sinon, récupérer toutes les adresses avec le tri par défaut
+        $adresses = $adresseRepository->findBy([], $orderBy);
     }
+
+    // Paginer les résultats
+    $pagination = $paginator->paginate(
+        $adresses, // Requête paginée
+        $request->query->getInt('page', 1), // Numéro de page
+        7 // Nombre d'éléments par page
+    );
+
+    return $this->render('adresse/index.html.twig', [
+        'form' => $form->createView(),
+        'adresses' => $pagination, // Utilisez $pagination au lieu de $adresses
+        'sortBy' => $sortBy,
+        'sortOrder' => $sortOrder,
+    ]);
+}
 
     #[Route('/search', name: 'app_adresse_search', methods: ['GET'])]
     public function search(Request $request, AdresseRepository $adresseRepository): Response
