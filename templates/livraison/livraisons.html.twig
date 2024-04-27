@@ -1,16 +1,20 @@
 {% for livraison in livraisons %}
     <tr>
+        <td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ livraison.id }}"></td>
         <td>{{ livraison.id }}</td>
         <td>{{ livraison.dateDeLivraison|date('d/m/Y') }}</td>
         <td>{{ livraison.statut }}</td>
         <td>{{ livraison.depot }}</td>
+        <td>{{ livraison.adresse.ville }}</td>
         <td>
-            <a href="{{ path('livraison_show', {'id': livraison.id}) }}">Afficher</a>
-            <a href="{{ path('livraison_edit', {'id': livraison.id}) }}">Modifier</a>
+            <a class="btn btn-primary" href="{{ path('livraison_edit',{'id': livraison.id}) }}">
+                <i class="fa fa-edit"></i>
+            </a>
         </td>
-    </tr>
-{% else %}
-    <tr>
-        <td colspan="5">Aucune livraison trouvée</td>
+        <td>
+            <a href="{{ path('livraison_delete', {'id': livraison.id}) }}" class="btn btn-danger disable-btn del-link" type="submit">
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
     </tr>
 {% endfor %}
