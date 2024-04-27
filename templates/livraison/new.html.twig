@@ -1,41 +1,58 @@
-{% extends 'base.html.twig' %}
+{% extends 'livraison/bars.html.twig' %}
 
-{% block title %}Nouvelle Livraison{% endblock %}
+{% block contenpage %}
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h5><a href="{{ path('livraison_index') }}">{{ "backend.user.user_listing"|trans }}</a> >> {{ "backend.menu.user"|trans }} </h5>
+            </div>
+        </div>
 
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-{% endblock %}
+        <div class="clearfix"></div>
 
-{% block body %}
-    <h1>Nouvelle Livraison</h1>
-
-    {% if form is defined %}
-        {{ form_start(form) }}
-            {{ form_row(form.dateDeLivraison, {'attr': {'class': 'datepicker'}}) }}
-            {{ form_row(form.statut) }}
-            {{ form_row(form.depot) }}
-            {{ form_row(form.adresse) }}
-
-            <button type="submit">Créer</button>
-        {{ form_end(form) }}
-    {% else %}
-        <p>Votre livraison a été créée avec succès.</p>
-        <a href="{{ path('livraison_index') }}">Retour à la liste</a>
-    {% endif %}
-{% endblock %}
-
-{% block javascripts %}
-    {{ parent() }}
-    {# Inclure jQuery #}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    {# Inclure jQuery UI #}
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>{{ "Update Delivery"|trans }}</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li><a class="close-link"><i class="fa fa-close"></i></a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        {{ form_start(form) }}
+                        {{ form_row(form.dateDeLivraison, {'attr': {'class': 'form-control datepicker', 'style': 'width: 300px'}}) }}
+                        {{ form_row(form.statut, {'attr': {'class': 'form-control', 'style': 'width: 300px'}}) }}
+                        {{ form_row(form.depot, {'attr': {'class': 'form-control', 'style': 'width: 300px'}}) }}
+                        {{ form_row(form.adresse, {'attr': {'class': 'form-control', 'style': 'width: 300px'}}) }}
+                        <div class="ln_solid"></div>
+                        <div class="item form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <a class="btn btn-warning" href="{{ path('livraison_index') }}">{{ "Cancel"|trans }}</a>
+                                <button type="submit" name="valider" class="btn btn-success">{{ "Create"|trans }}</button>
+                            </div>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Inclure flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <!-- Initialiser le datepicker -->
     <script>
-        $(document).ready(function() {
-            $('.datepicker').datepicker({
-                dateFormat: 'yy-mm-dd',
-                // Autres options de configuration du datepicker
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr('.datepicker', {
+                dateFormat: 'Y-m-d',
+                // Autres options du datepicker
             });
         });
     </script>

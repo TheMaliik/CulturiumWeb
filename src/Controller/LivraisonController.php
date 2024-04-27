@@ -16,6 +16,10 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
+use Knp\Component\Pager\PaginatorInterface;
+
 
 #[Route('/livraison')]
 class LivraisonController extends AbstractController
@@ -28,38 +32,41 @@ class LivraisonController extends AbstractController
         {
             $this->livraisonRepository = $livraisonRepository;
         }
-    #[Route('/', name: 'livraison_index', methods: ['GET', 'POST'])]
-    public function index(Request $request, LivraisonRepository $livraisonRepository): Response
-    {
-        $form = $this->createForm(LivraisonSearchType::class);
-        $form->handleRequest($request);
-
-        // Déterminez le paramètre de tri par date de livraison
-        $sortBy = $request->query->get('sortBy', 'dateDeLivraison');
-        $sortOrder = $request->query->get('sortOrder', 'ASC');
-        $orderBy = [$sortBy => $sortOrder];
-
-        if ($request->query->has('sortBy')) {
-            $sortBy = $request->query->get('sortBy');
+        #[Route('/', name: 'livraison_index', methods: ['GET', 'POST'])]
+        public function index(Request $request, LivraisonRepository $livraisonRepository, PaginatorInterface $paginator): Response
+        {
+            // Créez le formulaire de recherche
+            $form = $this->createForm(LivraisonSearchType::class);
+            $form->handleRequest($request);
+        
+            // Paramètres de tri par défaut
+            $sortBy = $request->query->get('sortBy', 'dateDeLivraison');
             $sortOrder = $request->query->get('sortOrder', 'ASC');
             $orderBy = [$sortBy => $sortOrder];
+        
+            // Si le formulaire est soumis, filtrer par terme de recherche
+            if ($form->isSubmitted() && $form->isValid()) {
+                $searchTerm = $form->get('search')->getData();
+                $livraisons = $livraisonRepository->findBySearchTerm($searchTerm, $orderBy);
+            } else {
+                // Sinon, récupérer toutes les livraisons avec le tri par défaut
+                $livraisons = $livraisonRepository->findBy([], $orderBy);
+            }
+        
+            // Paginer les résultats
+            $pagination = $paginator->paginate(
+                $livraisons, // Requête paginée
+                $request->query->getInt('page', 1), // Numéro de page
+                7 // Nombre d'éléments par page
+            );
+        
+            return $this->render('livraison/index.html.twig', [
+                'form' => $form->createView(),
+                'livraisons' => $pagination, // Utilisez $pagination au lieu de $livraisons
+                'sortBy' => $sortBy,
+                'sortOrder' => $sortOrder,
+            ]);
         }
-    
-        if ($form->isSubmitted() && $form->isValid()) {
-            $searchTerm = $form->get('search')->getData();
-            $livraisons = $livraisonRepository->findBySearchTerm($searchTerm, $orderBy);
-        } else {
-            // Utilisez le repository pour récupérer les livraisons triées
-            $livraisons = $livraisonRepository->findBy([], $orderBy);
-        }
-
-        return $this->render('livraison/index.html.twig', [
-            'form' => $form->createView(),
-            'livraisons' => $livraisons,
-            'sortBy' => $sortBy,
-            'sortOrder' => $sortOrder,
-        ]);
-    }
     #[Route('/search', name: 'livraison_search', methods: ['GET'])]
 public function search(Request $request, LivraisonRepository $livraisonRepository): Response
 {
