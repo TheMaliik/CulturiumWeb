@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use App\Repository\CategorieRepository;
 use Endroid\QrCode\QrCode;
+use Knp\Component\Pager\PaginatorInterface;
 
 
 
@@ -23,12 +24,19 @@ class OeuvreController extends AbstractController
 
     
     #[Route('/', name: 'app_oeuvre_index', methods: ['GET'])]
-    public function index(OeuvreRepository $oeuvreRepository , CategorieRepository $categorieRepository): Response
+    public function index(OeuvreRepository $oeuvreRepository, CategorieRepository $categorieRepository, PaginatorInterface $paginator, Request $request): Response
     {
-        
+        $queryBuilder = $oeuvreRepository->createQueryBuilder('o');
+    
+        $pagination = $paginator->paginate(
+            $queryBuilder, // Utilisez le QueryBuilder directement sans appeler getQuery()
+            $request->query->getInt('page', 1), // La page actuelle, 1 par défaut
+            2 // Nombre d'éléments par page
+        );
+    
         return $this->render('oeuvre/index.html.twig', [
-            'oeuvres' => $oeuvreRepository->findAll(),
-            'categories' => $categorieRepository->findAll(),
+            'pagination' => $pagination, // Passer la pagination pour l'affichage des oeuvres
+            'categories' => $categorieRepository->findAll() // Passer les catégories pour un autre usage dans le template
         ]);
     }
   

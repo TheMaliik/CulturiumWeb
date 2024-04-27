@@ -5,6 +5,58 @@
 {% block body %}
 
 <style>
+.pagination-container {
+    text-align: center;
+    background-color: white;
+    border-radius: 50px; /* Rounded edges */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: inline-block; /* Center the pagination in the parent */
+    padding: 5px 10px; /* Spacing around the page numbers */
+}
+
+/* Resets and base styles for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Style for individual page number items */
+.pagination li {
+    margin: 0 5px; /* Space between page numbers */
+}
+
+/* Style for page number links */
+.pagination li a {
+    display: block;
+    padding: 5px 10px; /* Sizing of page number buttons */
+    text-decoration: none; /* No underlines on the page numbers */
+    color: #a52a2a; /* Color of the page numbers */
+    border-radius: 15px; /* Rounded corners on page number buttons */
+    transition: color 0.3s, background-color 0.3s; /* Smooth transition for hover and active states */
+}
+
+/* Style for the active page number */
+.pagination li.active a {
+    background-color:#a52a2a; /* Background color for the current page */
+    color: white; /* Text color for the current page */
+}
+
+/* Hover and focus styles for page numbers */
+.pagination li a:hover,
+.pagination li:not(.active) a:focus {
+    background-color:#a52a2a; /* Light background on hover/focus for interactive feedback */
+    color:#a52a2a; /* Keep text color consistent */
+}
+
+/* Disabled state for non-interactive page numbers */
+.pagination li.disabled a {
+    color: #a52a2a; /* Muted color for disabled page numbers */
+    pointer-events: none; /* Disable click events */
+    background-color: transparent; /* No background for disabled state */
+}
     .wrap-text {
         word-wrap: break-word;
     }
@@ -56,12 +108,14 @@
 
 <select id="categoryFilter">
     <option value="">Select a Category</option>
+    
     {% for categorie in categories %}
+    
         <option value="{{ categorie.typeOeuvre }}">{{ categorie.typeOeuvre }}</option>
     {% endfor %}
 </select>
 
-{% for oeuvre in oeuvres %}
+{% for oeuvre in pagination %}
     <div class="shop_item_container oeuvre-item" data-type="{{ oeuvre.typeOeuvre }}">
         <article id="post-409" data-post-id="409" class="post_item post_layout_excerpt post_format_standard post-409 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-relevant-art tag-art tag-artist tag-entertainment" data-animation="animated fadeIn normal">
             <div class="post_featured with_thumb hover_view">
@@ -99,7 +153,30 @@
     </div>
  
 {% endfor %}
-
+<nav aria-label="Page navigation example">
+               <ul class="pagination justify-content-center">
+              {# Previous Page Link #}
+              <li class="page-item {% if pagination.currentPageNumber == 1 %}disabled{% endif %}">
+                 <a class="page-link" href="{{ path('app_oeuvre_index', {'page': pagination.currentPageNumber - 1}) }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                  </a>
+             </li>
+        
+                {# Pagination Links #}
+             {% for i in 1..pagination.pageCount %}
+             <li class="page-item {% if i == pagination.currentPageNumber %}active{% endif %}">
+                 <a class="page-link" href="{{ path('app_oeuvre_index', {'page': i}) }}">{{ i }}</a>
+             </li>
+              {% endfor %}
+        
+              {# Next Page Link #}
+             <li class="page-item {% if pagination.currentPageNumber == pagination.pageCount %}disabled{% endif %}">
+                <a class="page-link" href="{{ path('app_oeuvre_index', {'page': pagination.currentPageNumber + 1}) }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+             </li>
+             </ul>
+            </nav>
 
 
 
