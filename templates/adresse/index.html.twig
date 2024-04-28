@@ -53,6 +53,16 @@
                                     </select>
                                     <button class="btn btn-primary" type="submit">Go!!</button>
                                 </div>
+             <a href="{{ path('app_adresse_index', {'sortBy': sortBy, 'sortOrder': 'ASC'}) }}" class="btn btn-primary">
+    <i class="fas fa-sort-up"></i> 
+</a>
+
+<a href="{{ path('app_adresse_index', {'sortBy': sortBy, 'sortOrder': 'DESC'}) }}" class="btn btn-primary">
+    <i class="fas fa-sort-down"></i> 
+</a>
+
+
+
                             </form>
                             <table id="example" class="display table table-striped table-bordered dataminetables">
                                 <thead>

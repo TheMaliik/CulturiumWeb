@@ -43,6 +43,14 @@
                                     <button class="btn btn-primary" type="submit">Go!!</button>
                                 </div>
                             </form>
+                           <a href="{{ path('livraison_index', {'sortBy': sortBy, 'sortOrder': 'ASC'}) }}" class="btn btn-primary">
+    <i class="fas fa-sort-up"></i> 
+</a>
+
+<a href="{{ path('livraison_index', {'sortBy': sortBy, 'sortOrder': 'DESC'}) }}" class="btn btn-primary">
+    <i class="fas fa-sort-down"></i> 
+</a>
+
                             <table id="example" class="display table table-striped table-bordered dataminetables">
                                 <thead>
                                     <th><input type="checkbox" id="select_all" name="select_all"></th>

@@ -35,14 +35,14 @@ class LivraisonController extends AbstractController
         #[Route('/', name: 'livraison_index', methods: ['GET', 'POST'])]
         public function index(Request $request, LivraisonRepository $livraisonRepository, PaginatorInterface $paginator): Response
         {
-            // Créez le formulaire de recherche
+            // Créer le formulaire de recherche
             $form = $this->createForm(LivraisonSearchType::class);
             $form->handleRequest($request);
         
             // Paramètres de tri par défaut
-            $sortBy = $request->query->get('sortBy', 'dateDeLivraison');
-            $sortOrder = $request->query->get('sortOrder', 'ASC');
-            $orderBy = [$sortBy => $sortOrder];
+    $sortBy = $request->query->get('sortBy', 'id');
+    $sortOrder = $request->query->get('sortOrder', 'ASC');
+    $orderBy = [$sortBy => $sortOrder];
         
             // Si le formulaire est soumis, filtrer par terme de recherche
             if ($form->isSubmitted() && $form->isValid()) {

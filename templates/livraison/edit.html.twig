@@ -29,8 +29,8 @@
                         <div class="ln_solid"></div>
                         <div class="item form-group">
                             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                <a class="btn btn-warning" href="{{ path('livraison_index') }}">{{ "backend.user.cancel"|trans }}</a>
-                                <button type="submit" name="valider" class="btn btn-success">{{ "backend.user.register"|trans }}</button>
+                                <a class="btn btn-warning" href="{{ path('livraison_index') }}">{{ "CANCEL"|trans }}</a>
+                                <button type="submit" name="valider" class="btn btn-success">{{ "UPDATE"|trans }}</button>
                             </div>
                         </div>
                         {{ form_end(form) }}
@@ -39,4 +39,17 @@
             </div>
         </div>
     </div>
+     <!-- Inclure flatpickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    
+    <!-- Initialiser le datepicker -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            flatpickr('.datepicker', {
+                dateFormat: 'Y-m-d',
+                // Autres options du datepicker
+            });
+        });
+    </script>
 {% endblock %}
