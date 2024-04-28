@@ -50,6 +50,7 @@ class ClientMuseumController extends AbstractController
     #[Route('/events1.1', name: 'events1.1')]
     public function index5(): Response
     {
+        
         return $this->render('client_museum/events/events1.1.html.twig');
     }
     #[Route('/events1.2', name: 'events1.2')]

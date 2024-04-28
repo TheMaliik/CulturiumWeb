@@ -57,4 +57,59 @@ app_pdf1.3:
     controller: App\Controller\PdfController::generatePdf2
     methods: [GET] 
 
+app_pdf2.1:
+    path: /pdf2.1
+    controller: App\Controller\PdfController::generatePdf3
+    methods: [GET]
+
+app_pdf2.2:
+    path: /pdf2.2
+    controller: App\Controller\PdfController::generatePdf4
+    methods: [GET]
+
+app_pdf2.3:
+    path: /pdf2.3
+    controller: App\Controller\PdfController::generatePdf5
+    methods: [GET]
+
+app_pdf3.1:
+    path: /pdf3.1
+    controller: App\Controller\PdfController::generatePdf6
+    methods: [GET]
+
+app_pdf3.2:
+    path: /pdf3.2
+    controller: App\Controller\PdfController::generatePdf7
+    methods: [GET]
+app_pdf3.3:
+    path: /pdf3.3
+    controller: App\Controller\PdfController::generatePdf8
+    methods: [GET] 
+
+app_pd4.1:
+    path: /pdf4.1
+    controller: App\Controller\PdfController::generatePdf9
+    methods: [GET]    
+app_pdf4.2:
+    path: /pdf4.2
+    controller: App\Controller\PdfController::generatePdf10
+    methods: [GET]    
+app_pdf4.3:
+    path: /pdf4.3
+    controller: App\Controller\PdfController::generatePdf11
+    methods: [GET]    
+
+
+app_pdf5.1:
+    path: /pdf5.1
+    controller: App\Controller\PdfController::generatePdf12
+    methods: [GET]    
+app_pdf5.2:
+    path: /pdf5.2
+    controller: App\Controller\PdfController::generatePdf13
+    methods: [GET]    
+app_pdf5.3:
+    path: /pdf5.3
+    controller: App\Controller\PdfController::generatePdf14
+    methods: [GET]    
 

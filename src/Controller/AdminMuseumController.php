@@ -44,6 +44,13 @@ class AdminMuseumController extends AbstractController
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
+            $recaptchaResponse = $request->request->get('g-recaptcha-response');
+            $isRecaptchaValid = $this->isRecaptchaValid($recaptchaResponse);
+
+            if (!$isRecaptchaValid) {
+                $this->addFlash('error', 'reCAPTCHA validation failed. Please try again.');
+                return $this->redirectToRoute('app_admin_museum_new');
+            }
             // Vérifiez si le nom du musée est déjà utilisé
             $existingMuseum = $entityManager->getRepository(Museum::class)->findOneBy(['name' => $museum->getName()]);
             
@@ -119,6 +126,28 @@ public function sort(Request $request, MuseumRepository $museumRepository): Resp
         'museums' => $museums,
     ]);
 }
+private function isRecaptchaValid($recaptchaResponse)
+    {
+        $secretKey = '6LdgqIgpAAAAAIL7zt1gZh87stU7vGsgR3Yl7h7X';
+        $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+        $postData = http_build_query([
+            'secret' => $secretKey,
+            'response' => $recaptchaResponse
+        ]);
+
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => 'Content-Type: application/x-www-form-urlencoded',
+                'content' => $postData
+            ]
+        ]);
+
+        $response = file_get_contents($recaptchaUrl, false, $context);
+        $result = json_decode($response);
+
+        return $result->success;
+    }
 }
 
 

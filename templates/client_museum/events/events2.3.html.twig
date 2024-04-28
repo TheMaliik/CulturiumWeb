@@ -4660,6 +4660,8 @@ Lors de cet événement spécial, les visiteurs auront l'occasion de découvrir 
             Lieu : [musée de Ichkeul]</br>
             Tarif : Entrée gratuite pour tous les visiteurs</h2></h3>
     </div>
+               <button class="btn btn-danger" onclick="window.open('/pdf2.2', '_blank', 'noopener noreferrer')">Télécharger en PDF</button>
+
            
         <footer
           class="footer_wrap footer_custom footer_custom_814 footer_custom_main-footer scheme_dark"
@@ -6083,6 +6085,36 @@ Lors de cet événement spécial, les visiteurs auront l'occasion de découvrir 
       src="https://code.tidio.co/ctybgkiqd4jhsgdvzlgahqx3pjybdwlg.js"
       async=""
     ></script>
+
+    <!-- API PDF  /. -->
+<script>
+    document.getElementById('pdfButton').addEventListener('click', function() {
+        // Créez un objet PDF à télécharger
+        var pdfContent = "<h1>Contenu du PDF</h1><p>Ceci est un exemple de contenu PDF.</p>";
+
+        // Créez un objet Blob à partir du contenu PDF
+        var blob = new Blob([pdfContent], { type: 'application/pdf' });
+
+        // Créez un objet URL à partir du Blob
+        var url = window.URL.createObjectURL(blob);
+
+        // Créez un lien invisible pour télécharger le PDF
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = 'document.pdf'; // Nom du fichier PDF à télécharger
+        link.style.display = 'none';
+
+        // Ajoutez le lien au corps de la page
+        document.body.appendChild(link);
+
+        // Cliquez sur le lien pour déclencher le téléchargement
+        link.click();
+
+        // Supprimez le lien du corps de la page une fois le téléchargement terminé
+        document.body.removeChild(link);
+    });
+</script>
+
   </body>
 </html>
 <!-- Cached by WP-Optimize (gzip) - https://getwpo.com - Last modified: April 12, 2024 2:13 pm (UTC:0) -->

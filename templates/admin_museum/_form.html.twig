@@ -50,8 +50,14 @@
             {% endfor %}
         </div>
     {% endif %}
+    
 </div>
 
+<!-- Add this line to include reCAPTCHA script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- Add reCAPTCHA widget here -->
+<div class="g-recaptcha" data-sitekey="6LdgqIgpAAAAAD7HQvSgIRZJwhqwUH-MkbgBtMww"></div>
+<br/>
 <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
 
 {{ form_end(form) }}

@@ -41,6 +41,13 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
     $form->handleRequest($request);
 
     if ($form->isSubmitted() && $form->isValid()) {
+        $recaptchaResponse = $request->request->get('g-recaptcha-response');
+            $isRecaptchaValid = $this->isRecaptchaValid($recaptchaResponse);
+
+            if (!$isRecaptchaValid) {
+                $this->addFlash('error', 'reCAPTCHA validation failed. Please try again.');
+                return $this->redirectToRoute('app_admin_events_new');
+            }
         // Gérer le téléchargement et la sauvegarde de l'image
         $imageFile = $form->get('image')->getData();
         if ($imageFile) {
@@ -124,4 +131,26 @@ public function sort(Request $request, EventsRepository $eventsRepository): Resp
         'events' => $events,
     ]);
 }
+private function isRecaptchaValid($recaptchaResponse)
+    {
+        $secretKey = '6LdgqIgpAAAAAIL7zt1gZh87stU7vGsgR3Yl7h7X';
+        $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+        $postData = http_build_query([
+            'secret' => $secretKey,
+            'response' => $recaptchaResponse
+        ]);
+
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'POST',
+                'header' => 'Content-Type: application/x-www-form-urlencoded',
+                'content' => $postData
+            ]
+        ]);
+
+        $response = file_get_contents($recaptchaUrl, false, $context);
+        $result = json_decode($response);
+
+        return $result->success;
+    }
 }
