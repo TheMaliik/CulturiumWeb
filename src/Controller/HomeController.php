@@ -15,7 +15,20 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
-
+    #[Route('/shop', name: 'app_shop')]
+    public function index2(): Response
+    {
+        return $this->render('FrontCart/shop.html.twig',[
+            'shop' => 'shop'
+        ]);
+    }
+    #[Route('/cart', name: 'app_cart')]
+    public function index3(): Response
+    {
+        return $this->render('FrontCart/Cart.html.twig',[
+            'shop' => 'shop'
+        ]);
+    }
     
    
 }

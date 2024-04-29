@@ -15,13 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PanierControllerFront extends AbstractController
 {
     
-    #[Route('/shop', name: 'app_shop')]
-    public function index2(): Response
-    {
-        return $this->render('FrontCart/shop.html.twig',[
-            'shop' => 'shop'
-        ]);
-    }
+   
     #[Route('/', name: 'app_cart_index', methods: ['GET'])]
     public function index(PanierRepository $panierRepository): Response
     {
