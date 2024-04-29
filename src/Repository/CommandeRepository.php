@@ -45,4 +45,12 @@ class CommandeRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function delete(Commande $Commande)
+    {
+        $Commande->setDeleted(true);
+        $this->entityManager->persist($Commande);
+        $this->entityManager->flush();
+
+        return $Commande;
+    }
 }

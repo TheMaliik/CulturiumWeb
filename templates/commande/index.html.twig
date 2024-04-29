@@ -33,12 +33,7 @@
 									<select class="form-control" name="action" required id="action_select">
 										<option value="">
 											{{ "backend.commande.group_actions"|trans }}</option>
-										<option value="{{"backend.commande.deactivate"|trans }}">
-											{{ "backend.commande.deactivate"|trans }}</option>
-										<option value="{{"backend.commande.Activate"|trans }}">
-											{{ "backend.commande.Activate"|trans }}</option>
-										<option value="{{"backend.commande.delete"|trans }}">
-											{{ "backend.commande.delete"|trans }}</option>
+										<option value="supprimer">supprimer</option>
 									</select>
 									<button class="btn btn-primary" type="submit">Go!!</button>
 								</div>
@@ -47,7 +42,7 @@
 							<table id="example" class="display table table-striped table-bordered dataminetables">
 								<thead>
 									<th><input type="checkbox" id="select_all" name="select_all"></th>
-									<th>{{ "id"|trans }}/th>
+									<th>{{ "id"|trans }}</th>
 									<th>{{ "contenue"|trans }}</th>
 									<th>{{ "MontantTotale"|trans }}</th>
                                     <th>{{ "Status"|trans }}</th>

@@ -41,6 +41,9 @@ class Commande
      * @ORM\Column(name="status", type="string", length=255, nullable=false)
      */
     private $status;
+    #[ORM\Column(type: 'boolean')]
+    private ?bool $deleted = null;
+    private ?string $action = null;
 
     public function getId(): ?int
     {
@@ -82,6 +85,26 @@ class Commande
 
         return $this;
     }
+    public function getAction(): ?string
+    {
+        return $this->action;
+    }
 
+    public function setAction(string $action): self
+    {
+        $this->action = $action;
 
+        return $this;
+    }
+    public function getDeleted(): ?bool
+    {
+        return $this->deleted;
+    }
+
+    public function setDeleted(bool $deleted): self
+    {
+        $this->deleted = $deleted;
+
+        return $this;
+    }
 }

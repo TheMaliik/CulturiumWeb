@@ -12,6 +12,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator;
 use phpDocumentor\Reflection\Types\Integer;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 use Symfony\Component\HttpClient\HttpClient;
 #[Route('/admin/commande')]
 class CommandeController extends AbstractController
@@ -117,16 +119,16 @@ class CommandeController extends AbstractController
     
         private function generateQrCodeImage($qrContent)
         {
-            // URL de base pour l'API QR Code de qrserver.com
+            
             $baseUrl = 'https://api.qrserver.com/v1/create-qr-code/';
         
-            // Paramètres de l'API pour générer le code QR
+            
             $params = [
                 'size' => '300x300',  // Taille de l'image
                 'data' => urlencode($qrContent),  // Contenu du QR code
             ];
         
-            // Construire l'URL complète avec les paramètres
+           
             $url = $baseUrl . '?' . http_build_query($params);
         
             // Utiliser HttpClient pour récupérer l'image du QR code
@@ -138,6 +140,9 @@ class CommandeController extends AbstractController
         
             return $qrCodeData;
         }
+     
+
+
         #[Route('/tri', name: 'commandes_trie')]
         public function trie(Request $request): Response
         {
