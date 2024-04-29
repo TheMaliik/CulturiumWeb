@@ -10,10 +10,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator;
+use phpDocumentor\Reflection\Types\Integer;
 
 #[Route('/admin/commande')]
 class CommandeController extends AbstractController
-{
+{  
     #[Route('/', name: 'app_commande_index', methods: ['GET'])]
     public function index(CommandeRepository $commandeRepository): Response
     {
@@ -23,8 +25,8 @@ class CommandeController extends AbstractController
     }
 
     #[Route('/new', name: 'app_commande_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
+    public function new(Request $request, EntityManagerInterface $entityManager, Recaptcha3Validator $recaptcha3Validator): Response
+    {  $score = null;
         $commande = new Commande();
         $form = $this->createForm(CommandeType::class, $commande);
         $form->handleRequest($request);
@@ -32,14 +34,17 @@ class CommandeController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($commande);
             $entityManager->flush();
-
+            $score = $recaptcha3Validator->getLastResponse()->getScore();
             return $this->redirectToRoute('app_commande_index', [], Response::HTTP_SEE_OTHER);
+           
         }
-
+        
         return $this->renderForm('commande/new.html.twig', [
             'commande' => $commande,
             'form' => $form,
+            
         ]);
+    
     }
 
     #[Route('/{id}', name: 'app_commande_show', methods: ['GET'])]
