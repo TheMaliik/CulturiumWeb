@@ -9,7 +9,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-
+use Karser\Recaptcha3Bundle\Form\Recaptcha3Type;
+use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
@@ -33,6 +34,13 @@ class PanierType extends AbstractType
                 'expanded' => false,
                 'required' => false,
                 'placeholder' => 'Select an commande'
+            ])
+            ->add('captcha', Recaptcha3Type::class, [
+                'constraints' => new Recaptcha3([
+                    'message' => 'reCAPTCHA validation failed. Please try again.',
+                ]),
+                'action_name' => 'contact',
+               
             ]);
         ;
     }

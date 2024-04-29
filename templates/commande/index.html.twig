@@ -5,7 +5,7 @@
 		<div class="page-title">
 			<div class="title_left">
 				<h5>
-					{{ "backend.user.listing"|trans }}
+					{{ "backend.commande.listing"|trans }}
 				</h5>
 			</div>
 		</div>
@@ -17,7 +17,7 @@
 				<div class="x_panel">
 					<div class="x_title">
 						<h2>
-							{{ "backend.user.user_listing"|trans }}</h2>
+							{{ "backend.commande.commande_listing"|trans }}</h2>
 						<ul class="nav navbar-right panel_toolbox">
 							<li>
 								<a href="{{ path('app_commande_new') }}" class="btn btn-success">NEW</a>
@@ -32,13 +32,13 @@
 								<div class="form-group form-inline">
 									<select class="form-control" name="action" required id="action_select">
 										<option value="">
-											{{ "backend.user.group_actions"|trans }}</option>
-										<option value="{{"backend.user.deactivate"|trans }}">
-											{{ "backend.user.deactivate"|trans }}</option>
-										<option value="{{"backend.user.Activate"|trans }}">
-											{{ "backend.user.Activate"|trans }}</option>
-										<option value="{{"backend.user.delete"|trans }}">
-											{{ "backend.user.delete"|trans }}</option>
+											{{ "backend.commande.group_actions"|trans }}</option>
+										<option value="{{"backend.commande.deactivate"|trans }}">
+											{{ "backend.commande.deactivate"|trans }}</option>
+										<option value="{{"backend.commande.Activate"|trans }}">
+											{{ "backend.commande.Activate"|trans }}</option>
+										<option value="{{"backend.commande.delete"|trans }}">
+											{{ "backend.commande.delete"|trans }}</option>
 									</select>
 									<button class="btn btn-primary" type="submit">Go!!</button>
 								</div>
@@ -47,7 +47,7 @@
 							<table id="example" class="display table table-striped table-bordered dataminetables">
 								<thead>
 									<th><input type="checkbox" id="select_all" name="select_all"></th>
-									<th>{{ "id"|trans }}</th>
+									<th>{{ "id"|trans }}/th>
 									<th>{{ "contenue"|trans }}</th>
 									<th>{{ "MontantTotale"|trans }}</th>
                                     <th>{{ "Status"|trans }}</th>
@@ -72,6 +72,9 @@
 												<a href="{{ path('app_commande_delete', {'id': commande.id}) }}" class="btn btn-danger disable-btn del-link" type="submit">
 													<i class="fa fa-trash"></i>
 												</a>
+											</td>
+											<td>
+												<a href="{{ path('generate_qr_code', {'id': commande.id}) }}" class="btn btn-info">QR Code</a>
 											</td>
 										</tr>
 									{% endfor %}

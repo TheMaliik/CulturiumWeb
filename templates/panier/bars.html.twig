@@ -26,40 +26,25 @@
                     <ul class="nav side-menu">
                         
                      
-                            <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-user"></i> Panier <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{ path('app_panier_index') }}">Panier List </a></li>
-                                    <li><a href=""> Statistics </a></li>
+                                    <li><a href="{{ path('app_panier_index') }}">{{ "backend.panier.manage"|trans }} </a></li>
+                                    
                                 </ul>
                             </li>
                         
                         
-                            <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-bookmark"></i>Commande <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="">{{ "backend.menu.manage"|trans }}</a></li>
+                                    <li><a href="{{ path('app_commande_index') }}">{{ "backend.commande.manage"|trans }}</a></li>
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-clipboard"></i> Events <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="">{{ "backend.menu.manage"|trans }}</a></li>
-                                
-                                        <li><a href="">{{ "backend.menu.history"|trans }}</a></li>
-                                 
-                                </ul>
-                            </li>
-                            <li><a><i class="fa fa-envelope"></i> Orders<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href=""> {{ "backend.menu.inbox"|trans }}</a></li>
+                           
                                 </ul>
                             </li>
                     
 
-                            <li><a><i class="fa fa-cog"></i> Liv <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="">{{ "backend.menu.general"|trans }}</a></li>
-                                    <li><a href="">{{ "backend.menu.faq"|trans }}</a></li>
-                                </ul>
-                            </li>
+                          
                         
                     </ul>
 

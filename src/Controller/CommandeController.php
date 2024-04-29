@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator;
 use phpDocumentor\Reflection\Types\Integer;
-
+use Symfony\Component\HttpClient\HttpClient;
 #[Route('/admin/commande')]
 class CommandeController extends AbstractController
 {  
@@ -88,4 +88,89 @@ class CommandeController extends AbstractController
     
             return $this->redirectToRoute('app_commande_index');
         }  
+     
+        #[Route('/generate-qr-code/{id}', name: 'generate_qr_code')]
+        public function generateQrCode(CommandeRepository $repository, $id): Response
+        {
+            $commande = $repository->find($id);
+
+    // Créez le contenu du QR code
+    $qrContent = sprintf(
+        "id: %s\ncontenue: %s\nmontantTotale: %sDT\nstatus: %s",
+        $commande->getId(),
+        $commande->getContenue(),
+        $commande->getMontantTotale(),
+        $commande->getStatus(),
+    );
+
+    // Générer le QR code en tant qu'image PNG
+    $qrCode = $this->generateQrCodeImage($qrContent);
+
+    // Générer une réponse avec le contenu de l'image du QR code
+    $response = new Response($qrCode, Response::HTTP_OK, [
+        'Content-Type' => 'image/png',
+        'Content-Disposition' => 'inline; filename="qr_code.png"'
+    ]);
+
+    return $response;
+        }
+    
+        private function generateQrCodeImage($qrContent)
+        {
+            // URL de base pour l'API QR Code de qrserver.com
+            $baseUrl = 'https://api.qrserver.com/v1/create-qr-code/';
+        
+            // Paramètres de l'API pour générer le code QR
+            $params = [
+                'size' => '300x300',  // Taille de l'image
+                'data' => urlencode($qrContent),  // Contenu du QR code
+            ];
+        
+            // Construire l'URL complète avec les paramètres
+            $url = $baseUrl . '?' . http_build_query($params);
+        
+            // Utiliser HttpClient pour récupérer l'image du QR code
+            $client = HttpClient::create();
+            $response = $client->request('GET', $url);
+        
+            // Récupérer le contenu de l'image
+            $qrCodeData = $response->getContent();
+        
+            return $qrCodeData;
+        }
+        #[Route('/tri', name: 'commandes_trie')]
+        public function trie(Request $request): Response
+        {
+            // Récupérer les commandes depuis la base de données
+            $commandes = $this->getDoctrine()->getRepository(Commande::class)->findAll();
+    
+            // Vérifier si un tri est demandé dans la requête
+            $sortBy = $request->query->get('sort_by', 'id');
+            $sortOrder = $request->query->get('sort_order', 'asc');
+    
+            // Tri des commandes en fonction des paramètres de tri
+            usort($commandes, function($a, $b) use ($sortBy, $sortOrder) {
+                $getterA = 'get' . ucfirst($sortBy);
+                $getterB = 'get' . ucfirst($sortBy);
+                $valueA = $a->$getterA();
+                $valueB = $b->$getterB();
+    
+                // Si les valeurs sont des chaînes, utilisez strcmp pour comparer
+                if (is_string($valueA) && is_string($valueB)) {
+                    $result = strcmp($valueA, $valueB);
+                } else {
+                    // Sinon, comparez directement les valeurs
+                    $result = ($valueA < $valueB) ? -1 : (($valueA > $valueB) ? 1 : 0);
+                }
+    
+                return ($sortOrder === 'asc') ? $result : -$result;
+            });
+    
+            // Rendu de la vue avec les commandes triées
+            return $this->render('commande/index.html.twig', [
+                'commandes' => $commandes,
+                'sortBy' => $sortBy,
+                'sortOrder' => $sortOrder
+            ]);
+        }
 }
