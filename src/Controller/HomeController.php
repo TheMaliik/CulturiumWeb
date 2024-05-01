@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Panier;
+use App\Form\PanierType;
+use App\Repository\PanierRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -31,4 +34,12 @@ class HomeController extends AbstractController
     }
     
    
+    #[Route('/carttest', name: 'app_show_index', methods: ['GET'])]
+    public function index5(PanierRepository $panierRepository): Response
+    {
+        return $this->render('FrontCart/Carttest.html.twig', [
+            'paniers' => $panierRepository->findAll(),
+        ]);
+        
+    }
 }
