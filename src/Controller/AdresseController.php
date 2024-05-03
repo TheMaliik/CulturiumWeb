@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controller;
-
+use App\Form\AdressClientType;
 use App\Form\AdresseSearchType;
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -104,6 +104,25 @@ public function index(Request $request, AdresseRepository $adresseRepository, Pa
         }
 
         return $this->renderForm('adresse/new.html.twig', [
+            'adresse' => $adresse,
+            'form' => $form,
+        ]);
+    }
+    #[Route('/adresseClient', name: 'adresseClient', methods: ['GET', 'POST'])]
+    public function newClient(Request $request, EntityManagerInterface $entityManager): Response
+    {
+        $adresse = new Adresse();
+        $form = $this->createForm(adresseClientType::class, $adresse);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager->persist($adresse);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_adresse_index', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('adresseClient/adresseClient.html.twig', [
             'adresse' => $adresse,
             'form' => $form,
         ]);
