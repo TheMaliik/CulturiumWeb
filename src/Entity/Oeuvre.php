@@ -4,15 +4,20 @@ namespace App\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\OeuvreRepository;
 
 /**
  * Oeuvre
  *
  * @ORM\Table(name="oeuvre")
  * @ORM\Entity
+ * @ORM\Entity(repositoryClass=OeuvreRepository::class)
  */
 class Oeuvre
 {
+    
+
     /**
      * @var int
      *
@@ -21,69 +26,79 @@ class Oeuvre
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
+     
      */
     private $image;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Description cannot be blank")
      */
     private $description;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="nom_artiste", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Nom Artiste cannot be blank")
      */
     private $nomArtiste;
-
+    
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_creation", type="date", nullable=false)
+     * @Assert\NotBlank(message="Date Creation cannot be blank")
      */
     private $dateCreation;
-
+    
     /**
      * @var int
      *
      * @ORM\Column(name="reference", type="integer", nullable=false)
+     * @Assert\NotBlank(message="Reference cannot be blank")
      */
     private $reference;
-
+    
     /**
      * @var float
      *
      * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
+     * @Assert\NotBlank(message="Prix cannot be blank")
      */
     private $prix;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom_oeuvre", type="string", length=255, nullable=false)
-     */
-    private $nomOeuvre;
-
+    
+   /**
+ * @var string
+ *
+ * @ORM\Column(name="nom_oeuvre", type="string", length=255, nullable=true)
+ * * @Assert\NotBlank(message="NomOeuvre cannot be blank")
+ */
+private $nomOeuvre;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="type_oeuvre", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Type Oeuvre cannot be blank")
      */
     private $typeOeuvre;
-
+    
     /**
      * @var string
      *
      * @ORM\Column(name="LinkHttp", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="LinkHttp cannot be blank")
      */
     private $linkhttp;
+    
 
     public function getId(): ?int
     {
@@ -198,5 +213,9 @@ class Oeuvre
         return $this;
     }
 
-
+    public function __toString()
+    {
+        // Return the property or properties you want to use as a string representation
+        return $this->getTypeOeuvre(); // Assuming 'name' is a property of Oeuvre
+    }
 }

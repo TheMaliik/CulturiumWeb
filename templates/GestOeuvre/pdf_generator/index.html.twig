@@ -1,0 +1,28 @@
+{% block title %}Liste des Oeuvres{% endblock %}
+
+{% block contenpage %}
+
+<table class="data-table table stripe hover nowrap">
+    <thead>
+        <tr>
+            <th class="table-plus datatable-nosort">id</th>
+            <th>Nom Artiste</th>
+            <th>Date Creation</th>
+            <th>Nom Oeuvre</th>
+            <th>Prix</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for oeuvre in oeuvres %}
+        <tr>
+            <td class="table-plus">{{ oeuvre.id }}</td>
+            <td>{{ oeuvre.nomArtiste }}</td>
+            <td>{{ oeuvre.dateCreation|date('Y-m-d ')}}</td>
+            <td>{{ oeuvre.nomOeuvre }}</td>
+            <td>{{ oeuvre.prix ~ "DT" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
