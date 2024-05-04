@@ -26,10 +26,16 @@
             <div class="col-md-6">
                 {{ form_start(form, {'attr': {'class': 'bg-light p-5 rounded'}}) }}
                 <div class="form-group">
-                    {{ form_label(form.idcommande, ' Commande', {'label_attr': {'class': 'font-weight-bold'}}) }}
-                    {{ form_widget(form.idcommande, {'attr': {'class': 'form-control mb-3'}}) }}
-                    {{ form_errors(form.idcommande) }}
-                </div>
+    <div class="form-group">
+    {{ form_label(form.idcommande, ' Commande', {'label_attr': {'class': 'font-weight-bold'}}) }}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-truck"></i></span> <!-- J'ai remplacé "icon-name" par "fa-truck" pour l'icône de livraison -->
+        </div>
+        {{ form_widget(form.idcommande, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    {{ form_errors(form.idcommande) }}
+</div>
                   <div class="form-group">
                     {{ form_label(form.adresse, 'Adresse', {'label_attr': {'class': 'font-weight-bold'}}) }}
                     <div class="input-group mb-3">
