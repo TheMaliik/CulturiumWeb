@@ -3,7 +3,14 @@
 {% block title %}Oeuvre index{% endblock %}
 
 {% block body %}
-
+{% for message in app.flashes('success') %}
+                                            <div style="color: green;
+                                                                                        border: 2px green solid;
+                                                                                    text-align: center;
+                                                                                        padding: 5px;margin-bottom: 10px;">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
 <style>
 .pagination-container {
     text-align: center;
@@ -115,7 +122,7 @@
     {% endfor %}
 </select>
 
-{% for oeuvre in pagination %}
+{% for oeuvre in oeuvres %}
     <div class="shop_item_container oeuvre-item" data-type="{{ oeuvre.typeOeuvre }}">
         <article id="post-409" data-post-id="409" class="post_item post_layout_excerpt post_format_standard post-409 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-relevant-art tag-art tag-artist tag-entertainment" data-animation="animated fadeIn normal">
             <div class="post_featured with_thumb hover_view">
@@ -185,7 +192,11 @@
     document.addEventListener('DOMContentLoaded', function() {
         const categoryFilter = document.getElementById('categoryFilter');
         const oeuvreItems = document.querySelectorAll('.oeuvre-item');
-
+  const searchInput = document.querySelector('input[name="q"]');
+        
+        searchInput.addEventListener('input', function() {
+            this.form.submit();
+        });
         categoryFilter.addEventListener('change', function() {
             const selectedCategory = this.value;
 

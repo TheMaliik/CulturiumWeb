@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use App\Repository\CategorieRepository;
 use Endroid\QrCode\QrCode;
 use Knp\Component\Pager\PaginatorInterface;
+use App\Entity\Historique;
+
 
 
 
@@ -26,6 +28,7 @@ class OeuvreController extends AbstractController
     #[Route('/', name: 'app_oeuvre_index', methods: ['GET'])]
     public function index(OeuvreRepository $oeuvreRepository, CategorieRepository $categorieRepository, PaginatorInterface $paginator, Request $request): Response
     {
+        
         $queryBuilder = $oeuvreRepository->createQueryBuilder('o');
     
         $pagination = $paginator->paginate(
@@ -36,7 +39,8 @@ class OeuvreController extends AbstractController
     
         return $this->render('oeuvre/index.html.twig', [
             'pagination' => $pagination, // Passer la pagination pour l'affichage des oeuvres
-            'categories' => $categorieRepository->findAll() // Passer les catégories pour un autre usage dans le template
+            'categories' => $categorieRepository->findAll() ,// Passer les catégories pour un autre usage dans le template
+            'oeuvres' => $oeuvreRepository->findAll() // Passer les catégories pour un autre usage dans le template
         ]);
     }
   
@@ -64,8 +68,15 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
 
     
     #[Route('/s', name: 'app_oeuvre_index_s', methods: ['GET'])]
-    public function indexs(Request $request,OeuvreRepository $oeuvreRepository): Response
+    public function indexs(Request $request,PaginatorInterface $paginator,OeuvreRepository $oeuvreRepository,CategorieRepository $categorieRepository): Response
     {
+        $queryBuilder = $oeuvreRepository->createQueryBuilder('o');
+    
+        $pagination = $paginator->paginate(
+            $queryBuilder, // Utilisez le QueryBuilder directement sans appeler getQuery()
+            $request->query->getInt('page', 1), // La page actuelle, 1 par défaut
+            2 // Nombre d'éléments par page
+        );
         $searchTerm = $request->query->get('q');
     
         // Debugging: Dump the search term
@@ -80,6 +91,9 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
         return $this->render('oeuvre/index.html.twig', [
             'oeuvres' => $oeuvres,
             'searchTerm' => $searchTerm,
+            'categories' => $categorieRepository->findAll(),
+            'pagination' => $pagination, // Passer la pagination pour l'affichage des oeuvres
+
         ]);
     }
 
@@ -127,6 +141,15 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
 
             $entityManager->persist($oeuvre);
             $entityManager->flush();
+             // After persisting the oeuvre, create a Historique entity
+             $historique = new Historique();
+             $historique->setEtat('ART PIECE ADDED');
+             $historique->setDate(new \DateTime());
+
+            // Persist the Historique entity
+             $entityManager->persist($historique);
+             $entityManager->flush();
+             $this->addFlash('success', 'Your Exposition has been added successfully.');
 
             return $this->redirectToRoute('app_oeuvre_indexadmin', [], Response::HTTP_SEE_OTHER);
         }
@@ -179,6 +202,15 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
 
 
             $entityManager->flush();
+             // Create a Historique entity for the update action
+             $historique = new Historique();
+             $historique->setEtat('ART PIECE UPDATED');
+             $historique->setDate(new \DateTime());
+     
+             // Persist the Historique entity
+             $entityManager->persist($historique);
+             $entityManager->flush();
+             $this->addFlash('success', 'Your art piece have been updated successfully.');
 
             return $this->redirectToRoute('app_oeuvre_indexadmin', [], Response::HTTP_SEE_OTHER);
         }
@@ -193,8 +225,16 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
     public function delete(Request $request, Oeuvre $oeuvre, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$oeuvre->getId(), $request->request->get('_token'))) {
+              // Create a Historique entity for the deletion action
+              $historique = new Historique();
+              $historique->setEtat('ART PIECE DELETED');
+              $historique->setDate(new \DateTime());
+      
+              // Persist the Historique entity
+              $entityManager->persist($historique);
             $entityManager->remove($oeuvre);
             $entityManager->flush();
+            $this->addFlash('success', 'Your art piece have been deleted successfully.');
         }
 
         return $this->redirectToRoute('app_oeuvre_indexadmin', [], Response::HTTP_SEE_OTHER);

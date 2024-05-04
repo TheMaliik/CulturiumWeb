@@ -22,7 +22,7 @@
                 <td>{{ historique.date ? historique.date|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('app_historique_show', {'id': historique.id}) }}">show</a>
-                    <a href="{{ path('app_historique_edit', {'id': historique.id}) }}">edit</a>
+                  
                 </td>
             </tr>
         {% else %}

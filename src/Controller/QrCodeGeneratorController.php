@@ -44,7 +44,7 @@ class QrCodeGeneratorController extends AbstractController
         $qrCodes['simple'] = $writer->write(
                                 $qrCode,
                                 null,
-                                $label->setText('Simple')
+                                $label->setText('Scan me')
                             )->getDataUri();
  
         $qrCode->setForegroundColor(new Color(255, 0, 0));
