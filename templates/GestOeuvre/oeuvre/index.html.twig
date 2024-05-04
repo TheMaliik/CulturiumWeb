@@ -1,0 +1,214 @@
+{% extends "base_front.html.twig" %}
+
+{% block title %}Oeuvre index{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('success') %}
+                                            <div style="color: green;
+                                                                                        border: 2px green solid;
+                                                                                    text-align: center;
+                                                                                        padding: 5px;margin-bottom: 10px;">
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+<style>
+.pagination-container {
+    text-align: center;
+    background-color: white;
+    border-radius: 50px; /* Rounded edges */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: inline-block; /* Center the pagination in the parent */
+    padding: 5px 10px; /* Spacing around the page numbers */
+}
+
+/* Resets and base styles for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Style for individual page number items */
+.pagination li {
+    margin: 0 5px; /* Space between page numbers */
+}
+
+/* Style for page number links */
+.pagination li a {
+    display: block;
+    padding: 5px 10px; /* Sizing of page number buttons */
+    text-decoration: none; /* No underlines on the page numbers */
+    color: #a52a2a; /* Color of the page numbers */
+    border-radius: 15px; /* Rounded corners on page number buttons */
+    transition: color 0.3s, background-color 0.3s; /* Smooth transition for hover and active states */
+}
+
+/* Style for the active page number */
+.pagination li.active a {
+    background-color:#a52a2a; /* Background color for the current page */
+    color: white; /* Text color for the current page */
+}
+
+/* Hover and focus styles for page numbers */
+.pagination li a:hover,
+.pagination li:not(.active) a:focus {
+    background-color:#a52a2a; /* Light background on hover/focus for interactive feedback */
+    color:#a52a2a; /* Keep text color consistent */
+}
+
+/* Disabled state for non-interactive page numbers */
+.pagination li.disabled a {
+    color: #a52a2a; /* Muted color for disabled page numbers */
+    pointer-events: none; /* Disable click events */
+    background-color: transparent; /* No background for disabled state */
+}
+    .wrap-text {
+        word-wrap: break-word;
+    }
+    .shop_item_container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh; /* Adjust this if needed */
+    }
+
+    .qr-code-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0,0.4);
+    }
+    .qr-code-modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+<form action="{{ path('app_oeuvre_index_s') }}" method="get">
+    <input type="text" name="q" placeholder="Search..." value="{{ searchTerm ?? '' }}">
+    <!-- Add a hidden submit button to trigger form submission -->
+    <input type="submit" style="display: none;">
+</form>
+
+<select id="categoryFilter">
+    <option value="">Select a Category</option>
+    
+    {% for categorie in categories %}
+    
+        <option value="{{ categorie.typeOeuvre }}">{{ categorie.typeOeuvre }}</option>
+    {% endfor %}
+</select>
+
+{% for oeuvre in oeuvres %}
+    <div class="shop_item_container oeuvre-item" data-type="{{ oeuvre.typeOeuvre }}">
+        <article id="post-409" data-post-id="409" class="post_item post_layout_excerpt post_format_standard post-409 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-relevant-art tag-art tag-artist tag-entertainment" data-animation="animated fadeIn normal">
+            <div class="post_featured with_thumb hover_view">
+                <div >             
+                   <img width="770" height="433" src="{{ asset(oeuvre.image) }}" class="attachment-ozeum-thumb-big size-ozeum-thumb-big wp-post-image" alt="" decoding="async" sizes="(max-width: 770px) 100vw, 770px">
+</div>
+                <a href="{{ path('app_qr_codes', {'id': oeuvre.linkhttp}) }}" aria-hidden="true" class="view">
+                    <span>{{ oeuvre.prix ~ "TND" }}</span>
+                    
+                </a>
+            </div>
+            <div class="post_header entry-header">
+                <h2 class="post_title entry-title">
+                    <a href="../how-to-start-your-own-art-collection/index.htm" rel="bookmark">{{ oeuvre.nomArtiste }}</a>                  
+
+                </h2>
+                <div class="post_meta">
+                    <span class="post_meta_item post_date">
+                        <a href="../how-to-start-your-own-art-collection/index.htm">{{ oeuvre.nomOeuvre }}</a>
+                        <a href="../how-to-start-your-own-art-collection/index.htm">{{ oeuvre.dateCreation ? oeuvre.dateCreation|date('Y-m-d') : '' }}</a>
+                    </span>
+                </div><!-- .post_meta -->
+            </div><!-- .post_header -->
+            <div class="post_content_inner wrap-text">
+                {{ oeuvre.description }} 
+                
+                
+              
+
+  
+            </div><!-- .entry-content -->
+                             
+
+        </article>
+    </div>
+ 
+{% endfor %}
+<nav aria-label="Page navigation example">
+               <ul class="pagination justify-content-center">
+              {# Previous Page Link #}
+              <li class="page-item {% if pagination.currentPageNumber == 1 %}disabled{% endif %}">
+                 <a class="page-link" href="{{ path('app_oeuvre_index', {'page': pagination.currentPageNumber - 1}) }}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                  </a>
+             </li>
+        
+                {# Pagination Links #}
+             {% for i in 1..pagination.pageCount %}
+             <li class="page-item {% if i == pagination.currentPageNumber %}active{% endif %}">
+                 <a class="page-link" href="{{ path('app_oeuvre_index', {'page': i}) }}">{{ i }}</a>
+             </li>
+              {% endfor %}
+        
+              {# Next Page Link #}
+             <li class="page-item {% if pagination.currentPageNumber == pagination.pageCount %}disabled{% endif %}">
+                <a class="page-link" href="{{ path('app_oeuvre_index', {'page': pagination.currentPageNumber + 1}) }}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+             </li>
+             </ul>
+            </nav>
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categoryFilter = document.getElementById('categoryFilter');
+        const oeuvreItems = document.querySelectorAll('.oeuvre-item');
+  const searchInput = document.querySelector('input[name="q"]');
+        
+        searchInput.addEventListener('input', function() {
+            this.form.submit();
+        });
+        categoryFilter.addEventListener('change', function() {
+            const selectedCategory = this.value;
+
+            oeuvreItems.forEach(function(item) {
+                if (selectedCategory === '' || item.getAttribute('data-type') === selectedCategory) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+</script>
+
+{% endblock %}

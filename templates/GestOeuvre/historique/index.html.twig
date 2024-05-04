@@ -1,0 +1,37 @@
+{% extends 'admin/main.html.twig' %}
+
+{% block title %}Historique index{% endblock %}
+
+{% block contenpage %}
+    <h1>Historique index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>Date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for historique in historiques %}
+            <tr>
+                <td>{{ historique.id }}</td>
+                <td>{{ historique.etat }}</td>
+                <td>{{ historique.date ? historique.date|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_historique_show', {'id': historique.id}) }}">show</a>
+                  
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_historique_new') }}">Create new</a>
+{% endblock %}

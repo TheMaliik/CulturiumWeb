@@ -4,11 +4,11 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert; 
+
 /**
- * Categorie
- *
+ * @ORM\Entity(repositoryClass="App\Repository\CategorieRepository")
  * @ORM\Table(name="categorie", indexes={@ORM\Index(name="ffff_key", columns={"id_oeuvre"})})
- * @ORM\Entity
  */
 class Categorie
 {
@@ -25,6 +25,7 @@ class Categorie
      * @var string
      *
      * @ORM\Column(name="type_oeuvre", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Type Oeuvre cannot be blank")
      */
     private $typeOeuvre;
 
@@ -32,16 +33,15 @@ class Categorie
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Description cannot be blank")
      */
     private $description;
 
     /**
-     * @var \Oeuvre
+     * @var \Oeuvre|null
      *
      * @ORM\ManyToOne(targetEntity="Oeuvre")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_oeuvre", referencedColumnName="id")
-     * })
+     * @ORM\JoinColumn(name="id_oeuvre", referencedColumnName="id")
      */
     private $idOeuvre;
 
@@ -55,7 +55,7 @@ class Categorie
         return $this->typeOeuvre;
     }
 
-    public function setTypeOeuvre(string $typeOeuvre): static
+    public function setTypeOeuvre(string $typeOeuvre): self
     {
         $this->typeOeuvre = $typeOeuvre;
 
@@ -67,7 +67,7 @@ class Categorie
         return $this->description;
     }
 
-    public function setDescription(string $description): static
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -79,12 +79,10 @@ class Categorie
         return $this->idOeuvre;
     }
 
-    public function setIdOeuvre(?Oeuvre $idOeuvre): static
+    public function setIdOeuvre(?Oeuvre $idOeuvre): self
     {
         $this->idOeuvre = $idOeuvre;
 
         return $this;
     }
-
-
 }
