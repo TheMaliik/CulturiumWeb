@@ -17,7 +17,7 @@ class AdresseClientType extends AbstractType
             'label' => false,
             'attr' => [
                 'class' => 'form-control',
-                'placeholder' => 'ID Commande',
+                'placeholder' => ' Commande',
             ],
         ])
         ->add('adresse', null, [

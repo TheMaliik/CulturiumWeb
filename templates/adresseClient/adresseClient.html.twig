@@ -7,6 +7,15 @@
         body {
             background-color: #D2B48C !important; /* Couleur beige plus saturée */
         }
+                .display-4 {
+            color: #5a6268; /* Couleur du texte */
+            text-shadow: 2px 2px 4px #000000; /* Ombre du texte */
+            font-family: 'Arial', sans-serif; /* Police de caractères */
+        }
+        .bg-light {
+        background-color: #F5F5DC !important; /* Couleur beige claire pour le formulaire */
+    }
+
     </style>
 </head>
 <body>
@@ -17,7 +26,7 @@
             <div class="col-md-6">
                 {{ form_start(form, {'attr': {'class': 'bg-light p-5 rounded'}}) }}
                 <div class="form-group">
-                    {{ form_label(form.idcommande, 'ID Commande', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                    {{ form_label(form.idcommande, ' Commande', {'label_attr': {'class': 'font-weight-bold'}}) }}
                     {{ form_widget(form.idcommande, {'attr': {'class': 'form-control mb-3'}}) }}
                     {{ form_errors(form.idcommande) }}
                 </div>
