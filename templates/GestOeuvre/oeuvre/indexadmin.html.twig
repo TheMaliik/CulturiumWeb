@@ -1,0 +1,96 @@
+{% extends 'admin/main.html.twig' %}
+
+{% block title %}Product index{% endblock %}
+
+{% block contenpage %}
+<div class="main-container">
+    <div class="pd-ltr-20 xs-pd-20-10">
+        <div class="min-height-200px">
+            <div class="page-header">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="title">
+                            <h4>Oeuvre</h4>
+                        </div>
+                        <nav aria-label="breadcrumb" role="navigation">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">
+                                    Oeuvre
+                                </li>
+                                 <li class="breadcrumb-item active" aria-current="page">
+                                 <a href="{{ path('app_pdf_generator') }}">PDF</a>
+                                 </li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="header-left">
+                        <div class="header-search">
+                            <form id="searchForm">
+                                <div class="form-group mb-0">
+                                    <i class="dw dw-search2 search-icon"></i>
+                                    <input type="text" class="form-control search-input" id="searchInput" placeholder="Search Here" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <li class="breadcrumb-item">
+                                   
+                                </li>
+            <div class="product-wrap">
+                <div class="product-list">
+                    <ul id="productList" class="row">
+                      {% for oeuvre in oeuvres %}
+    <li class="col-lg-4 col-md-6 col-sm-12">
+        <div class="product-box">
+            <div class="producct-img">
+                <img src="{{ asset(oeuvre.image) }}" alt="Oeuvre Image">
+            </div>
+            <div class="product-caption">
+                <h4>
+                    <a href="#">{{ "id: " ~ oeuvre.id }}</a>
+                </h4>
+                <h4>
+                    <a href="#">{{ "Nom: " ~ oeuvre.nomArtiste }}</a>
+                </h4>
+                <h10>
+                    <a href="#">{{ oeuvre.dateCreation ? oeuvre.dateCreation|date('Y-m-d') : '' }}</a>
+                </h10>
+                <h10>
+                    <a href="#">{{ oeuvre.nomOeuvre }}</a>
+                </h10>
+                <div class="price">
+                    <del></del>
+                    <ins>{{ oeuvre.prix ~ "DT" }}</ins>
+                </div>
+                <a href="{{ path('app_oeuvre_edit', {'id': oeuvre.id}) }}" class="btn btn-outline-primary">Edit</a>
+               <form method="post" action="{{ path('app_oeuvre_delete', {'id': oeuvre.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ oeuvre.id) }}">
+    <button type="submit" class="btn btn-outline-primary">Delete</button>
+</form>
+            </div>
+        </div>
+    </li>
+{% endfor %}
+
+                    </ul>
+                </div>
+                <div class="blog-pagination mb-30">
+                    <div class="btn-toolbar justify-content-center mb-15">
+                        <div class="btn-group">
+                            <!-- Pagination buttons -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

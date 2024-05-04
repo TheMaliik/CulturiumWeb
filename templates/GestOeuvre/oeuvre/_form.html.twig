@@ -1,0 +1,143 @@
+<div class="main-container">
+	<div class="pd-ltr-20 xs-pd-20-10">
+		<div class="min-height-200px">
+			<div class="page-header">
+				<div class="row">
+					<div class="col-md-6 col-sm-12">
+						<div class="title">
+							<h4>Form</h4>
+						</div>
+						<nav aria-label="breadcrumb" role="navigation">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item">
+									<a href="index.html">Home</a>
+								</li>
+								<li class="breadcrumb-item active" aria-current="page">
+									Oeuvre form
+								</li>
+							</ol>
+						</nav>
+					</div>
+					<div class="col-md-6 col-sm-12 text-right">
+						<div class="dropdown">
+							<a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+								January 2018
+							</a>
+							<div class="dropdown-menu dropdown-menu-right">
+								<a class="dropdown-item" href="#">Export List</a>
+								<a class="dropdown-item" href="#">Policies</a>
+								<a class="dropdown-item" href="#">View Assets</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Default Basic Forms Start -->
+			<div class="pd-20 card-box mb-30">
+				<div class="clearfix">
+					<div class="pull-left">
+						<h4 class="text-blue h4">oeuvre form</h4>
+					</div>
+					<div class="pull-right"></div>
+				</div>
+				<form method="post" action="{{ oeuvre.id is defined and oeuvre.id ? path('app_oeuvre_edit', {'id': oeuvre.id}) : path('app_oeuvre_new') }}" enctype="multipart/form-data">
+                {{ form_start(form) }}
+
+					<div class="form-group row">
+						<label class="col-sm-12 col-md-2 col-form-label">NomArtiste</label>
+						<div class="col-sm-12 col-md-10">
+							{{ form_widget(form.nomArtiste, { 'attr': {'class': 'form-control', 'placeholder': 'Johnny Brown'} }) }}
+							<span>
+							{{form_errors(form.nomArtiste)}}
+							</span>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-12 col-md-2 col-form-label">NomOeuvre</label>
+						<div class="col-sm-12 col-md-10">
+							{{ form_widget(form.nomOeuvre, { 'attr': {'class': 'form-control', 'placeholder': 'Johnny Brown'} }) }}
+							<span>
+							{{form_errors(form.nomOeuvre)}}
+							</span>
+						</div>
+					</div>
+
+					<div class="form-group row">
+						<label class="col-sm-12 col-md-2 col-form-label">typeOeuvre</label>
+						<div class="col-sm-12 col-md-10">
+							{{ form_widget(form.typeOeuvre, { 'attr': {'class': 'form-control', 'placeholder': 'Johnny Brown'} }) }}
+							<span>
+							{{form_errors(form.typeOeuvre)}}
+							</span>
+						</div>
+					</div<divclass="form-grouprow">
+					<label class="col-sm-12 col-md-2 col-form-label">Prix</label>
+					<div class="col-sm-12 col-md-10">
+						{{ form_widget(form.prix, { 'attr': {'class': 'form-control', 'placeholder': '100', 'type': 'number'} }) }}
+						<span>
+							{{form_errors(form.prix)}}
+							</span>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">Referance</label>
+					<div class="col-sm-12 col-md-10">
+						{{ form_widget(form.reference, { 'attr': {'class': 'form-control', 'placeholder': '100', 'type': 'number'} }) }}
+						<span>
+							{{form_errors(form.reference)}}
+							</span>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">Description</label>
+					<div class="col-sm-12 col-md-10">
+						{{ form_widget(form.description, { 'attr': {'class': 'form-control', 'placeholder': 'Enter description'} }) }}
+						<span>
+							{{form_errors(form.description)}}
+							</span>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label class="col-sm-12 col-md-2 col-form-label">LinkHttp</label>
+					<div class="col-sm-12 col-md-10">
+						{{ form_widget(form.linkhttp, { 'attr': {'class': 'form-control', 'placeholder': 'Enter description'} }) }}
+						<span>
+							{{form_errors(form.linkhttp)}}
+							</span>
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<label  class="col-sm-12 col-md-2 col-form-label">Date and time</label>
+					<div class="col-sm-12 col-md-10">
+                    {{ form_widget(form.dateCreation, { 'attr': {'class': 'form-control', 'placeholder': 'Enter description'} }) }}
+					<span>
+							{{form_errors(form.dateCreation)}}
+							</span>
+                    </div>
+				</div>
+
+				<div class="form-group">
+					<label>Image</label>
+					{{ form_widget(form.image, { 'attr': { 'class': 'form-control-file form-control height-auto', 'placeholder':'Enter description'} }) }}
+					<span>
+							{{form_errors(form.image)}}
+							</span>
+					<span id="image-file-name"></span>
+				</div>
+
+
+				<button type="submit" class="btn btn-primary">Submit</button>
+
+				{{ form_end(form) }}
+			</form>
+		</div>
+		<!-- Default Basic Forms End -->
+
+		<a href="{{ path('app_oeuvre_indexadmin') }}">back to list</a>
+	</div>
+</div></div>
