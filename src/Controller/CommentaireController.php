@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 #[Route('/commentaire')]
 class CommentaireController extends AbstractController
 {
@@ -122,10 +123,5 @@ public function search(Request $request, ComRepository $comRepository): Response
         // If no posts are found, set a flash message and redirect back to the index page
         $this->addFlash('error', 'No coms found with the search : "' . $searchQuery . '".');
         return $this->redirectToRoute('app_commentaire_index');
-    }
+    }} 
 }
-   
- 
-}
-    
-

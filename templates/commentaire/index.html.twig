@@ -66,6 +66,8 @@
                                 <th>date</th>
                                 <th>idpost</th>
                                 <th>Modifier</th>
+                               
+                                
 
                                 </thead>
                                 <tbody>
@@ -78,6 +80,7 @@
                                         <td>{{ blogCom.descreption}}</td>
                                         <td>{{ blogCom.date|date('Y-m-d ') }}</td>
                                         <td>{{ blogCom.idPost}}</td>
+                                         
                                         <td><a class="btn btn-primary" href="{{ path('app_commentaire_edit',{"id":blogCom.id}) }}"><i class="fa fa-edit"></i></a></td>
                                     
                                      

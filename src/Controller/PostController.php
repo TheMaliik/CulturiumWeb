@@ -140,7 +140,6 @@ class PostController extends AbstractController
             // If no posts are found, set a flash message and redirect back to the index page
             $this->addFlash('error', 'No posts found with the search : "' . $searchQuery . '".');
             return $this->redirectToRoute('app_post_index');
-        }
-        
-        
-    }}
+        }}
+      
+    }
