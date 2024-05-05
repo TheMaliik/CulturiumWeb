@@ -1,0 +1,3253 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="profile" href="//gmpg.org/xfn/11">
+		<title>Shop &#8211; Ozeum</title>
+		<meta name='robots' content='noindex, nofollow'>
+		<link rel='dns-prefetch' href='//stats.wp.com'>
+		<link rel='dns-prefetch' href='//fonts.googleapis.com'>
+		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Feed" href="Front_Office/feed/index.htm">
+		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Comments Feed" href="Front_Office/comments/feed/index.htm">
+		<link rel="alternate" type="text/calendar" title="Ozeum &raquo; iCal Feed" href="Front_Office/events/ozeum-8f04dff3a9b.ics?ical=1">
+		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Products Feed" href="feed/index.htm">
+		<meta property="og:site_name" content="Ozeum">
+		<meta property="og:description" content="Art Collections, Museum &amp; Exhibition Center">
+		<meta property="og:type" content="website">
+		<meta property="og:image" content="//ozeum.themerex.net/wp-content/uploads/2019/10/logo.png">
+		<script type="text/javascript">
+			/* <![CDATA[ */
+window._wpemojiSettings = {
+"baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/",
+"ext": ".png",
+"svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/",
+"svgExt": ".svg",
+"source": {
+"concatemoji": "https:\/\/ozeum.themerex.net\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.4"
+}
+};
+/*! This file is auto-generated */
+!function (i, n) {
+var o,
+s,
+e;
+function c(e) {
+try {
+var t = {
+supportTests: e,
+timestamp: (new Date).valueOf()
+};
+sessionStorage.setItem(o, JSON.stringify(t))
+} catch (e) {}
+}
+function p(e, t, n) {
+e.clearRect(0, 0, e.canvas.width, e.canvas.height),
+e.fillText(t, 0, 0);
+var t = new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data),
+r = (e.clearRect(0, 0, e.canvas.width, e.canvas.height), e.fillText(n, 0, 0), new Uint32Array(e.getImageData(0, 0, e.canvas.width, e.canvas.height).data));
+return t.every(function (e, t) {
+return e === r[t]
+})
+}
+function u(e, t, n) {
+switch (t) {
+case "flag":
+return n(e, "\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f", "\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f") ? !1 : ! n(e, "\ud83c\uddfa\ud83c\uddf3", "\ud83c\uddfa\u200b\ud83c\uddf3") && ! n(e, "\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f", "\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");
+case "emoji":
+return ! n(e, "\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff", "\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")
+}
+return !1
+}
+function f(e, t, n) {
+var r = "undefined" != typeof WorkerGlobalScope && self instanceof WorkerGlobalScope ? new OffscreenCanvas(300, 150) : i.createElement("canvas"),
+a = r.getContext("2d", {
+willReadFrequently: !0
+}),
+o = (a.textBaseline = "top", a.font = "600 32px Arial", {});
+return e.forEach(function (e) {
+o[e] = t(a, e, n)
+}),
+o
+}
+function t(e) {
+var t = i.createElement("script");
+t.src = e,
+t.defer = !0,
+i.head.appendChild(t)
+}
+"undefined" != typeof Promise && (o = "wpEmojiSettingsSupports", s =[
+"flag", "emoji"
+], n.supports =
+{ everything: !0,
+everythingExceptFlag: !0
+}, e = new Promise(function (e) {
+i.addEventListener("DOMContentLoaded", e, {
+once: !0
+})
+}), new Promise(function (t) {
+var n = function () {
+try {
+var e = JSON.parse(sessionStorage.getItem(o));
+if ("object" == typeof e && "number" == typeof e.timestamp && (new Date).valueOf() < e.timestamp + 604800 && "object" == typeof e.supportTests) 
+return e.supportTests
+
+
+
+
+
+} catch (e) {}
+return null
+}();
+if (! n) {
+if ("undefined" != typeof Worker && "undefined" != typeof OffscreenCanvas && "undefined" != typeof URL && URL.createObjectURL && "undefined" != typeof Blob) 
+try {
+var e = "postMessage(" + f.toString() + "(" + [JSON.stringify(s), u.toString(), p.toString()].join(",") + "));",
+r = new Blob([e], {type: "text/javascript"}),
+a = new Worker(URL.createObjectURL(r), {name: "wpTestEmojiSupports"});
+return void(a.onmessage = function (e) {
+c(n = e.data),
+a.terminate(),
+t(n)
+})
+}
+ catch (e) {}c(n = f(s, u, p))
+}
+t(n)
+}).then(function (e) {
+for (var t in e) 
+n.supports[t] = e[t],
+n.supports.everything = n.supports.everything && n.supports[t],
+"flag" !== t && (n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && n.supports[t]);
+
+
+
+n.supports.everythingExceptFlag = n.supports.everythingExceptFlag && ! n.supports.flag,
+n.DOMReady = !1,
+n.readyCallback = function () {
+n.DOMReady = !0
+}
+}).then(function () {
+return e
+}).then(function () {
+var e;
+n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? t(e.concatemoji) : e.wpemoji && e.twemoji && (t(e.twemoji), t(e.wpemoji)))
+}))
+}((window, document), window._wpemojiSettings);
+/* ]]> */
+		</script>
+		{% block css %}
+			<link property="stylesheet" rel='stylesheet' id='trx_demo_icons-css' href={{asset('Front_Office/wp-content/plugins/trx_demo/css/font-icons/css/trx_demo_icons.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_demo_icons_animation-css' href={{asset('Front_Office/wp-content/plugins/trx_demo/css/font-icons/css/animation.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='wp-block-library-css' href={{asset('Front_Office/wp-includes/css/dist/block-library/style.min.css?ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='contact-form-7-css' href={{asset('Front_Office/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='esg-plugin-settings-css' href={{asset('Front_Office/wp-content/plugins/essential-grid/public/assets/css/settings.css?ver=3.1.1')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-fontello-css' href={{asset('Front_Office/wp-content/plugins/essential-grid/public/assets/font/fontello/css/fontello.css?ver=3.1.1')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-open-sans-css' href={{asset('Front_Office/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C800&#038;ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-raleway-css' href={{asset('Front_Office/css-1?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&#038;ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-droid-serif-css' href={{asset('Front_Office/css-2?family=Droid+Serif%3A400%2C700&#038;ver=6.4.4' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-icons-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/font-icons/css/trx_addons_icons.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='jquery-swiper-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/js/swiper/swiper.min.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='magnific-popup-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/js/magnific/magnific-popup.min.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/__styles.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-animation-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/trx_addons.animation.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_demo_panels-css' href={{asset('Front_Office/wp-content/plugins/trx_demo/css/trx_demo_panels.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx-popup-style-css' href={{asset('Front_Office/wp-content/plugins/trx_popup/css/style.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx-popup-custom-css' href={{asset('Front_Office/wp-content/plugins/trx_popup/css/custom.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx-popup-stylesheet-css' href={{asset('Front_Office/wp-content/plugins/trx_popup/css/fonts/Inter/stylesheet.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='woocommerce-layout-css' href={{asset('Front_Office/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=8.4.0')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='woocommerce-smallscreen-css' href={{asset('Front_Office/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=8.4.0')}} type='text/css' media='only screen and (max-width: 768px)'>
+			<link property="stylesheet" rel='stylesheet' id='woocommerce-general-css' href={{asset('Front_Office/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=8.4.0')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='elementor-icons-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.25.0')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='elementor-frontend-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.18.2' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='swiper-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/swiper/css/swiper.min.css?ver=5.3.6')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='font-awesome-5-all-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.18.2' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='font-awesome-4-shim-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.18.2' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='wpgdprc-front-css-css' href={{asset('Front_Office/wp-content/plugins/wp-gdpr-compliance/Assets/css/front.css?ver=1702674773' )}} type='text/css' media='all'>
+			<style>
+				id='wpgdprc-front-css-inline-css' type='text/css':root {
+					--wp-gdpr--bar--background-color: #000000;
+					--wp-gdpr--bar--color: #ffffff;
+					--wp-gdpr--button--background-color: #000000;
+					--wp-gdpr--button--background-color--darken: #000000;
+					--wp-gdpr--button--color: #ffffff;
+				}
+			</style>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-font-Metropolis-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/font-face/Metropolis/stylesheet.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-font-google_fonts-css' href={{asset('Front_Office/css-3?family=Cardo:400,400italic,700&#038;subset=latin,latin-ext' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='fontello-icons-css' href={{asset('Front_Office/wp-content/themes/ozeum/css/font-icons/css/fontello.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-main-css' href={{asset('Front_Office/wp-content/themes/ozeum/style.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='mediaelement-css' href={{asset('Front_Office/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='wp-mediaelement-css' href={{asset('Front_Office/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-skin-default-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/style.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-plugins-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__plugins.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-custom-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__custom.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-color-default-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__colors-default.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-color-dark-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__colors-dark.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-responsive-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/__responsive.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-responsive-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__responsive.css' )}} type='text/css' media='all'>
+		{% endblock %}
+		{% block js %}
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0" )}} id="regenerator-runtime-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" )}} id="wp-polyfill-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/dist/hooks.min.js?ver=c6aec9a8d4e5a5d543a1")}} id="wp-hooks-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/w.js?ver=202415")}} id="woo-tracks-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" )}} id="jquery-core-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" )}} id="jquery-migrate-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.8.4.0")}} id="jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=8.4.0" )}} id="wc-add-to-cart-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.8.4.0" )}} id="js-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=8.4.0" )}} id="woocommerce-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.18.2" )}} id="font-awesome-4-shim-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/wp-gdpr-compliance/Assets/js/front.min.js?ver=1702674773" )}} id="wpgdprc-front-js-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.8.4")}} id="swv-js"></script>
+			<script type="text/javascript" id="contact-form-7-js-extra">
+				/* <![CDATA[ */
+var wpcf7 = {
+"api": {
+"root": "https:\/\/ozeum.themerex.net\/wp-json\/",
+"namespace": "contact-form-7\/v1"
+},
+"cached": "1"
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.8.4" )}} id="contact-form-7-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.6.19" )}} async="" id="tp-tools-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.6.19")}} async="" id="revmin-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/swiper/swiper.min.js")}} id="jquery-swiper-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/elastistack/modernizr.custom.js")}} id="modernizr-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/elastistack/draggabilly.pkgd.min.js")}} id="draggabilly-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/elastistack/elastistack.js")}} id="elastistack-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/magnific/jquery.magnific-popup.min.js")}} id="magnific-popup-js"></script>
+			<script type="text/javascript" id="trx_addons-js-extra">
+				/* <![CDATA[ */
+var TRX_ADDONS_STORAGE = {
+"ajax_url": "https:\/\/ozeum.themerex.net\/wp-admin\/admin-ajax.php",
+"ajax_nonce": "53f1d5b872",
+"site_url": "https:\/\/ozeum.themerex.net",
+"post_id": "656",
+"vc_edit_mode": "0",
+"popup_engine": "magnific",
+"scroll_progress": "hide",
+"animate_inner_links": "0",
+"disable_animation_on_mobile": "1",
+"add_target_blank": "0",
+"menu_collapse": "1",
+"menu_collapse_icon": "icon-menu-collapse",
+"menu_stretch": "0",
+"user_logged_in": "0",
+"email_mask": "^([a-zA-Z0-9_\\-]+\\.)*[a-zA-Z0-9_\\-]+@[a-zA-Z0-9_\\-]+(\\.[a-zA-Z0-9_\\-]+)*\\.[a-zA-Z0-9]{2,6}$",
+"mobile_breakpoint_fixedrows_off": "768",
+"mobile_breakpoint_fixedcolumns_off": "768",
+"mobile_breakpoint_stacksections_off": "768",
+"mobile_breakpoint_fullheight_off": "1025",
+"mobile_breakpoint_mousehelper_off": "1025",
+"msg_ajax_error": "Invalid server answer!",
+"msg_magnific_close": "Close (Esc)",
+"msg_magnific_loading": "Loading image",
+"msg_magnific_error": "Error loading image",
+"msg_magnific_prev": "Previous (Left arrow key)",
+"msg_magnific_next": "Next (Right arrow key)",
+"msg_magnific_counter": "%curr% of %total%",
+"msg_error_like": "Error saving your like! Please, try again later.",
+"msg_field_name_empty": "The name can't be empty",
+"msg_field_email_empty": "Too short (or empty) email address",
+"msg_field_email_not_valid": "Invalid email address",
+"msg_field_text_empty": "The message text can't be empty",
+"msg_search_error": "Search error! Try again later.",
+"msg_send_complete": "Send message complete!",
+"msg_send_error": "Transmit failed!",
+"msg_validation_error": "Error data validation!",
+"msg_name_empty": "The name can't be empty",
+"msg_name_long": "Too long name",
+"msg_email_empty": "Too short (or empty) email address",
+"msg_email_long": "E-mail address is too long",
+"msg_email_not_valid": "E-mail address is invalid",
+"msg_text_empty": "The message text can't be empty",
+"ajax_views": "",
+"menu_cache": [".menu_mobile_inner > nav > ul"],
+"login_via_ajax": "1",
+"msg_login_empty": "The Login field can't be empty",
+"msg_login_long": "The Login field is too long",
+"msg_password_empty": "The password can't be empty and shorter then 4 characters",
+"msg_password_long": "The password is too long",
+"msg_login_success": "Login success! The page should be reloaded in 3 sec.",
+"msg_login_error": "Login failed!",
+"msg_not_agree": "Please, read and check 'Terms and Conditions'",
+"msg_password_not_equal": "The passwords in both fields are not equal",
+"msg_registration_success": "Registration success! Please log in!",
+"msg_registration_error": "Registration failed!",
+"shapes_url": "https:\/\/ozeum.themerex.net\/wp-content\/themes\/ozeum\/trx_addons\/css\/shapes\/",
+"elementor_stretched_section_container": ".page_wrap",
+"pagebuilder_preview_mode": "",
+"scroll_to_anchor": "1",
+"update_location_from_anchor": "0",
+"msg_sc_googlemap_not_avail": "Googlemap service is not available",
+"msg_sc_googlemap_geocoder_error": "Error while geocode address"
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/__scripts.js")}} id="trx_addons-js"></script>
+			<script type="text/javascript" id="trx_demo_panels-js-extra">
+				/* <![CDATA[ */
+var TRX_DEMO_STORAGE = {
+"ajax_url": "https:\/\/ozeum.themerex.net\/wp-admin\/admin-ajax.php",
+"ajax_nonce": "53f1d5b872",
+"site_url": "https:\/\/ozeum.themerex.net",
+"user_logged_in": "0",
+"msg_ajax_error": "Invalid server response! Try again later.",
+"tabs_delay": "5000"
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_demo/js/trx_demo_panels.js")}} id="trx_demo_panels-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_popup/js/jquery.cookie.js")}} id="trx-popup-cookie-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_popup/js/trx_popup.script.js")}} id="trx-popup-script-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/components/shortcodes/anchor/anchor.js" )}} id="trx_addons-sc_anchor-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/components/cpt/layouts/shortcodes/menu/superfish.min.js")}} id="superfish-js"></script>
+			<script type="text/javascript" id="ozeum-init-js-extra">
+				/* <![CDATA[ */
+var OZEUM_STORAGE = {
+"ajax_url": "https:\/\/ozeum.themerex.net\/wp-admin\/admin-ajax.php",
+"ajax_nonce": "53f1d5b872",
+"site_url": "https:\/\/ozeum.themerex.net",
+"theme_url": "https:\/\/ozeum.themerex.net\/wp-content\/themes\/ozeum\/",
+"site_scheme": "scheme_default",
+"user_logged_in": "",
+"mobile_layout_width": "767",
+"mobile_device": "",
+"menu_side_stretch": "",
+"menu_side_icons": "1",
+"background_video": "",
+"use_mediaelements": "1",
+"open_full_post": "",
+"which_block_load": "article",
+"admin_mode": "",
+"msg_ajax_error": "Invalid server answer!",
+"alter_link_color": "#c9a050",
+"button_hover": "default"
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/themes/ozeum/js/__scripts.js" )}} id="ozeum-init-js"></script>
+			<script type="text/javascript" id="mediaelement-core-js-before">
+				/* <![CDATA[ */
+var mejsL10n = {
+"language": "en",
+"strings": {
+"mejs.download-file": "Download File",
+"mejs.install-flash": "You are using a browser that does not have Flash player enabled or installed. Please turn on your Flash player plugin or download the latest version from https:\/\/get.adobe.com\/flashplayer\/",
+"mejs.fullscreen": "Fullscreen",
+"mejs.play": "Play",
+"mejs.pause": "Pause",
+"mejs.time-slider": "Time Slider",
+"mejs.time-help-text": "Use Left\/Right Arrow keys to advance one second, Up\/Down arrows to advance ten seconds.",
+"mejs.live-broadcast": "Live Broadcast",
+"mejs.volume-help-text": "Use Up\/Down Arrow keys to increase or decrease volume.",
+"mejs.unmute": "Unmute",
+"mejs.mute": "Mute",
+"mejs.volume-slider": "Volume Slider",
+"mejs.video-player": "Video Player",
+"mejs.audio-player": "Audio Player",
+"mejs.captions-subtitles": "Captions\/Subtitles",
+"mejs.captions-chapters": "Chapters",
+"mejs.none": "None",
+"mejs.afrikaans": "Afrikaans",
+"mejs.albanian": "Albanian",
+"mejs.arabic": "Arabic",
+"mejs.belarusian": "Belarusian",
+"mejs.bulgarian": "Bulgarian",
+"mejs.catalan": "Catalan",
+"mejs.chinese": "Chinese",
+"mejs.chinese-simplified": "Chinese (Simplified)",
+"mejs.chinese-traditional": "Chinese (Traditional)",
+"mejs.croatian": "Croatian",
+"mejs.czech": "Czech",
+"mejs.danish": "Danish",
+"mejs.dutch": "Dutch",
+"mejs.english": "English",
+"mejs.estonian": "Estonian",
+"mejs.filipino": "Filipino",
+"mejs.finnish": "Finnish",
+"mejs.french": "French",
+"mejs.galician": "Galician",
+"mejs.german": "German",
+"mejs.greek": "Greek",
+"mejs.haitian-creole": "Haitian Creole",
+"mejs.hebrew": "Hebrew",
+"mejs.hindi": "Hindi",
+"mejs.hungarian": "Hungarian",
+"mejs.icelandic": "Icelandic",
+"mejs.indonesian": "Indonesian",
+"mejs.irish": "Irish",
+"mejs.italian": "Italian",
+"mejs.japanese": "Japanese",
+"mejs.korean": "Korean",
+"mejs.latvian": "Latvian",
+"mejs.lithuanian": "Lithuanian",
+"mejs.macedonian": "Macedonian",
+"mejs.malay": "Malay",
+"mejs.maltese": "Maltese",
+"mejs.norwegian": "Norwegian",
+"mejs.persian": "Persian",
+"mejs.polish": "Polish",
+"mejs.portuguese": "Portuguese",
+"mejs.romanian": "Romanian",
+"mejs.russian": "Russian",
+"mejs.serbian": "Serbian",
+"mejs.slovak": "Slovak",
+"mejs.slovenian": "Slovenian",
+"mejs.spanish": "Spanish",
+"mejs.swahili": "Swahili",
+"mejs.swedish": "Swedish",
+"mejs.tagalog": "Tagalog",
+"mejs.thai": "Thai",
+"mejs.turkish": "Turkish",
+"mejs.ukrainian": "Ukrainian",
+"mejs.vietnamese": "Vietnamese",
+"mejs.welsh": "Welsh",
+"mejs.yiddish": "Yiddish"
+}
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17" )}} id="mediaelement-core-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.4.4" )}} id="mediaelement-migrate-js"></script>
+			<script type="text/javascript" id="mediaelement-js-extra">
+				/* <![CDATA[ */
+var _wpmejsSettings = {
+"pluginPath": "\/wp-includes\/js\/mediaelement\/",
+"classPrefix": "mejs-",
+"stretching": "responsive",
+"audioShortcodeLibrary": "mediaelement",
+"videoShortcodeLibrary": "mediaelement"
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.4.4" )}} id="wp-mediaelement-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/themes/ozeum/skins/default/skin.js")}} id="ozeum-skin-default-js"></script>
+			<script type="text/javascript" id="wc-cart-fragments-js-extra">
+				/* <![CDATA[ */
+var wc_cart_fragments_params = {
+"ajax_url": "\/wp-admin\/admin-ajax.php",
+"wc_ajax_url": "\/?wc-ajax=%%endpoint%%",
+"cart_hash_key": "wc_cart_hash_f4a686fd9083587ef4f167edb107d45d",
+"fragment_name": "wc_fragments_f4a686fd9083587ef4f167edb107d45d",
+"request_timeout": "5000"
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=8.4.0")}} id="wc-cart-fragments-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" )}} id="jquery-ui-core-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.2" )}} id="jquery-ui-mouse-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/ui/slider.min.js?ver=1.13.2" )}} id="jquery-ui-slider-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js?ver=8.4.0" )}} id="wc-jquery-ui-touchpunch-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/accounting/accounting.min.js?ver=0.4.2")}} id="accounting-js"></script>
+			<script type="text/javascript" id="wc-price-slider-js-extra">
+				/* <![CDATA[ */
+var woocommerce_price_slider_params = {
+"currency_format_num_decimals": "0",
+"currency_format_symbol": "$",
+"currency_format_decimal_sep": ".",
+"currency_format_thousand_sep": ",",
+"currency_format": "%s%v"
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.min.js?ver=8.4.0" )}} id="wc-price-slider-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.18.2" )}} id="elementor-webpack-runtime-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.18.2" )}} id="elementor-frontend-modules-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" )}} id="elementor-waypoints-js"></script>
+			<script type="text/javascript" id="elementor-frontend-js-before">
+				/* <![CDATA[ */
+var elementorFrontendConfig = {
+"environmentMode": {
+"edit": false,
+"wpPreview": false,
+"isScriptDebug": false
+},
+"i18n": {
+"shareOnFacebook": "Share on Facebook",
+"shareOnTwitter": "Share on Twitter",
+"pinIt": "Pin it",
+"download": "Download",
+"downloadImage": "Download image",
+"fullscreen": "Fullscreen",
+"zoom": "Zoom",
+"share": "Share",
+"playVideo": "Play Video",
+"previous": "Previous",
+"next": "Next",
+"close": "Close",
+"a11yCarouselWrapperAriaLabel": "Carousel | Horizontal scrolling: Arrow Left & Right",
+"a11yCarouselPrevSlideMessage": "Previous slide",
+"a11yCarouselNextSlideMessage": "Next slide",
+"a11yCarouselFirstSlideMessage": "This is the first slide",
+"a11yCarouselLastSlideMessage": "This is the last slide",
+"a11yCarouselPaginationBulletMessage": "Go to slide"
+},
+"is_rtl": false,
+"breakpoints": {
+"xs": 0,
+"sm": 480,
+"md": 768,
+"lg": 1025,
+"xl": 1440,
+"xxl": 1600
+},
+"responsive": {
+"breakpoints": {
+"mobile": {
+"label": "Mobile Portrait",
+"value": 767,
+"default_value": 767,
+"direction": "max",
+"is_enabled": true
+},
+"mobile_extra": {
+"label": "Mobile Landscape",
+"value": 880,
+"default_value": 880,
+"direction": "max",
+"is_enabled": false
+},
+"tablet": {
+"label": "Tablet Portrait",
+"value": 1024,
+"default_value": 1024,
+"direction": "max",
+"is_enabled": true
+},
+"tablet_extra": {
+"label": "Tablet Landscape",
+"value": 1200,
+"default_value": 1200,
+"direction": "max",
+"is_enabled": false
+},
+"laptop": {
+"label": "Laptop",
+"value": 1366,
+"default_value": 1366,
+"direction": "max",
+"is_enabled": false
+},
+"widescreen": {
+"label": "Widescreen",
+"value": 2400,
+"default_value": 2400,
+"direction": "min",
+"is_enabled": false
+}
+}
+},
+"version": "3.18.2",
+"is_static": false,
+"experimentalFeatures": {
+"e_dom_optimization": true,
+"e_optimized_assets_loading": true,
+"additional_custom_breakpoints": true,
+"block_editor_assets_optimize": true,
+"landing-pages": true,
+"e_global_styleguide": true
+},
+"urls": {
+"assets": "https:\/\/ozeum.themerex.net\/wp-content\/plugins\/elementor\/assets\/"
+},
+"swiperClass": "swiper-container",
+"settings": {
+"editorPreferences": []
+},
+"kit": {
+"stretched_section_container": ".page_wrap",
+"active_breakpoints": [
+"viewport_mobile", "viewport_tablet"
+],
+"global_image_lightbox": "yes",
+"lightbox_enable_counter": "yes",
+"lightbox_enable_fullscreen": "yes",
+"lightbox_enable_zoom": "yes",
+"lightbox_enable_share": "yes",
+"lightbox_title_src": "title",
+"lightbox_description_src": "description"
+},
+"post": {
+"id": 0,
+"title": "Shop &#8211; Ozeum",
+"excerpt": "<p>This is where you can browse products in this store.<\/p>\n"
+}
+};
+var elementorFrontendConfig = {
+"environmentMode": {
+"edit": false,
+"wpPreview": false,
+"isScriptDebug": false
+},
+"i18n": {
+"shareOnFacebook": "Share on Facebook",
+"shareOnTwitter": "Share on Twitter",
+"pinIt": "Pin it",
+"download": "Download",
+"downloadImage": "Download image",
+"fullscreen": "Fullscreen",
+"zoom": "Zoom",
+"share": "Share",
+"playVideo": "Play Video",
+"previous": "Previous",
+"next": "Next",
+"close": "Close",
+"a11yCarouselWrapperAriaLabel": "Carousel | Horizontal scrolling: Arrow Left & Right",
+"a11yCarouselPrevSlideMessage": "Previous slide",
+"a11yCarouselNextSlideMessage": "Next slide",
+"a11yCarouselFirstSlideMessage": "This is the first slide",
+"a11yCarouselLastSlideMessage": "This is the last slide",
+"a11yCarouselPaginationBulletMessage": "Go to slide"
+},
+"is_rtl": false,
+"breakpoints": {
+"xs": 0,
+"sm": 480,
+"md": 768,
+"lg": 1025,
+"xl": 1440,
+"xxl": 1600
+},
+"responsive": {
+"breakpoints": {
+"mobile": {
+"label": "Mobile Portrait",
+"value": 767,
+"default_value": 767,
+"direction": "max",
+"is_enabled": true
+},
+"mobile_extra": {
+"label": "Mobile Landscape",
+"value": 880,
+"default_value": 880,
+"direction": "max",
+"is_enabled": false
+},
+"tablet": {
+"label": "Tablet Portrait",
+"value": 1024,
+"default_value": 1024,
+"direction": "max",
+"is_enabled": true
+},
+"tablet_extra": {
+"label": "Tablet Landscape",
+"value": 1200,
+"default_value": 1200,
+"direction": "max",
+"is_enabled": false
+},
+"laptop": {
+"label": "Laptop",
+"value": 1366,
+"default_value": 1366,
+"direction": "max",
+"is_enabled": false
+},
+"widescreen": {
+"label": "Widescreen",
+"value": 2400,
+"default_value": 2400,
+"direction": "min",
+"is_enabled": false
+}
+}
+},
+"version": "3.18.2",
+"is_static": false,
+"experimentalFeatures": {
+"e_dom_optimization": true,
+"e_optimized_assets_loading": true,
+"additional_custom_breakpoints": true,
+"block_editor_assets_optimize": true,
+"landing-pages": true,
+"e_global_styleguide": true
+},
+"urls": {
+"assets": "https:\/\/ozeum.themerex.net\/wp-content\/plugins\/elementor\/assets\/"
+},
+"swiperClass": "swiper-container",
+"settings": {
+"editorPreferences": []
+},
+"kit": {
+"stretched_section_container": ".page_wrap",
+"active_breakpoints": [
+"viewport_mobile", "viewport_tablet"
+],
+"global_image_lightbox": "yes",
+"lightbox_enable_counter": "yes",
+"lightbox_enable_fullscreen": "yes",
+"lightbox_enable_zoom": "yes",
+"lightbox_enable_share": "yes",
+"lightbox_title_src": "title",
+"lightbox_description_src": "description"
+},
+"post": {
+"id": 0,
+"title": "Shop &#8211; Ozeum",
+"excerpt": "<p>This is where you can browse products in this store.<\/p>\n"
+}
+};
+/* ]]> */
+			</script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.18.2" )}} id="elementor-frontend-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/tweenmax/tweenmax.min.js" )}} id="tweenmax-js"></script>
+			<script>
+				TRX_DEMO_STORAGE['tabs_layout'] = "		<div class=\"trx_demo_panels trx_demo_tabs_position_rc trx_demo_tabs_style_icons trx_demo_panels_with_multi_filters\" style=\"width:320px;\">  			<div class=\"trx_demo_tabs\"> 				<a class=\"hint_left hint_big hint_slide\" href=\"https://1.envato.market/GjOO5k\" 						 target=\"_blank\"						aria-label=\"Buy theme\" 						data-type=\"link\" 						style=\"color:#ffffff;background-color:#c9a050;\" 					><i class=\"trx_demo_icon-shopping-cart\"></i></a><a class=\"hint_left hint_big hint_slide\" href=\"#panel_related-demos\" 												aria-label=\"Homepages\" 						data-type=\"features\" 						style=\"color:#ffffff;background-color:#c9a050;\" 					><i class=\"trx_demo_icon-gallery\"></i></a><a class=\"hint_left hint_big hint_slide\" href=\"https://ozeum.themerex.net?notabs=1\" 												aria-label=\"Hide panel\" 						data-type=\"link\" 						style=\"color:#ffffff;background-color:#c9a050;\" 					><i class=\"trx_demo_icon-browser\"></i></a>			</div>  			<div class=\"trx_demo_panels_wrap\"> 				<div id=\"panel_related-demos\" 							class=\"trx_demo_panel 									trx_demo_panel_features									trx_demo_panel_thumbs_animation_off									trx_demo_panel_layout_1col									trx_demo_panel_style_plain\" 							style=\"\" 					><div class=\"trx_demo_panel_header\"><h5 class=\"trx_demo_panel_title\" style=\"\">All Our Demos</h5></div><div class=\"trx_demo_panel_content\"><div class=\"trx_demo_panel_list\"><div class=\"trx_demo_panel_list_item\" data-search-value=\"museum home\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/1.jpg);\"> 															<a href=\"https://ozeum.themerex.net/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/\" target=\"_blank\">Museum Home</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"fullscreen showcase\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/2.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-2/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-2/\" target=\"_blank\">Fullscreen Showcase</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"exhibition center\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/3.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-3/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-3/\" target=\"_blank\">Exhibition Center</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"single exhibition\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/4.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-4/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-4/\" target=\"_blank\">Single Exhibition</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"art gallery\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/5.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-5/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-5/\" target=\"_blank\">Art Gallery</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"video background\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/video.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-6/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-6/\" target=\"_blank\">Video Background</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"virtual tour\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/7.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-7/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-7/\" target=\"_blank\">Virtual Tour</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"collections\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/8.jpg);\"> 															<a href=\"https://ozeum.themerex.net/collections/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/collections/\" target=\"_blank\">Collections</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"shop\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/9.jpg);\"> 															<a href=\"https://ozeum.themerex.net/shop/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/shop/\" target=\"_blank\">Shop</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"modern art gallery\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2021/12/ozeum_art_screen.jpg);\"> 															<a href=\"https://art.ozeum.themerex.net/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://art.ozeum.themerex.net/\" target=\"_blank\">Modern Art Gallery</a> 												</h6> 																							</div> 										</div></div></div><div class=\"trx_demo_panel_footer\"><a class=\"trx_demo_panel_button sc_button theme_button trx_demo_inline_1994816261 trx_demo_inline_1563896611\" href=\"https://themeforest.net/item/qwery-multipurpose-business-wordpress-theme/29678687\" target=\"_blank\">Sale</a></div></div></div> 			<span class=\"trx_demo_button_close\"><span class=\"trx_demo_button_close_icon\"></span></span>  		</div>  		<div class=\"trx_demo_panels_mask\"></div> 		";
+			</script>
+			<script src="https://code.tidio.co/ctybgkiqd4jhsgdvzlgahqx3pjybdwlg.js" async=""></script>
+
+		{% endblock %}
+
+		<style>
+			id="wp-emoji-styles-inline-css"
+			type="text/css"
+			img.wp-smiley,
+			img.emoji {
+				display: inline !important;
+				border: none !important;
+				box-shadow: none !important;
+				height: 1em !important;
+				width: 1em !important;
+				margin: 0 0.07em !important;
+				vertical-align: -0.1em !important;
+				background: none !important;
+				padding: 0 !important;
+			}
+		</style>
+
+
+		<style>
+			/* This file is auto-generated */
+			.wp-block-button__link {
+				color: #fff;
+				background-color: #32373c;
+				border-radius: 9999px;
+				box-shadow: none;
+				text-decoration: none;
+				padding: calc(0.667em + 2px) calc(1.333em);
+				font-size: 1.125em;
+			}
+			.wp-block-file__button {
+				background: #32373c;
+				color: #fff;
+				text-decoration: none;
+			}
+
+			/* Global Styles */
+			body {
+				--wp--preset--color--black: #000000;
+				--wp--preset--color--cyan-bluish-gray: #abb8c3;
+				--wp--preset--color--white: #ffffff;
+				--wp--preset--color--pale-pink: #f78da7;
+				--wp--preset--color--vivid-red: #cf2e2e;
+				--wp--preset--color--luminous-vivid-orange: #ff6900;
+				--wp--preset--color--luminous-vivid-amber: #fcb900;
+				--wp--preset--color--light-green-cyan: #7bdcb5;
+				--wp--preset--color--vivid-green-cyan: #00d084;
+				--wp--preset--color--pale-cyan-blue: #8ed1fc;
+				--wp--preset--color--vivid-cyan-blue: #0693e3;
+				--wp--preset--color--vivid-purple: #9b51e0;
+				--wp--preset--color--bg-color: #f7f6ec;
+				--wp--preset--color--bd-color: #c9c8bf;
+				--wp--preset--color--text-dark: #13130d;
+				--wp--preset--color--text-light: #93938f;
+				--wp--preset--color--text-link: #c9a050;
+				--wp--preset--color--text-hover: #13130d;
+				--wp--preset--color--text-link-2: #80d572;
+				--wp--preset--color--text-hover-2: #8be77c;
+				--wp--preset--color--text-link-3: #ddb837;
+				--wp--preset--color--text-hover-3: #eec432;
+				--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6,147,227,1) 0%, rgb(155,81,224) 100%);
+				--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122,220,180) 0%, rgb(0,208,130) 100%);
+				--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252,185,0,1) 0%, rgba(255,105,0,1) 100%);
+				--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg, rgba(255,105,0,1) 0%, rgb(207,46,46) 100%);
+				--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg, rgb(238,238,238) 0%, rgb(169,184,195) 100%);
+				--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg, rgb(74,234,220) 0%, rgb(151,120,209) 20%, rgb(207,42,186) 40%, rgb(238,44,130) 60%, rgb(251,105,98) 80%, rgb(254,248,76) 100%);
+				--wp--preset--gradient--blush-light-purple: linear-gradient(135deg, rgb(255,206,236) 0%, rgb(152,150,240) 100%);
+				--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg, rgb(254,205,165) 0%, rgb(254,45,45) 50%, rgb(107,0,62) 100%);
+				--wp--preset--gradient--luminous-dusk: linear-gradient(135deg, rgb(255,203,112) 0%, rgb(199,81,192) 50%, rgb(65,88,208) 100%);
+				--wp--preset--gradient--pale-ocean: linear-gradient(135deg, rgb(255,245,203) 0%, rgb(182,227,212) 50%, rgb(51,167,181) 100%);
+				--wp--preset--gradient--electric-grass: linear-gradient(135deg, rgb(202,248,128) 0%, rgb(113,206,126) 100%);
+				--wp--preset--gradient--midnight: linear-gradient(135deg, rgb(2,3,129) 0%, rgb(40,116,252) 100%);
+				--wp--preset--font-size--small: 13px;
+				--wp--preset--font-size--medium: 20px;
+				--wp--preset--font-size--large: 36px;
+				--wp--preset--font-size--x-large: 42px;
+				--wp--preset--spacing--20: 0.44rem;
+				--wp--preset--spacing--30: 0.67rem;
+				--wp--preset--spacing--40: 1rem;
+				--wp--preset--spacing--50: 1.5rem;
+				--wp--preset--spacing--60: 2.25rem;
+				--wp--preset--spacing--70: 3.38rem;
+				--wp--preset--spacing--80: 5.06rem;
+				--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+				--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+				--wp--preset--shadow--sharp: 6px 6px 0 rgba(0, 0, 0, 0.2);
+				--wp--preset--shadow--outlined: 6px 6px 0 -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);
+				--wp--preset--shadow--crisp: 6px 6px 0 rgba(0, 0, 0, 1);
+			}
+
+			:where(.is-layout-flex) {
+				gap: 0.5em;
+			}
+
+			:where(.is-layout-grid) {
+				gap: 0.5em;
+			}
+			body .is-layout-flow > .alignleft {
+				float: left;
+				margin-inline-start: 0;
+				margin-inline-end: 2em;
+			}
+			body .is-layout-flow > .alignright {
+				float: right;
+				margin-inline-start: 2em;
+				margin-inline-end: 0;
+			}
+			body .is-layout-flow > .aligncenter {
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+			body .is-layout-constrained > .alignleft {
+				float: left;
+				margin-inline-start: 0;
+				margin-inline-end: 2em;
+			}
+			body .is-layout-constrained > .alignright {
+				float: right;
+				margin-inline-start: 2em;
+				margin-inline-end: 0;
+			}
+			body .is-layout-constrained > .aligncenter {
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+			body .is-layout-constrained >:where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+				max-width: var(--wp--style--global--content-size);
+				margin-left: auto !important;
+				margin-right: auto !important;
+			}
+			body .is-layout-constrained > .alignwide {
+				max-width: var(--wp--style--global--wide-size);
+			}
+			body .is-layout-flex {
+				display: flex;
+			}
+			body .is-layout-flex {
+				flex-wrap: wrap;
+				align-items: center;
+			}
+			body .is-layout-flex > * {
+				margin: 0;
+			}
+			body .is-layout-grid {
+				display: grid;
+			}
+			body .is-layout-grid > * {
+				margin: 0;
+			}
+			:where(.wp-block-columns.is-layout-flex) {
+				gap: 2em;
+			}
+			:where(.wp-block-columns.is-layout-grid) {
+				gap: 2em;
+			}
+			:where(.wp-block-post-template.is-layout-flex) {
+				gap: 1.25em;
+			}
+			:where(.wp-block-post-template.is-layout-grid) {
+				gap: 1.25em;
+			}
+			.has-black-color {
+				color: var(--wp--preset--color--black) !important;
+			}
+			.has-cyan-bluish-gray-color {
+				color: var(--wp--preset--color--cyan-bluish-gray) !important;
+			}
+			.has-white-color {
+				color: var(--wp--preset--color--white) !important;
+			}
+			.has-pale-pink-color {
+				color: var(--wp--preset--color--pale-pink) !important;
+			}
+			.has-vivid-red-color {
+				color: var(--wp--preset--color--vivid-red) !important;
+			}
+			.has-luminous-vivid-orange-color {
+				color: var(--wp--preset--color--luminous-vivid-orange) !important;
+			}
+			.has-luminous-vivid-amber-color {
+				color: var(--wp--preset--color--luminous-vivid-amber) !important;
+			}
+			.has-light-green-cyan-color {
+				color: var(--wp--preset--color--light-green-cyan) !important;
+			}
+			.has-vivid-green-cyan-color {
+				color: var(--wp--preset--color--vivid-green-cyan) !important;
+			}
+			.has-pale-cyan-blue-color {
+				color: var(--wp--preset--color--pale-cyan-blue) !important;
+			}
+			.has-vivid-cyan-blue-color {
+				color: var(--wp--preset--color--vivid-cyan-blue) !important;
+			}
+			.has-vivid-purple-color {
+				color: var(--wp--preset--color--vivid-purple) !important;
+			}
+			.has-black-background-color {
+				background-color: var(--wp--preset--color--black) !important;
+			}
+			.has-cyan-bluish-gray-background-color {
+				background-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+			}
+			.has-white-background-color {
+				background-color: var(--wp--preset--color--white) !important;
+			}
+			.has-pale-pink-background-color {
+				background-color: var(--wp--preset--color--pale-pink) !important;
+			}
+			.has-vivid-red-background-color {
+				background-color: var(--wp--preset--color--vivid-red) !important;
+			}
+			.has-luminous-vivid-orange-background-color {
+				background-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+			}
+			.has-luminous-vivid-amber-background-color {
+				background-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+			}
+			.has-light-green-cyan-background-color {
+				background-color: var(--wp--preset--color--light-green-cyan) !important;
+			}
+			.has-vivid-green-cyan-background-color {
+				background-color: var(--wp--preset--color--vivid-green-cyan) !important;
+			}
+			.has-pale-cyan-blue-background-color {
+				background-color: var(--wp--preset--color--pale-cyan-blue) !important;
+			}
+			.has-vivid-cyan-blue-background-color {
+				background-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+			}
+			.has-vivid-purple-background-color {
+				background-color: var(--wp--preset--color--vivid-purple) !important;
+			}
+			.has-black-border-color {
+				border-color: var(--wp--preset--color--black) !important;
+			}
+			.has-cyan-bluish-gray-border-color {
+				border-color: var(--wp--preset--color--cyan-bluish-gray) !important;
+			}
+			.has-white-border-color {
+				border-color: var(--wp--preset--color--white) !important;
+			}
+			.has-pale-pink-border-color {
+				border-color: var(--wp--preset--color--pale-pink) !important;
+			}
+			.has-vivid-red-border-color {
+				border-color: var(--wp--preset--color--vivid-red) !important;
+			}
+			.has-luminous-vivid-orange-border-color {
+				border-color: var(--wp--preset--color--luminous-vivid-orange) !important;
+			}
+			.has-luminous-vivid-amber-border-color {
+				border-color: var(--wp--preset--color--luminous-vivid-amber) !important;
+			}
+			.has-light-green-cyan-border-color {
+				border-color: var(--wp--preset--color--light-green-cyan) !important;
+			}
+			.has-vivid-green-cyan-border-color {
+				border-color: var(--wp--preset--color--vivid-green-cyan) !important;
+			}
+			.has-pale-cyan-blue-border-color {
+				border-color: var(--wp--preset--color--pale-cyan-blue) !important;
+			}
+			.has-vivid-cyan-blue-border-color {
+				border-color: var(--wp--preset--color--vivid-cyan-blue) !important;
+			}
+			.has-vivid-purple-border-color {
+				border-color: var(--wp--preset--color--vivid-purple) !important;
+			}
+			.has-vivid-cyan-blue-to-vivid-purple-gradient-background {
+				background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;
+			}
+			.has-light-green-cyan-to-vivid-green-cyan-gradient-background {
+				background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;
+			}
+			.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background {
+				background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;
+			}
+			.has-luminous-vivid-orange-to-vivid-red-gradient-background {
+				background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;
+			}
+			.has-very-light-gray-to-cyan-bluish-gray-gradient-background {
+				background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;
+			}
+			.has-cool-to-warm-spectrum-gradient-background {
+				background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;
+			}
+			.has-blush-light-purple-gradient-background {
+				background: var(--wp--preset--gradient--blush-light-purple) !important;
+			}
+			.has-blush-bordeaux-gradient-background {
+				background: var(--wp--preset--gradient--blush-bordeaux) !important;
+			}
+			.has-luminous-dusk-gradient-background {
+				background: var(--wp--preset--gradient--luminous-dusk) !important;
+			}
+			.has-pale-ocean-gradient-background {
+				background: var(--wp--preset--gradient--pale-ocean) !important;
+			}
+			.has-electric-grass-gradient-background {
+				background: var(--wp--preset--gradient--electric-grass) !important;
+			}
+			.has-midnight-gradient-background {
+				background: var(--wp--preset--gradient--midnight) !important;
+			}
+			.has-small-font-size {
+				font-size: var(--wp--preset--font-size--small) !important;
+			}
+			.has-medium-font-size {
+				font-size: var(--wp--preset--font-size--medium) !important;
+			}
+			.has-large-font-size {
+				font-size: var(--wp--preset--font-size--large) !important;
+			}
+			.has-x-large-font-size {
+				font-size: var(--wp--preset--font-size--x-large) !important;
+			}
+			.wp-block-navigation a:where(:not(.wp-element-button)) {
+				color: inherit;
+			}
+			:where(.wp-block-post-template.is-layout-flex) {
+				gap: 1.25em;
+			}
+			:where(.wp-block-post-template.is-layout-grid) {
+				gap: 1.25em;
+			}
+			:where(.wp-block-columns.is-layout-flex) {
+				gap: 2em;
+			}
+			:where(.wp-block-columns.is-layout-grid) {
+				gap: 2em;
+			}
+			.wp-block-pullquote {
+				font-size: 1.5em;
+				line-height: 1.6;
+			}
+		</style>
+
+		<style>
+			id='woocommerce-inline-inline-css'type='text/css'.woocommerce form .form-row .required {
+				visibility: visible;
+			}
+		</style>
+
+		<style>
+			id='elementor-frontend-inline-css'type='text/css'.elementor-kit-4719 {
+				--e-global-color-primary: #6EC1E4;
+				--e-global-color-secondary: #54595F;
+				--e-global-color-text: #7A7A7A;
+				--e-global-color-accent: #61CE70;
+				--e-global-color-633d66d7: #4054B2;
+				--e-global-color-568897be: #23A455;
+				--e-global-color-41f4556d: #000;
+				--e-global-color-3d54b018: #FFF;
+				--e-global-typography-primary-font-family: "Roboto";
+				--e-global-typography-primary-font-weight: 600;
+				--e-global-typography-secondary-font-family: "Roboto Slab";
+				--e-global-typography-secondary-font-weight: 400;
+				--e-global-typography-text-font-family: "Roboto";
+				--e-global-typography-text-font-weight: 400;
+				--e-global-typography-accent-font-family: "Roboto";
+				--e-global-typography-accent-font-weight: 500;
+			}
+			.elementor-section.elementor-section-boxed > .elementor-container {
+				max-width: 1200px;
+			}
+			.e-con {
+				--container-max-width: 1200px;
+			}
+			.elementor-widget:not(:last-child) {
+				margin-block-end: 0;
+			}
+			.elementor-element {
+				--widgets-spacing: 0 0;
+			}
+			{}
+			.sc_layouts_title_caption {
+				display: var(--page-title-display);
+			}
+			@media(max-width:1024px) {
+				.elementor-section.elementor-section-boxed > .elementor-container {
+					max-width: 1024px;
+				}
+				.e-con {
+					--container-max-width: 1024px;
+				}
+			}
+			@media(max-width:767px) {
+				.elementor-section.elementor-section-boxed > .elementor-container {
+					max-width: 767px;
+				}
+				.e-con {
+					--container-max-width: 767px;
+				}
+			}
+		</style>
+
+		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+		<script>
+			type = "text/javascript" src = "Front_Office/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id = "wp-polyfill-inert-js"
+		</script>
+		<script>
+			type = "text/javascript" id = "wc-add-to-cart-js-extra" /* <![CDATA[ */
+varwc_add_to_cart_params = {
+"ajax_url": "\/wp-admin\/admin-ajax.php",
+"wc_ajax_url": "\/?wc-ajax=%%endpoint%%",
+"i18n_view_cart": "View cart",
+"cart_url": "https:\/\/ozeum.themerex.net\/cart\/",
+"is_cart": "",
+"cart_redirect_after_add": "no"
+};
+/* ]]> */
+		</script>
+		<script>
+			type = "text/javascript" id = "woocommerce-js-extra" /* <![CDATA[ */
+varwoocommerce_params = {
+"ajax_url": "\/wp-admin\/admin-ajax.php",
+"wc_ajax_url": "\/?wc-ajax=%%endpoint%%"
+};
+/* ]]> */
+		</script>
+		<script>
+			type = "text/javascript" id = "wpgdprc-front-js-js-extra" /* <![CDATA[ */
+varwpgdprcFront = {
+"ajaxUrl": "https:\/\/ozeum.themerex.net\/wp-admin\/admin-ajax.php",
+"ajaxNonce": "fa48b25413",
+"ajaxArg": "security",
+"pluginPrefix": "wpgdprc",
+"blogId": "1",
+"isMultiSite": "",
+"locale": "en_US",
+"showSignUpModal": "1",
+"showFormModal": "",
+"cookieName": "wpgdprc-consent",
+"consentVersion": "",
+"path": "\/",
+"prefix": "wpgdprc"
+};
+/* ]]> */
+		</script>
+		<link rel="https://api.w.org/" href="Front_Office/wp-json/index.htm">
+		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ozeum.themerex.net/xmlrpc.php?rsd">
+		<meta name="generator" content="WordPress 6.4.4">
+		<meta name="generator" content="WooCommerce 8.4.0">
+		<style type="text/css">
+			#page_preloader {
+				background-color: #13130d !important;
+				background-image: url('Front_Office/wp-content/uploads/2019/11/flower-preloader.png');
+			}
+		</style>
+
+		<meta name="tec-api-version" content="v1">
+		<meta name="tec-api-origin" content="https://ozeum.themerex.net">
+		<link rel="alternate" href="wp-json/tribe/events/v1/index.htm">
+		<noscript>
+			<style>
+				.woocommerce-product-gallery {
+					opacity: 1 !important;
+				}
+			</style>
+		</noscript>
+		<meta name="generator" content="Elementor 3.18.2; features: e_dom_optimization, e_optimized_assets_loading, additional_custom_breakpoints, block_editor_assets_optimize; settings: css_print_method-internal, google_font-enabled, font_display-auto">
+		<meta name="generator" content="Powered by Slider Revolution 6.6.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
+		<link rel="icon" href="Front_Office/wp-content/uploads/2019/10/cropped-favicon-90x90.png" sizes="32x32">
+		<link rel="icon" href="Front_Office/wp-content/uploads/2019/10/cropped-favicon-300x300.png" sizes="192x192">
+		<link rel="apple-touch-icon" href="Front_Office/wp-content/uploads/2019/10/cropped-favicon-300x300.png">
+		<meta name="msapplication-TileImage" content="https://ozeum.themerex.net/wp-content/uploads/2019/10/cropped-favicon-300x300.png">
+		<script>
+			// Your JavaScript code goes here
+
+functionsetREVStartSize(e) { // window.requestAnimationFrame(function() {
+window.RSIW = window.RSIW === undefined ? window.innerWidth : window.RSIW;
+window.RSIH = window.RSIH === undefined ? window.innerHeight : window.RSIH;
+try {
+varpw = document.getElementById(e.c).parentNode.offsetWidth,
+newh;
+pw = pw === 0 || isNaN(pw) || (e.l == "fullwidth" || e.layout == "fullwidth") ? window.RSIW : pw;
+e.tabw = e.tabw === undefined ? 0 : parseInt(e.tabw);
+e.thumbw = e.thumbw === undefined ? 0 : parseInt(e.thumbw);
+e.tabh = e.tabh === undefined ? 0 : parseInt(e.tabh);
+e.thumbh = e.thumbh === undefined ? 0 : parseInt(e.thumbh);
+e.tabhide = e.tabhide === undefined ? 0 : parseInt(e.tabhide);
+e.thumbhide = e.thumbhide === undefined ? 0 : parseInt(e.thumbhide);
+e.mh = e.mh === undefined || e.mh == "" || e.mh === "auto" ? 0 : parseInt(e.mh, 0);
+if (e.layout === "fullscreen" || e.l === "fullscreen") 
+x {
+newh = Math.max(e.mh, window.RSIH);
+x
+}
+ else {
+e.gw = Array.isArray(e.gw) ? e.gw : [e.gw];
+for (variine.rl) 
+x {
+if (e.gw[i] === undefined || e.gw[i] === 0) 
+x {
+e.gw[i] = e.gw[i - 1];
+x
+}
+
+x
+}
+
+
+
+e.gh = e.el === undefined || e.el === "" || (Array.isArray(e.el) && e.el.length == 0) ? e.gh : e.el;
+e.gh = Array.isArray(e.gh) ? e.gh : [e.gh];
+for (variine.rl) 
+x {
+if (e.gh[i] === undefined || e.gh[i] === 0) 
+x {
+e.gh[i] = e.gh[i - 1];
+x
+}
+
+x
+}
+
+
+
+varnl = newArray(e.rl.length),
+ix = 0,
+sl;
+e.tabw = e.tabhide >= pw ? 0 : e.tabw;
+e.thumbw = e.thumbhide >= pw ? 0 : e.thumbw;
+e.tabh = e.tabhide >= pw ? 0 : e.tabh;
+e.thumbh = e.thumbhide >= pw ? 0 : e.thumbh;
+for (variine.rl) 
+x {
+nl[i] = e.rl[i] < window.RSIW ? 0 : e.rl[i];
+x
+}
+
+
+sl = nl[0];
+for (variinnl) 
+x {
+if (sl > nl[i] && nl[i] > 0) {
+sl = nl[i];
+ix = i;
+}
+x
+}
+
+
+varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
+/(
+								e.gw[
+									ix]
+							);
+							newh=(
+								e.gh[
+									ix]
+								*m)
+							+(
+								e.tabh+e.thumbh);
+						}
+						varel=document.getElementById(
+							e.c);
+						if(
+							el!==null&&el)
+						x{
+							el.style.height=newh+"px";
+						x}
+
+						el=document.getElementById(
+							e.c+"_wrapper");
+						if(
+							el!==null&&el)
+						{
+							el.style.height=newh+"px";
+							el.style.display="block";
+						}
+					}
+					catch(
+						e)
+					{
+						console.log(
+							"Failure at Presize of Slider:"+e)
+					}
+					// });
+				};
+</script>
+						<style>
+							type="text/css"id="trx_addons-inline-styles-inline-css".trx_addons_inline_366019055 img {
+								max-height: 2em;
+							}
+							.trx_addons_inline_1357587856 img {
+								max-height: 2em;
+							}
+							.trx_addons_inline_617697518 img {
+								max-height: 1.3em;
+							}
+							.trx_addons_inline_128716318 img {
+								max-height: 2em;
+							}
+						</style>
+						<style>
+							id="elementor-post-146".elementor-146 .elementor-element.elementor-element-7b55fce > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-d8444f4 > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-1de921c > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-3c6f615 > .elementor-widget-container {
+								padding: 13px 25px;
+								border-style: solid;
+								border-width: 0 1px 0 1px;
+								border-color: #3b3a31;
+							}
+							.elementor-146 .elementor-element.elementor-element-572b3aa > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-68ed595 > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-8ab4b7f > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-c310e4c > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-54fcc3d > .elementor-widget-container {
+								padding: 13px 25px;
+								border-style: solid;
+								border-width: 0 1px 0 1px;
+								border-color: #3b3a31;
+							}
+							.elementor-146 .elementor-element.elementor-element-0975447 > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-26174b5:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-26174b5 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+								background-image: url("Front_Office/wp-content/uploads/2019/05/main_header_bg-copyright.jpg");
+								background-position: center center;
+								background-repeat: no-repeat;
+								background-size: cover;
+							}
+							.elementor-146 .elementor-element.elementor-element-26174b5 > .elementor-background-overlay {
+								background-color: transparent;
+								background-image: linear-gradient(0deg, rgba(19,19,13,0) 70%, rgba(19,19,13,0.8) 100%);
+								opacity: 1;
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-146 .elementor-element.elementor-element-26174b5 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-146 .elementor-element.elementor-element-9adac3f > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-9adac3f:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-9adac3f > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: rgba(19, 19, 13, 0);
+							}
+							.elementor-146 .elementor-element.elementor-element-9adac3f {
+								border-style: solid;
+								border-width: 1px 0 1px 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-acc04a4 {
+								z-index: 1;
+							}
+							.elementor-146 .elementor-element.elementor-element-9ac5f49 .logo_image {
+								max-height: 2em;
+							}
+							.elementor-146 .elementor-element.elementor-element-9ac5f49 > .elementor-widget-container {
+								margin: 4px 0 0;
+							}
+							.elementor-146 .elementor-element.elementor-element-2c719b4 {
+								z-index: 1;
+							}
+							.elementor-146 .elementor-element.elementor-element-2c719b4 > .elementor-widget-container {
+								border-style: solid;
+								border-width: 0 1px 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-711896d > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-711896d:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-711896d > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: rgba(19, 19, 13, 0);
+							}
+							.elementor-146 .elementor-element.elementor-element-711896d {
+								border-style: solid;
+								border-width: 1px 0 1px 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-ab11763 > .elementor-element-populated.elementor-column-wrap {
+								padding: 0 20px;
+							}
+							.elementor-146 .elementor-element.elementor-element-ab11763 > .elementor-element-populated.elementor-widget-wrap {
+								padding: 0 20px;
+							}
+							.elementor-146 .elementor-element.elementor-element-58c28fa .logo_image {
+								max-height: 2em;
+							}
+							.elementor-146 .elementor-element.elementor-element-58c28fa > .elementor-widget-container {
+								margin: 4px 0 0;
+							}
+							.elementor-146 .elementor-element.elementor-element-ecce9ea {
+								z-index: 1;
+							}
+							.elementor-146 .elementor-element.elementor-element-ecce9ea > .elementor-widget-container {
+								border-style: solid;
+								border-width: 0 1px 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-1c4050b > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-1c4050b:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-1c4050b > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: rgba(19, 19, 13, 0);
+							}
+							.elementor-146 .elementor-element.elementor-element-1c4050b {
+								border-style: solid;
+								border-width: 1px 0 1px 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								padding: 5px 20px;
+							}
+							.elementor-146 .elementor-element.elementor-element-5b2321f .logo_image {
+								max-height: 1.3em;
+							}
+							.elementor-146 .elementor-element.elementor-element-5b2321f > .elementor-widget-container {
+								margin: 7px 0 0;
+							}
+							.elementor-146 .elementor-element.elementor-element-144b6cc {
+								--spacer-size: 85px;
+							}
+							.elementor-146 .elementor-element.elementor-element-a45f085 {
+								--spacer-size: 30px;
+							}
+							.elementor-146 .elementor-element.elementor-element-fcbae9b {
+								--spacer-size: 90px;
+							}
+							.elementor-146 .elementor-element.elementor-element-d4c727c {
+								--spacer-size: 30px;
+							}
+							@media(max-width:1024px) {
+								.elementor-146 .elementor-element.elementor-element-8ab4b7f > .elementor-widget-container {
+									padding: 12px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-c310e4c > .elementor-widget-container {
+									padding: 12px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-54fcc3d > .elementor-widget-container {
+									padding: 13px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-0975447 > .elementor-widget-container {
+									padding: 12px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-58c28fa .logo_image {
+									max-height: 1.4em;
+								}
+								.elementor-146 .elementor-element.elementor-element-144b6cc {
+									--spacer-size: 60px;
+								}
+								.elementor-146 .elementor-element.elementor-element-fcbae9b {
+									--spacer-size: 60px;
+								}
+							}
+							@media(max-width:767px) {
+								.elementor-146 .elementor-element.elementor-element-9c2200c {
+									width: 50%;
+								}
+								.elementor-146 .elementor-element.elementor-element-1de54eb {
+									width: 50%;
+								}
+								.elementor-146 .elementor-element.elementor-element-144b6cc {
+									--spacer-size: 40px;
+								}
+								.elementor-146 .elementor-element.elementor-element-fcbae9b {
+									--spacer-size: 40px;
+								}
+							}
+							@media(min-width:768px) {
+								.elementor-146 .elementor-element.elementor-element-d6fb9f7 {
+									width: 41.984%;
+								}
+								.elementor-146 .elementor-element.elementor-element-b29acf7 {
+									width: 16.032%;
+								}
+								.elementor-146 .elementor-element.elementor-element-3eb5b02 {
+									width: 41.98%;
+								}
+								.elementor-146 .elementor-element.elementor-element-ab11763 {
+									width: 25%;
+								}
+								.elementor-146 .elementor-element.elementor-element-96433ed {
+									width: 75%;
+								}
+							}
+						</style>
+						<style>
+							.elementor-146 .elementor-element.elementor-element-7b55fce > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-d8444f4 > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-1de921c > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-3c6f615 > .elementor-widget-container {
+								padding: 13px 25px;
+								border-style: solid;
+								border-width: 0 1px 0 1px;
+								border-color: #3b3a31;
+							}
+							.elementor-146 .elementor-element.elementor-element-572b3aa > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-68ed595 > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-8ab4b7f > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-c310e4c > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-54fcc3d > .elementor-widget-container {
+								padding: 13px 25px;
+								border-style: solid;
+								border-width: 0 1px 0 1px;
+								border-color: #3b3a31;
+							}
+							.elementor-146 .elementor-element.elementor-element-0975447 > .elementor-widget-container {
+								padding: 12px 25px;
+							}
+							.elementor-146 .elementor-element.elementor-element-26174b5:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-26174b5 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+								background-image: url("Front_Office/wp-content/uploads/2019/05/main_header_bg-copyright.jpg");
+								background-position: center center;
+								background-repeat: no-repeat;
+								background-size: cover;
+							}
+							.elementor-146 .elementor-element.elementor-element-26174b5 > .elementor-background-overlay {
+								background-color: transparent;
+								background-image: linear-gradient(0deg, rgba(19,19,13,0) 70%, rgba(19,19,13,0.8) 100%);
+								opacity: 1;
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-146 .elementor-element.elementor-element-26174b5 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-146 .elementor-element.elementor-element-9adac3f > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-9adac3f:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-9adac3f > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: rgba(19, 19, 13, 0);
+							}
+							.elementor-146 .elementor-element.elementor-element-9adac3f {
+								border-style: solid;
+								border-width: 1px 0 1px 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-acc04a4 {
+								z-index: 1;
+							}
+							.elementor-146 .elementor-element.elementor-element-9ac5f49 .logo_image {
+								max-height: 2em;
+							}
+							.elementor-146 .elementor-element.elementor-element-9ac5f49 > .elementor-widget-container {
+								margin: 4px 0 0;
+							}
+							.elementor-146 .elementor-element.elementor-element-2c719b4 {
+								z-index: 1;
+							}
+							.elementor-146 .elementor-element.elementor-element-2c719b4 > .elementor-widget-container {
+								border-style: solid;
+								border-width: 0 1px 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-711896d > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-711896d:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-711896d > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: rgba(19, 19, 13, 0);
+							}
+							.elementor-146 .elementor-element.elementor-element-711896d {
+								border-style: solid;
+								border-width: 1px 0 1px 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-ab11763 > .elementor-element-populated.elementor-column-wrap {
+								padding: 0 20px;
+							}
+							.elementor-146 .elementor-element.elementor-element-ab11763 > .elementor-element-populated.elementor-widget-wrap {
+								padding: 0 20px;
+							}
+							.elementor-146 .elementor-element.elementor-element-58c28fa .logo_image {
+								max-height: 2em;
+							}
+							.elementor-146 .elementor-element.elementor-element-58c28fa > .elementor-widget-container {
+								margin: 4px 0 0;
+							}
+							.elementor-146 .elementor-element.elementor-element-ecce9ea {
+								z-index: 1;
+							}
+							.elementor-146 .elementor-element.elementor-element-ecce9ea > .elementor-widget-container {
+								border-style: solid;
+								border-width: 0 1px 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-146 .elementor-element.elementor-element-1c4050b > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-146 .elementor-element.elementor-element-1c4050b:not(.elementor-motion-effects-element-type-background),
+							.elementor-146 .elementor-element.elementor-element-1c4050b > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: rgba(19, 19, 13, 0);
+							}
+							.elementor-146 .elementor-element.elementor-element-1c4050b {
+								border-style: solid;
+								border-width: 1px 0 1px 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								padding: 5px 20px;
+							}
+							.elementor-146 .elementor-element.elementor-element-5b2321f .logo_image {
+								max-height: 1.3em;
+							}
+							.elementor-146 .elementor-element.elementor-element-5b2321f > .elementor-widget-container {
+								margin: 7px 0 0;
+							}
+							.elementor-146 .elementor-element.elementor-element-144b6cc {
+								--spacer-size: 85px;
+							}
+							.elementor-146 .elementor-element.elementor-element-a45f085 {
+								--spacer-size: 30px;
+							}
+							.elementor-146 .elementor-element.elementor-element-fcbae9b {
+								--spacer-size: 90px;
+							}
+							.elementor-146 .elementor-element.elementor-element-d4c727c {
+								--spacer-size: 30px;
+							}
+							@media(max-width:1024px) {
+								.elementor-146 .elementor-element.elementor-element-8ab4b7f > .elementor-widget-container {
+									padding: 12px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-c310e4c > .elementor-widget-container {
+									padding: 12px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-54fcc3d > .elementor-widget-container {
+									padding: 13px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-0975447 > .elementor-widget-container {
+									padding: 12px 20px;
+								}
+								.elementor-146 .elementor-element.elementor-element-58c28fa .logo_image {
+									max-height: 1.4em;
+								}
+								.elementor-146 .elementor-element.elementor-element-144b6cc {
+									--spacer-size: 60px;
+								}
+								.elementor-146 .elementor-element.elementor-element-fcbae9b {
+									--spacer-size: 60px;
+								}
+							}
+							@media(max-width:767px) {
+								.elementor-146 .elementor-element.elementor-element-9c2200c {
+									width: 50%;
+								}
+								.elementor-146 .elementor-element.elementor-element-1de54eb {
+									width: 50%;
+								}
+								.elementor-146 .elementor-element.elementor-element-144b6cc {
+									--spacer-size: 40px;
+								}
+								.elementor-146 .elementor-element.elementor-element-fcbae9b {
+									--spacer-size: 40px;
+								}
+							}
+							@media(min-width:768px) {
+								.elementor-146 .elementor-element.elementor-element-d6fb9f7 {
+									width: 41.984%;
+								}
+								.elementor-146 .elementor-element.elementor-element-b29acf7 {
+									width: 16.032%;
+								}
+								.elementor-146 .elementor-element.elementor-element-3eb5b02 {
+									width: 41.98%;
+								}
+								.elementor-146 .elementor-element.elementor-element-ab11763 {
+									width: 25%;
+								}
+								.elementor-146 .elementor-element.elementor-element-96433ed {
+									width: 75%;
+								}
+							}
+						</style>
+						<style>
+							id="elementor-post-814" .elementor-814 .elementor-element.elementor-element-c7e20c4:not(.elementor-motion-effects-element-type-background),
+							.elementor-814 .elementor-element.elementor-element-c7e20c4 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+							}
+							.elementor-814 .elementor-element.elementor-element-c7e20c4 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-c7e20c4 > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-642ffde {
+								--spacer-size: 90px;
+							}
+							.elementor-814 .elementor-element.elementor-element-4bd1d2f {
+								--spacer-size: 30px;
+							}
+							.elementor-814 .elementor-element.elementor-element-abf4222 .logo_image {
+								max-height: 2em;
+							}
+							.elementor-814 .elementor-element.elementor-element-abf4222 > .elementor-widget-container {
+								margin: 4px 0 0;
+							}
+							.elementor-814 .elementor-element.elementor-element-3fff7c4 {
+								--spacer-size: 35px;
+							}
+							.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated {
+								border-style: solid;
+								border-width: 0 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated {
+								border-style: solid;
+								border-width: 0 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated {
+								border-style: solid;
+								border-width: 0 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-61ace85 {
+								--spacer-size: 90px;
+							}
+							.elementor-814 .elementor-element.elementor-element-5dfb6a3 {
+								--spacer-size: 30px;
+							}
+							.elementor-814 .elementor-element.elementor-element-34031d5:not(.elementor-motion-effects-element-type-background),
+							.elementor-814 .elementor-element.elementor-element-34031d5 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+							}
+							.elementor-814 .elementor-element.elementor-element-34031d5 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-34031d5 > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-cbff538 {
+								--spacer-size: 1px;
+							}
+							.elementor-814 .elementor-element.elementor-element-cbff538 > .elementor-widget-container {
+								border-style: solid;
+								border-width: 1px 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532 > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532:not(.elementor-motion-effects-element-type-background),
+							.elementor-814 .elementor-element.elementor-element-12e7532 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+								padding: 20px 0;
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532 > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-bc-flex-widget .elementor-814 .elementor-element.elementor-element-e15d783.elementor-column .elementor-widget-wrap {
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-e15d783.elementor-column.elementor-element[data-element_type="column"] > .elementor-widget-wrap.elementor-element-populated {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-bc-flex-widget .elementor-814 .elementor-element.elementor-element-62e56da.elementor-column .elementor-widget-wrap {
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-62e56da.elementor-column.elementor-element[data-element_type="column"] > .elementor-widget-wrap.elementor-element-populated {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-723229f {
+								text-align: right;
+							}
+							@media(max-width:1024px) {
+								.elementor-814 .elementor-element.elementor-element-642ffde {
+									--spacer-size: 60px;
+								}
+								.elementor-814 .elementor-element.elementor-element-abf4222 .logo_image {
+									max-height: 1.4em;
+								}
+								.elementor-814 .elementor-element.elementor-element-3fff7c4 {
+									--spacer-size: 20px;
+								}
+								.elementor-814 .elementor-element.elementor-element-61ace85 {
+									--spacer-size: 60px;
+								}
+							}
+							@media(max-width:767px) {
+								.elementor-814 .elementor-element.elementor-element-642ffde {
+									--spacer-size: 40px;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated {
+									border-width: 1px 0 0 0;
+									margin: 20px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated.elementor-column-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated.elementor-widget-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated {
+									border-width: 1px 0 0 0;
+									margin: 20px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated.elementor-column-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated.elementor-widget-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated {
+									border-width: 1px 0 0 0;
+									margin: 20px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated.elementor-column-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated.elementor-widget-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-61ace85 {
+									--spacer-size: 20px;
+								}
+								.elementor-814 .elementor-element.elementor-element-62e56da > .elementor-element-populated {
+									margin: 10px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-723229f {
+									text-align: center;
+								}
+							}
+							@media(min-width:768px) {
+								.elementor-814 .elementor-element.elementor-element-166902a {
+									width: 50%;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 {
+									width: 16.667%;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 {
+									width: 16.666%;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 {
+									width: 16.667%;
+								}
+							}
+							@media(max-width:1024px) and(min-width:768px) {
+								.elementor-814 .elementor-element.elementor-element-166902a {
+									width: 46%;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 {
+									width: 18%;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 {
+									width: 18%;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 {
+									width: 18%;
+								}
+							}
+						</style>
+						<style>
+							.elementor-814 .elementor-element.elementor-element-c7e20c4:not(.elementor-motion-effects-element-type-background),
+							.elementor-814 .elementor-element.elementor-element-c7e20c4 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+							}
+							.elementor-814 .elementor-element.elementor-element-c7e20c4 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-c7e20c4 > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-642ffde {
+								--spacer-size: 90px;
+							}
+							.elementor-814 .elementor-element.elementor-element-4bd1d2f {
+								--spacer-size: 30px;
+							}
+							.elementor-814 .elementor-element.elementor-element-abf4222 .logo_image {
+								max-height: 2em;
+							}
+							.elementor-814 .elementor-element.elementor-element-abf4222 > .elementor-widget-container {
+								margin: 4px 0 0;
+							}
+							.elementor-814 .elementor-element.elementor-element-3fff7c4 {
+								--spacer-size: 35px;
+							}
+							.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated {
+								border-style: solid;
+								border-width: 0 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated {
+								border-style: solid;
+								border-width: 0 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated {
+								border-style: solid;
+								border-width: 0 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-61ace85 {
+								--spacer-size: 90px;
+							}
+							.elementor-814 .elementor-element.elementor-element-5dfb6a3 {
+								--spacer-size: 30px;
+							}
+							.elementor-814 .elementor-element.elementor-element-34031d5:not(.elementor-motion-effects-element-type-background),
+							.elementor-814 .elementor-element.elementor-element-34031d5 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+							}
+							.elementor-814 .elementor-element.elementor-element-34031d5 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-34031d5 > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-814 .elementor-element.elementor-element-cbff538 {
+								--spacer-size: 1px;
+							}
+							.elementor-814 .elementor-element.elementor-element-cbff538 > .elementor-widget-container {
+								border-style: solid;
+								border-width: 1px 0 0 0;
+								border-color: rgba(235, 233, 207, 0.2);
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532 > .elementor-container > .elementor-column > .elementor-widget-wrap {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532:not(.elementor-motion-effects-element-type-background),
+							.elementor-814 .elementor-element.elementor-element-12e7532 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+								background-color: #13130d;
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532 {
+								transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+								padding: 20px 0;
+							}
+							.elementor-814 .elementor-element.elementor-element-12e7532 > .elementor-background-overlay {
+								transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+							}
+							.elementor-bc-flex-widget .elementor-814 .elementor-element.elementor-element-e15d783.elementor-column .elementor-widget-wrap {
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-e15d783.elementor-column.elementor-element[data-element_type="column"] > .elementor-widget-wrap.elementor-element-populated {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-bc-flex-widget .elementor-814 .elementor-element.elementor-element-62e56da.elementor-column .elementor-widget-wrap {
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-62e56da.elementor-column.elementor-element[data-element_type="column"] > .elementor-widget-wrap.elementor-element-populated {
+								align-content: center;
+								align-items: center;
+							}
+							.elementor-814 .elementor-element.elementor-element-723229f {
+								text-align: right;
+							}
+							@media(max-width:1024px) {
+								.elementor-814 .elementor-element.elementor-element-642ffde {
+									--spacer-size: 60px;
+								}
+								.elementor-814 .elementor-element.elementor-element-abf4222 .logo_image {
+									max-height: 1.4em;
+								}
+								.elementor-814 .elementor-element.elementor-element-3fff7c4 {
+									--spacer-size: 20px;
+								}
+								.elementor-814 .elementor-element.elementor-element-61ace85 {
+									--spacer-size: 60px;
+								}
+							}
+							@media(max-width:767px) {
+								.elementor-814 .elementor-element.elementor-element-642ffde {
+									--spacer-size: 40px;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated {
+									border-width: 1px 0 0 0;
+									margin: 20px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated.elementor-column-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 > .elementor-element-populated.elementor-widget-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated {
+									border-width: 1px 0 0 0;
+									margin: 20px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated.elementor-column-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 > .elementor-element-populated.elementor-widget-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated {
+									border-width: 1px 0 0 0;
+									margin: 20px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated.elementor-column-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 > .elementor-element-populated.elementor-widget-wrap {
+									padding: 20px 0 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-61ace85 {
+									--spacer-size: 20px;
+								}
+								.elementor-814 .elementor-element.elementor-element-62e56da > .elementor-element-populated {
+									margin: 10px 0 0;
+									--e-column-margin-right: 0;
+									--e-column-margin-left: 0;
+								}
+								.elementor-814 .elementor-element.elementor-element-723229f {
+									text-align: center;
+								}
+							}
+							@media(min-width:768px) {
+								.elementor-814 .elementor-element.elementor-element-166902a {
+									width: 50%;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 {
+									width: 16.667%;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 {
+									width: 16.666%;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 {
+									width: 16.667%;
+								}
+							}
+							@media(max-width:1024px) and(min-width:768px) {
+								.elementor-814 .elementor-element.elementor-element-166902a {
+									width: 46%;
+								}
+								.elementor-814 .elementor-element.elementor-element-5129a41 {
+									width: 18%;
+								}
+								.elementor-814 .elementor-element.elementor-element-74a7869 {
+									width: 18%;
+								}
+								.elementor-814 .elementor-element.elementor-element-08dee39 {
+									width: 18%;
+								}
+							}
+						</style>
+						<style>
+							type="text/css".trx_demo_inline_1994816261 {
+								color: #ffffff !important;
+								border-color: #ffaa5f !important;
+								background-color: #ffaa5f !important;
+							}
+							.trx_demo_inline_1563896611:hover {
+								color: #ffffff !important;
+								border-color: #cc884c !important;
+								background-color: #cc884c !important;
+							}
+						</style>
+						<link property="stylesheet" rel="stylesheet" id="rs-plugin-settings-css" href="Front_Office/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.6.19" type="text/css" media="all">
+
+					</head>
+
+					{% block header %}
+						<header class="top_panel top_panel_custom top_panel_custom_146 top_panel_custom_main-header				 without_bg_image">
+							<div data-elementor-type="cpt_layouts" data-elementor-id="146" class="elementor elementor-146">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-7b55fce elementor-section-full_width elementor-section-content-middle sc_layouts_row sc_layouts_row_type_narrow scheme_dark no_margin_item sc_layouts_hide_on_tablet sc_layouts_hide_on_mobile elementor-section-height-default elementor-section-height-default" data-id="7b55fce" data-element_type="section">
+									<div class="elementor-container elementor-column-gap-no">
+										<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-c58c3cd sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="c58c3cd" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<div class="sc_layouts_item elementor-element elementor-element-d8444f4 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_iconed_text" data-id="d8444f4" data-element_type="widget" data-widget_type="trx_sc_layouts_iconed_text.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_iconed_text_787238795" class="sc_layouts_iconed_text">
+															<span class="sc_layouts_item_icon sc_layouts_iconed_text_icon icon-time sc_icon_type_icons"></span>
+															<span class="sc_layouts_item_details sc_layouts_iconed_text_details">
+																<span class="sc_layouts_item_details_line1 sc_layouts_iconed_text_line1">The museum is open today 10 am - 5 pm</span>
+															</span><!-- /.sc_layouts_iconed_text_details --></div>
+														<!-- /.sc_layouts_iconed_text -->
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-8783aec sc_layouts_column_align_right sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="8783aec" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<div class="sc_layouts_item elementor-element elementor-element-1de921c animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_iconed_text" data-id="1de921c" data-element_type="widget" data-widget_type="trx_sc_layouts_iconed_text.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_iconed_text_83256827" class="sc_layouts_iconed_text">
+															<span class="sc_layouts_item_icon sc_layouts_iconed_text_icon icon-placeholder-filled-point sc_icon_type_icons"></span>
+															<span class="sc_layouts_item_details sc_layouts_iconed_text_details">
+																<span class="sc_layouts_item_details_line1 sc_layouts_iconed_text_line1">34th Ave, Queens, NY 11106</span>
+															</span><!-- /.sc_layouts_iconed_text_details --></div>
+														<!-- /.sc_layouts_iconed_text -->
+													</div>
+												</div>
+												<div class="sc_layouts_item elementor-element elementor-element-3c6f615 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_search" data-id="3c6f615" data-element_type="widget" data-widget_type="trx_sc_layouts_search.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_search_1480990625" class="sc_layouts_search">
+															<div class="search_wrap search_style_normal layouts_search">
+																<div class="search_form_wrap">
+																	<form role="search" method="get" class="search_form" action="https://ozeum.themerex.net/">
+																		<input type="hidden" value="" name="post_types">
+																		<input type="text" class="search_field" placeholder="Search" value="" name="s">
+																		<button type="submit" class="search_submit trx_addons_icon-search"></button>
+																	</form>
+																</div>
+															</div>
+														</div>
+														<!-- /.sc_layouts_search -->
+													</div>
+												</div>
+												<div class="sc_layouts_item elementor-element elementor-element-572b3aa animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_language" data-id="572b3aa" data-element_type="widget" data-widget_type="trx_sc_layouts_language.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_language_259006042" class="sc_layouts_language sc_layouts_menu sc_layouts_menu_default">
+															<ul class="sc_layouts_language_menu sc_layouts_dropdown sc_layouts_menu_nav">
+																<li class="menu-item menu-item-has-children">
+																	<a href="#">
+																		<span class="menu-item-title">English</span>
+																	</a>
+																	<ul>
+																		<li class="menu-item current-menu-item">
+																			<a rel="alternate" hreflang="en" href="#">
+																				<span class="menu-item-title">English</span>
+																			</a>
+																		</li>
+																		<li class="menu-item">
+																			<a rel="alternate" hreflang="de" href="#">
+																				<span class="menu-item-title">Deutsch</span>
+																			</a>
+																		</li>
+																		<li class="menu-item">
+																			<a rel="alternate" hreflang="es" href="#">
+																				<span class="menu-item-title">Español</span>
+																			</a>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</div>
+														<!-- /.sc_layouts_language -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-68ed595 elementor-section-full_width elementor-section-content-middle sc_layouts_row sc_layouts_row_type_narrow scheme_dark no_margin_item sc_layouts_hide_on_wide sc_layouts_hide_on_desktop sc_layouts_hide_on_notebook sc_layouts_hide_on_mobile elementor-section-height-default elementor-section-height-default" data-id="68ed595" data-element_type="section">
+									<div class="elementor-container elementor-column-gap-no">
+										<div class="elementor-column elementor-col-33 elementor-top-column elementor-element elementor-element-8661199 sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="8661199" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<div class="sc_layouts_item elementor-element elementor-element-8ab4b7f animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_iconed_text" data-id="8ab4b7f" data-element_type="widget" data-widget_type="trx_sc_layouts_iconed_text.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_iconed_text_591702998" class="sc_layouts_iconed_text">
+															<span class="sc_layouts_item_icon sc_layouts_iconed_text_icon icon-time sc_icon_type_icons"></span>
+															<span class="sc_layouts_item_details sc_layouts_iconed_text_details">
+																<span class="sc_layouts_item_details_line1 sc_layouts_iconed_text_line1">open today 10 am - 5 pm</span>
+															</span><!-- /.sc_layouts_iconed_text_details --></div>
+														<!-- /.sc_layouts_iconed_text -->
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="elementor-column elementor-col-66 elementor-top-column elementor-element elementor-element-4aa8f74 sc_layouts_column_align_right sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="4aa8f74" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<div class="sc_layouts_item elementor-element elementor-element-c310e4c animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_iconed_text" data-id="c310e4c" data-element_type="widget" data-widget_type="trx_sc_layouts_iconed_text.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_iconed_text_645494420" class="sc_layouts_iconed_text">
+															<span class="sc_layouts_item_icon sc_layouts_iconed_text_icon icon-placeholder-filled-point sc_icon_type_icons"></span>
+															<span class="sc_layouts_item_details sc_layouts_iconed_text_details">
+																<span class="sc_layouts_item_details_line1 sc_layouts_iconed_text_line1">34th Ave, Queens, NY 11106</span>
+															</span><!-- /.sc_layouts_iconed_text_details --></div>
+														<!-- /.sc_layouts_iconed_text -->
+													</div>
+												</div>
+												<div class="sc_layouts_item elementor-element elementor-element-54fcc3d animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_search" data-id="54fcc3d" data-element_type="widget" data-widget_type="trx_sc_layouts_search.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_search_1734670605" class="sc_layouts_search">
+															<div class="search_wrap search_style_fullscreen layouts_search">
+																<div class="search_form_wrap">
+																	<form role="search" method="get" class="search_form" action="https://ozeum.themerex.net/">
+																		<input type="hidden" value="" name="post_types">
+																		<input type="text" class="search_field" placeholder="Search" value="" name="s">
+																		<button type="submit" class="search_submit trx_addons_icon-search"></button>
+																		<a class="search_close trx_addons_icon-delete"></a>
+																	</form>
+																</div>
+															</div>
+														</div>
+														<!-- /.sc_layouts_search -->
+													</div>
+												</div>
+												<div class="sc_layouts_item elementor-element elementor-element-0975447 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_language" data-id="0975447" data-element_type="widget" data-widget_type="trx_sc_layouts_language.default">
+													<div class="elementor-widget-container">
+														<div id="trx_sc_layouts_language_1118379873" class="sc_layouts_language sc_layouts_menu sc_layouts_menu_default">
+															<ul class="sc_layouts_language_menu sc_layouts_dropdown sc_layouts_menu_nav">
+																<li class="menu-item menu-item-has-children">
+																	<a href="#">
+																		<span class="menu-item-title">English</span>
+																	</a>
+																	<ul>
+																		<li class="menu-item current-menu-item">
+																			<a rel="alternate" hreflang="en" href="#">
+																				<span class="menu-item-title">English</span>
+																			</a>
+																		</li>
+																		<li class="menu-item">
+																			<a rel="alternate" hreflang="de" href="#">
+																				<span class="menu-item-title">Deutsch</span>
+																			</a>
+																		</li>
+																		<li class="menu-item">
+																			<a rel="alternate" hreflang="es" href="#">
+																				<span class="menu-item-title">Español</span>
+																			</a>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</div>
+														<!-- /.sc_layouts_language -->
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-26174b5 elementor-section-full_width scheme_dark sc_bg_mask_3 elementor-section-height-default elementor-section-height-default" data-id="26174b5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+									<div class="elementor-background-overlay"></div>
+									<div class="elementor-container elementor-column-gap-no">
+										<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-73941a3 sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="73941a3" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<section class="elementor-section elementor-inner-section elementor-element elementor-element-9adac3f elementor-section-full_width elementor-section-content-middle sc_layouts_row_fixed sc_layouts_row_fixed_always sc_layouts_row sc_layouts_row_type_compact no_margin_item sc_layouts_hide_on_tablet sc_layouts_hide_on_mobile elementor-section-height-default elementor-section-height-default" data-id="9adac3f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+													<div class="elementor-container elementor-column-gap-no">
+														<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d6fb9f7 sc_layouts_column_align_left sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="d6fb9f7" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-acc04a4 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_menu" data-id="acc04a4" data-element_type="widget" data-widget_type="trx_sc_layouts_menu.default">
+																	<div class="elementor-widget-container">
+																		<nav class="sc_layouts_menu sc_layouts_menu_default sc_layouts_menu_dir_horizontal menu_hover_fade_box" id="trx_sc_layouts_menu_9455596" data-animation-in="fadeInUpSmall" data-animation-out="fadeOutDownSmall">
+																			<ul id="sc_layouts_menu_2079015047" class="sc_layouts_menu_nav">
+																				<li id="menu-item-113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-113">
+																					<a href="#">
+																						<span>Home</span>
+																					</a>
+																					<ul class="sub-menu">
+																						<li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-118">
+																							<a href="Front_Office/index.htm">
+																								<span>Museum Home</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-119" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-119">
+																							<a href="Front_Office/home-2/index.htm">
+																								<span>Fullscreen Showcase</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-120" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-120">
+																							<a href="Front_Office/home-3/index.htm">
+																								<span>Exhibition Center</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-121">
+																							<a href="Front_Office/home-4/index.htm">
+																								<span>Single Exhibition</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-122" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-122">
+																							<a href="Front_Office/home-5/index.htm">
+																								<span>Art Gallery</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-4404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4404">
+																							<a href="Front_Office/home-6/index.htm">
+																								<span>Video Background</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-4539" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4539">
+																							<a href="Front_Office/home-7/index.htm">
+																								<span>Virtual Tour</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-5034" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5034">
+																							<a href="Front_Office/home-8/index.htm">
+																								<span>Artist Portfolio</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-5457" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5457">
+																							<a target="_blank" rel="noopener" href="http://art.ozeum.themerex.net/">
+																								<span>Modern Art Gallery</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-5458" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5458">
+																							<a target="_blank" rel="noopener" href="https://rtl.ozeum.themerex.net/">
+																								<span>Home RTL</span>
+																							</a>
+																						</li>
+																					</ul>
+																				</li>
+																				<li id="menu-item-123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-123">
+																					<a href="#">
+																						<span>Exhibitions</span>
+																					</a>
+																					<ul class="sub-menu">
+																						<li id="menu-item-1414" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1414">
+																							<a href="Front_Office/events/list/index.htm">
+																								<span>List</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-1412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1412">
+																							<a href="Front_Office/events/index.htm">
+																								<span>Calendar</span>
+																							</a>
+																						</li>
+																					</ul>
+																				</li>
+																				<li id="menu-item-115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-115">
+																					<a href="Front_Office/collections/index.htm">
+																						<span>Collections</span>
+																					</a>
+																				</li>
+																				<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
+																					<a href="Front_Office/about-us/index.htm">
+																						<span>About Us</span>
+																					</a>
+																				</li>
+																			</ul>
+																		</nav>
+																		<!-- /.sc_layouts_menu -->
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-b29acf7 sc_layouts_column_align_center sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="b29acf7" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-9ac5f49 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="9ac5f49" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
+																	<div class="elementor-widget-container">
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_1721593447" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_366019055"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo.png" srcset="Front_Office/wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<!-- /.sc_layouts_logo -->
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-3eb5b02 sc_layouts_column_align_right sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="3eb5b02" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-2c719b4 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_menu" data-id="2c719b4" data-element_type="widget" data-widget_type="trx_sc_layouts_menu.default">
+																	<div class="elementor-widget-container">
+																		<nav class="sc_layouts_menu sc_layouts_menu_default sc_layouts_menu_dir_horizontal menu_hover_fade_box" id="trx_sc_layouts_menu_1456659086" data-animation-in="fadeInUpSmall" data-animation-out="fadeOut">
+																			<ul id="sc_layouts_menu_1427137787" class="sc_layouts_menu_nav">
+																				<li id="menu-item-140" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-140">
+																					<a href="#">
+																						<span>Pages</span>
+																					</a>
+																					<ul class="sub-menu">
+																						<li id="menu-item-141" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-141">
+																							<a href="#">
+																								<span>Tools</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
+																									<a href="Front_Office/typography/index.htm">
+																										<span>Typography</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-138">
+																									<a href="Front_Office/shortcodes/index.htm">
+																										<span>Shortcodes</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-135">
+																									<a rel="privacy-policy" href="Front_Office/privacy-policy/index.htm">
+																										<span>Privacy Policy</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136">
+																									<a href="Front_Office/service-plus/index.htm">
+																										<span>Service Plus</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-2295" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2295">
+																							<a href="#">
+																								<span>Gallery</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-2298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2298">
+																									<a href="Front_Office/gallery-grid/index.htm">
+																										<span>Grid</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-2297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2297">
+																									<a href="Front_Office/gallery-masonry/index.htm">
+																										<span>Masonry</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-2296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2296">
+																									<a href="Front_Office/gallery-cobbles/index.htm">
+																										<span>Cobbles</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131">
+																							<a href="Front_Office/our-staff/index.htm">
+																								<span>Our Staff</span>
+																							</a>
+																						</li>
+																					</ul>
+																				</li>
+																				<li id="menu-item-142" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-142">
+																					<a href="#">
+																						<span>Blog</span>
+																					</a>
+																					<ul class="sub-menu">
+																						<li id="menu-item-124" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-124">
+																							<a href="Front_Office/all-posts/index.htm">
+																								<span>All Posts</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-1457" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1457">
+																							<a href="#">
+																								<span>Single</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-1458" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1458">
+																									<a href="Front_Office/how-to-become-an-art-collector/index.htm">
+																										<span>Style 1</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-1459" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1459">
+																									<a href="Front_Office/how-to-start-your-own-art-collection/index.htm">
+																										<span>Style 2</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-143" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-143">
+																							<a href="#">
+																								<span>Classic</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-128">
+																									<a href="Front_Office/classic-2-columns/index.htm">
+																										<span>2 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-129">
+																									<a href="Front_Office/classic-3-columns/index.htm">
+																										<span>3 columns</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-144" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-144">
+																							<a href="#">
+																								<span>Portfolio</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
+																									<a href="Front_Office/portfolio-2-columns/index.htm">
+																										<span>2 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
+																									<a href="Front_Office/portfolio-3-columns/index.htm">
+																										<span>3 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134">
+																									<a href="Front_Office/portfolio-4-columns/index.htm">
+																										<span>4 columns</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-145" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-145">
+																							<a href="#">
+																								<span>Chess</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125">
+																									<a href="Front_Office/chess-2-columns/index.htm">
+																										<span>2 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126">
+																									<a href="Front_Office/chess-4-columns/index.htm">
+																										<span>4 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-127">
+																									<a href="Front_Office/chess-6-columns/index.htm">
+																										<span>6 columns</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																					</ul>
+																				</li>
+																				<li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item menu-item-137">
+																					<a href="index.htm" aria-current="page">
+																						<span>Shop</span>
+																					</a>
+																				</li>
+																				<li id="menu-item-130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130">
+																					<a href="Front_Office/contacts/index.htm">
+																						<span>Contacts</span>
+																					</a>
+																				</li>
+																			</ul>
+																		</nav>
+																		<!-- /.sc_layouts_menu -->
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-37daf13 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_button" data-id="37daf13" data-element_type="widget" data-widget_type="trx_sc_button.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_sc_button_1289526147" class="sc_item_button sc_button_wrap">
+																			<a href="Front_Office/visit/index.htm" class="sc_button sc_button_default sc_button_size_normal sc_button_icon_left">
+																				<span class="sc_button_text">
+																					<span class="sc_button_title">Visit</span>
+																				</span><!-- /.sc_button_text --></a><!-- /.sc_button --></div>
+																		<!-- /.sc_item_button -->
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+												<section class="elementor-section elementor-inner-section elementor-element elementor-element-711896d elementor-section-full_width elementor-section-content-middle sc_layouts_row_fixed sc_layouts_row_fixed_always sc_layouts_row sc_layouts_row_type_compact no_margin_item sc_layouts_hide_on_wide sc_layouts_hide_on_desktop sc_layouts_hide_on_notebook sc_layouts_hide_on_mobile elementor-section-height-default elementor-section-height-default" data-id="711896d" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+													<div class="elementor-container elementor-column-gap-no">
+														<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ab11763 sc_layouts_column_align_left sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="ab11763" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-58c28fa animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="58c28fa" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
+																	<div class="elementor-widget-container">
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_44517457" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_1357587856"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo.png" srcset="Front_Office/wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<!-- /.sc_layouts_logo -->
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-96433ed sc_layouts_column_align_right sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="96433ed" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-ecce9ea animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_menu" data-id="ecce9ea" data-element_type="widget" data-widget_type="trx_sc_layouts_menu.default">
+																	<div class="elementor-widget-container">
+																		<nav class="sc_layouts_menu sc_layouts_menu_default sc_layouts_menu_dir_horizontal menu_hover_fade_box" id="trx_sc_layouts_menu_1558846511" data-animation-in="fadeInUpSmall" data-animation-out="fadeOut">
+																			<ul id="sc_layouts_menu_1468013222" class="sc_layouts_menu_nav">
+																				<li id="menu-item-3438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3438">
+																					<a href="#">
+																						<span>Home</span>
+																					</a>
+																					<ul class="sub-menu">
+																						<li id="menu-item-3439" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3439">
+																							<a href="Front_Office/index.htm">
+																								<span>Museum Home</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-3440" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3440">
+																							<a href="Front_Office/home-2/index.htm">
+																								<span>Fullscreen Showcase</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-3441" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3441">
+																							<a href="Front_Office/home-3/index.htm">
+																								<span>Exhibition Center</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-3442" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3442">
+																							<a href="Front_Office/home-4/index.htm">
+																								<span>Single Exhibition</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-3443" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3443">
+																							<a href="Front_Office/home-5/index.htm">
+																								<span>Art Gallery</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-4403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4403">
+																							<a href="Front_Office/home-6/index.htm">
+																								<span>Video Background</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-4540" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4540">
+																							<a href="Front_Office/home-7/index.htm">
+																								<span>Virtual Tour</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-5033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5033">
+																							<a href="Front_Office/home-8/index.htm">
+																								<span>Artist Portfolio</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-5455" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5455">
+																							<a target="_blank" rel="noopener" href="http://art.ozeum.themerex.net/">
+																								<span>Modern Art Gallery</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-5456" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-5456">
+																							<a target="_blank" rel="noopener" href="https://rtl.ozeum.themerex.net/">
+																								<span>Home RTL</span>
+																							</a>
+																						</li>
+																					</ul>
+																				</li>
+																				<li id="menu-item-3444" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3444">
+																					<a href="#">
+																						<span>Pages</span>
+																					</a>
+																					<ul class="sub-menu">
+																						<li id="menu-item-3445" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3445">
+																							<a href="#">
+																								<span>Tools</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-3451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3451">
+																									<a href="Front_Office/typography/index.htm">
+																										<span>Typography</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3450" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3450">
+																									<a href="Front_Office/shortcodes/index.htm">
+																										<span>Shortcodes</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3448">
+																									<a rel="privacy-policy" href="Front_Office/privacy-policy/index.htm">
+																										<span>Privacy Policy</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3449">
+																									<a href="Front_Office/service-plus/index.htm">
+																										<span>Service Plus</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-3446" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3446">
+																							<a href="#">
+																								<span>Gallery</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-3453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3453">
+																									<a href="Front_Office/gallery-grid/index.htm">
+																										<span>Grid</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3454" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3454">
+																									<a href="Front_Office/gallery-masonry/index.htm">
+																										<span>Masonry</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3452">
+																									<a href="Front_Office/gallery-cobbles/index.htm">
+																										<span>Cobbles</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-3447" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3447">
+																							<a href="#">
+																								<span>Exhibitions</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-3455" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3455">
+																									<a href="Front_Office/events/list/index.htm">
+																										<span>List</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3456" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3456">
+																									<a href="Front_Office/events/index.htm">
+																										<span>Calendar</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-3457" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3457">
+																							<a href="Front_Office/about-us/index.htm">
+																								<span>About Us</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-3458" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3458">
+																							<a href="Front_Office/collections/index.htm">
+																								<span>Collections</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-3459" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3459">
+																							<a href="Front_Office/our-staff/index.htm">
+																								<span>Our Staff</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-4208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4208">
+																							<a href="Front_Office/visit/index.htm">
+																								<span>Visit</span>
+																							</a>
+																						</li>
+																					</ul>
+																				</li>
+																				<li id="menu-item-3460" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3460">
+																					<a href="#">
+																						<span>Blog</span>
+																					</a>
+																					<ul class="sub-menu">
+																						<li id="menu-item-3461" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3461">
+																							<a href="Front_Office/all-posts/index.htm">
+																								<span>All Posts</span>
+																							</a>
+																						</li>
+																						<li id="menu-item-3462" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3462">
+																							<a href="#">
+																								<span>Single</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-3463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3463">
+																									<a href="Front_Office/how-to-become-an-art-collector/index.htm">
+																										<span>Style 1</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3464">
+																									<a href="Front_Office/how-to-start-your-own-art-collection/index.htm">
+																										<span>Style 2</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-3465" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3465">
+																							<a href="#">
+																								<span>Classic</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-3471" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3471">
+																									<a href="Front_Office/classic-2-columns/index.htm">
+																										<span>2 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3472" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3472">
+																									<a href="Front_Office/classic-3-columns/index.htm">
+																										<span>3 columns</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-3466" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3466">
+																							<a href="#">
+																								<span>Portfolio</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-3473" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3473">
+																									<a href="Front_Office/portfolio-2-columns/index.htm">
+																										<span>2 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3474" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3474">
+																									<a href="Front_Office/portfolio-3-columns/index.htm">
+																										<span>3 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3475">
+																									<a href="Front_Office/portfolio-4-columns/index.htm">
+																										<span>4 columns</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																						<li id="menu-item-3467" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3467">
+																							<a href="#">
+																								<span>Chess</span>
+																							</a>
+																							<ul class="sub-menu">
+																								<li id="menu-item-3468" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3468">
+																									<a href="Front_Office/chess-2-columns/index.htm">
+																										<span>2 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3469" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3469">
+																									<a href="Front_Office/chess-4-columns/index.htm">
+																										<span>4 columns</span>
+																									</a>
+																								</li>
+																								<li id="menu-item-3470" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3470">
+																									<a href="Front_Office/chess-6-columns/index.htm">
+																										<span>6 columns</span>
+																									</a>
+																								</li>
+																							</ul>
+																						</li>
+																					</ul>
+																				</li>
+																				<li id="menu-item-3477" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item menu-item-3477">
+																					<a href="index.htm" aria-current="page">
+																						<span>Shop</span>
+																					</a>
+																				</li>
+																				<li id="menu-item-3476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3476">
+																					<a href="Front_Office/contacts/index.htm">
+																						<span>Contacts</span>
+																					</a>
+																				</li>
+																			</ul>
+																		</nav>
+																		<!-- /.sc_layouts_menu -->
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-01fbb44 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_button" data-id="01fbb44" data-element_type="widget" data-widget_type="trx_sc_button.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_sc_button_970829658" class="sc_item_button sc_button_wrap">
+																			<a href="Front_Office/visit/index.htm" class="sc_button sc_button_default sc_button_size_normal sc_button_icon_left">
+																				<span class="sc_button_text">
+																					<span class="sc_button_title">Visit</span>
+																				</span><!-- /.sc_button_text --></a><!-- /.sc_button --></div>
+																		<!-- /.sc_item_button -->
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+												<section class="elementor-section elementor-inner-section elementor-element elementor-element-1c4050b elementor-section-full_width elementor-section-content-middle sc_layouts_row_fixed sc_layouts_row_fixed_always sc_layouts_row sc_layouts_row_type_compact sc_layouts_hide_on_wide sc_layouts_hide_on_desktop sc_layouts_hide_on_notebook sc_layouts_hide_on_tablet elementor-section-height-default elementor-section-height-default" data-id="1c4050b" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+													<div class="elementor-container elementor-column-gap-no">
+														<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-9c2200c sc_layouts_column_align_left sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="9c2200c" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-5b2321f animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="5b2321f" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
+																	<div class="elementor-widget-container">
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_640802744" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_617697518"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo.png" srcset="Front_Office/wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<!-- /.sc_layouts_logo -->
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-1de54eb sc_layouts_column_align_right sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="1de54eb" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-c59b997 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_menu" data-id="c59b997" data-element_type="widget" data-widget_type="trx_sc_layouts_menu.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_sc_layouts_menu_1326694501" class="sc_layouts_iconed_text sc_layouts_menu_mobile_button_burger sc_layouts_menu_mobile_button without_menu">
+																			<a class="sc_layouts_item_link sc_layouts_iconed_text_link" href="#">
+																				<span class="sc_layouts_item_icon sc_layouts_iconed_text_icon trx_addons_icon-menu"></span>
+																			</a>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+												<section class="elementor-section elementor-inner-section elementor-element elementor-element-5d9bd81 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5d9bd81" data-element_type="section">
+													<div class="elementor-container elementor-column-gap-extended">
+														<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-0ef7a92 sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="0ef7a92" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-144b6cc animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="144b6cc" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-a45f085 sc_layouts_hide_on_notebook sc_layouts_hide_on_tablet sc_layouts_hide_on_mobile animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="a45f085" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-118aeba animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_title" data-id="118aeba" data-element_type="widget" data-widget_type="trx_sc_layouts_title.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_sc_layouts_title_184364723" class="sc_layouts_title sc_align_center with_content without_image without_tint">
+																			<div class="sc_layouts_title_content">
+																				<div class="sc_layouts_title_title">
+																					<h1 class="sc_layouts_title_caption">Shop</h1>
+																				</div>
+																				<div class="sc_layouts_title_breadcrumbs">
+																					<div class="breadcrumbs">
+																						<a class="breadcrumbs_item home" href="Front_Office/index.htm">Home</a>
+																						<span class="breadcrumbs_delimiter"></span>
+																						<span class="breadcrumbs_item current">Shop</span>
+																					</div>
+																				</div>
+																			</div><!-- .sc_layouts_title_content --></div>
+																		<!-- /.sc_layouts_title -->
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-fcbae9b animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="fcbae9b" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-d4c727c sc_layouts_hide_on_notebook sc_layouts_hide_on_tablet sc_layouts_hide_on_mobile animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="d4c727c" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+						</header>
+
+
+					{% endblock %}
+
+					{% block body %}{% endblock %}
+
+					{% block footer %}
+						<footer class="footer_wrap footer_custom footer_custom_814 footer_custom_main-footer						 scheme_dark						">
+							<div data-elementor-type="cpt_layouts" data-elementor-id="814" class="elementor elementor-814">
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-c7e20c4 elementor-section-full_width scheme_dark elementor-section-height-default elementor-section-height-default" data-id="c7e20c4" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+									<div class="elementor-container elementor-column-gap-no">
+										<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-d2f22b3 sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="d2f22b3" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<section class="elementor-section elementor-inner-section elementor-element elementor-element-ce11f08 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="ce11f08" data-element_type="section">
+													<div class="elementor-container elementor-column-gap-no">
+														<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-e44ce11 sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="e44ce11" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-642ffde animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="642ffde" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-4bd1d2f sc_layouts_hide_on_notebook sc_layouts_hide_on_tablet sc_layouts_hide_on_mobile animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="4bd1d2f" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+												<section class="elementor-section elementor-inner-section elementor-element elementor-element-3c90772 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="3c90772" data-element_type="section">
+													<div class="elementor-container elementor-column-gap-no">
+														<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-166902a sc-mobile_layouts_column_align_center sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="166902a" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-abf4222 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="abf4222" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
+																	<div class="elementor-widget-container">
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_519050039" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_128716318"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo_2.png" srcset="Front_Office/wp-content/uploads/2019/10/logo_2-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<!-- /.sc_layouts_logo -->
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-3fff7c4 animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="3fff7c4" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-5fdfe62 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_widget_contacts" data-id="5fdfe62" data-element_type="widget" data-widget_type="trx_widget_contacts.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_widget_contacts_443154506" class="widget_area sc_widget_contacts">
+																			<aside id="trx_widget_contacts_443154506_widget" class="widget widget_contacts">
+																				<div class="contacts_wrap">
+																					<div class="contacts_info">
+																						<span class="contacts_address">Art & History Museum
+																							<br>
+																							34th Ave, Queens, NY 11106</span>
+																						<a href="tel:+18001234545" class="contacts_phone">+1 (800) 123 45 45</a>
+																					</div>
+																				</div><!-- /.contacts_wrap --></aside>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-5129a41 sc-mobile_layouts_column_align_center sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="5129a41" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-bd7e9e8 scheme_dark animation_type_block sc_fly_static elementor-widget elementor-widget-trx_widget_custom_links" data-id="bd7e9e8" data-element_type="widget" data-widget_type="trx_widget_custom_links.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_widget_custom_links_669866794" class="widget_area sc_widget_custom_links">
+																			<aside id="trx_widget_custom_links_669866794_widget" class="widget widget_custom_links">
+																				<h5 class="widget_title">Links</h5>
+																				<ul class="custom_links_list">
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="Front_Office/index.htm">
+																							<span class="custom_links_list_item_title">Home</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="Front_Office/events/list/index.htm">
+																							<span class="custom_links_list_item_title">Exhibitions</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="Front_Office/collections/index.htm">
+																							<span class="custom_links_list_item_title">Collections</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="Front_Office/events/index.htm">
+																							<span class="custom_links_list_item_title">Events</span>
+																						</a>
+																					</li>
+																				</ul>
+																			</aside>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-74a7869 sc-mobile_layouts_column_align_center sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="74a7869" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-15706d1 scheme_dark animation_type_block sc_fly_static elementor-widget elementor-widget-trx_widget_custom_links" data-id="15706d1" data-element_type="widget" data-widget_type="trx_widget_custom_links.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_widget_custom_links_329364333" class="widget_area sc_widget_custom_links">
+																			<aside id="trx_widget_custom_links_329364333_widget" class="widget widget_custom_links">
+																				<h5 class="widget_title">Info</h5>
+																				<ul class="custom_links_list">
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="Front_Office/about-us/index.htm">
+																							<span class="custom_links_list_item_title">About
+																							</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="Front_Office/contacts/index.htm">
+																							<span class="custom_links_list_item_title">Contact</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="Front_Office/all-posts/index.htm">
+																							<span class="custom_links_list_item_title">Blog</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="index.htm">
+																							<span class="custom_links_list_item_title">Shop</span>
+																						</a>
+																					</li>
+																				</ul>
+																			</aside>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="elementor-column elementor-col-25 elementor-inner-column elementor-element elementor-element-08dee39 sc-mobile_layouts_column_align_center sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="08dee39" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-5e018d5 scheme_dark animation_type_block sc_fly_static elementor-widget elementor-widget-trx_widget_custom_links" data-id="5e018d5" data-element_type="widget" data-widget_type="trx_widget_custom_links.default">
+																	<div class="elementor-widget-container">
+																		<div id="trx_widget_custom_links_328397942" class="widget_area sc_widget_custom_links">
+																			<aside id="trx_widget_custom_links_328397942_widget" class="widget widget_custom_links">
+																				<h5 class="widget_title">Social</h5>
+																				<ul class="custom_links_list">
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="https://twitter.com/ThemerexThemes%20" target="_blank">
+																							<span class="custom_links_list_item_title">Twitter
+																							</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="https://www.instagram.com/themerex_net/" target="_blank">
+																							<span class="custom_links_list_item_title">Instagram</span>
+																						</a>
+																					</li>
+																					<li class="custom_links_list_item">
+																						<a class="custom_links_list_item_link" href="https://www.facebook.com/ThemeRexStudio" target="_blank">
+																							<span class="custom_links_list_item_title">Facebook</span>
+																						</a>
+																					</li>
+																				</ul>
+																			</aside>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+												<section class="elementor-section elementor-inner-section elementor-element elementor-element-fb5c671 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="fb5c671" data-element_type="section">
+													<div class="elementor-container elementor-column-gap-no">
+														<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d5c26df sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="d5c26df" data-element_type="column">
+															<div class="elementor-widget-wrap elementor-element-populated">
+																<div class="sc_layouts_item elementor-element elementor-element-61ace85 animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="61ace85" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+																<div class="sc_layouts_item elementor-element elementor-element-5dfb6a3 sc_layouts_hide_on_notebook sc_layouts_hide_on_tablet sc_layouts_hide_on_mobile animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="5dfb6a3" data-element_type="widget" data-widget_type="spacer.default">
+																	<div class="elementor-widget-container">
+																		<div class="elementor-spacer">
+																			<div class="elementor-spacer-inner"></div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</section>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-34031d5 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="34031d5" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+									<div class="elementor-container elementor-column-gap-extended">
+										<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-aa2dcb7 sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="aa2dcb7" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<div class="sc_layouts_item elementor-element elementor-element-cbff538 animation_type_block sc_fly_static elementor-widget elementor-widget-spacer" data-id="cbff538" data-element_type="widget" data-widget_type="spacer.default">
+													<div class="elementor-widget-container">
+														<div class="elementor-spacer">
+															<div class="elementor-spacer-inner"></div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+								<section class="elementor-section elementor-top-section elementor-element elementor-element-12e7532 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="12e7532" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+									<div class="elementor-container elementor-column-gap-extended">
+										<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-e15d783 sc-mobile_layouts_column_align_center sc_layouts_column sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="e15d783" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<div class="sc_layouts_item elementor-element elementor-element-c8f7a32 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_widget_socials" data-id="c8f7a32" data-element_type="widget" data-widget_type="trx_widget_socials.default">
+													<div class="elementor-widget-container">
+														<div id="trx_widget_socials_944035048" class="widget_area sc_widget_socials">
+															<aside id="trx_widget_socials_944035048_widget" class="widget widget_socials">
+																<div class="socials_wrap sc_align_none">
+																	<a target="_blank" href="https://twitter.com/ThemerexThemes" class="social_item social_item_style_icons sc_icon_type_icons social_item_type_icons">
+																		<span class="social_icon social_icon_twitter-1">
+																			<span class="icon-twitter-1"></span>
+																		</span>
+																	</a>
+																	<a target="_blank" href="https://www.instagram.com/themerex_net/" class="social_item social_item_style_icons sc_icon_type_icons social_item_type_icons">
+																		<span class="social_icon social_icon_instagramm">
+																			<span class="icon-instagramm"></span>
+																		</span>
+																	</a>
+																	<a target="_blank" href="https://www.facebook.com/ThemeRexStudio" class="social_item social_item_style_icons sc_icon_type_icons social_item_type_icons">
+																		<span class="social_icon social_icon_facebook">
+																			<span class="icon-facebook"></span>
+																		</span>
+																	</a>
+																</div>
+															</aside>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-62e56da sc_inner_width_none sc_content_align_inherit sc_layouts_column_icons_position_left" data-id="62e56da" data-element_type="column">
+											<div class="elementor-widget-wrap elementor-element-populated">
+												<div class="sc_layouts_item elementor-element elementor-element-723229f scheme_dark animation_type_block sc_fly_static elementor-widget elementor-widget-text-editor" data-id="723229f" data-element_type="widget" data-widget_type="text-editor.default">
+													<div class="elementor-widget-container">
+														<p>
+															<span class="trx_addons_copyright">
+																<a href="https://themerex.net" target="_blank" rel="noopener">THEMEREX</a>
+																© 2024. ALL RIGHTS RESERVED.</span>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+						</footer>
+
+
+					{% endblock %}
+				</head>
+			</html>
+
+		</html>
+	</head>
+</html>
