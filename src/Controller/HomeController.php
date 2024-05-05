@@ -1,16 +1,30 @@
 <?php
 
 namespace App\Controller;
-
+use App\Form\AdresseClientType;
+use App\Form\AdresseSearchType;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use App\Entity\Adresse;
+use App\Form\AdresseType;
+use App\Repository\AdresseRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use Symfony\Component\HttpFoundation\HeaderUtils;
+use Symfony\Component\HttpFoundation\StreamedResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Pagerfanta\Pagerfanta;
+use Knp\Component\Pager\PaginatorInterface;
+
+
+
 use Twilio\Rest\Client;
 use App\Repository\UserRepository;
-use Symfony\Component\HttpFoundation\Request;
-use App\Entity\Panier;
-use App\Form\PanierType;
-use App\Repository\PanierRepository;
 
 class HomeController extends AbstractController
 {
@@ -67,16 +81,6 @@ class HomeController extends AbstractController
         return $this->render('GestUser/user/UserDashboard.html.twig', [
             'user' => $user,
         ]);
-    }
-    #[Route('/allposts', name: 'app_post_posts')]
-    public function index6(): Response
-    {
-        return $this->render('GestForum/addpost/allpost.html.twig');
-    }
-    #[Route('/allcoms', name: 'app_commentaire_coms')]
-    public function index7(): Response
-    {
-        return $this->render('GestForum/addcom/allcom.html.twig');
     }
 
    

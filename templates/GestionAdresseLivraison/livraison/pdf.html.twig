@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Livraisons</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des Livraisons</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date de livraison</th>
+                <th>Statut</th>
+                <th>Dépôt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for livraison in livraisons %}
+                <tr>
+                    <td>{{ livraison.id }}</td>
+                    <td>{{ livraison.dateDeLivraison|date('d/m/Y') }}</td>
+                    <td>{{ livraison.statut }}</td>
+                    <td>{{ livraison.depot }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

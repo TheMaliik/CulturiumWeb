@@ -3,68 +3,46 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\LivraisonRepository;
 
-/**
- * Livraison
- *
- * @ORM\Table(name="livraison", indexes={@ORM\Index(name="ffk_key", columns={"idAdresse"})})
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: LivraisonRepository::class)]
 class Livraison
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type: 'integer')]
     private $id;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="jourDeLivraison", type="string", length=50, nullable=false)
-     */
-    private $jourdelivraison;
+    #[ORM\Column(name: 'dateDeLivraison', type: 'date')]
+    private $dateDeLivraison;
+    
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="statut", type="string", length=50, nullable=false)
-     */
+    #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne peut pas être vide.")]
     private $statut;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="depot", type="string", length=50, nullable=false)
-     */
+    #[ORM\Column(type: 'string', length: 50)]
+    #[Assert\NotBlank(message: "Ce champ ne peut pas être vide.")]
     private $depot;
 
-    /**
-     * @var \Adresse
-     *
-     * @ORM\ManyToOne(targetEntity="Adresse")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idAdresse", referencedColumnName="id")
-     * })
-     */
-    private $idadresse;
-
+    #[ORM\ManyToOne(targetEntity: Adresse::class, inversedBy: 'livraisons')]
+    #[ORM\JoinColumn(name: 'idAdresse', referencedColumnName: 'id')]
+    private $adresse;
+    
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getJourdelivraison(): ?string
+    public function getDateDeLivraison(): ?\DateTimeInterface
     {
-        return $this->jourdelivraison;
+        return $this->dateDeLivraison;
     }
 
-    public function setJourdelivraison(string $jourdelivraison): static
+    public function setDateDeLivraison(\DateTimeInterface $dateDeLivraison): self
     {
-        $this->jourdelivraison = $jourdelivraison;
+        $this->dateDeLivraison = $dateDeLivraison;
 
         return $this;
     }
@@ -74,7 +52,7 @@ class Livraison
         return $this->statut;
     }
 
-    public function setStatut(string $statut): static
+    public function setStatut(string $statut): self
     {
         $this->statut = $statut;
 
@@ -86,24 +64,25 @@ class Livraison
         return $this->depot;
     }
 
-    public function setDepot(string $depot): static
+    public function setDepot(string $depot): self
     {
         $this->depot = $depot;
 
         return $this;
     }
 
-    public function getIdadresse(): ?Adresse
+    public function getAdresse(): ?Adresse
     {
-        return $this->idadresse;
+        return $this->adresse;
     }
 
-    public function setIdadresse(?Adresse $idadresse): static
+    public function setAdresse(?Adresse $adresse): self
     {
-        $this->idadresse = $idadresse;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
+  
 
 }

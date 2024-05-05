@@ -1,0 +1,124 @@
+{% extends 'GestionAdresseLivraison/adresse/bars.html.twig' %}
+
+{% block contenpage %}
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h5>
+                    {{ "MANAGE ADRESSES"|trans }}
+                </h5>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>
+                            {{ ""|trans }}</h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a href="{{ path('app_adresse_new') }}" class="btn btn-success">NEW</a>
+								<a href="{{ path('adresse_export_pdf') }}" class="btn btn-success">PDF</a>
+								<a href="{{ path('adresse_export_excel') }}" class="btn btn-success">EXCEL</a>
+
+
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        {# Afficher le formulaire de recherche #}
+                        <form id="search-form" method="post">
+                             {{ form_widget(form.search, {'attr': {'placeholder': 'Search here ...', 'class': 'form-control-sm', 'style': 'width: 300px'}}) }}
+
+                            
+                        </form>
+
+                        
+             <a href="{{ path('app_adresse_index', {'sortBy': sortBy, 'sortOrder': 'ASC'}) }}" class="btn btn-primary">
+    <i class="fas fa-sort-up">ASC</i> 
+</a>
+
+<a href="{{ path('app_adresse_index', {'sortBy': sortBy, 'sortOrder': 'DESC'}) }}" class="btn btn-primary">
+    <i class="fas fa-sort-down">DESC</i> 
+</a>
+
+
+
+                            </form>
+                            <table id="example" class="display table table-striped table-bordered dataminetables">
+                                <thead>
+                                    <th><input type="checkbox" id="select_all" name="select_all"></th>
+                                    <th>{{ "Id"|trans }}</th>
+                                    <th>{{ "Adresse"|trans }}</th>
+                                    <th>{{ "ville"|trans }}</th>
+                                    <th>{{ "Code postal"|trans }}</th>
+                                </thead>
+                                <tbody id="adresse-list">
+                                    {% for adresse in adresses %}
+                                        <tr>
+                                            <td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ adresse.id }}"></td>
+                                            <td>{{ adresse.id }}</td>
+                                            <td>{{ adresse.adresse }}</td>
+                                            <td>{{ adresse.ville }}</td>
+                                            <td>{{ adresse.codepostal }}</td>
+                                            <td>
+                                                <a class="btn btn-primary" href="{{ path('app_adresse_edit',{'id': adresse.id}) }}">
+                                                    <i class="fa fa-edit">UPDATE</i>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('app_adresse_delete', {'id': adresse.id}) }}" class="btn btn-danger disable-btn del-link" type="submit">
+                                                    <i class="fa fa-trash">DELETE</i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                            <!-- Pagination personnalisée -->
+<nav aria-label="...">
+    <ul class="pagination">
+        {# Lien vers la page précédente #}
+        <li class="page-item {% if adresses.getCurrentPageNumber() == 1 %}disabled{% endif %}">
+            <a class="page-link" href="{{ path('app_adresse_index', {'page': adresses.getCurrentPageNumber() - 1}) }}" tabindex="-1">Previous</a>
+        </li>
+        {# Liens vers chaque page #}
+        {% for page in 1..adresses.pageCount %}
+            <li class="page-item {% if adresses.getCurrentPageNumber() == page %}active{% endif %}">
+                <a class="page-link" href="{{ path('app_adresse_index', {'page': page}) }}">{{ page }} {% if adresses.getCurrentPageNumber() == page %}<span class="sr-only">(current)</span>{% endif %}</a>
+            </li>
+        {% endfor %}
+        {# Lien vers la page suivante #}
+        <li class="page-item {% if adresses.getCurrentPageNumber() == adresses.pageCount %}disabled{% endif %}">
+            <a class="page-link" href="{{ path('app_adresse_index', {'page': adresses.getCurrentPageNumber() + 1}) }}">Next</a>
+        </li>
+    </ul>
+</nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Écoute des changements dans le champ de recherche
+        var searchInput = document.getElementById('adresse_search_search');
+        searchInput.addEventListener('input', function() {
+            var searchTerm = this.value.trim(); // Récupère la valeur du champ de recherche et retire les espaces vides
+            var url = '{{ path('app_adresse_search') }}?searchTerm=' + searchTerm;
+
+            // Envoi de la requête AJAX pour récupérer les résultats de la recherche
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('adresse-list').innerHTML = data;
+                });
+        });
+    </script>
+
+{% endblock %}
