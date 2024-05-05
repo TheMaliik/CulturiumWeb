@@ -1,0 +1,82 @@
+{% extends "GestCommande/panier/bars.html.twig" %}
+
+{% block contenpage %}
+	<div class="">
+		<div class="page-title">
+			<div class="title_left">
+				<h5>
+					{{ "backend.panier.listing"|trans }}
+				</h5>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							{{ "backend.panier.panier_listing"|trans }}</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li>
+								<a href="{{ path('app_panier_new') }}" class="btn btn-success">NEW</a>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<div class="row">
+							<form  id="grpaction" method="post" name="grpaction">
+								<div class="form-group form-inline">
+									<select class="form-control" name="action" required id="action_select">
+										<option value="">
+											{{ "backend.panier.group_actions"|trans }}</option>
+										<option value="{{"backend.panier.deactivate"|trans }}">
+											{{ "backend.panier.deactivate"|trans }}</option>
+										<option value="{{"backend.panier.Activate"|trans }}">
+											{{ "backend.panier.Activate"|trans }}</option>
+										<option value="{{"backend.panier.delete"|trans }}">
+											{{ "backend.panier.delete"|trans }}</option>
+									</select>
+									<button class="btn btn-primary" type="submit">Go!!</button>
+								</div>
+
+							</form>
+							<table id="example" class="display table table-striped table-bordered dataminetables">
+								<thead>
+									<th><input type="checkbox" id="select_all" name="select_all"></th>
+									<th>{{ "id"|trans }}</th>
+									<th>{{ "Reference"|trans }}</th>
+									<th>{{ "Contenue"|trans }}</th>
+									
+								</thead>
+								<tbody>
+									{% for panier  in paniers  %}
+										<tr>
+											<td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ panier.id }}"></td>
+											<td>{{ panier.id }}</td>
+											<td>{{ panier.idOeuvre.reference }}</td>
+											<td>{{ panier.idCommand.contenue }}</td>
+											<td>
+												<a class="btn btn-primary" href="{{ path('app_panier_edit',{"id":panier.id}) }}">
+													<i class="fa fa-edit"></i>
+												</a>
+											</td>
+											
+											<td>
+												<a href="{{ path('app_panier_delete', {'id': panier.id}) }}" class="btn btn-danger disable-btn del-link" type="submit">
+													<i class="fa fa-trash"></i>
+												</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
