@@ -1,0 +1,65 @@
+{# templates/admin_museum/_form.html.twig #}
+
+{{ form_start(form) }}
+
+<div class="form-group">
+    {{ form_label(form.name) }}
+    {{ form_widget(form.name, {'attr': {'class': 'form-control' ~ (form_errors(form.name)|length > 0 ? ' is-invalid' : '')}}) }}
+    {% if form_errors(form.name) %}
+        <div class="invalid-feedback">
+            {% for error in form_errors(form.name) %}
+                {{ error.message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.description) }}
+    {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+    {% if form_errors(form.description) %}
+        <div class="invalid-feedback">
+            {% for error in form_errors(form.description) %}
+                {{ error.message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+<div class="form-group">
+    {{ form_label(form.localisation) }}
+    {{ form_widget(form.localisation, {'attr': {'class': 'form-control'}}) }}
+    {% if form_errors(form.localisation) %}
+        <div class="invalid-feedback">
+            {% for error in form_errors(form.localisation) %}
+                {{ error.message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+
+{# Ajoutez les champs supplémentaires ici s'il y en a #}
+
+<div class="form-group">
+    {{ form_label(form.image) }}
+    {{ form_widget(form.image, {'attr': {'class': 'form-control'}}) }}
+    {% if form_errors(form.image) %}
+        <div class="invalid-feedback">
+            {% for error in form_errors(form.image) %}
+                {{ error.message }}
+            {% endfor %}
+        </div>
+    {% endif %}
+    
+</div>
+
+<!-- Add this line to include reCAPTCHA script -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<!-- Add reCAPTCHA widget here -->
+<div class="g-recaptcha" data-sitekey="6LdgqIgpAAAAAD7HQvSgIRZJwhqwUH-MkbgBtMww"></div>
+<br/>
+<button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+
+{{ form_end(form) }}
+
