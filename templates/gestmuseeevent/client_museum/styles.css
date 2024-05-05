@@ -1,0 +1,20 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Pour espacer les éléments horizontalement */
+    align-items: flex-start; /* Aligner les éléments en haut */
+}
+
+.gallery-item {
+    flex: 0 0 48%; /* Largeur de chaque élément à 48% pour laisser un peu d'espace entre les images */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Espacement entre les lignes */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}

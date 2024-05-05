@@ -1,0 +1,26 @@
+{% extends 'GestForum/base.html.twig' %}
+
+{% block title %}Post{% endblock %}
+
+{% block body %}
+    <h1>Post</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ post.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ post.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ post.contenu }}</td>
+            </tr>
+          
+        </tbody>
+    </table>
+
+{% endblock %}

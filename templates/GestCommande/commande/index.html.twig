@@ -1,0 +1,84 @@
+{% extends "GestCommande/commande/bars.html.twig" %}
+
+{% block contenpage %}
+	<div class="">
+		<div class="page-title">
+			<div class="title_left">
+				<h5>
+					{{ "backend.commande.listing"|trans }}
+				</h5>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="x_panel">
+					<div class="x_title">
+						<h2>
+							{{ "backend.commande.commande_listing"|trans }}</h2>
+						<ul class="nav navbar-right panel_toolbox">
+							<li>
+								<a href="{{ path('app_commande_new') }}" class="btn btn-success">NEW</a>
+                                
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					<div class="x_content">
+						<div class="row">
+							<form  id="grpaction" method="post" name="grpaction">
+								<div class="form-group form-inline">
+									<select class="form-control" name="action" required id="action_select">
+										<option value="">
+											{{ "backend.commande.group_actions"|trans }}</option>
+										<option value="supprimer">supprimer</option>
+									</select>
+									<button class="btn btn-primary" type="submit">Go!!</button>
+								</div>
+
+							</form>
+							<table id="example" class="display table table-striped table-bordered dataminetables">
+								<thead>
+									<th><input type="checkbox" id="select_all" name="select_all"></th>
+									<th>{{ "id"|trans }}</th>
+									<th>{{ "contenue"|trans }}</th>
+									<th>{{ "MontantTotale"|trans }}</th>
+                                    <th>{{ "Status"|trans }}</th>
+								
+								</thead>
+								<tbody>
+									{% for commande   in commandes   %}
+										<tr>
+											<td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ commande.id }}"></td>
+											<td>{{ commande.id  }}</td>
+											<td>{{ commande.contenue  }}</td>
+											<td>{{ commande.montantTotale }}</td>
+                                            <td>{{ commande.status }}</td>
+											
+											<td>
+												<a class="btn btn-primary" href="{{ path('app_commande_edit',{"id":commande.id}) }}">
+													<i class="fa fa-edit"></i>
+												</a>
+											</td>
+											
+											<td>
+												<a href="{{ path('app_commande_delete', {'id': commande.id}) }}" class="btn btn-danger disable-btn del-link" type="submit">
+													<i class="fa fa-trash"></i>
+												</a>
+											</td>
+											<td>
+												<a href="{{ path('generate_qr_code', {'id': commande.id}) }}" class="btn btn-info">QR Code</a>
+											</td>
+										</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

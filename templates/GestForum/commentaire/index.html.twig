@@ -1,0 +1,97 @@
+{% extends "GestForum/admin/bars.html.twig" %}
+
+{% block contenpage %}
+    <div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h5> Listing </h5>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Liste des commentaires </h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li>
+                                <a href="{{ path('app_coms_sort', {'order': 'asc'}) }}" class="btn btn-success">Sort ASC</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('app_coms_sort', {'order': 'desc'}) }}" class="btn btn-primary">Sort DESC</a>
+                            </li>
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                    
+                    <div class="x_content">
+                        <div class="row">
+                           <form action="{{ path('app_coms_search') }}" method="get" class="form-inline">
+
+                                <div class="input-group">
+                                    <input type="text" name="search" placeholder="Search..." class="form-control">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    <div class="x_content">
+                        <div class="row">
+                            <form action="{{ path('app_commentaire_index') }}" id="grpaction" method="post" name="grpaction">
+                                <div class="form-group form-inline">
+                                    {%  if is_granted("ROLE_EDITORIAL") %}
+                                        <select class="form-control" name="action" required id="action_select">
+                                            <option value="">Action de groupe</option>
+                                            <option value="desactiver">Desactiver</option>
+                                            <option value="activer">Activer</option>
+                                            <option value="supprimer">Supprimer</option>
+                                        </select>
+                                        <button class="btn btn-primary" type="submit">Go!!</button>
+                                    {% endif %}
+                                </div>
+
+                            </form>
+                            <table id="example" class="display table table-striped table-bordered {% if is_granted("ROLE_EDITORIAL") %} dataminetables {% else %} datanotminetables {% endif %}" >
+                                <thead>
+                                {% if is_granted("ROLE_EDITORIAL") %}
+                                    <th><input type="checkbox" id="select_all" name="select_all"></th>
+                                {% endif %}
+                                <th>id</th>
+                                <th>descreption</th>
+                                <th>date</th>
+                                <th>idpost</th>
+                                <th>Modifier</th>
+                               
+                                
+
+                                </thead>
+                                <tbody>
+                                {% for blogCom in blogComs  %}
+                                    <tr>
+                                        {% if is_granted("ROLE_EDITORIAL") %}
+                                            <td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ blogCom.id }}"></td>
+                                        {% endif %}
+                                        <td>{{ blogCom.id}}</td>
+                                        <td>{{ blogCom.descreption}}</td>
+                                        <td>{{ blogCom.date|date('Y-m-d ') }}</td>
+                                        <td>{{ blogCom.idPost}}</td>
+                                         
+                                        <td><a class="btn btn-primary" href="{{ path('app_commentaire_edit',{"id":blogCom.id}) }}"><i class="fa fa-edit"></i></a></td>
+                                    
+                                     
+                                        </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

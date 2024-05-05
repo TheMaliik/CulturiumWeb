@@ -1,0 +1,33 @@
+{% extends 'GestForum/base.html.twig' %}
+
+{% block title %}Commentaire index{% endblock %}
+
+{% block body %}
+    <h1>Commentaire </h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Descreption</th>
+                <th>Date</th>
+                <th>IdPost</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+                <td>{{ commentaire.id }}</td>
+                <td>{{ commentaire.descreption }}</td>
+                <td>{{ commentaire.date ? commentaire.date|date('Y-m-d') : '' }}</td>
+                <td>{{ commentaire.idPost }}</td>
+              
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

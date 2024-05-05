@@ -26,8 +26,6 @@ use Knp\Component\Pager\PaginatorInterface;
 use Twilio\Rest\Client;
 use App\Repository\UserRepository;
 
-
-
 class HomeController extends AbstractController
 {
     #[Route('/admin/adminDashboard', name: 'adminDashboard')]
@@ -39,7 +37,31 @@ class HomeController extends AbstractController
         );
     }
     
-
+    #[Route('/shop', name: 'app_shop')]
+    public function index2(): Response
+    {
+        return $this->render('GestCommande/FrontCart/shop.html.twig',[
+            'shop' => 'shop'
+        ]);
+    }
+    #[Route('/cart', name: 'app_cart')]
+    public function index3(): Response
+    {
+        return $this->render('GestCommande/FrontCart/Cart.html.twig',[
+            'shop' => 'shop'
+        ]);
+    }
+    
+   
+    #[Route('/carttest', name: 'app_show_index', methods: ['GET'])]
+    public function index5(PanierRepository $panierRepository): Response
+    {
+        return $this->render('GestCommande/FrontCart/Carttest.html.twig', [
+            'paniers' => $panierRepository->findAll(),
+        ]);
+        
+    }
+    
     
     #[Route('/', name: 'home')]
     public function home(): Response
@@ -60,29 +82,8 @@ class HomeController extends AbstractController
             'user' => $user,
         ]);
     }
-    
-    #[Route('/adresseClient', name: 'adresseClient', methods: ['GET', 'POST'])]
-    public function newClient(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $adresse = new Adresse();
-        $form = $this->createForm(adresseClientType::class, $adresse);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->persist($adresse);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('GestionAdresseLivraison/adresseClient/adresseClient.html.twig', [
-            'adresse' => $adresse,
-            'form' => $form,
-        ]);
-    }
-    
-    
-
+   
 
 
 }
