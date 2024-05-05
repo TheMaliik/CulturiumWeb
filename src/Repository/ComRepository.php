@@ -20,6 +20,15 @@ class ComRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Commentaire::class);
     }
+    public function countByDate(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->select('c.date as commentDate')
+            ->addSelect('COUNT(c.id) as count')
+            ->groupBy('commentDate')
+            ->getQuery()
+            ->getResult();
+}}
 
 //    /**
 //     * @return Commentaire[] Returns an array of Commentaire objects
@@ -45,4 +54,3 @@ class ComRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}

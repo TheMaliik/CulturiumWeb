@@ -18,7 +18,7 @@ class PostController extends AbstractController
     public function index(PostRepository $postRepository): Response
     {
         return $this->render('post/index.html.twig', [
-            'posts' => $postRepository->findAll(),
+            'blogPosts' => $postRepository->findAll(),
         ]);
     }
 
@@ -71,11 +71,75 @@ class PostController extends AbstractController
     #[Route('/{id}', name: 'app_post_delete', methods: ['POST'])]
     public function delete(Request $request, Post $post, EntityManagerInterface $entityManager): Response
     {
+
         if ($this->isCsrfTokenValid('delete'.$post->getId(), $request->request->get('_token'))) {
             $entityManager->remove($post);
             $entityManager->flush();
         }
-
-        return $this->redirectToRoute('app_post_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_post_index', [
+        ], Response::HTTP_SEE_OTHER);
     }
-}
+    #[Route('/{id}', name: 'app_preview_delete', methods: ['POST'])]
+    public function preview(Request $request, Post $post, EntityManagerInterface $entityManager): Response
+    {
+      
+        return $this->redirectToRoute('app_post_index', [
+        ], Response::HTTP_SEE_OTHER);
+    }
+    #[Route('/posts/sort/asc', name: 'app_posts_sort_asc')]
+    public function sortAsc(): Response
+    {
+        // Logic to sort posts by ASC order
+        // For example:
+        // $posts = $this->getDoctrine()->getRepository(Post::class)->findBy([], ['createdAt' => 'ASC']);
+
+        // Return a response, render a template, or redirect as needed
+        return $this->redirectToRoute('app_post_index'); // Redirect to the post index page
+    }
+
+    #[Route('/posts/sort/{order}', name: 'app_posts_sort')]
+    public function sortPosts(Request $request, PostRepository $postRepository): Response
+    {
+        $order = $request->attributes->get('order');
+    
+        // Check if the order is valid
+        if ($order === 'asc' || $order === 'desc') {
+            // Retrieve posts from the repository and sort them based on the order
+            $posts = $postRepository->findBy([], ['id' => $order === 'asc' ? 'ASC' : 'DESC']);
+    
+            // Render the template with the sorted posts
+            return $this->render('post/index.html.twig', [
+                'blogPosts' => $posts,
+            ]);
+        }
+    
+        // If the order is not valid, redirect to the post index page
+        return $this->redirectToRoute('app_post_index');
+    }
+    #[Route('/posts/search', name: 'app_posts_search', methods: ['GET'])]
+    public function search(Request $request, PostRepository $postRepository): Response
+    {
+        $searchQuery = $request->query->get('search');
+    
+        // Perform search query using repository method
+        if (is_numeric($searchQuery)) {
+            // Search by post ID
+            $posts = $postRepository->findBy(['id' => $searchQuery]);
+        } else {
+            // Search by title
+            $posts = $postRepository->findBy(['titre' => $searchQuery]);
+        }
+    
+        if ($posts) {
+            // If posts are found, render the template with the selected posts
+            return $this->render('post/index.html.twig', [
+                'blogPosts' => $posts,
+                'searchQuery' => $searchQuery,
+            ]);
+        } else {
+            // If no posts are found, set a flash message and redirect back to the index page
+            $this->addFlash('error', 'No posts found with the search : "' . $searchQuery . '".');
+            return $this->redirectToRoute('app_post_index');
+        }}
+      
+    }
