@@ -68,6 +68,16 @@ class HomeController extends AbstractController
             'user' => $user,
         ]);
     }
+    #[Route('/allposts', name: 'app_post_posts')]
+    public function index6(): Response
+    {
+        return $this->render('GestForum/addpost/allpost.html.twig');
+    }
+    #[Route('/allcoms', name: 'app_commentaire_coms')]
+    public function index7(): Response
+    {
+        return $this->render('GestForum/addcom/allcom.html.twig');
+    }
 
    
 

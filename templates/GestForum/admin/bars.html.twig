@@ -1,0 +1,90 @@
+{% extends "GestForum/adminbase.html.twig" %}
+
+{% block bars %}
+    <!-- Sidebar -->
+    <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+            <div class="clearfix"></div>
+
+            <!-- Profile Info -->
+            <div class="profile clearfix">
+                <div class="profile_info">
+                    <h2>Welcome Admin</h2>
+                </div>
+            </div>
+            <!-- /Profile Info -->
+
+            <br />
+
+            <!-- Sidebar Menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <div class="menu_section">
+                    <ul class="nav side-menu">
+                         <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a>User List </a></li>
+                                    <li><a> Statistics </a></li>
+                                </ul>
+                            </li>
+                        
+                        
+                            <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="">{{ "backend.menu.manage"|trans }}</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clipboard"></i> Events <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="">{{ "backend.menu.manage"|trans }}</a></li>
+                                
+                                        <li><a href="">{{ "backend.menu.history"|trans }}</a></li>
+                                 
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-envelope"></i> Orders<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href=""> {{ "backend.menu.inbox"|trans }}</a></li>
+                                </ul>
+                            </li>
+                    
+
+                            <li><a><i class="fa fa-cog"></i> Liv <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="">{{ "backend.menu.general"|trans }}</a></li>
+                                    <li><a href="">{{ "backend.menu.faq"|trans }}</a></li>
+                                </ul>
+                            </li>
+                        
+                    
+
+                        <!-- Other sidebar menu items -->
+                    </ul>
+                </div>
+            </div>
+            <!-- /Sidebar Menu -->
+            
+        </div>
+    </div>
+    <!-- /Sidebar -->
+    
+
+    <!-- Main Content -->
+    <div class="col-md-9 right_col"  role="main">
+        <!-- Page Content -->
+        {% for message in app.flashes("error") %}
+            <div class="alert alert-danger alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <strong></strong> {{ message|trans }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes("success") %}
+            <div class="alert alert-success alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <strong></strong> {{ message|trans }}
+            </div>
+        {% endfor %}
+        {% block contenpage %}{% endblock %}
+        <!-- /Page Content -->
+    </div>
+    <!-- /Main Content -->
+{% endblock %}

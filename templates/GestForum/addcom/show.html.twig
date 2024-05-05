@@ -1,0 +1,23 @@
+{% extends 'GestForum/base.html.twig' %}
+
+{% block title %}Commentaire{% endblock %}
+
+{% block body %}
+    <h1>Commentaire</h1>
+
+    <table class="table">
+        <tbody>
+          
+            <tr>
+                <th>Descreption</th>
+                <td>{{ commentaire.descreption }}</td>
+            </tr>
+           
+            <tr>
+                <th>IdPost</th>
+                <td>{{ commentaire.idPost }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
