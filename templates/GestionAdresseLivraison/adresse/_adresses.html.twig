@@ -1,0 +1,19 @@
+{% for adresse in adresses %}
+    <tr>
+        <td><input type="checkbox" class="chkgrp" name="chkgrp[]" value="{{ adresse.id }}"></td>
+        <td>{{ adresse.id }}</td>
+        <td>{{ adresse.adresse }}</td>
+        <td>{{ adresse.ville }}</td>
+        <td>{{ adresse.codepostal }}</td>
+        <td>
+            <a class="btn btn-primary" href="{{ path('app_adresse_edit', {'id': adresse.id}) }}">
+                <i class="fa fa-edit"></i>
+            </a>
+        </td>
+        <td>
+            <a href="{{ path('app_adresse_delete', {'id': adresse.id}) }}" class="btn btn-danger disable-btn del-link" type="submit">
+                <i class="fa fa-trash"></i>
+            </a>
+        </td>
+    </tr>
+{% endfor %}

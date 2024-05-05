@@ -1,0 +1,79 @@
+{% extends 'GestionAdresseLivraison/adresseClient/base_frontAdresse.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #D2B48C !important; /* Couleur beige plus saturée */
+        }
+                .display-4 {
+            color: #5a6268; /* Couleur du texte */
+            text-shadow: 2px 2px 4px #000000; /* Ombre du texte */
+            font-family: 'Arial', sans-serif; /* Police de caractères */
+        }
+        .bg-light {
+        background-color: #F5F5DC !important; /* Couleur beige claire pour le formulaire */
+    }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="mb-4 text-center display-4">Créer votre adresse</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {{ form_start(form, {'attr': {'class': 'bg-light p-5 rounded'}}) }}
+                <div class="form-group">
+    <div class="form-group">
+    {{ form_label(form.idcommande, ' Commande', {'label_attr': {'class': 'font-weight-bold'}}) }}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text"><i class="fas fa-truck"></i></span> <!-- J'ai remplacé "icon-name" par "fa-truck" pour l'icône de livraison -->
+        </div>
+        {{ form_widget(form.idcommande, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    {{ form_errors(form.idcommande) }}
+</div>
+                  <div class="form-group">
+                    {{ form_label(form.adresse, 'Adresse', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                        </div>
+                        {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.adresse) }}
+                </div>
+                 <div class="form-group">
+                    {{ form_label(form.ville, 'Ville', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-city"></i></span>
+                        </div>
+                        {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.ville) }}
+                </div>
+                  <div class="form-group">
+                    {{ form_label(form.codepostal, 'Code Postal', {'label_attr': {'class': 'font-weight-bold'}}) }}
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-mail-bulk"></i></span>
+                        </div>
+                        {{ form_widget(form.codepostal, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    {{ form_errors(form.codepostal) }}
+                </div>
+                      <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+{% endblock %}
