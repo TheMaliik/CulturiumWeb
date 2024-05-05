@@ -1,0 +1,30 @@
+{{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+
+    <div class="form-group">
+        {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.image, {'attr': {'class': 'form-control-file'}}) }} {# Champ pour l'upload de l'image #}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.date, {'attr': {'class': 'form-control', 'placeholder': 'Date'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.nbrPlaceDispo, {'attr': {'class': 'form-control', 'placeholder': 'Number of Available Places'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Location'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.note, {'attr': {'class': 'form-control', 'placeholder': 'Note'}}) }}
+    </div>
+<!-- Add this line to include reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Add reCAPTCHA widget here -->
+                        <div class="g-recaptcha" data-sitekey="6LdgqIgpAAAAAD7HQvSgIRZJwhqwUH-MkbgBtMww"></div>
+                        <br/>
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

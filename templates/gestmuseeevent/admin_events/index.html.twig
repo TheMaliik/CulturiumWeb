@@ -1,0 +1,192 @@
+{% extends "adminbase.html.twig" %}
+{% block bars %}
+    <div class="col-md-3 left_col menu_fixed">
+        <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+                <a href="" class="site_title"><i class="fa fa-paw"></i> <span>Culturium</span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix">
+              
+                <div class="profile_info">
+                    
+                    <h2> Welcome Admin</h2>
+                </div>
+            </div>
+            <!-- /menu profile quick info -->
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu ">
+                <div class="menu_section">
+                    <ul class="nav side-menu">
+                        
+                     
+                            <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="">User List </a></li>
+                                    <li><a href=""> Statistics </a></li>
+                                </ul>
+                            </li>
+                        
+                        
+                            <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_admin_museum_index') }}">Museums List </a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clipboard"></i> Events <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_admin_events_index') }}">Events List </a></li>
+                            
+                                 
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-envelope"></i> Orders<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href=""> {{ "backend.menu.inbox"|trans }}</a></li>
+                                </ul>
+                            </li>
+                    
+
+                            <li><a><i class="fa fa-cog"></i> Liv <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="">{{ "backend.menu.general"|trans }}</a></li>
+                                    <li><a href="">{{ "backend.menu.faq"|trans }}</a></li>
+                                </ul>
+                            </li>
+                        
+                    </ul>
+
+                </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+            <!-- /menu footer buttons -->
+        </div>
+    </div>
+
+    <!-- top navigation -->
+    <div class="top_nav">
+        <div class="nav_menu">
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            <nav class="nav navbar-nav">
+                <ul class=" navbar-right">
+                    <li class="nav-item dropdown open" style="padding-left: 15px;">
+                        <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                            
+                        </a>
+                        <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                            
+                            <a class="dropdown-item"  href=""><i class="fa fa-sign-out pull-right"></i>LogOut</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!-- /top navigation -->
+
+    <!-- page content -->
+    <div class="right_col" role="main">
+        {% for message in app.flashes("error") %}
+            <div class="alert alert-danger alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong></strong> {{ message|trans }}
+            </div>
+        {% endfor %}
+        {% for message in app.flashes("success") %}
+            <div class="alert alert-success alert-dismissible " role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                </button>
+                <strong></strong> {{ message|trans }}
+            </div>
+        {% endfor %}
+
+        {% block contenpage %}
+         <h1>Events index</h1>
+
+
+          <!-- Recherche -->
+
+                <form action="{{ path('app_admin_events_index') }}" method="GET" class="mb-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Rechercher par name" name="search">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit">Rechercher</button>
+                            </div>
+                        </div>
+                    </form>
+        <div style="display: flex; justify-content: space-around;">
+         <!-- Tri -->
+
+
+                <form action="{{ path('app_admin_events_sort') }}" method="GET" style="display: inline;">
+                    <input type="hidden" name="criteria" value="name">
+                    <input type="hidden" name="direction" value="asc">
+                    <button type="submit" class="btn btn-primary">Trier par nom (ASC)</button>
+                </form>
+
+                <form action="{{ path('app_admin_events_sort') }}" method="GET" style="display: inline;">
+                    <input type="hidden" name="criteria" value="name">
+                    <input type="hidden" name="direction" value="desc">
+                    <button type="submit" class="btn btn-primary">Trier par nom (DESC)</button>
+                </form>
+        </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ide</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Date</th>
+                <th>NbrPlaceDispo</th>
+                <th>Lieu</th>
+                <th>Note</th>
+                <th>id_musee</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for event in events %}
+            <tr>
+                <td>{{ event.ide }}</td>
+                <td>{{ event.name }}</td>
+                <td>{{ event.description }}</td>
+                <td>{{ event.image }}</td>
+                <td>{{ event.date ? event.date|date('Y-m-d') : '' }}</td>
+                <td>{{ event.nbrPlaceDispo }}</td>
+                <td>{{ event.lieu }}</td>
+                <td>{{ event.note }}</td>
+                <td>{{ event.IdMusee }}</td>
+
+                <td>
+
+                <a href="{{ path('app_admin_events_show', {'ide': event.ide}) }}" class="btn btn-info btn-xs">Show</a>
+                <a href="{{ path('app_admin_events_edit', {'ide': event.ide}) }}" class="btn btn-primary btn-xs">Edit</a>
+
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+ <a href="{{ path('app_admin_events_new') }}" class="btn btn-success">Create New</a>
+    </div>    {% endblock %}
+    </div>
+    <!-- /page content -->
+{% endblock %}
