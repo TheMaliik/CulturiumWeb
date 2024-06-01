@@ -38,6 +38,14 @@
                     </div>
                 </div>
             </div>
+
+                 <div class="g-recaptcha" data-sitekey="6LclU8kpAAAAADH4B5IpnT3YboEcmRPdOHP7AGLx"></div>
         </div>
     </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- Add this line to include reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 {% endblock %}

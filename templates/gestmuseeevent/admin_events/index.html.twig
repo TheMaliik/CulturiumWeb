@@ -26,15 +26,25 @@
                     <ul class="nav side-menu">
                         
                      
+                          
                             <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="">User List </a></li>
-                                    <li><a href=""> Statistics </a></li>
+                                    <li><a href="{{ path('userss') }}">User List </a></li>
+                                    <li><a href="{{ path('app_admin_stats_user_statut') }}"> Statistics </a></li>
                                 </ul>
                             </li>
                         
+                          <li><a><i class="fa fa-user"></i> Expositions <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_oeuvre_indexadmin') }}">Exposition List </a></li>
+                                    <li><a href="{{ path('app_categorie_index') }}"> Category List </a></li>
+                                    <li><a href="{{ path('app_historique_index') }}"> Historique </a></li>
+                                    <li><a href="{{ path('app_oeuvre_new') }}"> Add Exposition </a></li>
+                                    <li><a href="{{ path('app_categorie_new') }}"> Add Category</a></li>
+                                </ul>
+                            </li>
                         
-                            <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ path('app_admin_museum_index') }}">Museums List </a></li>
                                 </ul>
@@ -46,14 +56,35 @@
                                  
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-envelope"></i> Orders<span class="fa fa-chevron-down"></span></a>
+
+                           <li><a><i class="fa fa-user"></i> Commande <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href=""> {{ "backend.menu.inbox"|trans }}</a></li>
+                                    <li><a href="{{ path('app_commande_index') }}">Commande</a></li>
+                                    
+                                </ul>
+                            </li>
+                        
+                        
+                            <li><a><i class="fa fa-bookmark"></i>Panier <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_panier_index') }}">Panier</a></li>
                                 </ul>
                             </li>
                     
 
-                            <li><a><i class="fa fa-cog"></i> Liv <span class="fa fa-chevron-down"></span></a>
+                          <li><a><i class="fa fa-bookmark"></i>Livraisons <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                     <li><a href="{{ path('livraison_index') }}">Livraison List </a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clipboard"></i>Adresses <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                      <li><a href="{{ path('app_adresse_index') }}">Adresse List </a></li>
+                                 
+                                </ul>
+                            </li>
+
+                            <li><a><i class="fa fa-cog"></i> Forum <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="">{{ "backend.menu.general"|trans }}</a></li>
                                     <li><a href="">{{ "backend.menu.faq"|trans }}</a></li>

@@ -7,34 +7,42 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\AdresseRepository;
-
-#[ORM\Entity(repositoryClass: AdresseRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=AdresseRepository::class)
+ */
 class Adresse
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue] 
-    #[ORM\Column]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")     */
     private $id;
 
-    #[ORM\Column]
-    #[Assert\NotBlank(message:"Ce champ ne peut pas être vide.")]
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
+     */
     private $idcommande;
 
-    #[ORM\Column]
-    #[Assert\NotBlank(message:"Ce champ ne peut pas être vide.")]
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
+     */
     private $adresse;
 
-    #[ORM\Column]
-    #[Assert\NotBlank(message:"Ce champ ne peut pas être vide.")]
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
+     */
     private $ville;
 
-    #[ORM\Column]
-    #[Assert\NotBlank(message:"Ce champ ne peut pas être vide.")]
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
+     */
     private $codepostal;
 
-    
-
-     /**
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $search;
@@ -49,7 +57,7 @@ class Adresse
         $this->livraisons = new ArrayCollection();
     }
 
-    public function getId(): ?string
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -102,18 +110,17 @@ class Adresse
         return $this;
     }
 
-      // Ajout des méthodes getter et setter pour la propriété search
-      public function getSearch(): ?string
-      {
-          return $this->search;
-      }
-  
-      public function setSearch(string $search): self
-      {
-          $this->search = $search;
-  
-          return $this;
-      }
+    public function getSearch(): ?string
+    {
+        return $this->search;
+    }
+
+    public function setSearch(string $search): self
+    {
+        $this->search = $search;
+
+        return $this;
+    }
 
     /**
      * @return Collection|Livraison[]
@@ -145,14 +152,13 @@ class Adresse
         return $this;
     }
 
-
-
-/**
- * Returns a string representation of the Adresse entity.
- *
- * @return string
- */
-public function __toString(): string
-{
-    return "{$this->adresse}, {$this->ville}, {$this->codepostal}";
-}}
+    /**
+     * Returns a string representation of the Adresse entity.
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return "{$this->adresse}, {$this->ville}, {$this->codepostal}";
+    }
+}

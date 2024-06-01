@@ -17,7 +17,7 @@
             if (!$events) {
                 throw $this->createNotFoundException('Aucun événement trouvé.');
             }
-            $pdfContent = $this->renderView('client_museum/PDF/pdf1.1.html.twig', [
+            $pdfContent = $this->renderView('gestmuseeevent/pdf/pdf1.1.html.twig', [
                 'events' => $events,
             ]);
             $dompdf = new Dompdf();
@@ -34,7 +34,7 @@
             if (!$events) {
                 throw $this->createNotFoundException('Aucun événement trouvé.');
             }
-            $pdfContent = $this->renderView('client_museum/PDF/pdf1.2.html.twig', [
+            $pdfContent = $this->renderView('gestmuseeevent/pdf/pdf1.2.html.twig', [
                 'events' => $events,
             ]);
             $dompdf = new Dompdf();
@@ -51,7 +51,7 @@
             if (!$events) {
                 throw $this->createNotFoundException('Aucun événement trouvé.');
             }
-            $pdfContent = $this->renderView('client_museum/PDF/pdf1.3.html.twig', [
+            $pdfContent = $this->renderView('gestmuseeevent/client_museum/PDF/pdf1.3.html.twig', [
                 'events' => $events,
             ]);
             $dompdf = new Dompdf();
@@ -68,7 +68,7 @@
             if (!$events) {
                 throw $this->createNotFoundException('Aucun événement trouvé.');
             }
-            $pdfContent = $this->renderView('client_museum/PDF/pdf2.1.html.twig', [
+            $pdfContent = $this->renderView('gestmuseeevent/client_museum/PDF/pdf2.1.html.twig', [
                 'events' => $events,
             ]);
             $dompdf = new Dompdf();
@@ -85,7 +85,7 @@
             if (!$events) {
                 throw $this->createNotFoundException('Aucun événement trouvé.');
             }
-            $pdfContent = $this->renderView('client_museum/PDF/pdf2.2.html.twig', [
+            $pdfContent = $this->renderView('gestmuseeevent/client_museum/PDF/pdf2.2.html.twig', [
                 'events' => $events,
             ]);
             $dompdf = new Dompdf();
@@ -102,7 +102,7 @@
             if (!$events) {
                 throw $this->createNotFoundException('Aucun événement trouvé.');
             }
-            $pdfContent = $this->renderView('client_museum/PDF/pdf2.3.html.twig', [
+            $pdfContent = $this->renderView('gestmuseeevent/client_museum/PDF/pdf2.3.html.twig', [
                 'events' => $events,
             ]);
             $dompdf = new Dompdf();

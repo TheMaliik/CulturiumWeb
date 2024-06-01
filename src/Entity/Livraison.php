@@ -6,28 +6,39 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\LivraisonRepository;
 
-#[ORM\Entity(repositoryClass: LivraisonRepository::class)]
+/**
+ * @ORM\Entity(repositoryClass=LivraisonRepository::class)
+ */
 class Livraison
 {
-    #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
+     */
     private $id;
 
-    #[ORM\Column(name: 'dateDeLivraison', type: 'date')]
+    /**
+     * @ORM\Column(name="date_de_livraison", type="date")
+     */
     private $dateDeLivraison;
-    
 
-    #[ORM\Column(type: 'string', length: 50)]
-    #[Assert\NotBlank(message: "Ce champ ne peut pas être vide.")]
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
+     */
     private $statut;
 
-    #[ORM\Column(type: 'string', length: 50)]
-    #[Assert\NotBlank(message: "Ce champ ne peut pas être vide.")]
+    /**
+     * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank(message="Ce champ ne peut pas être vide.")
+     */
     private $depot;
 
-    #[ORM\ManyToOne(targetEntity: Adresse::class, inversedBy: 'livraisons')]
-    #[ORM\JoinColumn(name: 'idAdresse', referencedColumnName: 'id')]
+    /**
+     * @ORM\ManyToOne(targetEntity=Adresse::class, inversedBy="livraisons")
+     * @ORM\JoinColumn(name="id_adresse", referencedColumnName="id")
+     */
     private $adresse;
     
     public function getId(): ?int
@@ -82,7 +93,4 @@ class Livraison
 
         return $this;
     }
-
-  
-
 }

@@ -7,14 +7,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Validator\Constraints\Regex;
-use App\Validator\Constraints as CustomAssert;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\File;
-
-
-
-
 
 class Museum1Type extends AbstractType
 {
@@ -25,9 +19,6 @@ class Museum1Type extends AbstractType
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Le nom du musée est obligatoire',
-                    ]),
-                    new CustomAssert\UniqueMuseumName([
-                        'message' => 'Ce nom de musée est déjà utilisé',
                     ]),
                 ],
             ])

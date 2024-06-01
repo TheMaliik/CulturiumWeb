@@ -24,38 +24,70 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu ">
                 <div class="menu_section">
                     <ul class="nav side-menu">
-                        <li>
-                            <a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href="">User List </a></li>
-                                <li><a href=""> Statistics </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href="{{ path('app_admin_museum_index') }}">Museums List </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a><i class="fa fa-clipboard"></i> Events <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href="{{ path('app_admin_events_index') }}">Events List </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a><i class="fa fa-envelope"></i> Orders<span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href="">{{ "backend.menu.inbox"|trans }}</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a><i class="fa fa-cog"></i> Liv <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href="">{{ "backend.menu.general"|trans }}</a></li>
-                                <li><a href="">{{ "backend.menu.faq"|trans }}</a></li>
-                            </ul>
-                        </li>
+                       
+                            <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('userss') }}">User List </a></li>
+                                    <li><a href="{{ path('app_admin_stats_user_statut') }}"> Statistics </a></li>
+                                </ul>
+                            </li>
+                        
+                          <li><a><i class="fa fa-user"></i> Expositions <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_oeuvre_indexadmin') }}">Exposition List </a></li>
+                                    <li><a href="{{ path('app_categorie_index') }}"> Category List </a></li>
+                                    <li><a href="{{ path('app_historique_index') }}"> Historique </a></li>
+                                    <li><a href="{{ path('app_oeuvre_new') }}"> Add Exposition </a></li>
+                                    <li><a href="{{ path('app_categorie_new') }}"> Add Category</a></li>
+                                </ul>
+                            </li>
+                        
+                        <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_admin_museum_index') }}">Museums List </a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clipboard"></i> Events <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_admin_events_index') }}">Events List </a></li>
+                            
+                                 
+                                </ul>
+                            </li>
+
+                           <li><a><i class="fa fa-user"></i> Commande <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_commande_index') }}">Commande</a></li>
+                                    
+                                </ul>
+                            </li>
+                        
+                        
+                            <li><a><i class="fa fa-bookmark"></i>Panier <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_panier_index') }}">Panier</a></li>
+                                </ul>
+                            </li>
+                    
+
+                          <li><a><i class="fa fa-bookmark"></i>Livraisons <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                     <li><a href="{{ path('livraison_index') }}">Livraison List </a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clipboard"></i>Adresses <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                      <li><a href="{{ path('app_adresse_index') }}">Adresse List </a></li>
+                                 
+                                </ul>
+                            </li>
+
+                            <li><a><i class="fa fa-cog"></i> Forum <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="">{{ "backend.menu.general"|trans }}</a></li>
+                                    <li><a href="">{{ "backend.menu.faq"|trans }}</a></li>
+                                </ul>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -102,12 +134,45 @@
         {% endfor %}
         {% block contenpage %}
             <h1>Edit Events</h1>
+{{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
 
-            {{ include('admin_events/_form.html.twig', {'button_label': 'Update'}) }}
+    <div class="form-group">
+        {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.image, {'attr': {'class': 'form-control-file'}}) }} {# Champ pour l'upload de l'image #}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.date, {'attr': {'class': 'form-control', 'placeholder': 'Date'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.nbrPlaceDispo, {'attr': {'class': 'form-control', 'placeholder': 'Number of Available Places'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Location'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.note, {'attr': {'class': 'form-control', 'placeholder': 'Note'}}) }}
+    </div>
+<!-- Add this line to include reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Add reCAPTCHA widget here -->
+                        <div class="g-recaptcha" data-sitekey="6LdgqIgpAAAAAD7HQvSgIRZJwhqwUH-MkbgBtMww"></div>
+                        <br/>
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
 
             <button onclick="window.location.href='{{ path('app_admin_events_index') }}'" class="btn btn-secondary">Back to List</button>
+<a href="#" onclick="if(confirm('Are you sure you want to delete this item?')) { document.getElementById('deleteForm{{ event.ide }}').submit(); }" class="btn btn-danger">Delete</a>
 
-            {{ include('admin_events/_delete_form.html.twig') }}
+<form id="deleteForm{{ event.ide }}" method="post" action="{{ path('app_admin_events_delete', {'ide': event.ide}) }}" style="display: none;">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ event.ide) }}">
+</form>
+
         {% endblock %}
     </div>
     <!-- /page content -->

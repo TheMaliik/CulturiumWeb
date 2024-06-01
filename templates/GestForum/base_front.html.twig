@@ -15,9 +15,9 @@
 		<meta name='robots' content='noindex, nofollow'>
 		<link rel='dns-prefetch' href='//stats.wp.com'>
 		<link rel='dns-prefetch' href='//fonts.googleapis.com'>
-		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Feed" href="../feed/index.htm">
-		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Comments Feed" href="../comments/feed/index.htm">
-		<link rel="alternate" type="text/calendar" title="Ozeum &raquo; iCal Feed" href="../events/ozeum-8f04dff3a9b.ics?ical=1">
+		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Feed" href="Front_Office/feed/index.htm">
+		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Comments Feed" href="Front_Office/comments/feed/index.htm">
+		<link rel="alternate" type="text/calendar" title="Ozeum &raquo; iCal Feed" href="Front_Office/events/ozeum-8f04dff3a9b.ics?ical=1">
 		<link rel="alternate" type="application/rss+xml" title="Ozeum &raquo; Products Feed" href="feed/index.htm">
 		<meta property="og:site_name" content="Ozeum">
 		<meta property="og:description" content="Art Collections, Museum &amp; Exhibition Center">
@@ -144,33 +144,33 @@ n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? 
 /* ]]> */
 		</script>
 		{% block css %}
-			<link property="stylesheet" rel='stylesheet' id='trx_demo_icons-css' href={{asset('../wp-content/plugins/trx_demo/css/font-icons/css/trx_demo_icons.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx_demo_icons_animation-css' href={{asset('../wp-content/plugins/trx_demo/css/font-icons/css/animation.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='wp-block-library-css' href={{asset('../wp-includes/css/dist/block-library/style.min.css?ver=6.4.4')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='contact-form-7-css' href={{asset('../wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8.4')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='esg-plugin-settings-css' href={{asset('../wp-content/plugins/essential-grid/public/assets/css/settings.css?ver=3.1.1')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='tp-fontello-css' href={{asset('../wp-content/plugins/essential-grid/public/assets/font/fontello/css/fontello.css?ver=3.1.1')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='tp-open-sans-css' href={{asset('../css?family=Open+Sans%3A300%2C400%2C600%2C700%2C800&#038;ver=6.4.4')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='tp-raleway-css' href={{asset('../css-1?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&#038;ver=6.4.4')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='tp-droid-serif-css' href={{asset('../css-2?family=Droid+Serif%3A400%2C700&#038;ver=6.4.4' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx_addons-icons-css' href={{asset('../wp-content/plugins/trx_addons/css/font-icons/css/trx_addons_icons.css' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='jquery-swiper-css' href={{asset('../wp-content/plugins/trx_addons/js/swiper/swiper.min.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='magnific-popup-css' href={{asset('../wp-content/plugins/trx_addons/js/magnific/magnific-popup.min.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx_addons-css' href={{asset('../wp-content/plugins/trx_addons/css/__styles.css' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx_addons-animation-css' href={{asset('../wp-content/plugins/trx_addons/css/trx_addons.animation.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx_demo_panels-css' href={{asset('../wp-content/plugins/trx_demo/css/trx_demo_panels.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx-popup-style-css' href={{asset('../wp-content/plugins/trx_popup/css/style.css' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx-popup-custom-css' href={{asset('../wp-content/plugins/trx_popup/css/custom.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx-popup-stylesheet-css' href={{asset('../wp-content/plugins/trx_popup/css/fonts/Inter/stylesheet.css' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='woocommerce-layout-css' href={{asset('../wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=8.4.0')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='woocommerce-smallscreen-css' href={{asset('../wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=8.4.0')}} type='text/css' media='only screen and (max-width: 768px)'>
-			<link property="stylesheet" rel='stylesheet' id='woocommerce-general-css' href={{asset('../wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=8.4.0')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='elementor-icons-css' href={{asset('../wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.25.0')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='elementor-frontend-css' href={{asset('../wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.18.2' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='swiper-css' href={{asset('../wp-content/plugins/elementor/assets/lib/swiper/css/swiper.min.css?ver=5.3.6')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='font-awesome-5-all-css' href={{asset('../wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.18.2' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='font-awesome-4-shim-css' href={{asset('../wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.18.2' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='wpgdprc-front-css-css' href={{asset('../wp-content/plugins/wp-gdpr-compliance/Assets/css/front.css?ver=1702674773' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_demo_icons-css' href={{asset('Front_Office/wp-content/plugins/trx_demo/css/font-icons/css/trx_demo_icons.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_demo_icons_animation-css' href={{asset('Front_Office/wp-content/plugins/trx_demo/css/font-icons/css/animation.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='wp-block-library-css' href={{asset('Front_Office/wp-includes/css/dist/block-library/style.min.css?ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='contact-form-7-css' href={{asset('Front_Office/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.8.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='esg-plugin-settings-css' href={{asset('Front_Office/wp-content/plugins/essential-grid/public/assets/css/settings.css?ver=3.1.1')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-fontello-css' href={{asset('Front_Office/wp-content/plugins/essential-grid/public/assets/font/fontello/css/fontello.css?ver=3.1.1')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-open-sans-css' href={{asset('Front_Office/css?family=Open+Sans%3A300%2C400%2C600%2C700%2C800&#038;ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-raleway-css' href={{asset('Front_Office/css-1?family=Raleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900&#038;ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='tp-droid-serif-css' href={{asset('Front_Office/css-2?family=Droid+Serif%3A400%2C700&#038;ver=6.4.4' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-icons-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/font-icons/css/trx_addons_icons.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='jquery-swiper-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/js/swiper/swiper.min.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='magnific-popup-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/js/magnific/magnific-popup.min.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/__styles.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-animation-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/trx_addons.animation.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_demo_panels-css' href={{asset('Front_Office/wp-content/plugins/trx_demo/css/trx_demo_panels.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx-popup-style-css' href={{asset('Front_Office/wp-content/plugins/trx_popup/css/style.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx-popup-custom-css' href={{asset('Front_Office/wp-content/plugins/trx_popup/css/custom.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx-popup-stylesheet-css' href={{asset('Front_Office/wp-content/plugins/trx_popup/css/fonts/Inter/stylesheet.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='woocommerce-layout-css' href={{asset('Front_Office/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=8.4.0')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='woocommerce-smallscreen-css' href={{asset('Front_Office/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=8.4.0')}} type='text/css' media='only screen and (max-width: 768px)'>
+			<link property="stylesheet" rel='stylesheet' id='woocommerce-general-css' href={{asset('Front_Office/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=8.4.0')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='elementor-icons-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=5.25.0')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='elementor-frontend-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/css/frontend.min.css?ver=3.18.2' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='swiper-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/swiper/css/swiper.min.css?ver=5.3.6')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='font-awesome-5-all-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=3.18.2' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='font-awesome-4-shim-css' href={{asset('Front_Office/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.18.2' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='wpgdprc-front-css-css' href={{asset('Front_Office/wp-content/plugins/wp-gdpr-compliance/Assets/css/front.css?ver=1702674773' )}} type='text/css' media='all'>
 			<style>
 				id='wpgdprc-front-css-inline-css' type='text/css':root {
 					--wp-gdpr--bar--background-color: #000000;
@@ -180,34 +180,34 @@ n.supports.everything || (n.readyCallback(), (e = n.source || {}).concatemoji ? 
 					--wp-gdpr--button--color: #ffffff;
 				}
 			</style>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-font-Metropolis-css' href={{asset('../wp-content/themes/ozeum/skins/default/css/font-face/Metropolis/stylesheet.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-font-google_fonts-css' href={{asset('../css-3?family=Cardo:400,400italic,700&#038;subset=latin,latin-ext' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='fontello-icons-css' href={{asset('../wp-content/themes/ozeum/css/font-icons/css/fontello.css' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-main-css' href={{asset('../wp-content/themes/ozeum/style.css' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='mediaelement-css' href={{asset('../wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='wp-mediaelement-css' href={{asset('../wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.4.4')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-skin-default-css' href={{asset('../wp-content/themes/ozeum/skins/default/css/style.css' )}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-plugins-css' href={{asset('../wp-content/themes/ozeum/skins/default/css/__plugins.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-custom-css' href={{asset('../wp-content/themes/ozeum/skins/default/css/__custom.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-color-default-css' href={{asset('../wp-content/themes/ozeum/skins/default/css/__colors-default.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-color-dark-css' href={{asset('../wp-content/themes/ozeum/skins/default/css/__colors-dark.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='trx_addons-responsive-css' href={{asset('../wp-content/plugins/trx_addons/css/__responsive.css')}} type='text/css' media='all'>
-			<link property="stylesheet" rel='stylesheet' id='ozeum-responsive-css' href={{asset('../wp-content/themes/ozeum/skins/default/css/__responsive.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-font-Metropolis-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/font-face/Metropolis/stylesheet.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-font-google_fonts-css' href={{asset('Front_Office/css-3?family=Cardo:400,400italic,700&#038;subset=latin,latin-ext' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='fontello-icons-css' href={{asset('Front_Office/wp-content/themes/ozeum/css/font-icons/css/fontello.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-main-css' href={{asset('Front_Office/wp-content/themes/ozeum/style.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='mediaelement-css' href={{asset('Front_Office/wp-includes/js/mediaelement/mediaelementplayer-legacy.min.css?ver=4.2.17')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='wp-mediaelement-css' href={{asset('Front_Office/wp-includes/js/mediaelement/wp-mediaelement.min.css?ver=6.4.4')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-skin-default-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/style.css' )}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-plugins-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__plugins.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-custom-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__custom.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-color-default-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__colors-default.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-color-dark-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__colors-dark.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='trx_addons-responsive-css' href={{asset('Front_Office/wp-content/plugins/trx_addons/css/__responsive.css')}} type='text/css' media='all'>
+			<link property="stylesheet" rel='stylesheet' id='ozeum-responsive-css' href={{asset('Front_Office/wp-content/themes/ozeum/skins/default/css/__responsive.css' )}} type='text/css' media='all'>
 		{% endblock %}
 		{% block js %}
-			<script type="text/javascript" src={{asset("../wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0" )}} id="regenerator-runtime-js"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" )}} id="wp-polyfill-js"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/dist/hooks.min.js?ver=c6aec9a8d4e5a5d543a1")}} id="wp-hooks-js"></script>
-			<script type="text/javascript" src={{asset("../w.js?ver=202415")}} id="woo-tracks-js"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/jquery/jquery.min.js?ver=3.7.1" )}} id="jquery-core-js"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" )}} id="jquery-migrate-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.8.4.0")}} id="jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=8.4.0" )}} id="wc-add-to-cart-js" defer="defer" data-wp-strategy="defer"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.8.4.0" )}} id="js-cookie-js" defer="defer" data-wp-strategy="defer"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=8.4.0" )}} id="woocommerce-js" defer="defer" data-wp-strategy="defer"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.18.2" )}} id="font-awesome-4-shim-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/wp-gdpr-compliance/Assets/js/front.min.js?ver=1702674773" )}} id="wpgdprc-front-js-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.8.4")}} id="swv-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/dist/vendor/regenerator-runtime.min.js?ver=0.14.0" )}} id="regenerator-runtime-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/dist/vendor/wp-polyfill.min.js?ver=3.15.0" )}} id="wp-polyfill-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/dist/hooks.min.js?ver=c6aec9a8d4e5a5d543a1")}} id="wp-hooks-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/w.js?ver=202415")}} id="woo-tracks-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" )}} id="jquery-core-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" )}} id="jquery-migrate-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.8.4.0")}} id="jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=8.4.0" )}} id="wc-add-to-cart-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.8.4.0" )}} id="js-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=8.4.0" )}} id="woocommerce-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.18.2" )}} id="font-awesome-4-shim-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/wp-gdpr-compliance/Assets/js/front.min.js?ver=1702674773" )}} id="wpgdprc-front-js-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=5.8.4")}} id="swv-js"></script>
 			<script type="text/javascript" id="contact-form-7-js-extra">
 				/* <![CDATA[ */
 var wpcf7 = {
@@ -219,14 +219,14 @@ var wpcf7 = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.8.4" )}} id="contact-form-7-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.6.19" )}} async="" id="tp-tools-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.6.19")}} async="" id="revmin-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/js/swiper/swiper.min.js")}} id="jquery-swiper-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/js/elastistack/modernizr.custom.js")}} id="modernizr-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/js/elastistack/draggabilly.pkgd.min.js")}} id="draggabilly-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/js/elastistack/elastistack.js")}} id="elastistack-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/js/magnific/jquery.magnific-popup.min.js")}} id="magnific-popup-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/contact-form-7/includes/js/index.js?ver=5.8.4" )}} id="contact-form-7-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/revslider/public/assets/js/rbtools.min.js?ver=6.6.19" )}} async="" id="tp-tools-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/revslider/public/assets/js/rs6.min.js?ver=6.6.19")}} async="" id="revmin-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/swiper/swiper.min.js")}} id="jquery-swiper-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/elastistack/modernizr.custom.js")}} id="modernizr-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/elastistack/draggabilly.pkgd.min.js")}} id="draggabilly-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/elastistack/elastistack.js")}} id="elastistack-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/magnific/jquery.magnific-popup.min.js")}} id="magnific-popup-js"></script>
 			<script type="text/javascript" id="trx_addons-js-extra">
 				/* <![CDATA[ */
 var TRX_ADDONS_STORAGE = {
@@ -295,7 +295,7 @@ var TRX_ADDONS_STORAGE = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/js/__scripts.js")}} id="trx_addons-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/__scripts.js")}} id="trx_addons-js"></script>
 			<script type="text/javascript" id="trx_demo_panels-js-extra">
 				/* <![CDATA[ */
 var TRX_DEMO_STORAGE = {
@@ -308,11 +308,11 @@ var TRX_DEMO_STORAGE = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_demo/js/trx_demo_panels.js")}} id="trx_demo_panels-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_popup/js/jquery.cookie.js")}} id="trx-popup-cookie-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_popup/js/trx_popup.script.js")}} id="trx-popup-script-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/components/shortcodes/anchor/anchor.js" )}} id="trx_addons-sc_anchor-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/components/cpt/layouts/shortcodes/menu/superfish.min.js")}} id="superfish-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_demo/js/trx_demo_panels.js")}} id="trx_demo_panels-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_popup/js/jquery.cookie.js")}} id="trx-popup-cookie-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_popup/js/trx_popup.script.js")}} id="trx-popup-script-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/components/shortcodes/anchor/anchor.js" )}} id="trx_addons-sc_anchor-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/components/cpt/layouts/shortcodes/menu/superfish.min.js")}} id="superfish-js"></script>
 			<script type="text/javascript" id="ozeum-init-js-extra">
 				/* <![CDATA[ */
 var OZEUM_STORAGE = {
@@ -337,7 +337,7 @@ var OZEUM_STORAGE = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-content/themes/ozeum/js/__scripts.js" )}} id="ozeum-init-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/themes/ozeum/js/__scripts.js" )}} id="ozeum-init-js"></script>
 			<script type="text/javascript" id="mediaelement-core-js-before">
 				/* <![CDATA[ */
 var mejsL10n = {
@@ -419,8 +419,8 @@ var mejsL10n = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17" )}} id="mediaelement-core-js"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.4.4" )}} id="mediaelement-migrate-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/mediaelement/mediaelement-and-player.min.js?ver=4.2.17" )}} id="mediaelement-core-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/mediaelement/mediaelement-migrate.min.js?ver=6.4.4" )}} id="mediaelement-migrate-js"></script>
 			<script type="text/javascript" id="mediaelement-js-extra">
 				/* <![CDATA[ */
 var _wpmejsSettings = {
@@ -432,8 +432,8 @@ var _wpmejsSettings = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.4.4" )}} id="wp-mediaelement-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/themes/ozeum/skins/default/skin.js")}} id="ozeum-skin-default-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/mediaelement/wp-mediaelement.min.js?ver=6.4.4" )}} id="wp-mediaelement-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/themes/ozeum/skins/default/skin.js")}} id="ozeum-skin-default-js"></script>
 			<script type="text/javascript" id="wc-cart-fragments-js-extra">
 				/* <![CDATA[ */
 var wc_cart_fragments_params = {
@@ -445,12 +445,12 @@ var wc_cart_fragments_params = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=8.4.0")}} id="wc-cart-fragments-js" defer="defer" data-wp-strategy="defer"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" )}} id="jquery-ui-core-js"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.2" )}} id="jquery-ui-mouse-js"></script>
-			<script type="text/javascript" src={{asset("../wp-includes/js/jquery/ui/slider.min.js?ver=1.13.2" )}} id="jquery-ui-slider-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js?ver=8.4.0" )}} id="wc-jquery-ui-touchpunch-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/accounting/accounting.min.js?ver=0.4.2")}} id="accounting-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=8.4.0")}} id="wc-cart-fragments-js" defer="defer" data-wp-strategy="defer"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/ui/core.min.js?ver=1.13.2" )}} id="jquery-ui-core-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/ui/mouse.min.js?ver=1.13.2" )}} id="jquery-ui-mouse-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-includes/js/jquery/ui/slider.min.js?ver=1.13.2" )}} id="jquery-ui-slider-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/jquery-ui-touch-punch/jquery-ui-touch-punch.min.js?ver=8.4.0" )}} id="wc-jquery-ui-touchpunch-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/accounting/accounting.min.js?ver=0.4.2")}} id="accounting-js"></script>
 			<script type="text/javascript" id="wc-price-slider-js-extra">
 				/* <![CDATA[ */
 var woocommerce_price_slider_params = {
@@ -462,10 +462,10 @@ var woocommerce_price_slider_params = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/woocommerce/assets/js/frontend/price-slider.min.js?ver=8.4.0" )}} id="wc-price-slider-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.18.2" )}} id="elementor-webpack-runtime-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.18.2" )}} id="elementor-frontend-modules-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" )}} id="elementor-waypoints-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/woocommerce/assets/js/frontend/price-slider.min.js?ver=8.4.0" )}} id="wc-price-slider-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.18.2" )}} id="elementor-webpack-runtime-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.18.2" )}} id="elementor-frontend-modules-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" )}} id="elementor-waypoints-js"></script>
 			<script type="text/javascript" id="elementor-frontend-js-before">
 				/* <![CDATA[ */
 var elementorFrontendConfig = {
@@ -704,8 +704,8 @@ var elementorFrontendConfig = {
 };
 /* ]]> */
 			</script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.18.2" )}} id="elementor-frontend-js"></script>
-			<script type="text/javascript" src={{asset("../wp-content/plugins/trx_addons/js/tweenmax/tweenmax.min.js" )}} id="tweenmax-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.18.2" )}} id="elementor-frontend-js"></script>
+			<script type="text/javascript" src={{asset("Front_Office/wp-content/plugins/trx_addons/js/tweenmax/tweenmax.min.js" )}} id="tweenmax-js"></script>
 			<script>
 				TRX_DEMO_STORAGE['tabs_layout'] = "		<div class=\"trx_demo_panels trx_demo_tabs_position_rc trx_demo_tabs_style_icons trx_demo_panels_with_multi_filters\" style=\"width:320px;\">  			<div class=\"trx_demo_tabs\"> 				<a class=\"hint_left hint_big hint_slide\" href=\"https://1.envato.market/GjOO5k\" 						 target=\"_blank\"						aria-label=\"Buy theme\" 						data-type=\"link\" 						style=\"color:#ffffff;background-color:#c9a050;\" 					><i class=\"trx_demo_icon-shopping-cart\"></i></a><a class=\"hint_left hint_big hint_slide\" href=\"#panel_related-demos\" 												aria-label=\"Homepages\" 						data-type=\"features\" 						style=\"color:#ffffff;background-color:#c9a050;\" 					><i class=\"trx_demo_icon-gallery\"></i></a><a class=\"hint_left hint_big hint_slide\" href=\"https://ozeum.themerex.net?notabs=1\" 												aria-label=\"Hide panel\" 						data-type=\"link\" 						style=\"color:#ffffff;background-color:#c9a050;\" 					><i class=\"trx_demo_icon-browser\"></i></a>			</div>  			<div class=\"trx_demo_panels_wrap\"> 				<div id=\"panel_related-demos\" 							class=\"trx_demo_panel 									trx_demo_panel_features									trx_demo_panel_thumbs_animation_off									trx_demo_panel_layout_1col									trx_demo_panel_style_plain\" 							style=\"\" 					><div class=\"trx_demo_panel_header\"><h5 class=\"trx_demo_panel_title\" style=\"\">All Our Demos</h5></div><div class=\"trx_demo_panel_content\"><div class=\"trx_demo_panel_list\"><div class=\"trx_demo_panel_list_item\" data-search-value=\"museum home\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/1.jpg);\"> 															<a href=\"https://ozeum.themerex.net/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/\" target=\"_blank\">Museum Home</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"fullscreen showcase\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/2.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-2/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-2/\" target=\"_blank\">Fullscreen Showcase</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"exhibition center\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/3.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-3/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-3/\" target=\"_blank\">Exhibition Center</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"single exhibition\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/4.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-4/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-4/\" target=\"_blank\">Single Exhibition</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"art gallery\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/5.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-5/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-5/\" target=\"_blank\">Art Gallery</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"video background\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/video.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-6/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-6/\" target=\"_blank\">Video Background</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"virtual tour\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/7.jpg);\"> 															<a href=\"https://ozeum.themerex.net/home-7/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/home-7/\" target=\"_blank\">Virtual Tour</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"collections\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/8.jpg);\"> 															<a href=\"https://ozeum.themerex.net/collections/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/collections/\" target=\"_blank\">Collections</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"shop\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2020/05/9.jpg);\"> 															<a href=\"https://ozeum.themerex.net/shop/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://ozeum.themerex.net/shop/\" target=\"_blank\">Shop</a> 												</h6> 																							</div> 										</div><div class=\"trx_demo_panel_list_item\" data-search-value=\"modern art gallery\"> 											<div class=\"trx_demo_panel_list_item_image_wrap\"> 																									<div class=\"trx_demo_panel_list_item_image trx_demo_panel_list_item_image_ratio_16_9\" 														style=\"background-image: url(https://ozeum.themerex.net/wp-content/plugins/trx_demo/images/no-thumb.gif);background-position:center;background-repeat:no-repeat;background-size:cover;\" 														data-style=\"background-image: url(//ozeum.themerex.net/wp-content/uploads/2021/12/ozeum_art_screen.jpg);\"> 															<a href=\"https://art.ozeum.themerex.net/\" target=\"_blank\"></a> 													</div> 													<h6 class=\"trx_demo_panel_list_item_title\"> 													<a href=\"https://art.ozeum.themerex.net/\" target=\"_blank\">Modern Art Gallery</a> 												</h6> 																							</div> 										</div></div></div><div class=\"trx_demo_panel_footer\"><a class=\"trx_demo_panel_button sc_button theme_button trx_demo_inline_1994816261 trx_demo_inline_1563896611\" href=\"https://themeforest.net/item/qwery-multipurpose-business-wordpress-theme/29678687\" target=\"_blank\">Sale</a></div></div></div> 			<span class=\"trx_demo_button_close\"><span class=\"trx_demo_button_close_icon\"></span></span>  		</div>  		<div class=\"trx_demo_panels_mask\"></div> 		";
 			</script>
@@ -1111,7 +1111,7 @@ var elementorFrontendConfig = {
 
 		<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 		<script>
-			type = "text/javascript" src = "../wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id = "wp-polyfill-inert-js"
+			type = "text/javascript" src = "Front_Office/wp-includes/js/dist/vendor/wp-polyfill-inert.min.js?ver=3.1.2" id = "wp-polyfill-inert-js"
 		</script>
 		<script>
 			type = "text/javascript" id = "wc-add-to-cart-js-extra" /* <![CDATA[ */
@@ -1152,14 +1152,14 @@ varwpgdprcFront = {
 };
 /* ]]> */
 		</script>
-		<link rel="https://api.w.org/" href="../wp-json/index.htm">
+		<link rel="https://api.w.org/" href="Front_Office/wp-json/index.htm">
 		<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ozeum.themerex.net/xmlrpc.php?rsd">
 		<meta name="generator" content="WordPress 6.4.4">
 		<meta name="generator" content="WooCommerce 8.4.0">
 		<style type="text/css">
 			#page_preloader {
 				background-color: #13130d !important;
-				background-image: url('../wp-content/uploads/2019/11/flower-preloader.png');
+				background-image: url('Front_Office/wp-content/uploads/2019/11/flower-preloader.png');
 			}
 		</style>
 
@@ -1175,9 +1175,9 @@ varwpgdprcFront = {
 		</noscript>
 		<meta name="generator" content="Elementor 3.18.2; features: e_dom_optimization, e_optimized_assets_loading, additional_custom_breakpoints, block_editor_assets_optimize; settings: css_print_method-internal, google_font-enabled, font_display-auto">
 		<meta name="generator" content="Powered by Slider Revolution 6.6.19 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface.">
-		<link rel="icon" href="../wp-content/uploads/2019/10/cropped-favicon-90x90.png" sizes="32x32">
-		<link rel="icon" href="../wp-content/uploads/2019/10/cropped-favicon-300x300.png" sizes="192x192">
-		<link rel="apple-touch-icon" href="../wp-content/uploads/2019/10/cropped-favicon-300x300.png">
+		<link rel="icon" href="Front_Office/wp-content/uploads/2019/10/cropped-favicon-90x90.png" sizes="32x32">
+		<link rel="icon" href="Front_Office/wp-content/uploads/2019/10/cropped-favicon-300x300.png" sizes="192x192">
+		<link rel="apple-touch-icon" href="Front_Office/wp-content/uploads/2019/10/cropped-favicon-300x300.png">
 		<meta name="msapplication-TileImage" content="https://ozeum.themerex.net/wp-content/uploads/2019/10/cropped-favicon-300x300.png">
 		<script>
 			// Your JavaScript code goes here
@@ -1350,7 +1350,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 							.elementor-146 .elementor-element.elementor-element-26174b5:not(.elementor-motion-effects-element-type-background),
 							.elementor-146 .elementor-element.elementor-element-26174b5 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
 								background-color: #13130d;
-								background-image: url("../wp-content/uploads/2019/05/main_header_bg-copyright.jpg");
+								background-image: url("Front_Office/wp-content/uploads/2019/05/main_header_bg-copyright.jpg");
 								background-position: center center;
 								background-repeat: no-repeat;
 								background-size: cover;
@@ -1556,7 +1556,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 							.elementor-146 .elementor-element.elementor-element-26174b5:not(.elementor-motion-effects-element-type-background),
 							.elementor-146 .elementor-element.elementor-element-26174b5 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
 								background-color: #13130d;
-								background-image: url("../wp-content/uploads/2019/05/main_header_bg-copyright.jpg");
+								background-image: url("Front_Office/wp-content/uploads/2019/05/main_header_bg-copyright.jpg");
 								background-position: center center;
 								background-repeat: no-repeat;
 								background-size: cover;
@@ -2140,7 +2140,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 								background-color: #cc884c !important;
 							}
 						</style>
-						<link property="stylesheet" rel="stylesheet" id="rs-plugin-settings-css" href="../wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.6.19" type="text/css" media="all">
+						<link property="stylesheet" rel="stylesheet" id="rs-plugin-settings-css" href="Front_Office/wp-content/plugins/revslider/public/assets/css/rs6.css?ver=6.6.19" type="text/css" media="all">
 
 					</head>
 
@@ -2320,47 +2320,47 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																		<nav class="sc_layouts_menu sc_layouts_menu_default sc_layouts_menu_dir_horizontal menu_hover_fade_box" id="trx_sc_layouts_menu_9455596" data-animation-in="fadeInUpSmall" data-animation-out="fadeOutDownSmall">
 																			<ul id="sc_layouts_menu_2079015047" class="sc_layouts_menu_nav">
 																				<li id="menu-item-113" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-113">
-																					<a href="#">
+																					<a href="{{ path('home') }}">
 																						<span>Home</span>
 																					</a>
 																					<ul class="sub-menu">
 																						<li id="menu-item-118" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-118">
-																							<a href="../index.htm">
+																							<a href="Front_Office/index.htm">
 																								<span>Museum Home</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-119" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-119">
-																							<a href="../home-2/index.htm">
+																							<a href="Front_Office/home-2/index.htm">
 																								<span>Fullscreen Showcase</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-120" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-120">
-																							<a href="../home-3/index.htm">
+																							<a href="Front_Office/home-3/index.htm">
 																								<span>Exhibition Center</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-121" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-121">
-																							<a href="../home-4/index.htm">
+																							<a href="Front_Office/home-4/index.htm">
 																								<span>Single Exhibition</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-122" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-122">
-																							<a href="../home-5/index.htm">
+																							<a href="Front_Office/home-5/index.htm">
 																								<span>Art Gallery</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-4404" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4404">
-																							<a href="../home-6/index.htm">
+																							<a href="Front_Office/home-6/index.htm">
 																								<span>Video Background</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-4539" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4539">
-																							<a href="../home-7/index.htm">
+																							<a href="Front_Office/home-7/index.htm">
 																								<span>Virtual Tour</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-5034" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5034">
-																							<a href="../home-8/index.htm">
+																							<a href="Front_Office/home-8/index.htm">
 																								<span>Artist Portfolio</span>
 																							</a>
 																						</li>
@@ -2382,24 +2382,24 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																					</a>
 																					<ul class="sub-menu">
 																						<li id="menu-item-1414" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1414">
-																							<a href="../events/list/index.htm">
+																							<a href="Front_Office/events/list/index.htm">
 																								<span>List</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-1412" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1412">
-																							<a href="../events/index.htm">
+																							<a href="Front_Office/events/index.htm">
 																								<span>Calendar</span>
 																							</a>
 																						</li>
 																					</ul>
 																				</li>
 																				<li id="menu-item-115" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-115">
-																					<a href="../collections/index.htm">
+																					<a href="Front_Office/collections/index.htm">
 																						<span>Collections</span>
 																					</a>
 																				</li>
 																				<li id="menu-item-114" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-114">
-																					<a href="../about-us/index.htm">
+																					<a href="Front_Office/about-us/index.htm">
 																						<span>About Us</span>
 																					</a>
 																				</li>
@@ -2414,7 +2414,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 															<div class="elementor-widget-wrap elementor-element-populated">
 																<div class="sc_layouts_item elementor-element elementor-element-9ac5f49 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="9ac5f49" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
 																	<div class="elementor-widget-container">
-																		<a href="../index.htm" id="trx_sc_layouts_logo_1721593447" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_366019055"><img class="logo_image" src="../wp-content/uploads/2019/10/logo.png" srcset="../wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_1721593447" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_366019055"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo.png" srcset="Front_Office/wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
 																		<!-- /.sc_layouts_logo -->
 																	</div>
 																</div>
@@ -2437,22 +2437,22 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-139" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-139">
-																									<a href="../typography/index.htm">
+																									<a href="Front_Office/typography/index.htm">
 																										<span>Typography</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-138" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-138">
-																									<a href="../shortcodes/index.htm">
+																									<a href="Front_Office/shortcodes/index.htm">
 																										<span>Shortcodes</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-135" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-135">
-																									<a rel="privacy-policy" href="../privacy-policy/index.htm">
+																									<a rel="privacy-policy" href="Front_Office/privacy-policy/index.htm">
 																										<span>Privacy Policy</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-136" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-136">
-																									<a href="../service-plus/index.htm">
+																									<a href="Front_Office/service-plus/index.htm">
 																										<span>Service Plus</span>
 																									</a>
 																								</li>
@@ -2464,24 +2464,24 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-2298" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2298">
-																									<a href="../gallery-grid/index.htm">
+																									<a href="Front_Office/gallery-grid/index.htm">
 																										<span>Grid</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-2297" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2297">
-																									<a href="../gallery-masonry/index.htm">
+																									<a href="Front_Office/gallery-masonry/index.htm">
 																										<span>Masonry</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-2296" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2296">
-																									<a href="../gallery-cobbles/index.htm">
+																									<a href="Front_Office/gallery-cobbles/index.htm">
 																										<span>Cobbles</span>
 																									</a>
 																								</li>
 																							</ul>
 																						</li>
 																						<li id="menu-item-131" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-131">
-																							<a href="../our-staff/index.htm">
+																							<a href="Front_Office/our-staff/index.htm">
 																								<span>Our Staff</span>
 																							</a>
 																						</li>
@@ -2493,7 +2493,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																					</a>
 																					<ul class="sub-menu">
 																						<li id="menu-item-124" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-124">
-																							<a href="../all-posts/index.htm">
+																							<a href="Front_Office/all-posts/index.htm">
 																								<span>All Posts</span>
 																							</a>
 																						</li>
@@ -2503,12 +2503,12 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-1458" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1458">
-																									<a href="../how-to-become-an-art-collector/index.htm">
+																									<a href="Front_Office/how-to-become-an-art-collector/index.htm">
 																										<span>Style 1</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-1459" class="menu-item menu-item-type-post_type menu-item-object-post menu-item-1459">
-																									<a href="../how-to-start-your-own-art-collection/index.htm">
+																									<a href="Front_Office/how-to-start-your-own-art-collection/index.htm">
 																										<span>Style 2</span>
 																									</a>
 																								</li>
@@ -2520,12 +2520,12 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-128" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-128">
-																									<a href="../classic-2-columns/index.htm">
+																									<a href="Front_Office/classic-2-columns/index.htm">
 																										<span>2 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-129" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-129">
-																									<a href="../classic-3-columns/index.htm">
+																									<a href="Front_Office/classic-3-columns/index.htm">
 																										<span>3 columns</span>
 																									</a>
 																								</li>
@@ -2537,17 +2537,17 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-132" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-132">
-																									<a href="../portfolio-2-columns/index.htm">
+																									<a href="Front_Office/portfolio-2-columns/index.htm">
 																										<span>2 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-133" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133">
-																									<a href="../portfolio-3-columns/index.htm">
+																									<a href="Front_Office/portfolio-3-columns/index.htm">
 																										<span>3 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134">
-																									<a href="../portfolio-4-columns/index.htm">
+																									<a href="Front_Office/portfolio-4-columns/index.htm">
 																										<span>4 columns</span>
 																									</a>
 																								</li>
@@ -2559,17 +2559,17 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-125" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-125">
-																									<a href="../chess-2-columns/index.htm">
+																									<a href="Front_Office/chess-2-columns/index.htm">
 																										<span>2 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-126" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-126">
-																									<a href="../chess-4-columns/index.htm">
+																									<a href="Front_Office/chess-4-columns/index.htm">
 																										<span>4 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-127" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-127">
-																									<a href="../chess-6-columns/index.htm">
+																									<a href="Front_Office/chess-6-columns/index.htm">
 																										<span>6 columns</span>
 																									</a>
 																								</li>
@@ -2583,7 +2583,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																					</a>
 																				</li>
 																				<li id="menu-item-130" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130">
-																					<a href="../contacts/index.htm">
+																					<a href="Front_Office/contacts/index.htm">
 																						<span>Contacts</span>
 																					</a>
 																				</li>
@@ -2595,7 +2595,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																<div class="sc_layouts_item elementor-element elementor-element-37daf13 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_button" data-id="37daf13" data-element_type="widget" data-widget_type="trx_sc_button.default">
 																	<div class="elementor-widget-container">
 																		<div id="trx_sc_button_1289526147" class="sc_item_button sc_button_wrap">
-																			<a href="../visit/index.htm" class="sc_button sc_button_default sc_button_size_normal sc_button_icon_left">
+																			<a href="Front_Office/visit/index.htm" class="sc_button sc_button_default sc_button_size_normal sc_button_icon_left">
 																				<span class="sc_button_text">
 																					<span class="sc_button_title">Visit</span>
 																				</span><!-- /.sc_button_text --></a><!-- /.sc_button --></div>
@@ -2612,7 +2612,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 															<div class="elementor-widget-wrap elementor-element-populated">
 																<div class="sc_layouts_item elementor-element elementor-element-58c28fa animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="58c28fa" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
 																	<div class="elementor-widget-container">
-																		<a href="../index.htm" id="trx_sc_layouts_logo_44517457" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_1357587856"><img class="logo_image" src="../wp-content/uploads/2019/10/logo.png" srcset="../wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_44517457" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_1357587856"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo.png" srcset="Front_Office/wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
 																		<!-- /.sc_layouts_logo -->
 																	</div>
 																</div>
@@ -2625,47 +2625,47 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																		<nav class="sc_layouts_menu sc_layouts_menu_default sc_layouts_menu_dir_horizontal menu_hover_fade_box" id="trx_sc_layouts_menu_1558846511" data-animation-in="fadeInUpSmall" data-animation-out="fadeOut">
 																			<ul id="sc_layouts_menu_1468013222" class="sc_layouts_menu_nav">
 																				<li id="menu-item-3438" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3438">
-																					<a href="#">
+																					<a href="{{ path('home') }}">
 																						<span>Home</span>
 																					</a>
 																					<ul class="sub-menu">
 																						<li id="menu-item-3439" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-3439">
-																							<a href="../index.htm">
+																							<a href="Front_Office/index.htm">
 																								<span>Museum Home</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-3440" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3440">
-																							<a href="../home-2/index.htm">
+																							<a href="Front_Office/home-2/index.htm">
 																								<span>Fullscreen Showcase</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-3441" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3441">
-																							<a href="../home-3/index.htm">
+																							<a href="Front_Office/home-3/index.htm">
 																								<span>Exhibition Center</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-3442" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3442">
-																							<a href="../home-4/index.htm">
+																							<a href="Front_Office/home-4/index.htm">
 																								<span>Single Exhibition</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-3443" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3443">
-																							<a href="../home-5/index.htm">
+																							<a href="Front_Office/home-5/index.htm">
 																								<span>Art Gallery</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-4403" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4403">
-																							<a href="../home-6/index.htm">
+																							<a href="Front_Office/home-6/index.htm">
 																								<span>Video Background</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-4540" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4540">
-																							<a href="../home-7/index.htm">
+																							<a href="Front_Office/home-7/index.htm">
 																								<span>Virtual Tour</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-5033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5033">
-																							<a href="../home-8/index.htm">
+																							<a href="Front_Office/home-8/index.htm">
 																								<span>Artist Portfolio</span>
 																							</a>
 																						</li>
@@ -2692,22 +2692,22 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-3451" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3451">
-																									<a href="../typography/index.htm">
+																									<a href="Front_Office/typography/index.htm">
 																										<span>Typography</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3450" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3450">
-																									<a href="../shortcodes/index.htm">
+																									<a href="Front_Office/shortcodes/index.htm">
 																										<span>Shortcodes</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3448" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-3448">
-																									<a rel="privacy-policy" href="../privacy-policy/index.htm">
+																									<a rel="privacy-policy" href="Front_Office/privacy-policy/index.htm">
 																										<span>Privacy Policy</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3449" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3449">
-																									<a href="../service-plus/index.htm">
+																									<a href="Front_Office/service-plus/index.htm">
 																										<span>Service Plus</span>
 																									</a>
 																								</li>
@@ -2719,17 +2719,17 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-3453" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3453">
-																									<a href="../gallery-grid/index.htm">
+																									<a href="Front_Office/gallery-grid/index.htm">
 																										<span>Grid</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3454" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3454">
-																									<a href="../gallery-masonry/index.htm">
+																									<a href="Front_Office/gallery-masonry/index.htm">
 																										<span>Masonry</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3452" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3452">
-																									<a href="../gallery-cobbles/index.htm">
+																									<a href="Front_Office/gallery-cobbles/index.htm">
 																										<span>Cobbles</span>
 																									</a>
 																								</li>
@@ -2741,34 +2741,34 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-3455" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3455">
-																									<a href="../events/list/index.htm">
+																									<a href="Front_Office/events/list/index.htm">
 																										<span>List</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3456" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3456">
-																									<a href="../events/index.htm">
+																									<a href="Front_Office/events/index.htm">
 																										<span>Calendar</span>
 																									</a>
 																								</li>
 																							</ul>
 																						</li>
 																						<li id="menu-item-3457" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3457">
-																							<a href="../about-us/index.htm">
+																							<a href="Front_Office/about-us/index.htm">
 																								<span>About Us</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-3458" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3458">
-																							<a href="../collections/index.htm">
+																							<a href="Front_Office/collections/index.htm">
 																								<span>Collections</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-3459" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3459">
-																							<a href="../our-staff/index.htm">
+																							<a href="Front_Office/our-staff/index.htm">
 																								<span>Our Staff</span>
 																							</a>
 																						</li>
 																						<li id="menu-item-4208" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4208">
-																							<a href="../visit/index.htm">
+																							<a href="Front_Office/visit/index.htm">
 																								<span>Visit</span>
 																							</a>
 																						</li>
@@ -2780,7 +2780,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																					</a>
 																					<ul class="sub-menu">
 																						<li id="menu-item-3461" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3461">
-																							<a href="../all-posts/index.htm">
+																							<a href="Front_Office/all-posts/index.htm">
 																								<span>All Posts</span>
 																							</a>
 																						</li>
@@ -2790,12 +2790,12 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-3463" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3463">
-																									<a href="../how-to-become-an-art-collector/index.htm">
+																									<a href="Front_Office/how-to-become-an-art-collector/index.htm">
 																										<span>Style 1</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3464" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-3464">
-																									<a href="../how-to-start-your-own-art-collection/index.htm">
+																									<a href="Front_Office/how-to-start-your-own-art-collection/index.htm">
 																										<span>Style 2</span>
 																									</a>
 																								</li>
@@ -2807,12 +2807,12 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-3471" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3471">
-																									<a href="../classic-2-columns/index.htm">
+																									<a href="Front_Office/classic-2-columns/index.htm">
 																										<span>2 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3472" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3472">
-																									<a href="../classic-3-columns/index.htm">
+																									<a href="Front_Office/classic-3-columns/index.htm">
 																										<span>3 columns</span>
 																									</a>
 																								</li>
@@ -2824,17 +2824,17 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-3473" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3473">
-																									<a href="../portfolio-2-columns/index.htm">
+																									<a href="Front_Office/portfolio-2-columns/index.htm">
 																										<span>2 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3474" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3474">
-																									<a href="../portfolio-3-columns/index.htm">
+																									<a href="Front_Office/portfolio-3-columns/index.htm">
 																										<span>3 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3475" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3475">
-																									<a href="../portfolio-4-columns/index.htm">
+																									<a href="Front_Office/portfolio-4-columns/index.htm">
 																										<span>4 columns</span>
 																									</a>
 																								</li>
@@ -2846,17 +2846,17 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																							</a>
 																							<ul class="sub-menu">
 																								<li id="menu-item-3468" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3468">
-																									<a href="../chess-2-columns/index.htm">
+																									<a href="Front_Office/chess-2-columns/index.htm">
 																										<span>2 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3469" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3469">
-																									<a href="../chess-4-columns/index.htm">
+																									<a href="Front_Office/chess-4-columns/index.htm">
 																										<span>4 columns</span>
 																									</a>
 																								</li>
 																								<li id="menu-item-3470" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3470">
-																									<a href="../chess-6-columns/index.htm">
+																									<a href="Front_Office/chess-6-columns/index.htm">
 																										<span>6 columns</span>
 																									</a>
 																								</li>
@@ -2870,7 +2870,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																					</a>
 																				</li>
 																				<li id="menu-item-3476" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3476">
-																					<a href="../contacts/index.htm">
+																					<a href="Front_Office/contacts/index.htm">
 																						<span>Contacts</span>
 																					</a>
 																				</li>
@@ -2882,7 +2882,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																<div class="sc_layouts_item elementor-element elementor-element-01fbb44 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_button" data-id="01fbb44" data-element_type="widget" data-widget_type="trx_sc_button.default">
 																	<div class="elementor-widget-container">
 																		<div id="trx_sc_button_970829658" class="sc_item_button sc_button_wrap">
-																			<a href="../visit/index.htm" class="sc_button sc_button_default sc_button_size_normal sc_button_icon_left">
+																			<a href="Front_Office/visit/index.htm" class="sc_button sc_button_default sc_button_size_normal sc_button_icon_left">
 																				<span class="sc_button_text">
 																					<span class="sc_button_title">Visit</span>
 																				</span><!-- /.sc_button_text --></a><!-- /.sc_button --></div>
@@ -2899,7 +2899,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 															<div class="elementor-widget-wrap elementor-element-populated">
 																<div class="sc_layouts_item elementor-element elementor-element-5b2321f animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="5b2321f" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
 																	<div class="elementor-widget-container">
-																		<a href="../index.htm" id="trx_sc_layouts_logo_640802744" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_617697518"><img class="logo_image" src="../wp-content/uploads/2019/10/logo.png" srcset="../wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_640802744" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_617697518"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo.png" srcset="Front_Office/wp-content/uploads/2019/10/logo-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
 																		<!-- /.sc_layouts_logo -->
 																	</div>
 																</div>
@@ -2947,7 +2947,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																				</div>
 																				<div class="sc_layouts_title_breadcrumbs">
 																					<div class="breadcrumbs">
-																						<a class="breadcrumbs_item home" href="../index.htm">Home</a>
+																						<a class="breadcrumbs_item home" href="Front_Office/index.htm">Home</a>
 																						<span class="breadcrumbs_delimiter"></span>
 																						<span class="breadcrumbs_item current">Shop</span>
 																					</div>
@@ -3021,7 +3021,7 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 															<div class="elementor-widget-wrap elementor-element-populated">
 																<div class="sc_layouts_item elementor-element elementor-element-abf4222 animation_type_block sc_fly_static elementor-widget elementor-widget-trx_sc_layouts_logo" data-id="abf4222" data-element_type="widget" data-widget_type="trx_sc_layouts_logo.default">
 																	<div class="elementor-widget-container">
-																		<a href="../index.htm" id="trx_sc_layouts_logo_519050039" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_128716318"><img class="logo_image" src="../wp-content/uploads/2019/10/logo_2.png" srcset="../wp-content/uploads/2019/10/logo_2-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
+																		<a href="Front_Office/index.htm" id="trx_sc_layouts_logo_519050039" class="sc_layouts_logo sc_layouts_logo_default trx_addons_inline_128716318"><img class="logo_image" src="Front_Office/wp-content/uploads/2019/10/logo_2.png" srcset="Front_Office/wp-content/uploads/2019/10/logo_2-retina.png 2x" alt="Ozeum" width="162" height="23"></a>
 																		<!-- /.sc_layouts_logo -->
 																	</div>
 																</div>
@@ -3058,22 +3058,22 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																				<h5 class="widget_title">Links</h5>
 																				<ul class="custom_links_list">
 																					<li class="custom_links_list_item">
-																						<a class="custom_links_list_item_link" href="../index.htm">
+																						<a class="custom_links_list_item_link" href="Front_Office/index.htm">
 																							<span class="custom_links_list_item_title">Home</span>
 																						</a>
 																					</li>
 																					<li class="custom_links_list_item">
-																						<a class="custom_links_list_item_link" href="../events/list/index.htm">
+																						<a class="custom_links_list_item_link" href="Front_Office/events/list/index.htm">
 																							<span class="custom_links_list_item_title">Exhibitions</span>
 																						</a>
 																					</li>
 																					<li class="custom_links_list_item">
-																						<a class="custom_links_list_item_link" href="../collections/index.htm">
+																						<a class="custom_links_list_item_link" href="Front_Office/collections/index.htm">
 																							<span class="custom_links_list_item_title">Collections</span>
 																						</a>
 																					</li>
 																					<li class="custom_links_list_item">
-																						<a class="custom_links_list_item_link" href="../events/index.htm">
+																						<a class="custom_links_list_item_link" href="Front_Office/events/index.htm">
 																							<span class="custom_links_list_item_title">Events</span>
 																						</a>
 																					</li>
@@ -3093,18 +3093,18 @@ varm = pw > (e.gw[ix] + e.tabw + e.thumbw) ? 1 : (pw -(e.tabw + e.thumbw))
 																				<h5 class="widget_title">Info</h5>
 																				<ul class="custom_links_list">
 																					<li class="custom_links_list_item">
-																						<a class="custom_links_list_item_link" href="../about-us/index.htm">
+																						<a class="custom_links_list_item_link" href="Front_Office/about-us/index.htm">
 																							<span class="custom_links_list_item_title">About
 																							</span>
 																						</a>
 																					</li>
 																					<li class="custom_links_list_item">
-																						<a class="custom_links_list_item_link" href="../contacts/index.htm">
+																						<a class="custom_links_list_item_link" href="Front_Office/contacts/index.htm">
 																							<span class="custom_links_list_item_title">Contact</span>
 																						</a>
 																					</li>
 																					<li class="custom_links_list_item">
-																						<a class="custom_links_list_item_link" href="../all-posts/index.htm">
+																						<a class="custom_links_list_item_link" href="Front_Office/all-posts/index.htm">
 																							<span class="custom_links_list_item_title">Blog</span>
 																						</a>
 																					</li>

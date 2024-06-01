@@ -20,7 +20,7 @@ class MuseumController extends AbstractController
             // Traiter les données du formulaire ici
         }
 
-        return $this->render('museum/index.html.twig', [
+        return $this->render('gestmuseeevent/Museum/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }

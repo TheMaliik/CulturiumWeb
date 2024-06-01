@@ -107,7 +107,7 @@
     }
 </style>
 
-<form action="{{ path('app_oeuvre_index_s') }}" method="get">
+<form action="{{ path('app_oeuvre_index') }}" method="get">
     <input type="text" name="q" placeholder="Search..." value="{{ searchTerm ?? '' }}">
     <!-- Add a hidden submit button to trigger form submission -->
     <input type="submit" style="display: none;">
@@ -127,7 +127,8 @@
         <article id="post-409" data-post-id="409" class="post_item post_layout_excerpt post_format_standard post-409 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-relevant-art tag-art tag-artist tag-entertainment" data-animation="animated fadeIn normal">
             <div class="post_featured with_thumb hover_view">
                 <div >             
-                   <img width="770" height="433" src="{{ asset(oeuvre.image) }}" class="attachment-ozeum-thumb-big size-ozeum-thumb-big wp-post-image" alt="" decoding="async" sizes="(max-width: 770px) 100vw, 770px">
+                   
+                    <img width="770" height="433" src="{{ asset('uploads/images/' ~ oeuvre.image) }}" alt="User Image" decoding="async" sizes="(max-width: 770px) 100vw, 770px">
 </div>
                 <a href="{{ path('app_qr_codes', {'id': oeuvre.linkhttp}) }}" aria-hidden="true" class="view">
                     <span>{{ oeuvre.prix ~ "TND" }}</span>

@@ -12,13 +12,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/client')]
+#[Route('/clientcom')]
 class AddcomController extends AbstractController
 {
-    #[Route('/index', name: 'app_addcom_index', methods: ['GET'])]
+    #[Route('/indexcom', name: 'app_addcom_index', methods: ['GET'])]
     public function index(ComRepository $comRepository): Response
     {
-        return $this->render('GestForum/addcom/index.html.twig', [
+        return $this->render('GestForum/addcom/allcom.html.twig', [
             'commentaires' => $comRepository->findAll(),
         ]);
     }

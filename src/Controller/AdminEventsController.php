@@ -28,7 +28,7 @@ class AdminEventsController extends AbstractController
             $events = $eventsRepository->findAll();
         }
 
-        return $this->render('admin_events/index.html.twig', [
+        return $this->render('gestmuseeevent/admin_events/index.html.twig', [
             'events' => $events,
         ]);
     }
@@ -57,7 +57,7 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
             // Déplacer le fichier vers le répertoire où les images sont stockées
             try {
                 $imageFile->move(
-                    $this->getParameter('events_image_directory'), // Chemin vers le répertoire
+                    $this->getParameter('user_directory'), // Chemin vers le répertoire
                     $newFilename
                 );
             } catch (FileException $e) {
@@ -75,7 +75,7 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
         return $this->redirectToRoute('app_admin_events_index', [], Response::HTTP_SEE_OTHER);
     }
 
-    return $this->renderForm('admin_events/new.html.twig', [
+    return $this->renderForm('gestmuseeevent/admin_events/new.html.twig', [
         'event' => $event,
         'form' => $form,
     ]);
@@ -86,7 +86,7 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
     #[Route('/{ide}', name: 'app_admin_events_show', methods: ['GET'])]
     public function show(Events $event): Response
     {
-        return $this->render('admin_events/show.html.twig', [
+        return $this->render('gestmuseeevent/admin_events/show.html.twig', [
             'event' => $event,
         ]);
     }
@@ -103,7 +103,7 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
             return $this->redirectToRoute('app_admin_events_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin_events/edit.html.twig', [
+        return $this->renderForm('gestmuseeevent/admin_events/edit.html.twig', [
             'event' => $event,
             'form' => $form,
         ]);
@@ -119,6 +119,8 @@ public function new(Request $request, EntityManagerInterface $entityManager): Re
 
         return $this->redirectToRoute('app_admin_events_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
     #[Route('/admin/events/sort', name: 'app_admin_events_sort', methods: ['GET'])]
 public function sort(Request $request, EventsRepository $eventsRepository): Response
 {
@@ -127,7 +129,7 @@ public function sort(Request $request, EventsRepository $eventsRepository): Resp
 
     $events = $eventsRepository->findBy([], [$criteria => $direction]);
 
-    return $this->render('admin_events/index.html.twig', [
+    return $this->render('gestmuseeevent/admin_events/index.html.twig', [
         'events' => $events,
     ]);
 }

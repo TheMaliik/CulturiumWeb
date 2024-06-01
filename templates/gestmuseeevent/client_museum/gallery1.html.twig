@@ -2821,7 +2821,7 @@ https://templatemo.com/tm-556-catalog-z
                                       id="menu-item-113"
                                       class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-113"
                                     >
-                                      <a href="#"><span>Home</span></a>
+                                      <a href="{{ path('home') }}"><span>Home</span></a>
                                       <ul class="sub-menu">
                                         <li
                                           id="menu-item-118"
@@ -3259,14 +3259,11 @@ https://templatemo.com/tm-556-catalog-z
                                         </li>
                                       </ul>
                                     </li>
-                                    <li
-                                      id="menu-item-137"
-                                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-137"
-                                    >
-                                      <a href="shop/index.htm"
-                                        ><span>Shop</span></a
-                                      >
-                                    </li>
+                                   <li id="menu-item-137" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item current_page_item menu-item-137">
+																					<a href="{{ path('allOeuvre') }}" aria-current="page">
+																						<span>Expositions</span>
+																					</a>
+																				</li>
                                     <li
                                       id="menu-item-130"
                                       class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"

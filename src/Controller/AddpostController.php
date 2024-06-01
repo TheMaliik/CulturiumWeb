@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/client')]
+#[Route('/clientpost')]
 class AddpostController extends AbstractController
 {
-    #[Route('/index', name: 'app_addpost_index', methods: ['GET'])]
+    #[Route('/indexpost', name: 'app_addpost_index', methods: ['GET'])]
     public function index(PostRepository $postRepository): Response
     {
-        return $this->render('GestForum/addpost/index.html.twig', [
+        return $this->render('GestForum/addpost/allpost.html.twig', [
             'posts' => $postRepository->findAll(),
         ]);
     }

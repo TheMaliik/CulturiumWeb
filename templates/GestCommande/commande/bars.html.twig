@@ -1,4 +1,4 @@
-{% extends "GestCommande/baseAdmin.html.twig" %}
+{% extends "adminbase.html.twig" %}
 {% block bars %}
     <div class="col-md-3 left_col menu_fixed">
         <div class="left_col scroll-view">
@@ -25,36 +25,40 @@
                 <div class="menu_section">
                     <ul class="nav side-menu">
                         
-                     <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
+                     
+                            <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ path('userss') }}">User List </a></li>
                                     <li><a href="{{ path('app_admin_stats_user_statut') }}"> Statistics </a></li>
                                 </ul>
                             </li>
                         
-                        
-                            <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                          <li><a><i class="fa fa-user"></i> Expositions <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="">{{ "backend.menu.manage"|trans }}</a></li>
+                                    <li><a href="{{ path('app_oeuvre_indexadmin') }}">Exposition List </a></li>
+                                    <li><a href="{{ path('app_categorie_index') }}"> Category List </a></li>
+                                    <li><a href="{{ path('app_historique_index') }}"> Historique </a></li>
+                                    <li><a href="{{ path('app_oeuvre_new') }}"> Add Exposition </a></li>
+                                    <li><a href="{{ path('app_categorie_new') }}"> Add Category</a></li>
+                                </ul>
+                            </li>
+                        
+                        <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_admin_museum_index') }}">Museums List </a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-clipboard"></i> Events <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="">{{ "backend.menu.manage"|trans }}</a></li>
-                                
-                                        <li><a href="">{{ "backend.menu.history"|trans }}</a></li>
+                                    <li><a href="{{ path('app_admin_events_index') }}">Events List </a></li>
+                            
                                  
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-envelope"></i> Orders<span class="fa fa-chevron-down"></span></a>
+
+                           <li><a><i class="fa fa-user"></i> Commande <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href=""> {{ "backend.menu.inbox"|trans }}</a></li>
-                                </ul>
-                            </li>
-                    
-                            <li><a><i class="fa fa-user"></i> Commande <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="{{ path('app_commande_index') }}">{{ "backend.commande.manage"|trans }}</a></li>
+                                    <li><a href="{{ path('app_commande_index') }}">Commande</a></li>
                                     
                                 </ul>
                             </li>
@@ -62,10 +66,31 @@
                         
                             <li><a><i class="fa fa-bookmark"></i>Panier <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="{{ path('app_panier_index') }}">{{ "backend.panier.manage"|trans }}</a></li>
+                                    <li><a href="{{ path('app_panier_index') }}">Panier</a></li>
                                 </ul>
                             </li>
-                           
+                    
+
+                          <li><a><i class="fa fa-bookmark"></i>Livraisons <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                     <li><a href="{{ path('livraison_index') }}">Livraison List </a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clipboard"></i>Adresses <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                      <li><a href="{{ path('app_adresse_index') }}">Adresse List </a></li>
+                                 
+                                </ul>
+                            </li>
+
+                            <li><a><i class="fa fa-cog"></i> Forum <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_commentaire_index') }}">commentaire</a></li>
+                                    <li><a href="{{ path('app_post_index') }}">post<a></li>
+                                </ul>
+                            </li>
+                        
+                    </ul>
 
                 </div>
 
@@ -90,7 +115,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                             
-                            <a class="dropdown-item"  href={{ path('app_commande_index') }}><i class="fa fa-sign-out pull-right"></i>LogOut</a>
+                            <a class="dropdown-item"  href={{ path('app_logout') }}><i class="fa fa-sign-out pull-right"></i>LogOut</a>
                         </div>
                     </li>
                 </ul>

@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Karser\Recaptcha3Bundle\Validator\Constraints\Recaptcha3Validator;
+
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -27,13 +27,19 @@ class CommandeController extends AbstractController
     }
 
     #[Route('/new', name: 'app_commande_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntityManagerInterface $entityManager, Recaptcha3Validator $recaptcha3Validator): Response
+    public function new(Request $request, EntityManagerInterface $entityManager): Response
     { // $score = null;
         $commande = new Commande();
         $form = $this->createForm(CommandeType::class, $commande);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $recaptchaResponse = $request->request->get('g-recaptcha-response');
+            $isRecaptchaValid = $this->isRecaptchaValid($recaptchaResponse);
+            if (!$isRecaptchaValid) {
+                $this->addFlash('error', 'reCAPTCHA validation failed. Please try again.');
+                return $this->redirectToRoute('app_commande_index');
+            }
             $entityManager->persist($commande);
             $entityManager->flush();
           //  $score = $recaptcha3Validator->getLastResponse()->getScore();
@@ -178,4 +184,36 @@ class CommandeController extends AbstractController
                 'sortOrder' => $sortOrder
             ]);
         }
+
+
+
+
+
+        private function isRecaptchaValid($recaptchaResponse)
+        {
+            $secretKey = '6LclU8kpAAAAAHEEfd1BGlx64KN3JGAlGOQkuPXI'; // Replace with your actual secret key
+            $recaptchaUrl = 'https://www.google.com/recaptcha/api/siteverify';
+            $postData = http_build_query([
+                'secret' => $secretKey, // Include the secret key in the request
+                'response' => $recaptchaResponse
+            ]);
+        
+            $context = stream_context_create([
+                'http' => [
+                    'method' => 'POST',
+                    'header' => 'Content-Type: application/x-www-form-urlencoded',
+                    'content' => $postData
+                ]
+            ]);
+        
+            $response = file_get_contents($recaptchaUrl, false, $context);
+            $result = json_decode($response);
+        
+            return $result->success;
+        }
+        
+
+
+
+
 }

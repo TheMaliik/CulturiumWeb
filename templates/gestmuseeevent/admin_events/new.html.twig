@@ -28,13 +28,22 @@
                      
                             <li><a><i class="fa fa-user"></i> Users <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="">User List </a></li>
-                                    <li><a href=""> Statistics </a></li>
+                                    <li><a href="{{ path('userss') }}">User List </a></li>
+                                    <li><a href="{{ path('app_admin_stats_user_statut') }}"> Statistics </a></li>
                                 </ul>
                             </li>
                         
+                          <li><a><i class="fa fa-user"></i> Expositions <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_oeuvre_indexadmin') }}">Exposition List </a></li>
+                                    <li><a href="{{ path('app_categorie_index') }}"> Category List </a></li>
+                                    <li><a href="{{ path('app_historique_index') }}"> Historique </a></li>
+                                    <li><a href="{{ path('app_oeuvre_new') }}"> Add Exposition </a></li>
+                                    <li><a href="{{ path('app_categorie_new') }}"> Add Category</a></li>
+                                </ul>
+                            </li>
                         
-                            <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
+                        <li><a><i class="fa fa-bookmark"></i>Museums <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{ path('app_admin_museum_index') }}">Museums List </a></li>
                                 </ul>
@@ -46,14 +55,35 @@
                                  
                                 </ul>
                             </li>
-                            <li><a><i class="fa fa-envelope"></i> Orders<span class="fa fa-chevron-down"></span></a>
+
+                           <li><a><i class="fa fa-user"></i> Commande <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href=""> {{ "backend.menu.inbox"|trans }}</a></li>
+                                    <li><a href="{{ path('app_commande_index') }}">Commande</a></li>
+                                    
+                                </ul>
+                            </li>
+                        
+                        
+                            <li><a><i class="fa fa-bookmark"></i>Panier <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('app_panier_index') }}">Panier</a></li>
                                 </ul>
                             </li>
                     
 
-                            <li><a><i class="fa fa-cog"></i> Liv <span class="fa fa-chevron-down"></span></a>
+                          <li><a><i class="fa fa-bookmark"></i>Livraisons <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                     <li><a href="{{ path('livraison_index') }}">Livraison List </a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clipboard"></i>Adresses <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                      <li><a href="{{ path('app_adresse_index') }}">Adresse List </a></li>
+                                 
+                                </ul>
+                            </li>
+
+                            <li><a><i class="fa fa-cog"></i> Forum <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="">{{ "backend.menu.general"|trans }}</a></li>
                                     <li><a href="">{{ "backend.menu.faq"|trans }}</a></li>
@@ -113,7 +143,37 @@
         {% block contenpage %}
             <h1>Create new Events</h1>
 
-    {{ include('admin_events/_form.html.twig') }}
+   {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+
+    <div class="form-group">
+        {{ form_row(form.name, {'attr': {'class': 'form-control', 'placeholder': 'Name'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.description, {'attr': {'class': 'form-control', 'placeholder': 'Description'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.image, {'attr': {'class': 'form-control-file'}}) }} {# Champ pour l'upload de l'image #}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.date, {'attr': {'class': 'form-control', 'placeholder': 'Date'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.nbrPlaceDispo, {'attr': {'class': 'form-control', 'placeholder': 'Number of Available Places'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.lieu, {'attr': {'class': 'form-control', 'placeholder': 'Location'}}) }}
+    </div>
+    <div class="form-group">
+        {{ form_row(form.note, {'attr': {'class': 'form-control', 'placeholder': 'Note'}}) }}
+    </div>
+<!-- Add this line to include reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Add reCAPTCHA widget here -->
+                        <div class="g-recaptcha" data-sitekey="6LdgqIgpAAAAAD7HQvSgIRZJwhqwUH-MkbgBtMww"></div>
+                        <br/>
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+
 
 <a href="{{ path('app_admin_events_index') }}" class="btn btn-secondary">Back to List</a>
 

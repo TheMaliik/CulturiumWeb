@@ -29,7 +29,7 @@ class AdminMuseumController extends AbstractController
             $museums = $museumRepository->findAll();
         }
 
-        return $this->render('admin_museum/index.html.twig', [
+        return $this->render('gestmuseeevent/admin_museum/index.html.twig', [
             'museums' => $museums,
         ]);
         
@@ -58,7 +58,7 @@ class AdminMuseumController extends AbstractController
                 // Ajoutez un message d'erreur au champ name du formulaire
                 $form->get('name')->addError(new FormError('Ce nom de musée est déjà utilisé.'));
                 // Rendez à nouveau le formulaire avec le message d'erreur
-                return $this->renderForm('admin_museum/new.html.twig', [
+                return $this->renderForm('gestmuseeevent/admin_museum/new.html.twig', [
                     'museum' => $museum,
                     'form' => $form,
                 ]);     
@@ -70,7 +70,7 @@ class AdminMuseumController extends AbstractController
             return $this->redirectToRoute('app_admin_museum_index', [], Response::HTTP_SEE_OTHER);
         }
         
-        return $this->renderForm('admin_museum/new.html.twig', [
+        return $this->renderForm('gestmuseeevent/admin_museum/new.html.twig', [
             'museum' => $museum,
             'form' => $form,
         ]);
@@ -80,7 +80,7 @@ class AdminMuseumController extends AbstractController
     #[Route('/{idm}', name: 'app_admin_museum_show', methods: ['GET'])]
     public function show(Museum $museum): Response
     {
-        return $this->render('admin_museum/show.html.twig', [
+        return $this->render('gestmuseeevent/admin_museum/show.html.twig', [
             'museum' => $museum,
         ]);
     }
@@ -97,12 +97,14 @@ class AdminMuseumController extends AbstractController
             return $this->redirectToRoute('app_admin_museum_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin_museum/edit.html.twig', [
+        return $this->renderForm('gestmuseeevent/admin_museum/edit.html.twig', [
             'museum' => $museum,
             'form' => $form,
         ]);
     }
 
+
+    
     #[Route('/{idm}', name: 'app_admin_museum_delete', methods: ['POST'])]
     public function delete(Request $request, Museum $museum, EntityManagerInterface $entityManager): Response
     {
@@ -114,6 +116,9 @@ class AdminMuseumController extends AbstractController
         return $this->redirectToRoute('app_admin_museum_index', [], Response::HTTP_SEE_OTHER);
     }
     
+
+
+
     #[Route('/admin/museum/sort', name: 'app_admin_museum_sort', methods: ['GET'])]
 public function sort(Request $request, MuseumRepository $museumRepository): Response
 {
@@ -122,7 +127,7 @@ public function sort(Request $request, MuseumRepository $museumRepository): Resp
 
     $museums = $museumRepository->findBy([], [$criteria => $direction]);
 
-    return $this->render('admin_museum/index.html.twig', [
+    return $this->render('gestmuseeevent/admin_museum/index.html.twig', [
         'museums' => $museums,
     ]);
 }

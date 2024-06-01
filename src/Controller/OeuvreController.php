@@ -25,8 +25,8 @@ class OeuvreController extends AbstractController
 {
 
     
-    #[Route('/', name: 'app_oeuvre_index', methods: ['GET'])]
-    public function index(OeuvreRepository $oeuvreRepository, CategorieRepository $categorieRepository, PaginatorInterface $paginator, Request $request): Response
+    #[Route('/All', name: 'allOeuvre', methods: ['GET'])]
+    public function All(OeuvreRepository $oeuvreRepository, CategorieRepository $categorieRepository, PaginatorInterface $paginator, Request $request): Response
     {
         
         $queryBuilder = $oeuvreRepository->createQueryBuilder('o');
@@ -37,7 +37,7 @@ class OeuvreController extends AbstractController
             2 // Nombre d'éléments par page
         );
     
-        return $this->render('oeuvre/index.html.twig', [
+        return $this->render('GestOeuvre/oeuvre/index.html.twig', [
             'pagination' => $pagination, // Passer la pagination pour l'affichage des oeuvres
             'categories' => $categorieRepository->findAll() ,// Passer les catégories pour un autre usage dans le template
             'oeuvres' => $oeuvreRepository->findAll() // Passer les catégories pour un autre usage dans le template
@@ -59,7 +59,7 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
     }
 
     // Render the search results partial view as a string
-    $html = $this->renderView('oeuvre/_search_results.html.twig', [
+    $html = $this->renderView('GestOeuvre/oeuvre/_search_results.html.twig', [
         'oeuvres' => $oeuvres,
     ]);
 
@@ -67,7 +67,7 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
 }
 
     
-    #[Route('/s', name: 'app_oeuvre_index_s', methods: ['GET'])]
+    #[Route('/s', name: 'app_oeuvre_index', methods: ['GET'])]
     public function indexs(Request $request,PaginatorInterface $paginator,OeuvreRepository $oeuvreRepository,CategorieRepository $categorieRepository): Response
     {
         $queryBuilder = $oeuvreRepository->createQueryBuilder('o');
@@ -88,7 +88,7 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
             $oeuvres = $oeuvreRepository->searchByTerm($searchTerm);
         }
     
-        return $this->render('oeuvre/index.html.twig', [
+        return $this->render('GestOeuvre/oeuvre/index.html.twig', [
             'oeuvres' => $oeuvres,
             'searchTerm' => $searchTerm,
             'categories' => $categorieRepository->findAll(),
@@ -97,13 +97,18 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
         ]);
     }
 
+
+
     #[Route('/admin', name: 'app_oeuvre_indexadmin', methods: ['GET'])]
     public function indexadmin(OeuvreRepository $oeuvreRepository): Response
     {
-        return $this->render('oeuvre/indexadmin.html.twig', [
+        return $this->render('GestOeuvre/oeuvre/indexadmin.html.twig', [
             'oeuvres' => $oeuvreRepository->findAll(),
         ]);
     }
+
+
+
 
     #[Route('/new', name: 'app_oeuvre_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
@@ -124,7 +129,7 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
                 // Move the file to the directory where images are stored
                 try {
                     $imageFile->move(
-                        $this->getParameter('images_directory'),
+                        $this->getParameter('user_directory'),
                         $newFilename
                     );
                 } catch (FileException $e) {
@@ -134,7 +139,7 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
                 }
     
                 // Set the image property in the entity to the relative path of the uploaded file
-                $oeuvre->setImage('images/'.$newFilename);
+                $oeuvre->setImage($newFilename);
             }
 
 
@@ -154,19 +159,26 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
             return $this->redirectToRoute('app_oeuvre_indexadmin', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('oeuvre/new.html.twig', [
+        return $this->renderForm('GestOeuvre/oeuvre/new.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form,
         ]);
     }
 
+
+
+
+
     #[Route('/{id}', name: 'app_oeuvre_show', methods: ['GET'])]
     public function show(Oeuvre $oeuvre): Response
     {
-        return $this->render('oeuvre/show.html.twig', [
+        return $this->render('GestOeuvre/oeuvre/show.html.twig', [
             'oeuvre' => $oeuvre,
         ]);
     }
+
+
+
 
     #[Route('/{id}/edit', name: 'app_oeuvre_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Oeuvre $oeuvre, EntityManagerInterface $entityManager): Response
@@ -215,11 +227,15 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
             return $this->redirectToRoute('app_oeuvre_indexadmin', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('oeuvre/edit.html.twig', [
+        return $this->renderForm('GestOeuvre/oeuvre/edit.html.twig', [
             'oeuvre' => $oeuvre,
             'form' => $form,
         ]);
     }
+
+
+
+
 
     #[Route('/{id}', name: 'app_oeuvre_delete', methods: ['POST'])]
     public function delete(Request $request, Oeuvre $oeuvre, EntityManagerInterface $entityManager): Response
@@ -239,6 +255,10 @@ public function ajaxSearch(Request $request, OeuvreRepository $oeuvreRepository)
 
         return $this->redirectToRoute('app_oeuvre_indexadmin', [], Response::HTTP_SEE_OTHER);
     }
+
+
+
+
 
     // Controller method to handle AJAX request for filtered oeuvres
     #[Route('/filter-oeuvres', name: 'app_filter_oeuvres', methods: ['GET'])]

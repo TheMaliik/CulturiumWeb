@@ -68,6 +68,6 @@ class QrCodeGeneratorController extends AbstractController
             $label->setText('With Image')->setFont(new NotoSans(20))
         )->getDataUri();
  
-        return $this->render('qr_code_generator/index.html.twig', $qrCodes);
+        return $this->render('GestOeuvre/qr_code_generator/index.html.twig', $qrCodes);
     }
 }
